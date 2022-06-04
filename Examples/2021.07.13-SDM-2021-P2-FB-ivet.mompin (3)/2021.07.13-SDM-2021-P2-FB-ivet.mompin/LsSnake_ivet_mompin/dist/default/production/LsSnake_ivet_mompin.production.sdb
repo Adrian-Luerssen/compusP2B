@@ -1,0 +1,1188 @@
+[p PRO_MODE GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK SPACEOPT EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4321 ]
+[d frameptr 4065 ]
+"7 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"6 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\data.c
+[v _initData initData `(v  1 e 1 0 ]
+"14
+[v _motor_data motor_data `(v  1 e 1 0 ]
+"137
+[v _scoreReduce scoreReduce `(i  1 e 2 0 ]
+"142
+[v _DivideScore DivideScore `(v  1 e 1 0 ]
+"151
+[v _UpdateCursor UpdateCursor `(v  1 e 1 0 ]
+"155
+[v _PrintData PrintData `(v  1 e 1 0 ]
+"163
+[v _UpDownUsers UpDownUsers `(uc  1 e 1 0 ]
+"169
+[v _start start `(v  1 e 1 0 ]
+"173
+[v _return_to_main return_to_main `(v  1 e 1 0 ]
+"11 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\Eusart.c
+[v _EusInit EusInit `(v  1 e 1 0 ]
+"24
+[v _motorEusart motorEusart `(v  1 e 1 0 ]
+"213
+[v _EusReset EusReset `(v  1 e 1 0 ]
+"231
+[v _ScoreDigits ScoreDigits `(v  1 e 1 0 ]
+"11 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\joyStick.c
+[v _JoyInit JoyInit `(v  1 e 1 0 ]
+"21
+[v _motorJoyStick motorJoyStick `(v  1 e 1 0 ]
+"87
+[v _calculate_dist calculate_dist `(uc  1 e 1 0 ]
+"52 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\LCD.c
+[v _LcInit LcInit `(v  1 e 1 0 ]
+"93
+[v _LcClear LcClear `(v  1 e 1 0 ]
+"100
+[v _LcCursorOn LcCursorOn `(v  1 e 1 0 ]
+"107
+[v _LcCursorOff LcCursorOff `(v  1 e 1 0 ]
+"114
+[v _LcGotoXY LcGotoXY `(v  1 e 1 0 ]
+"141
+[v _LcPutChar LcPutChar `(v  1 e 1 0 ]
+"185
+[v _Espera Espera `(v  1 e 1 0 ]
+"190
+[v _CantaPartAlta CantaPartAlta `(v  1 e 1 0 ]
+"197
+[v _CantaPartBaixa CantaPartBaixa `(v  1 e 1 0 ]
+"204
+[v _CantaIR CantaIR `(v  1 e 1 0 ]
+"220
+[v _CantaData CantaData `(v  1 e 1 0 ]
+"236
+[v _WaitForBusy WaitForBusy `(v  1 e 1 0 ]
+"254
+[v _EscriuPrimeraOrdre EscriuPrimeraOrdre `(v  1 e 1 0 ]
+"38 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\MAIN.c
+[v _RSI_High RSI_High `IIH(v  1 e 1 0 ]
+"43
+[v _RSI_Low RSI_Low `IIL(v  1 e 1 0 ]
+"49
+[v _main main `(v  1 e 1 0 ]
+"16 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\marquee_menu.c
+[v _MenuDoMarquee MenuDoMarquee `(v  1 e 1 0 ]
+"110
+[v _marqueePlaceArrow marqueePlaceArrow `(v  1 e 1 0 ]
+"115
+[v _InitMarquee InitMarquee `(v  1 e 1 0 ]
+"16 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\matrix.c
+[v _initMatrix initMatrix `(v  1 e 1 0 ]
+"28
+[v _motorMatrix motorMatrix `(v  1 e 1 0 ]
+"153
+[v _selectChar selectChar `(uc  1 e 1 0 ]
+"6 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\menu.c
+[v _initMenu initMenu `(v  1 e 1 0 ]
+"13
+[v _motorMenu motorMenu `(v  1 e 1 0 ]
+"189
+[v _menuReset menuReset `(v  1 e 1 0 ]
+"7 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\queueUser.c
+[v _initUser initUser `(v  1 e 1 0 ]
+"12
+[v _motorUser motorUser `(v  1 e 1 0 ]
+"76
+[v _marqueeUsers marqueeUsers `(v  1 e 1 0 ]
+"138
+[v _userReset userReset `(v  1 e 1 0 ]
+"152
+[v _place_char place_char `(v  1 e 1 0 ]
+"21 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\SMS.c
+[v _initSMS initSMS `(v  1 e 1 0 ]
+"30
+[v _motor_SMS motor_SMS `(v  1 e 1 0 ]
+"191
+[v _getKey getKey `(uc  1 e 1 0 ]
+"213
+[v _SMS_PrintReset SMS_PrintReset `(v  1 e 1 0 ]
+"219
+[v _SMS_Print SMS_Print `(v  1 e 1 0 ]
+"223
+[v _SMS_Reset SMS_Reset `(v  1 e 1 0 ]
+"5 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\speaker.c
+[v _InitSpeaker InitSpeaker `(v  1 e 1 0 ]
+"15
+[v _motorSpeaker motorSpeaker `(v  1 e 1 0 ]
+"8 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\THour.c
+[v _HourInit HourInit `(v  1 e 1 0 ]
+"20
+[v _motor_hour motor_hour `(v  1 e 1 0 ]
+"125
+[v _PrintCouples PrintCouples `(v  1 e 1 0 ]
+"15 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\TTimer.c
+[v _TiInitTimer TiInitTimer `(v  1 e 1 0 ]
+"35
+[v __TiRSITimer _TiRSITimer `(v  1 e 1 0 ]
+"55
+[v _TiResetTics TiResetTics `(v  1 e 1 0 ]
+"61
+[v _TiGetTics TiGetTics `(i  1 e 2 0 ]
+"70
+[v _TiGetTimer TiGetTimer `(uc  1 e 1 0 ]
+"12 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin/EUSART.h
+[v _direction direction `uc  1 e 1 0 ]
+"13
+[v _HighScore@EUSART$F2016 HighScore `C[15]uc  1 s 15 HighScore ]
+[v _HighScore@EUSART$F2138 HighScore `C[15]uc  1 s 15 HighScore ]
+"9 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin/marqueeMenu.h
+[v _j@marqueeMenu$F2142 j `[2]c  1 s 2 j ]
+[v _j@marqueeMenu$F2195 j `[2]c  1 s 2 j ]
+"10
+[v _r@marqueeMenu$F2143 r `[2]uc  1 s 2 r ]
+[v _r@marqueeMenu$F2196 r `[2]uc  1 s 2 r ]
+"11
+[v _i@marqueeMenu$F2144 i `[2]uc  1 s 2 i ]
+[v _i@marqueeMenu$F2197 i `[2]uc  1 s 2 i ]
+"12
+[v _k@marqueeMenu$F2145 k `[2]uc  1 s 2 k ]
+[v _k@marqueeMenu$F2198 k `[2]uc  1 s 2 k ]
+"15
+[v _option3@marqueeMenu$F1102 option3 `c  1 s 1 option3 ]
+[v _option4@marqueeMenu$F1103 option4 `c  1 s 1 option4 ]
+"16
+[v _sub_opt@marqueeMenu$F1104 sub_opt `uc  1 s 1 sub_opt ]
+"11 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin/queueUser.h
+[v _m@queueUser$F2168 m `uc  1 s 1 m ]
+[v _n@queueUser$F2169 n `uc  1 s 1 n ]
+[v _num_users3@queueUser$F2171 num_users3 `uc  1 s 1 num_users3 ]
+"8 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin/speaker.h
+[v _state_speaker state_speaker `uc  1 e 1 0 ]
+[s S24 . 14 `[12]uc 1 username 12 0 `i 1 score 2 12 ]
+"15 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin/TData.h
+[v _users users `[20]S24  1 e 280 0 ]
+"16
+[v _auxiliar auxiliar `S24  1 e 14 0 ]
+"17
+[v _total_users total_users `uc  1 e 1 0 ]
+[v _pointer pointer `uc  1 e 1 0 ]
+[v _rowi rowi `uc  1 e 1 0 ]
+[v _times_pressed times_pressed `uc  1 e 1 0 ]
+[v _startGame startGame `uc  1 e 1 0 ]
+[v _user_selected user_selected `uc  1 e 1 0 ]
+"18
+[v _times_8@TData$F1114 times_8 `uc  1 s 1 times_8 ]
+[v _timer_menu@TData$F1116 timer_menu `uc  1 s 1 timer_menu ]
+[v _stateHour@TData$F1717 stateHour `uc  1 s 1 stateHour ]
+"19
+[v _num_users@TData$F1605 num_users `c  1 s 1 num_users ]
+[v _num_users@TData$F2161 num_users `c  1 s 1 num_users ]
+"20
+[v _current_score current_score `[4]i  1 e 8 0 ]
+"21
+[v _minutes minutes `[2]uc  1 e 2 0 ]
+"22
+[v _hours hours `[2]uc  1 e 2 0 ]
+"23
+[v _time time `[4]uc  1 e 4 0 ]
+"24
+[v _seconds seconds `uc  1 e 1 0 ]
+[v _digit digit `uc  1 e 1 0 ]
+"9 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin/TMatrix.h
+[v _column column `uc  1 e 1 0 ]
+"10
+[v _row row `uc  1 e 1 0 ]
+"4 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin/TTimer.h
+[v _timerSpeaker1@TTimer$F1504 timerSpeaker1 `uc  1 s 1 timerSpeaker1 ]
+[v _timerSpeaker2@TTimer$F1505 timerSpeaker2 `uc  1 s 1 timerSpeaker2 ]
+[v _cycles@TTimer$F1506 cycles `uc  1 s 1 cycles ]
+[s S373 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"328 C:/Program Files (x86)/Microchip/MPLABX/v5.35/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4321.h
+[s S454 . 1 `uc 1 INT0 1 0 :1:0 
+`uc 1 INT1 1 0 :1:1 
+`uc 1 INT2 1 0 :1:2 
+`uc 1 CCP2 1 0 :1:3 
+`uc 1 KBI0 1 0 :1:4 
+`uc 1 KBI1 1 0 :1:5 
+`uc 1 KBI2 1 0 :1:6 
+`uc 1 KBI3 1 0 :1:7 
+]
+[s S463 . 1 `uc 1 AN12 1 0 :1:0 
+`uc 1 AN10 1 0 :1:1 
+`uc 1 AN8 1 0 :1:2 
+`uc 1 AN9 1 0 :1:3 
+`uc 1 AN11 1 0 :1:4 
+`uc 1 PGM 1 0 :1:5 
+`uc 1 PGC 1 0 :1:6 
+`uc 1 PGD 1 0 :1:7 
+]
+[s S472 . 1 `uc 1 FLT0 1 0 :1:0 
+]
+[s S474 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2_PA2 1 0 :1:3 
+]
+[u S477 . 1 `S373 1 . 1 0 `S454 1 . 1 0 `S463 1 . 1 0 `S472 1 . 1 0 `S474 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES477  1 e 1 @3969 ]
+[s S413 . 1 `uc 1 RD0 1 0 :1:0 
+`uc 1 RD1 1 0 :1:1 
+`uc 1 RD2 1 0 :1:2 
+`uc 1 RD3 1 0 :1:3 
+`uc 1 RD4 1 0 :1:4 
+`uc 1 RD5 1 0 :1:5 
+`uc 1 RD6 1 0 :1:6 
+`uc 1 RD7 1 0 :1:7 
+]
+"680
+[s S860 . 1 `uc 1 PSP0 1 0 :1:0 
+`uc 1 PSP1 1 0 :1:1 
+`uc 1 PSP2 1 0 :1:2 
+`uc 1 PSP3 1 0 :1:3 
+`uc 1 PSP4 1 0 :1:4 
+`uc 1 PSP5 1 0 :1:5 
+`uc 1 PSP6 1 0 :1:6 
+`uc 1 PSP7 1 0 :1:7 
+]
+[s S869 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 P1B 1 0 :1:5 
+`uc 1 P1C 1 0 :1:6 
+`uc 1 P1D 1 0 :1:7 
+]
+[s S874 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 SS2 1 0 :1:7 
+]
+[u S877 . 1 `S413 1 . 1 0 `S860 1 . 1 0 `S869 1 . 1 0 `S874 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES877  1 e 1 @3971 ]
+[s S791 . 1 `uc 1 LATA0 1 0 :1:0 
+`uc 1 LATA1 1 0 :1:1 
+`uc 1 LATA2 1 0 :1:2 
+`uc 1 LATA3 1 0 :1:3 
+`uc 1 LATA4 1 0 :1:4 
+`uc 1 LATA5 1 0 :1:5 
+`uc 1 LATA6 1 0 :1:6 
+`uc 1 LATA7 1 0 :1:7 
+]
+"1015
+[s S800 . 1 `uc 1 LA0 1 0 :1:0 
+`uc 1 LA1 1 0 :1:1 
+`uc 1 LA2 1 0 :1:2 
+`uc 1 LA3 1 0 :1:3 
+`uc 1 LA4 1 0 :1:4 
+`uc 1 LA5 1 0 :1:5 
+`uc 1 LA6 1 0 :1:6 
+`uc 1 LA7 1 0 :1:7 
+]
+[u S809 . 1 `S791 1 . 1 0 `S800 1 . 1 0 ]
+[v _LATAbits LATAbits `VES809  1 e 1 @3977 ]
+[s S1464 . 1 `uc 1 LATB0 1 0 :1:0 
+`uc 1 LATB1 1 0 :1:1 
+`uc 1 LATB2 1 0 :1:2 
+`uc 1 LATB3 1 0 :1:3 
+`uc 1 LATB4 1 0 :1:4 
+`uc 1 LATB5 1 0 :1:5 
+`uc 1 LATB6 1 0 :1:6 
+`uc 1 LATB7 1 0 :1:7 
+]
+"1127
+[s S1473 . 1 `uc 1 LB0 1 0 :1:0 
+`uc 1 LB1 1 0 :1:1 
+`uc 1 LB2 1 0 :1:2 
+`uc 1 LB3 1 0 :1:3 
+`uc 1 LB4 1 0 :1:4 
+`uc 1 LB5 1 0 :1:5 
+`uc 1 LB6 1 0 :1:6 
+`uc 1 LB7 1 0 :1:7 
+]
+[u S1482 . 1 `S1464 1 . 1 0 `S1473 1 . 1 0 ]
+[v _LATBbits LATBbits `VES1482  1 e 1 @3978 ]
+[s S516 . 1 `uc 1 LATD0 1 0 :1:0 
+`uc 1 LATD1 1 0 :1:1 
+`uc 1 LATD2 1 0 :1:2 
+`uc 1 LATD3 1 0 :1:3 
+`uc 1 LATD4 1 0 :1:4 
+`uc 1 LATD5 1 0 :1:5 
+`uc 1 LATD6 1 0 :1:6 
+`uc 1 LATD7 1 0 :1:7 
+]
+"1351
+[s S525 . 1 `uc 1 LD0 1 0 :1:0 
+`uc 1 LD1 1 0 :1:1 
+`uc 1 LD2 1 0 :1:2 
+`uc 1 LD3 1 0 :1:3 
+`uc 1 LD4 1 0 :1:4 
+`uc 1 LD5 1 0 :1:5 
+`uc 1 LD6 1 0 :1:6 
+`uc 1 LD7 1 0 :1:7 
+]
+[u S534 . 1 `S516 1 . 1 0 `S525 1 . 1 0 ]
+[v _LATDbits LATDbits `VES534  1 e 1 @3980 ]
+[s S831 . 1 `uc 1 LATE0 1 0 :1:0 
+`uc 1 LATE1 1 0 :1:1 
+`uc 1 LATE2 1 0 :1:2 
+]
+"1453
+[s S835 . 1 `uc 1 LE0 1 0 :1:0 
+`uc 1 LE1 1 0 :1:1 
+`uc 1 LE2 1 0 :1:2 
+]
+[u S839 . 1 `S831 1 . 1 0 `S835 1 . 1 0 ]
+[v _LATEbits LATEbits `VES839  1 e 1 @3981 ]
+[s S670 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+`uc 1 TRISA6 1 0 :1:6 
+`uc 1 TRISA7 1 0 :1:7 
+]
+"1520
+[s S679 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+[u S688 . 1 `S670 1 . 1 0 `S679 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES688  1 e 1 @3986 ]
+[s S364 . 1 `uc 1 TRISB0 1 0 :1:0 
+`uc 1 TRISB1 1 0 :1:1 
+`uc 1 TRISB2 1 0 :1:2 
+`uc 1 TRISB3 1 0 :1:3 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"1742
+[u S382 . 1 `S364 1 . 1 0 `S373 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES382  1 e 1 @3987 ]
+"1932
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+[s S1799 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"1964
+[s S1808 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+[u S1817 . 1 `S1799 1 . 1 0 `S1808 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES1817  1 e 1 @3988 ]
+[s S404 . 1 `uc 1 TRISD0 1 0 :1:0 
+`uc 1 TRISD1 1 0 :1:1 
+`uc 1 TRISD2 1 0 :1:2 
+`uc 1 TRISD3 1 0 :1:3 
+`uc 1 TRISD4 1 0 :1:4 
+`uc 1 TRISD5 1 0 :1:5 
+`uc 1 TRISD6 1 0 :1:6 
+`uc 1 TRISD7 1 0 :1:7 
+]
+"2186
+[u S422 . 1 `S404 1 . 1 0 `S413 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES422  1 e 1 @3989 ]
+[s S710 . 1 `uc 1 TRISE0 1 0 :1:0 
+`uc 1 TRISE1 1 0 :1:1 
+`uc 1 TRISE2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 PSPMODE 1 0 :1:4 
+`uc 1 IBOV 1 0 :1:5 
+`uc 1 OBF 1 0 :1:6 
+`uc 1 IBF 1 0 :1:7 
+]
+"2404
+[s S719 . 1 `uc 1 RE0 1 0 :1:0 
+`uc 1 RE1 1 0 :1:1 
+`uc 1 RE2 1 0 :1:2 
+`uc 1 RE3 1 0 :1:3 
+]
+[u S724 . 1 `S710 1 . 1 0 `S719 1 . 1 0 ]
+[v _TRISEbits TRISEbits `VES724  1 e 1 @3990 ]
+[s S1900 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+`uc 1 PSPIF 1 0 :1:7 
+]
+"2704
+[s S1909 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TX1IF 1 0 :1:4 
+`uc 1 RC1IF 1 0 :1:5 
+]
+[u S1913 . 1 `S1900 1 . 1 0 `S1909 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES1913  1 e 1 @3998 ]
+"3121
+[v _RCSTA RCSTA `VEuc  1 e 1 @4011 ]
+"3331
+[v _TXSTA TXSTA `VEuc  1 e 1 @4012 ]
+[s S1842 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"3370
+[s S1851 . 1 `uc 1 TX9D1 1 0 :1:0 
+`uc 1 TRMT1 1 0 :1:1 
+`uc 1 BRGH1 1 0 :1:2 
+`uc 1 SENDB1 1 0 :1:3 
+`uc 1 SYNC1 1 0 :1:4 
+`uc 1 TXEN1 1 0 :1:5 
+`uc 1 TX91 1 0 :1:6 
+`uc 1 CSRC1 1 0 :1:7 
+]
+[s S1860 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX8_9 1 0 :1:6 
+]
+[s S1863 . 1 `uc 1 TXD8 1 0 :1:0 
+]
+[u S1865 . 1 `S1842 1 . 1 0 `S1851 1 . 1 0 `S1860 1 . 1 0 `S1863 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES1865  1 e 1 @4012 ]
+"3587
+[v _TXREG TXREG `VEuc  1 e 1 @4013 ]
+"3599
+[v _RCREG RCREG `VEuc  1 e 1 @4014 ]
+"3611
+[v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
+[s S1753 . 1 `uc 1 ABDEN 1 0 :1:0 
+`uc 1 WUE 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 BRG16 1 0 :1:3 
+`uc 1 TXCKP 1 0 :1:4 
+`uc 1 RXDTP 1 0 :1:5 
+`uc 1 RCIDL 1 0 :1:6 
+`uc 1 ABDOVF 1 0 :1:7 
+]
+"4188
+[s S1762 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 SCKP 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 RCMT 1 0 :1:6 
+]
+[s S1767 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RXCKP 1 0 :1:5 
+]
+[s S1770 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 W4E 1 0 :1:1 
+]
+[u S1773 . 1 `S1753 1 . 1 0 `S1762 1 . 1 0 `S1767 1 . 1 0 `S1770 1 . 1 0 ]
+[v _BAUDCONbits BAUDCONbits `VES1773  1 e 1 @4024 ]
+"4645
+[v _ADCON2 ADCON2 `VEuc  1 e 1 @4032 ]
+"4716
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
+"4801
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
+[s S1169 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_NOT_DONE 1 0 :1:1 
+]
+"4845
+[s S1172 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS 1 0 :4:2 
+]
+[s S1176 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+]
+[s S1183 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 DONE 1 0 :1:1 
+]
+[s S1186 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_DONE 1 0 :1:1 
+]
+[s S1189 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 nDONE 1 0 :1:1 
+]
+[s S1192 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_DONE 1 0 :1:1 
+]
+[s S1195 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GODONE 1 0 :1:1 
+]
+[u S1198 . 1 `S1169 1 . 1 0 `S1172 1 . 1 0 `S1176 1 . 1 0 `S1183 1 . 1 0 `S1186 1 . 1 0 `S1189 1 . 1 0 `S1192 1 . 1 0 `S1195 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES1198  1 e 1 @4034 ]
+"4934
+[v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
+[s S173 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+]
+"5724
+[s S175 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_POR 1 0 :1:1 
+]
+[s S178 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_PD 1 0 :1:2 
+]
+[s S181 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 NOT_TO 1 0 :1:3 
+]
+[s S184 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 NOT_RI 1 0 :1:4 
+]
+[s S187 . 1 `uc 1 nBOR 1 0 :1:0 
+`uc 1 nPOR 1 0 :1:1 
+`uc 1 nPD 1 0 :1:2 
+`uc 1 nTO 1 0 :1:3 
+`uc 1 nRI 1 0 :1:4 
+`uc 1 . 1 0 :2:5 
+`uc 1 IPEN 1 0 :1:7 
+]
+[s S195 . 1 `uc 1 BOR 1 0 :1:0 
+`uc 1 POR 1 0 :1:1 
+`uc 1 PD 1 0 :1:2 
+`uc 1 TO 1 0 :1:3 
+`uc 1 RI 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 SBOREN 1 0 :1:6 
+]
+[u S203 . 1 `S173 1 . 1 0 `S175 1 . 1 0 `S178 1 . 1 0 `S181 1 . 1 0 `S184 1 . 1 0 `S187 1 . 1 0 `S195 1 . 1 0 ]
+[v _RCONbits RCONbits `VES203  1 e 1 @4048 ]
+"6183
+[v _T0CON T0CON `VEuc  1 e 1 @4053 ]
+[s S294 . 1 `uc 1 T0PS 1 0 :3:0 
+`uc 1 PSA 1 0 :1:3 
+`uc 1 T0SE 1 0 :1:4 
+`uc 1 T0CS 1 0 :1:5 
+`uc 1 T08BIT 1 0 :1:6 
+`uc 1 TMR0ON 1 0 :1:7 
+]
+"6205
+[s S301 . 1 `uc 1 T0PS0 1 0 :1:0 
+`uc 1 T0PS1 1 0 :1:1 
+`uc 1 T0PS2 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 T016BIT 1 0 :1:6 
+]
+[u S307 . 1 `S294 1 . 1 0 `S301 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES307  1 e 1 @4053 ]
+"6267
+[v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
+"6274
+[v _TMR0H TMR0H `VEuc  1 e 1 @4055 ]
+[s S242 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"6733
+[s S251 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S260 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S264 . 1 `S242 1 . 1 0 `S251 1 . 1 0 `S260 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES264  1 e 1 @4082 ]
+"4 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\data.c
+[v _fila fila `uc  1 e 1 0 ]
+[v _state_data state_data `uc  1 e 1 0 ]
+"5
+[v _key_data key_data `uc  1 e 1 0 ]
+"4 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\Eusart.c
+[v _data data `uc  1 e 1 0 ]
+[v _times3 times3 `uc  1 e 1 0 ]
+[v _seconds_aux seconds_aux `uc  1 e 1 0 ]
+[v _timerEusart timerEusart `uc  1 e 1 0 ]
+"5
+[v _keyEus keyEus `uc  1 e 1 0 ]
+[v _stateEus stateEus `uc  1 e 1 0 ]
+"6
+[v _sec sec `[2]uc  1 e 2 0 ]
+"7
+[v _min min `[2]uc  1 e 2 0 ]
+"9
+[v _score score `C[10]uc  1 s 10 score ]
+"7 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\joyStick.c
+[v _x x `uc  1 s 1 x ]
+[v _y y `uc  1 s 1 y ]
+"28 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\LCD.c
+[v _Rows Rows `uc  1 s 1 Rows ]
+[v _Columns Columns `uc  1 s 1 Columns ]
+"29
+[v _RowAct RowAct `uc  1 s 1 RowAct ]
+[v _ColumnAct ColumnAct `uc  1 s 1 ColumnAct ]
+"30
+[v _Timer Timer `i  1 s 2 Timer ]
+"3 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\marquee_menu.c
+[v _STRINGS STRINGS `C[10][30]uc  1 s 300 STRINGS ]
+"14
+[v _chars chars `[10]uc  1 s 10 chars ]
+"10 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\matrix.c
+[v _TABLE TABLE `C[4][3]uc  1 s 12 TABLE ]
+"14
+[v _timer timer `uc  1 s 1 timer ]
+[v _key key `uc  1 s 1 key ]
+"4 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\menu.c
+[v _key2 key2 `uc  1 s 1 key2 ]
+[v _keyMenu keyMenu `uc  1 s 1 keyMenu ]
+"5 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\queueUser.c
+[v _timer_user timer_user `uc  1 s 1 timer_user ]
+[v _key_user key_user `uc  1 s 1 key_user ]
+"5 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\SMS.c
+[v _SMS SMS `C[8][7]uc  1 s 56 SMS ]
+"13
+[v _new new `C[21]uc  1 s 21 new ]
+"14
+[v _new2 new2 `C[21]uc  1 s 21 new2 ]
+"15
+[v _enterHour enterHour `C[25]uc  1 s 25 enterHour ]
+"16
+[v _key_aux key_aux `uc  1 e 1 0 ]
+[v _key_2 key_2 `uc  1 e 1 0 ]
+[v _final_key final_key `uc  1 e 1 0 ]
+[v _keyGot keyGot `uc  1 e 1 0 ]
+"17
+[v _num_user num_user `uc  1 e 1 0 ]
+[v _stateSMS stateSMS `uc  1 e 1 0 ]
+"18
+[v _key_SMS key_SMS `uc  1 e 1 0 ]
+[v _first first `uc  1 e 1 0 ]
+"19
+[v _timer_SMS timer_SMS `uc  1 e 1 0 ]
+"3 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\THour.c
+[v _keyHour keyHour `uc  1 s 1 keyHour ]
+"4
+[v _timerHour timerHour `uc  1 s 1 timerHour ]
+"6
+[v _showHour showHour `C[15]uc  1 s 15 showHour ]
+[s S170 Timer 3 `ui 1 h_initialTics 2 0 `uc 1 b_busy 1 2 ]
+"9 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\TTimer.c
+[v _s_Timers s_Timers `[12]S170  1 e 36 0 ]
+"11
+[v _h_Tics h_Tics `ui  1 s 2 h_Tics ]
+"12
+[v _counter counter `uc  1 s 1 counter ]
+"49 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\MAIN.c
+[v _main main `(v  1 e 1 0 ]
+{
+"86
+} 0
+"20 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\THour.c
+[v _motor_hour motor_hour `(v  1 e 1 0 ]
+{
+[v motor_hour@mode mode `uc  1 a 1 wreg ]
+[v motor_hour@mode mode `uc  1 a 1 wreg ]
+[v motor_hour@mode mode `uc  1 a 1 0 ]
+"123
+} 0
+"125
+[v _PrintCouples PrintCouples `(v  1 e 1 0 ]
+{
+[v PrintCouples@mode mode `uc  1 a 1 wreg ]
+[v PrintCouples@mode mode `uc  1 a 1 wreg ]
+[v PrintCouples@col1 col1 `uc  1 p 1 27 ]
+[v PrintCouples@col2 col2 `uc  1 p 1 28 ]
+[v PrintCouples@row row `uc  1 p 1 29 ]
+[v PrintCouples@character1 character1 `uc  1 p 1 30 ]
+[v PrintCouples@character2 character2 `uc  1 p 1 31 ]
+[v PrintCouples@yes yes `uc  1 p 1 32 ]
+[v PrintCouples@mode mode `uc  1 a 1 33 ]
+"130
+} 0
+"14 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\data.c
+[v _motor_data motor_data `(v  1 e 1 0 ]
+{
+"133
+} 0
+"15 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 10 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 6 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 8 ]
+"53
+} 0
+"163 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\data.c
+[v _UpDownUsers UpDownUsers `(uc  1 e 1 0 ]
+{
+[v UpDownUsers@fila fila `uc  1 a 1 wreg ]
+[v UpDownUsers@fila fila `uc  1 a 1 wreg ]
+"168
+} 0
+"30 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\SMS.c
+[v _motor_SMS motor_SMS `(v  1 e 1 0 ]
+{
+[v motor_SMS@times_pressed times_pressed `i  1 p 2 27 ]
+"189
+} 0
+"169 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\data.c
+[v _start start `(v  1 e 1 0 ]
+{
+"172
+} 0
+"191 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\SMS.c
+[v _getKey getKey `(uc  1 e 1 0 ]
+{
+[v getKey@key key `uc  1 a 1 wreg ]
+[v getKey@key key `uc  1 a 1 wreg ]
+"192
+[v getKey@key_on key_on `uc  1 s 1 key_on ]
+[v getKey@key key `uc  1 a 1 6 ]
+"212
+} 0
+"213
+[v _SMS_PrintReset SMS_PrintReset `(v  1 e 1 0 ]
+{
+"218
+} 0
+"219
+[v _SMS_Print SMS_Print `(v  1 e 1 0 ]
+{
+[v SMS_Print@chari chari `uc  1 a 1 wreg ]
+[v SMS_Print@chari chari `uc  1 a 1 wreg ]
+[v SMS_Print@chari chari `uc  1 a 1 23 ]
+"222
+} 0
+"151 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\data.c
+[v _UpdateCursor UpdateCursor `(v  1 e 1 0 ]
+{
+"154
+} 0
+"100 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\LCD.c
+[v _LcCursorOn LcCursorOn `(v  1 e 1 0 ]
+{
+"105
+} 0
+"12 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\queueUser.c
+[v _motorUser motorUser `(v  1 e 1 0 ]
+{
+"13
+[v motorUser@state_user state_user `uc  1 s 1 state_user ]
+"74
+} 0
+"76
+[v _marqueeUsers marqueeUsers `(v  1 e 1 0 ]
+{
+[v marqueeUsers@times_pressed times_pressed `uc  1 a 1 wreg ]
+[v marqueeUsers@times_pressed times_pressed `uc  1 a 1 wreg ]
+[v marqueeUsers@times_pressed times_pressed `uc  1 a 1 34 ]
+"137
+} 0
+"152
+[v _place_char place_char `(v  1 e 1 0 ]
+{
+[v place_char@character character `uc  1 a 1 wreg ]
+[v place_char@character character `uc  1 a 1 wreg ]
+[v place_char@row row `uc  1 p 1 27 ]
+[v place_char@character character `uc  1 a 1 28 ]
+"158
+} 0
+"13 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\menu.c
+[v _motorMenu motorMenu `(v  1 e 1 0 ]
+{
+"15
+[v motorMenu@state_menu state_menu `uc  1 s 1 state_menu ]
+"188
+} 0
+"16 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\marquee_menu.c
+[v _MenuDoMarquee MenuDoMarquee `(v  1 e 1 0 ]
+{
+[v MenuDoMarquee@timer timer `i  1 p 2 24 ]
+[v MenuDoMarquee@option3 option3 `uc  1 p 1 26 ]
+[v MenuDoMarquee@option4 option4 `uc  1 p 1 27 ]
+[v MenuDoMarquee@sub_opt sub_opt `uc  1 p 1 28 ]
+"107
+} 0
+"110
+[v _marqueePlaceArrow marqueePlaceArrow `(v  1 e 1 0 ]
+{
+[v marqueePlaceArrow@sub_opt sub_opt `uc  1 a 1 wreg ]
+[v marqueePlaceArrow@sub_opt sub_opt `uc  1 a 1 wreg ]
+[v marqueePlaceArrow@sub_opt sub_opt `uc  1 a 1 23 ]
+"114
+} 0
+"107 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\LCD.c
+[v _LcCursorOff LcCursorOff `(v  1 e 1 0 ]
+{
+"112
+} 0
+"213 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\Eusart.c
+[v _EusReset EusReset `(v  1 e 1 0 ]
+{
+"230
+} 0
+"28 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\matrix.c
+[v _motorMatrix motorMatrix `(v  1 e 1 0 ]
+{
+"30
+[v motorMatrix@state state `uc  1 s 1 state ]
+"152
+} 0
+"21 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\joyStick.c
+[v _motorJoyStick motorJoyStick `(v  1 e 1 0 ]
+{
+"22
+[v motorJoyStick@state state `uc  1 s 1 state ]
+"86
+} 0
+"87
+[v _calculate_dist calculate_dist `(uc  1 e 1 0 ]
+{
+[v calculate_dist@num num `uc  1 a 1 wreg ]
+"88
+[v calculate_dist@dist dist `uc  1 a 1 6 ]
+"87
+[v calculate_dist@num num `uc  1 a 1 wreg ]
+[v calculate_dist@num num `uc  1 a 1 7 ]
+"95
+} 0
+"24 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\Eusart.c
+[v _motorEusart motorEusart `(v  1 e 1 0 ]
+{
+"211
+} 0
+"153 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\matrix.c
+[v _selectChar selectChar `(uc  1 e 1 0 ]
+{
+[v selectChar@column column `uc  1 a 1 wreg ]
+[v selectChar@column column `uc  1 a 1 wreg ]
+[v selectChar@row row `uc  1 p 1 6 ]
+"155
+[v selectChar@column column `uc  1 a 1 9 ]
+"157
+} 0
+"15 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\speaker.c
+[v _motorSpeaker motorSpeaker `(v  1 e 1 0 ]
+{
+"46
+} 0
+"231 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\Eusart.c
+[v _ScoreDigits ScoreDigits `(v  1 e 1 0 ]
+{
+[v ScoreDigits@data2 data2 `uc  1 a 1 wreg ]
+[v ScoreDigits@data2 data2 `uc  1 a 1 wreg ]
+[v ScoreDigits@col1 col1 `uc  1 p 1 27 ]
+[v ScoreDigits@col2 col2 `uc  1 p 1 28 ]
+[v ScoreDigits@col3 col3 `uc  1 p 1 29 ]
+[v ScoreDigits@row row `uc  1 p 1 30 ]
+[v ScoreDigits@data2 data2 `uc  1 a 1 31 ]
+"236
+} 0
+"155 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\data.c
+[v _PrintData PrintData `(v  1 e 1 0 ]
+{
+[v PrintData@col col `uc  1 a 1 wreg ]
+[v PrintData@col col `uc  1 a 1 wreg ]
+[v PrintData@f f `uc  1 p 1 23 ]
+[v PrintData@characters characters `uc  1 p 1 24 ]
+[v PrintData@yes yes `uc  1 p 1 25 ]
+[v PrintData@col col `uc  1 a 1 26 ]
+"162
+} 0
+"141 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\LCD.c
+[v _LcPutChar LcPutChar `(v  1 e 1 0 ]
+{
+[v LcPutChar@c c `uc  1 a 1 wreg ]
+[v LcPutChar@c c `uc  1 a 1 wreg ]
+"151
+[v LcPutChar@c c `uc  1 a 1 22 ]
+"172
+} 0
+"114
+[v _LcGotoXY LcGotoXY `(v  1 e 1 0 ]
+{
+[v LcGotoXY@Column Column `uc  1 a 1 wreg ]
+"118
+[v LcGotoXY@Fisics Fisics `i  1 a 2 19 ]
+"114
+[v LcGotoXY@Column Column `uc  1 a 1 wreg ]
+[v LcGotoXY@Row Row `uc  1 p 1 14 ]
+[v LcGotoXY@Column Column `uc  1 a 1 21 ]
+"139
+} 0
+"220
+[v _CantaData CantaData `(v  1 e 1 0 ]
+{
+[v CantaData@Data Data `uc  1 a 1 wreg ]
+[v CantaData@Data Data `uc  1 a 1 wreg ]
+[v CantaData@Data Data `uc  1 a 1 8 ]
+"234
+} 0
+"142 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\data.c
+[v _DivideScore DivideScore `(v  1 e 1 0 ]
+{
+[v DivideScore@score score `i  1 p 2 16 ]
+"150
+} 0
+"137
+[v _scoreReduce scoreReduce `(i  1 e 2 0 ]
+{
+[v scoreReduce@score score `i  1 p 2 14 ]
+"141
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+{
+"10
+[v ___awmod@sign sign `uc  1 a 1 11 ]
+[v ___awmod@counter counter `uc  1 a 1 10 ]
+"7
+[v ___awmod@dividend dividend `i  1 p 2 6 ]
+[v ___awmod@divisor divisor `i  1 p 2 8 ]
+"34
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"10
+[v ___awdiv@quotient quotient `i  1 a 2 12 ]
+"11
+[v ___awdiv@sign sign `uc  1 a 1 11 ]
+[v ___awdiv@counter counter `uc  1 a 1 10 ]
+"7
+[v ___awdiv@dividend dividend `i  1 p 2 6 ]
+[v ___awdiv@divisor divisor `i  1 p 2 8 ]
+"41
+} 0
+"93 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\LCD.c
+[v _LcClear LcClear `(v  1 e 1 0 ]
+{
+"98
+} 0
+"5 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\speaker.c
+[v _InitSpeaker InitSpeaker `(v  1 e 1 0 ]
+{
+"13
+} 0
+"7 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\queueUser.c
+[v _initUser initUser `(v  1 e 1 0 ]
+{
+"11
+} 0
+"138
+[v _userReset userReset `(v  1 e 1 0 ]
+{
+"146
+} 0
+"21 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\SMS.c
+[v _initSMS initSMS `(v  1 e 1 0 ]
+{
+"28
+} 0
+"223
+[v _SMS_Reset SMS_Reset `(v  1 e 1 0 ]
+{
+"231
+} 0
+"6 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\menu.c
+[v _initMenu initMenu `(v  1 e 1 0 ]
+{
+"12
+} 0
+"189
+[v _menuReset menuReset `(v  1 e 1 0 ]
+{
+"196
+} 0
+"115 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\marquee_menu.c
+[v _InitMarquee InitMarquee `(v  1 e 1 0 ]
+{
+"125
+} 0
+"16 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\matrix.c
+[v _initMatrix initMatrix `(v  1 e 1 0 ]
+{
+"26
+} 0
+"6 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\data.c
+[v _initData initData `(v  1 e 1 0 ]
+{
+"9
+[v initData@m m `uc  1 a 1 6 ]
+"13
+} 0
+"173
+[v _return_to_main return_to_main `(v  1 e 1 0 ]
+{
+"179
+} 0
+"15 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\TTimer.c
+[v _TiInitTimer TiInitTimer `(v  1 e 1 0 ]
+{
+"33
+} 0
+"52 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\LCD.c
+[v _LcInit LcInit `(v  1 e 1 0 ]
+{
+[v LcInit@rows rows `uc  1 a 1 wreg ]
+"58
+[v LcInit@i i `i  1 a 2 20 ]
+"52
+[v LcInit@rows rows `uc  1 a 1 wreg ]
+[v LcInit@columns columns `uc  1 p 1 18 ]
+"59
+[v LcInit@rows rows `uc  1 a 1 19 ]
+"91
+} 0
+"236
+[v _WaitForBusy WaitForBusy `(v  1 e 1 0 ]
+{
+[v WaitForBusy@Busy Busy `uc  1 a 1 13 ]
+"252
+} 0
+"185
+[v _Espera Espera `(v  1 e 1 0 ]
+{
+[v Espera@Timer Timer `i  1 p 2 13 ]
+[v Espera@ms ms `i  1 p 2 15 ]
+"188
+} 0
+"61 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\TTimer.c
+[v _TiGetTics TiGetTics `(i  1 e 2 0 ]
+{
+[v TiGetTics@Handle Handle `uc  1 a 1 wreg ]
+"65
+[v TiGetTics@actual actual `VEui  1 a 2 11 ]
+"61
+[v TiGetTics@Handle Handle `uc  1 a 1 wreg ]
+"66
+[v TiGetTics@Handle Handle `uc  1 a 1 10 ]
+"69
+} 0
+"254 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\LCD.c
+[v _EscriuPrimeraOrdre EscriuPrimeraOrdre `(v  1 e 1 0 ]
+{
+[v EscriuPrimeraOrdre@ordre ordre `uc  1 a 1 wreg ]
+[v EscriuPrimeraOrdre@ordre ordre `uc  1 a 1 wreg ]
+"256
+[v EscriuPrimeraOrdre@ordre ordre `uc  1 a 1 7 ]
+"263
+} 0
+"204
+[v _CantaIR CantaIR `(v  1 e 1 0 ]
+{
+[v CantaIR@IR IR `uc  1 a 1 wreg ]
+[v CantaIR@IR IR `uc  1 a 1 wreg ]
+[v CantaIR@IR IR `uc  1 a 1 8 ]
+"218
+} 0
+"197
+[v _CantaPartBaixa CantaPartBaixa `(v  1 e 1 0 ]
+{
+[v CantaPartBaixa@c c `uc  1 a 1 wreg ]
+[v CantaPartBaixa@c c `uc  1 a 1 wreg ]
+[v CantaPartBaixa@c c `uc  1 a 1 7 ]
+"202
+} 0
+"190
+[v _CantaPartAlta CantaPartAlta `(v  1 e 1 0 ]
+{
+[v CantaPartAlta@c c `uc  1 a 1 wreg ]
+[v CantaPartAlta@c c `uc  1 a 1 wreg ]
+[v CantaPartAlta@c c `uc  1 a 1 7 ]
+"195
+} 0
+"11 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\joyStick.c
+[v _JoyInit JoyInit `(v  1 e 1 0 ]
+{
+"19
+} 0
+"8 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\THour.c
+[v _HourInit HourInit `(v  1 e 1 0 ]
+{
+"19
+} 0
+"11 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\Eusart.c
+[v _EusInit EusInit `(v  1 e 1 0 ]
+{
+"22
+} 0
+"55 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\TTimer.c
+[v _TiResetTics TiResetTics `(v  1 e 1 0 ]
+{
+[v TiResetTics@Handle Handle `uc  1 a 1 wreg ]
+[v TiResetTics@Handle Handle `uc  1 a 1 wreg ]
+"59
+[v TiResetTics@Handle Handle `uc  1 a 1 6 ]
+"60
+} 0
+"70
+[v _TiGetTimer TiGetTimer `(uc  1 e 1 0 ]
+{
+"81
+} 0
+"43 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\MAIN.c
+[v _RSI_Low RSI_Low `IIL(v  1 e 1 0 ]
+{
+"47
+} 0
+"38
+[v _RSI_High RSI_High `IIH(v  1 e 1 0 ]
+{
+"41
+} 0
+"35 C:\Users\ivetm\MPLABXProjects\LsSnake_ivet_mompin\TTimer.c
+[v __TiRSITimer _TiRSITimer `(v  1 e 1 0 ]
+{
+"54
+} 0
