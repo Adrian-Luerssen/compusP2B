@@ -4696,12 +4696,11 @@ void KeypadMotor(void);
 char isPressed(void);
 char KeAvailable(void);
 char KeGetCharValue(void);
-char getGenericKey(char row,char column);
 char getFullValue(char generic);
 char getColumn (void);
 char getPresses(void);
 char KeGetGenericValue(void);
-void KeyPadGameMotor(void);
+void KeSetMode(char menuMode);
 # 12 "keypad.c" 2
 
 
@@ -4716,17 +4715,13 @@ static char currentKey;
 static char previous;
 static char pressed;
 static char numPresses;
-static char available = 1;
+static char available = 0;
 static char state = 0;
 static char stateSMS = 0;
 
 void initKeypad(void){
-    row = 0x11;
     INTCON2bits.RBPU = 0;
-    TRISCbits.TRISC0 = 0;
-    TRISCbits.TRISC1 = 0;
-    TRISCbits.TRISC2 = 0;
-    TRISCbits.TRISC3 = 0;
+
 
     TRISBbits.TRISB0 = 1;
     TRISBbits.TRISB1 = 1;
@@ -4843,16 +4838,17 @@ void SMSMotor(void){
             }else{
                 if(pressed){
                     stateSMS=1;
-                    currentKey = getGenericKey(row,getColumn());
+                    currentKey = KeGetGenericValue();
+                    available = 2;
                     if(numPresses != 0 && previous != currentKey ){
 
-                        available = 0;
-                        if (previous == '#') available = 1;
+                        available = 1;
+
                         previous = currentKey;
 
                         numPresses = 0;
                     }
-                    available++;
+
 
                     TiResetTics(timer_SMS);
 
@@ -4880,14 +4876,33 @@ void SMSMotor(void){
                 stateSMS = 0;
             }
             break;
+
+        case 3:
+            if(pressed){
+                stateSMS = 4;
+            }
+
+            break;
+        case 4:
+            stateSMS = 5;
+            break;
+        case 5:
+            if (!pressed){
+                TiResetTics(timer_SMS);
+
+                stateSMS = 3;
+            }
+            break;
     }
+
+
 
 }
 
 
 char isPressed(void) {
 
- return pressed && stateSMS == 1;
+ return pressed && (stateSMS == 1||stateSMS == 4);
 }
 char getColumn (void){
     if (!PORTBbits.RB0) return 0;
@@ -4900,15 +4915,13 @@ char KeAvailable(void){
 }
 
 char KeGetCharValue(void){
-    return getFullValue (getGenericKey(row,getColumn()));
+    return getFullValue(KeGetGenericValue());
 }
 char KeGetGenericValue(void){
-    return getGenericKey(row,getColumn());
+    return TABLE[(row*3)+getColumn()];
 }
 
-char getGenericKey(char row,char column){
-    return TABLE[(row*3)+column];
-}
+
 
 char getFullValue(char generic){
 
@@ -4926,6 +4939,16 @@ char getPresses(void) {
     return available;
 }
 
-void KeyPadGameMotor(void){
+
+void KeSetMode(char menuMode){
+    if (menuMode == 1){
+        previous = 0;
+        numPresses = 0;
+        available = 0;
+        stateSMS = 2;
+        TiResetTics(timer_SMS);
+    } else if (menuMode == 0){
+        stateSMS = 4;
+    }
 
 }

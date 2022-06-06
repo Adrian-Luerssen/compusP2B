@@ -4687,12 +4687,11 @@ void KeypadMotor(void);
 char isPressed(void);
 char KeAvailable(void);
 char KeGetCharValue(void);
-char getGenericKey(char row,char column);
 char getFullValue(char generic);
 char getColumn (void);
 char getPresses(void);
 char KeGetGenericValue(void);
-void KeyPadGameMotor(void);
+void KeSetMode(char menuMode);
 # 4 "main.c" 2
 
 
@@ -4706,6 +4705,39 @@ void KeyPadGameMotor(void);
 void menuMotor(void);
 void displayMenu (char menuMode,char row);
 # 6 "main.c" 2
+
+# 1 "./Joystick.h" 1
+
+
+
+
+
+
+
+# 1 "./SIO.h" 1
+
+
+
+
+
+
+
+void initSIO(void);
+char SiIsAvailable(void);
+
+void SiSendChar(char myByte);
+# 8 "./Joystick.h" 2
+
+
+
+
+
+
+
+void joystickMotor(void);
+void initJoystick(void);
+# 7 "main.c" 2
+
 
 
 
@@ -4725,24 +4757,38 @@ void displayMenu (char menuMode,char row);
 
 void HighInterruptRSI(void);
 void main(void);
-void Initports(void);
+void InitPorts(void);
 
 void __attribute__((picinterrupt(("")))) RSI_High(void){
 
  _TiRSITimer();
 }
 int tick_count;
+char tmr;
 
 
 
 
-void InitPorts(void);
+void InitPorts(void){
+    OSCCON = 0x00;
+    OSCTUNE = 0x04;
+    OSCTUNEbits.PLLEN =1;
+    TRISAbits.TRISA3 = 0;
+}
 
 void main(void){
+    InitPorts();
     TiInitTimer();
+    tmr = TiGetTimer();
+    initJoystick();
  initKeypad();
     LcInit(2,16);
+    initSIO();
  while(1){
+        if (TiGetTics(tmr) >= 1000){
+            LATA = ~LATA;
+            TiResetTics(tmr);
+        }
 
             SMSMotor();
 
@@ -4750,5 +4796,6 @@ void main(void){
 
         KeypadMotor();
         menuMotor();
+        joystickMotor();
  }
 }

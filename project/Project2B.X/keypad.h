@@ -17,11 +17,10 @@ void KeypadMotor(void);
 char isPressed(void);
 char KeAvailable(void);
 char KeGetCharValue(void);
-char getGenericKey(char row,char column);
 char getFullValue(char generic);
 char getColumn (void);
 char getPresses(void);
 char KeGetGenericValue(void);
-void KeyPadGameMotor(void);
+void KeSetMode(char menuMode);
 #endif	/* XC_HEADER_TEMPLATE_H */
 

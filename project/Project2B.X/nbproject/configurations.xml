@@ -10,6 +10,7 @@
       <itemPath>Audio.h</itemPath>
       <itemPath>Menu.h</itemPath>
       <itemPath>Joystick.h</itemPath>
+      <itemPath>SIO.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -25,6 +26,7 @@
       <itemPath>Audio.c</itemPath>
       <itemPath>Menu.c</itemPath>
       <itemPath>Joystick.c</itemPath>
+      <itemPath>SIO.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -194,7 +196,7 @@
         <property key="programoptions.testmodeentrymethod" value="VDDFirst"/>
         <property key="programoptions.usehighvoltageonmclr" value="false"/>
         <property key="programoptions.uselvpprogramming" value="false"/>
-        <property key="voltagevalue" value="5.0"/>
+        <property key="voltagevalue" value="4.75"/>
       </PICkit3PlatformTool>
       <XC8-CO>
         <property key="coverage-enable" value=""/>

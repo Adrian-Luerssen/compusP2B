@@ -22,17 +22,13 @@ static char currentKey;
 static char previous;
 static char pressed;
 static char numPresses;
-static char available = 1;
+static char available = 0;
 static char state = 0;
 static char stateSMS = 0;
 
 void initKeypad(void){
-    row = 0x11;
     INTCON2bits.RBPU = 0;
-    TRISCbits.TRISC0 = 0;
-    TRISCbits.TRISC1 = 0;
-    TRISCbits.TRISC2 = 0;
-    TRISCbits.TRISC3 = 0;
+
     
     TRISBbits.TRISB0 = 1;
     TRISBbits.TRISB1 = 1;
@@ -136,40 +132,41 @@ void KeypadMotor(void){
 
 void SMSMotor(void){
     switch(stateSMS){
-               
+
         case 0:
             LATC = available;
             if (TiGetTics(timer_SMS)>=1000){
                 //next
                 previous = 0;
                 numPresses = 0;
-                available = 0;
+                available = 0; // reset
                 TiResetTics(timer_SMS);
-                
+
             }else{
                 if(pressed){
                     stateSMS=1;
-                    currentKey = getGenericKey(row,getColumn());
+                    currentKey = KeGetGenericValue();
+                    available = 2;
                     if(numPresses != 0 && previous != currentKey ){
                         //next
-                        available = 0;
-                        if (previous == '#') available = 1;
+                        available = 1; // reset but new value;
+                        
                         previous = currentKey;
                         //stateSMS=0;
                         numPresses = 0;
                     }
-                    available++;
                     
+
                     TiResetTics(timer_SMS);
-                    
+
                 }else{
                   previous=currentKey;
                 }
             }
-            
-                
+
+
             break;
-        
+
         case 1:
             //currentKey = getGenericKey(row,getColumn());
             //available = 1;
@@ -178,22 +175,41 @@ void SMSMotor(void){
             numPresses++;
             stateSMS = 2;
             break;
-            
+
         case 2:
             if (!pressed){
                 TiResetTics(timer_SMS);
-                
+
                 stateSMS = 0;
             }
             break;
+            
+        case 3:
+            if(pressed){
+                stateSMS = 4;
+            }
+            
+            break;
+        case 4:
+            stateSMS = 5;
+            break;
+        case 5:
+            if (!pressed){
+                TiResetTics(timer_SMS);
+
+                stateSMS = 3;
+            }
+            break;
     }
+
+        
    
 }
 
 
 char isPressed(void) {
 	//check columns return 1 if pressed
-	return pressed && stateSMS == 1;
+	return pressed && (stateSMS == 1||stateSMS == 4);
 }
 char getColumn (void){
     if (!PORTBbits.RB0) return 0;
@@ -206,15 +222,13 @@ char KeAvailable(void){
 }
 
 char KeGetCharValue(void){
-    return getFullValue (getGenericKey(row,getColumn()));
+    return getFullValue(KeGetGenericValue());
 }
 char KeGetGenericValue(void){
-    return getGenericKey(row,getColumn());
+    return TABLE[(row*3)+getColumn()];
 }
 
-char getGenericKey(char row,char column){
-    return TABLE[(row*3)+column];
-}
+
 
 char getFullValue(char generic){
     
@@ -232,6 +246,16 @@ char getPresses(void) {
     return available;
 }
 
-void KeyPadGameMotor(void){
-    // send to the SIO the numbers for playing sudoku
+
+void KeSetMode(char menuMode){
+    if (menuMode == 1){
+        previous = 0;
+        numPresses = 0;
+        available = 0; // reset
+        stateSMS = 2;
+        TiResetTics(timer_SMS); 
+    } else if (menuMode == 0){
+        stateSMS = 4;
+    }
+    
 }

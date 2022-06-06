@@ -4700,12 +4700,11 @@ void KeypadMotor(void);
 char isPressed(void);
 char KeAvailable(void);
 char KeGetCharValue(void);
-char getGenericKey(char row,char column);
 char getFullValue(char generic);
 char getColumn (void);
 char getPresses(void);
 char KeGetGenericValue(void);
-void KeyPadGameMotor(void);
+void KeSetMode(char menuMode);
 # 6 "./Menu.h" 2
 
 void menuMotor(void);
@@ -4716,61 +4715,96 @@ void displayMenu (char menuMode,char row);
 typedef struct {
     char username [9];
     char password [9];
-} users;
+} user;
 
 static const char LOGINMENU[2][11]= {"1.LOGIN\0","2.REGISTER\0"};
 static const char LOGREGSCREEN [2][6] = {"USER:\0","PSWD:\0"};
 static const char MAINMENU[4][28] = {"1.PLAY A GAME\0","2.MODIFY TIME\0","3.SHOW GENERAL TOP 5 SCORES\0","4.LOGOUT\0"};
 
 
+
 static char LCDrow,LCDcol = 0;
 static char val;
+
 void menuMotor(void){
-    static char state = 0;
+    static char state = 1;
     switch (state){
-        case 0:
+        case 1:
+            displayMenu(0,0);
+            if (LCDrow == 2){
+                LcCursorOff();
+                KeSetMode(0);
+                state = 2;
+            }
+            break;
+        case 2:
+            if (isPressed()){
+                val = KeGetGenericValue() - '0';
+                if (val == 1||val == 2){
+                    LcClear();
+                    LcGotoXY(0,0);
+                    KeSetMode(1);
+                    LCDcol = LCDrow = 0;
+                    state = 3;
+                }
+            }
+            break;
+
+        case 3:
             displayMenu(1,0);
             if (LCDrow == 2){
                 LCDrow = 0;
                 LCDcol = 5;
                 LcGotoXY(LCDcol,LCDrow);
                 LcCursorOn();
-                state = 1;
+                state = 4;
             }
             break;
-        case 1:
-            if (LCDcol >= 12 && getPresses() <= 1){
-                LCDrow = 1;
-                LCDcol = 5;
-                LcGotoXY(LCDcol,LCDrow);
-                state = 2;
+        case 4:
+            if (LCDcol >= 12 && getPresses() == 0){
+                state = 5;
             }else if (isPressed()){
-                if (getPresses() > 1){
+                if (getPresses() == 2){
                     LcGotoXY(LCDcol--,LCDrow);
                 }
                 if (KeGetGenericValue() != '#'){
                     LcPutChar(KeGetCharValue());
                     LCDcol++;
+
+                    if (val == 1){
+
+                    } else {
+
+                    }
 
                 } else {
-                    LCDrow = 1;
-                    LCDcol = 5;
-                    LcGotoXY(LCDcol,LCDrow);
-                    state = 2;
+                    state = 5;
                 }
             }
 
             break;
+        case 5:
 
-        case 2:
+            LCDrow = 1;
+            LCDcol = 5;
+            KeSetMode(1);
+            LcGotoXY(LCDcol,LCDrow);
+            state = 6;
+            break;
+        case 6:
             if (isPressed()){
-                if (getPresses() > 1){
+                if (getPresses() == 2){
                     LcGotoXY(LCDcol--,LCDrow);
                 }
 
                 if (KeGetGenericValue() != '#'){
                     LcPutChar(KeGetCharValue());
                     LCDcol++;
+                    if (val == 1){
+
+                    } else {
+
+                    }
                 }
             }
 
@@ -4800,4 +4834,6 @@ void displayMenu (char menuMode,char row){
             LCDcol = 0;
         }
     }
+
+
 }

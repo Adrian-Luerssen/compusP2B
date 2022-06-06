@@ -3,4 +3,6 @@ main.c  \
 TTIMER.h  \
 keypad.h  \
 LcTLCD.h  \
-Menu.h 
+Menu.h  \
+Joystick.h  \
+SIO.h 

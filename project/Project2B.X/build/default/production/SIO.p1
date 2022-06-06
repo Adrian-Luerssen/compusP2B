@@ -1,28 +1,39 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"1500 C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h
-[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1500:     struct {
-[s S58 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S58 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
-"1510
-[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1510:     struct {
-[s S59 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S59 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
-"1499
-[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1499: typedef union {
-[u S57 `S58 1 `S59 1 ]
-[n S57 . . . ]
-"1521
-[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1521: extern volatile TRISAbits_t TRISAbits __attribute__((address(0xF92)));
-[v _TRISAbits `VS57 ~T0 @X0 0 e@3986 ]
-"4802
-[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 4802: extern volatile unsigned char ADCON0 __attribute__((address(0xFC2)));
-[v _ADCON0 `Vuc ~T0 @X0 0 e@4034 ]
-"4717
-[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 4717: extern volatile unsigned char ADCON1 __attribute__((address(0xFC1)));
-[v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
-"4646
-[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 4646: extern volatile unsigned char ADCON2 __attribute__((address(0xFC0)));
-[v _ADCON2 `Vuc ~T0 @X0 0 e@4032 ]
+"3612 C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 3612: extern volatile unsigned char SPBRG __attribute__((address(0xFAF)));
+[v _SPBRG `Vuc ~T0 @X0 0 e@4015 ]
+"1933
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1933: extern volatile unsigned char TRISC __attribute__((address(0xF94)));
+[v _TRISC `Vuc ~T0 @X0 0 e@3988 ]
+"3332
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 3332: extern volatile unsigned char TXSTA __attribute__((address(0xFAC)));
+[v _TXSTA `Vuc ~T0 @X0 0 e@4012 ]
+"3122
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 3122: extern volatile unsigned char RCSTA __attribute__((address(0xFAB)));
+[v _RCSTA `Vuc ~T0 @X0 0 e@4011 ]
+"4164
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 4164:     struct {
+[s S159 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S159 . ABDEN WUE . BRG16 TXCKP RXDTP RCIDL ABDOVF ]
+"4174
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 4174:     struct {
+[s S160 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S160 . . SCKP . RCMT ]
+"4180
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 4180:     struct {
+[s S161 :5 `uc 1 :1 `uc 1 ]
+[n S161 . . RXCKP ]
+"4184
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 4184:     struct {
+[s S162 :1 `uc 1 :1 `uc 1 ]
+[n S162 . . W4E ]
+"4163
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 4163: typedef union {
+[u S158 `S159 1 `S160 1 `S161 1 `S162 1 ]
+[n S158 . . . . . ]
+"4189
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 4189: extern volatile BAUDCONbits_t BAUDCONbits __attribute__((address(0xFB8)));
+[v _BAUDCONbits `VS158 ~T0 @X0 0 e@4024 ]
 "1944
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1944:     struct {
 [s S70 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -38,54 +49,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1965
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1965: extern volatile TRISCbits_t TRISCbits __attribute__((address(0xF94)));
 [v _TRISCbits `VS69 ~T0 @X0 0 e@3988 ]
-"4808
-[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 4808:     struct {
-[s S188 :1 `uc 1 :1 `uc 1 ]
-[n S188 . . GO_NOT_DONE ]
-"4812
-[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 4812:     struct {
-[s S189 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
-[n S189 . ADON GO_nDONE CHS ]
-"4817
-[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 4817:     struct {
-[s S190 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S190 . . GO CHS0 CHS1 CHS2 CHS3 ]
-"4825
-[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 4825:     struct {
-[s S191 :1 `uc 1 :1 `uc 1 ]
-[n S191 . . DONE ]
-"4829
-[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 4829:     struct {
-[s S192 :1 `uc 1 :1 `uc 1 ]
-[n S192 . . NOT_DONE ]
-"4833
-[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 4833:     struct {
-[s S193 :1 `uc 1 :1 `uc 1 ]
-[n S193 . . nDONE ]
-"4837
-[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 4837:     struct {
-[s S194 :1 `uc 1 :1 `uc 1 ]
-[n S194 . . GO_DONE ]
-"4841
-[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 4841:     struct {
-[s S195 :1 `uc 1 :1 `uc 1 ]
-[n S195 . . GODONE ]
-"4807
-[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 4807: typedef union {
-[u S187 `S188 1 `S189 1 `S190 1 `S191 1 `S192 1 `S193 1 `S194 1 `S195 1 ]
-[n S187 . . . . . . . . . ]
-"4846
-[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 4846: extern volatile ADCON0bits_t ADCON0bits __attribute__((address(0xFC2)));
-[v _ADCON0bits `VS187 ~T0 @X0 0 e@4034 ]
-"4935
-[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 4935: extern volatile unsigned char ADRESH __attribute__((address(0xFC4)));
-[v _ADRESH `Vuc ~T0 @X0 0 e@4036 ]
-"9 ./SIO.h
-[; ;./SIO.h: 9: char SiIsAvailable(void);
-[v _SiIsAvailable `(uc ~T0 @X0 0 ef ]
-"11
-[; ;./SIO.h: 11: void SiSendChar(char myByte);
-[v _SiSendChar `(v ~T0 @X0 0 ef1`uc ]
+"3343
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 3343:     struct {
+[s S126 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S126 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
+"3353
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 3353:     struct {
+[s S127 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S127 . TX9D1 TRMT1 BRGH1 SENDB1 SYNC1 TXEN1 TX91 CSRC1 ]
+"3363
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 3363:     struct {
+[s S128 :6 `uc 1 :1 `uc 1 ]
+[n S128 . . TX8_9 ]
+"3367
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 3367:     struct {
+[s S129 :1 `uc 1 ]
+[n S129 . TXD8 ]
+"3342
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 3342: typedef union {
+[u S125 `S126 1 `S127 1 `S128 1 `S129 1 ]
+[n S125 . . . . . ]
+"3371
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 3371: extern volatile TXSTAbits_t TXSTAbits __attribute__((address(0xFAC)));
+[v _TXSTAbits `VS125 ~T0 @X0 0 e@4012 ]
+"3588
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 3588: extern volatile unsigned char TXREG __attribute__((address(0xFAD)));
+[v _TXREG `Vuc ~T0 @X0 0 e@4013 ]
 "55 C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 55: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -500,287 +489,62 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7011
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 7011: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"5 Joystick.c
-[; ;Joystick.c: 5: static char send;
-[v _send `uc ~T0 @X0 1 s ]
-"6
-[; ;Joystick.c: 6: static char x,y;
-[v _x `uc ~T0 @X0 1 s ]
-[v _y `uc ~T0 @X0 1 s ]
-"7
-[; ;Joystick.c: 7: static char moved;
-[v _moved `uc ~T0 @X0 1 s ]
-"9
-[; ;Joystick.c: 9: void initJoystick(void){
-[v _initJoystick `(v ~T0 @X0 1 ef ]
+"5 SIO.c
+[; ;SIO.c: 5: void initSIO(void){
+[v _initSIO `(v ~T0 @X0 1 ef ]
 {
-[e :U _initJoystick ]
+[e :U _initSIO ]
 [f ]
+"6
+[; ;SIO.c: 6:     SPBRG=64;
+[e = _SPBRG -> -> 64 `i `uc ]
+"7
+[; ;SIO.c: 7:     TRISC |= 0xC0;
+[e =| _TRISC -> -> 192 `i `Vuc ]
+"8
+[; ;SIO.c: 8:  TXSTA = 0b00100100;
+[e = _TXSTA -> -> 36 `i `uc ]
+"9
+[; ;SIO.c: 9:  RCSTA = 0b10010000;
+[e = _RCSTA -> -> 144 `i `uc ]
 "10
-[; ;Joystick.c: 10:     TRISAbits.TRISA0 = 1;
-[e = . . _TRISAbits 0 0 -> -> 1 `i `uc ]
+[; ;SIO.c: 10:  BAUDCONbits.BRG16 = 0;
+[e = . . _BAUDCONbits 0 3 -> -> 0 `i `uc ]
 "11
-[; ;Joystick.c: 11:     TRISAbits.TRISA1 = 1;
-[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
+[; ;SIO.c: 11:     TRISCbits.TRISC6=1;
+[e = . . _TRISCbits 0 6 -> -> 1 `i `uc ]
 "12
-[; ;Joystick.c: 12:     ADCON0 = 0x03;
-[e = _ADCON0 -> -> 3 `i `uc ]
-"13
-[; ;Joystick.c: 13:     ADCON1 = 0x0D;
-[e = _ADCON1 -> -> 13 `i `uc ]
-"14
-[; ;Joystick.c: 14:     ADCON2 = 0x44;
-[e = _ADCON2 -> -> 68 `i `uc ]
-"16
-[; ;Joystick.c: 16:     TRISCbits.TRISC0 = 0;
-[e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
-"17
-[; ;Joystick.c: 17:     TRISCbits.TRISC1 = 0;
-[e = . . _TRISCbits 0 1 -> -> 0 `i `uc ]
-"18
-[; ;Joystick.c: 18:     TRISCbits.TRISC2 = 0;
-[e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
-"19
-[; ;Joystick.c: 19:     TRISCbits.TRISC3 = 0;
-[e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
-"20
-[; ;Joystick.c: 20:     moved = 0;
-[e = _moved -> -> 0 `i `uc ]
+[; ;SIO.c: 12:     TRISCbits.TRISC7=1;
+[e = . . _TRISCbits 0 7 -> -> 1 `i `uc ]
 "21
-[; ;Joystick.c: 21: }
+[; ;SIO.c: 21: }
 [e :UE 280 ]
 }
-"24
-[; ;Joystick.c: 24: void joystickMotor(void){
-[v _joystickMotor `(v ~T0 @X0 1 ef ]
+"23
+[; ;SIO.c: 23: char SiIsAvailable(void){
+[v _SiIsAvailable `(uc ~T0 @X0 1 ef ]
 {
-[e :U _joystickMotor ]
+[e :U _SiIsAvailable ]
 [f ]
+"24
+[; ;SIO.c: 24:     return TXSTAbits.TRMT;
+[e ) -> . . _TXSTAbits 0 1 `uc ]
+[e $UE 281  ]
 "25
-[; ;Joystick.c: 25:     static char state = 0;
-[v F2579 `uc ~T0 @X0 1 s state ]
-[i F2579
--> -> 0 `i `uc
-]
-"27
-[; ;Joystick.c: 27:     switch (state){
-[e $U 283  ]
-{
-"28
-[; ;Joystick.c: 28:         case 0:
-[e :U 284 ]
-"29
-[; ;Joystick.c: 29:             if (ADCON0bits.GO_DONE == 0){
-[e $ ! == -> . . _ADCON0bits 6 1 `i -> 0 `i 285  ]
-{
-"30
-[; ;Joystick.c: 30:                 y = ADRESH;
-[e = _y -> _ADRESH `uc ]
-"31
-[; ;Joystick.c: 31:                 ADCON0bits.CHS0=0;
-[e = . . _ADCON0bits 2 2 -> -> 0 `i `uc ]
-"32
-[; ;Joystick.c: 32:                 state = 1;
-[e = F2579 -> -> 1 `i `uc ]
-"33
-[; ;Joystick.c: 33:                 ADCON0bits.GO_DONE=1;
-[e = . . _ADCON0bits 6 1 -> -> 1 `i `uc ]
-"34
-[; ;Joystick.c: 34:             }
-}
-[e :U 285 ]
-"35
-[; ;Joystick.c: 35:             break;
-[e $U 282  ]
-"36
-[; ;Joystick.c: 36:         case 1:
-[e :U 286 ]
-"37
-[; ;Joystick.c: 37:             if (ADCON0bits.GO_DONE == 0){
-[e $ ! == -> . . _ADCON0bits 6 1 `i -> 0 `i 287  ]
-{
-"38
-[; ;Joystick.c: 38:                 x = ADRESH;
-[e = _x -> _ADRESH `uc ]
-"39
-[; ;Joystick.c: 39:                 ADCON0bits.CHS0=1;
-[e = . . _ADCON0bits 2 2 -> -> 1 `i `uc ]
-"40
-[; ;Joystick.c: 40:                 state = 2;
-[e = F2579 -> -> 2 `i `uc ]
-"41
-[; ;Joystick.c: 41:             }
-}
-[e :U 287 ]
-"42
-[; ;Joystick.c: 42:             break;
-[e $U 282  ]
-"43
-[; ;Joystick.c: 43:         case 2:
-[e :U 288 ]
-"44
-[; ;Joystick.c: 44:             if (moved){
-[e $ ! != -> _moved `i -> 0 `i 289  ]
-{
-"45
-[; ;Joystick.c: 45:                 if (x >= 100 && x <= 150 && y >= 100 && y <= 150){
-[e $ ! && && && >= -> _x `i -> 100 `i <= -> _x `i -> 150 `i >= -> _y `i -> 100 `i <= -> _y `i -> 150 `i 290  ]
-{
-"46
-[; ;Joystick.c: 46:                     moved = 0;
-[e = _moved -> -> 0 `i `uc ]
-"47
-[; ;Joystick.c: 47:                 }
-}
-[e :U 290 ]
-"48
-[; ;Joystick.c: 48:             }else {
-}
-[e $U 291  ]
-[e :U 289 ]
-{
-"49
-[; ;Joystick.c: 49:                 if (x <= 10){
-[e $ ! <= -> _x `i -> 10 `i 292  ]
-{
-"50
-[; ;Joystick.c: 50:                     send = 'A';
-[e = _send -> -> 65 `ui `uc ]
-"51
-[; ;Joystick.c: 51:                     moved = 1;
-[e = _moved -> -> 1 `i `uc ]
-"52
-[; ;Joystick.c: 52:                 } else if (x >= 240){
-}
-[e $U 293  ]
-[e :U 292 ]
-[e $ ! >= -> _x `i -> 240 `i 294  ]
-{
-"53
-[; ;Joystick.c: 53:                     send = 'D';
-[e = _send -> -> 68 `ui `uc ]
-"54
-[; ;Joystick.c: 54:                     moved = 1;
-[e = _moved -> -> 1 `i `uc ]
-"55
-[; ;Joystick.c: 55:                 } else if (y <= 10){
-}
-[e $U 295  ]
-[e :U 294 ]
-[e $ ! <= -> _y `i -> 10 `i 296  ]
-{
-"56
-[; ;Joystick.c: 56:                     send = 'S';
-[e = _send -> -> 83 `ui `uc ]
-"57
-[; ;Joystick.c: 57:                     moved = 1;
-[e = _moved -> -> 1 `i `uc ]
-"58
-[; ;Joystick.c: 58:                 } else if (y >= 240){
-}
-[e $U 297  ]
-[e :U 296 ]
-[e $ ! >= -> _y `i -> 240 `i 298  ]
-{
-"59
-[; ;Joystick.c: 59:                     send = 'W';
-[e = _send -> -> 87 `ui `uc ]
-"60
-[; ;Joystick.c: 60:                     moved = 1;
-[e = _moved -> -> 1 `i `uc ]
-"62
-[; ;Joystick.c: 62:                 }
-}
-[e :U 298 ]
-[e :U 297 ]
-[e :U 295 ]
-[e :U 293 ]
-"64
-[; ;Joystick.c: 64:             }
-}
-[e :U 291 ]
-"65
-[; ;Joystick.c: 65:             state = 10;
-[e = F2579 -> -> 10 `i `uc ]
-"66
-[; ;Joystick.c: 66:             break;
-[e $U 282  ]
-"68
-[; ;Joystick.c: 68:         case 4:
-[e :U 299 ]
-"69
-[; ;Joystick.c: 69:             if(SiIsAvailable()){
-[e $ ! != -> ( _SiIsAvailable ..  `i -> 0 `i 300  ]
-{
-"70
-[; ;Joystick.c: 70:                 SiSendChar(send);
-[e ( _SiSendChar (1 _send ]
-"71
-[; ;Joystick.c: 71:                 state = 0;
-[e = F2579 -> -> 0 `i `uc ]
-"72
-[; ;Joystick.c: 72:                 ADCON0bits.GO_DONE=1;
-[e = . . _ADCON0bits 6 1 -> -> 1 `i `uc ]
-"73
-[; ;Joystick.c: 73:             }
-}
-[e :U 300 ]
-"74
-[; ;Joystick.c: 74:             break;
-[e $U 282  ]
-"76
-[; ;Joystick.c: 76:         case 10:
-[e :U 301 ]
-"78
-[; ;Joystick.c: 78:             state = 0;
-[e = F2579 -> -> 0 `i `uc ]
-"79
-[; ;Joystick.c: 79:             ADCON0bits.GO_DONE=1;
-[e = . . _ADCON0bits 6 1 -> -> 1 `i `uc ]
-"80
-[; ;Joystick.c: 80:             break;
-[e $U 282  ]
-"81
-[; ;Joystick.c: 81:     }
-}
-[e $U 282  ]
-[e :U 283 ]
-[e [\ -> F2579 `i , $ -> 0 `i 284
- , $ -> 1 `i 286
- , $ -> 2 `i 288
- , $ -> 4 `i 299
- , $ -> 10 `i 301
- 282 ]
-[e :U 282 ]
-"83
-[; ;Joystick.c: 83: }
+[; ;SIO.c: 25: }
 [e :UE 281 ]
 }
-"86
-[; ;Joystick.c: 86: char JoMoved(void){
-[v _JoMoved `(uc ~T0 @X0 1 ef ]
+"27
+[; ;SIO.c: 27: void SiSendChar(char myByte){
+[v _SiSendChar `(v ~T0 @X0 1 ef1`uc ]
 {
-[e :U _JoMoved ]
+[e :U _SiSendChar ]
+[v _myByte `uc ~T0 @X0 1 r1 ]
 [f ]
-"87
-[; ;Joystick.c: 87:     return moved;
-[e ) _moved ]
-[e $UE 302  ]
-"88
-[; ;Joystick.c: 88: }
-[e :UE 302 ]
-}
-"90
-[; ;Joystick.c: 90: char JoDirection(void){
-[v _JoDirection `(uc ~T0 @X0 1 ef ]
-{
-[e :U _JoDirection ]
-[f ]
-"91
-[; ;Joystick.c: 91:     return send;
-[e ) _send ]
-[e $UE 303  ]
-"92
-[; ;Joystick.c: 92: }
-[e :UE 303 ]
+"28
+[; ;SIO.c: 28:     TXREG = myByte;
+[e = _TXREG -> _myByte `uc ]
+"29
+[; ;SIO.c: 29: }
+[e :UE 282 ]
 }

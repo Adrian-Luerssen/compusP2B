@@ -3,15 +3,66 @@ Version 4.0 HI-TECH Software Intermediate Code
 [t T41 __interrupt ]
 "27 ./TTimer.h
 [v __TiRSITimer `(v ~T0 @X0 0 ef ]
+"6101 C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 6101: extern volatile unsigned char OSCCON __attribute__((address(0xFD3)));
+[v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
+"2541
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 2541: extern volatile unsigned char OSCTUNE __attribute__((address(0xF9B)));
+[v _OSCTUNE `Vuc ~T0 @X0 0 e@3995 ]
+"2547
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 2547:     struct {
+[s S83 :5 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S83 . TUN . PLLEN INTSRC ]
+"2553
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 2553:     struct {
+[s S84 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S84 . TUN0 TUN1 TUN2 TUN3 TUN4 ]
+"2546
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 2546: typedef union {
+[u S82 `S83 1 `S84 1 ]
+[n S82 . . . ]
+"2561
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 2561: extern volatile OSCTUNEbits_t OSCTUNEbits __attribute__((address(0xF9B)));
+[v _OSCTUNEbits `VS82 ~T0 @X0 0 e@3995 ]
+"1500
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1500:     struct {
+[s S53 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S53 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
+"1510
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1510:     struct {
+[s S54 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S54 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
+"1499
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1499: typedef union {
+[u S52 `S53 1 `S54 1 ]
+[n S52 . . . ]
+"1521
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1521: extern volatile TRISAbits_t TRISAbits __attribute__((address(0xF92)));
+[v _TRISAbits `VS52 ~T0 @X0 0 e@3986 ]
 [p mainexit ]
-"5
+"5 ./TTimer.h
 [v _TiInitTimer `(v ~T0 @X0 0 ef ]
+"18
+[v _TiGetTimer `(uc ~T0 @X0 0 ef ]
+"16 ./Joystick.h
+[; ;./Joystick.h: 16: void initJoystick(void);
+[v _initJoystick `(v ~T0 @X0 0 ef ]
 "14 ./keypad.h
 [; ;./keypad.h: 14: void initKeypad(void);
 [v _initKeypad `(v ~T0 @X0 0 ef ]
 "65 ./LcTLCD.h
 [; ;./LcTLCD.h: 65: void LcInit(char rows, char columns);
 [v _LcInit `(v ~T0 @X0 0 ef2`uc`uc ]
+"8 ./SIO.h
+[; ;./SIO.h: 8: void initSIO(void);
+[v _initSIO `(v ~T0 @X0 0 ef ]
+"13 ./TTimer.h
+[v _TiGetTics `(i ~T0 @X0 0 ef1`uc ]
+"989 C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 989: extern volatile unsigned char LATA __attribute__((address(0xF89)));
+[v _LATA `Vuc ~T0 @X0 0 e@3977 ]
+"9 ./TTimer.h
+[v _TiResetTics `(v ~T0 @X0 0 ef1`uc ]
 "15 ./keypad.h
 [; ;./keypad.h: 15: void SMSMotor(void);
 [v _SMSMotor `(v ~T0 @X0 0 ef ]
@@ -21,6 +72,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7 ./Menu.h
 [; ;./Menu.h: 7: void menuMotor(void);
 [v _menuMotor `(v ~T0 @X0 0 ef ]
+"15 ./Joystick.h
+[; ;./Joystick.h: 15: void joystickMotor(void);
+[v _joystickMotor `(v ~T0 @X0 0 ef ]
 "55 C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 55: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -435,73 +489,119 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7011
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 7011: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"11 main.c
-[; ;main.c: 11: int tick_count;
-[p x OSC  =  HS  ]
-"12
-[; ;main.c: 12: 
-[p x PBADEN  =  DIG ]
-"13
+"13 main.c
 [; ;main.c: 13: 
-[p x MCLRE  =  OFF ]
+[p x OSC  =  HS  ]
 "14
 [; ;main.c: 14: 
-[p x DEBUG  =  OFF ]
+[p x PBADEN  =  DIG ]
 "15
 [; ;main.c: 15: 
-[p x PWRT  =  OFF ]
+[p x MCLRE  =  OFF ]
 "16
-[; ;main.c: 16: void InitPorts(void);
-[p x BOR  =  OFF ]
+[; ;main.c: 16: 
+[p x DEBUG  =  OFF ]
 "17
-[; ;main.c: 17: 
-[p x WDT  =  OFF ]
+[; ;main.c: 17: void InitPorts(void){
+[p x PWRT  =  OFF ]
 "18
-[; ;main.c: 18: void main(void){
+[; ;main.c: 18:     OSCCON = 0x00;
+[p x BOR  =  OFF ]
+"19
+[; ;main.c: 19:     OSCTUNE = 0x04;
+[p x WDT  =  OFF ]
+"20
+[; ;main.c: 20:     OSCTUNEbits.PLLEN =1;
 [p x LVP  =  OFF ]
 [v $root$_RSI_High `(v ~T0 @X0 0 e ]
-"27
-[; ;main.c: 27: 
+"29
+[; ;main.c: 29:  initKeypad();
 [v _RSI_High `(v ~T41 @X0 1 ef ]
 {
 [e :U _RSI_High ]
 [f ]
-"29
-[; ;main.c: 29:         menuMotor();
+"31
+[; ;main.c: 31:     initSIO();
 [e ( __TiRSITimer ..  ]
-"30
-[; ;main.c: 30:  }
+"32
+[; ;main.c: 32:  while(1){
 [e :UE 280 ]
 }
-"31
-[; ;main.c: 31: }
+"33
+[; ;main.c: 33:         if (TiGetTics(tmr) >= 1000){
 [v _tick_count `i ~T0 @X0 1 e ]
+"34
+[; ;main.c: 34:             LATA = ~LATA;
+[v _tmr `uc ~T0 @X0 1 e ]
+"39
+[; ;main.c: 39: 
+[v _InitPorts `(v ~T0 @X0 1 ef ]
+{
+[e :U _InitPorts ]
+[f ]
+"40
+[; ;main.c: 40: 
+[e = _OSCCON -> -> 0 `i `uc ]
+"41
+[; ;main.c: 41: 
+[e = _OSCTUNE -> -> 4 `i `uc ]
+"42
+[; ;main.c: 42:         KeypadMotor();
+[e = . . _OSCTUNEbits 0 2 -> -> 1 `i `uc ]
+"43
+[; ;main.c: 43:         menuMotor();
+[e = . . _TRISAbits 0 3 -> -> 0 `i `uc ]
+"44
+[; ;main.c: 44:         joystickMotor();
+[e :UE 281 ]
+}
 [v $root$_main `(v ~T0 @X0 0 e ]
-"38
+"46
+[; ;main.c: 46: }
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"39
-[e ( _TiInitTimer ..  ]
-"40
-[e ( _initKeypad ..  ]
-"41
-[e ( _LcInit (2 , -> -> 2 `i `uc -> -> 16 `i `uc ]
-"42
-[e :U 283 ]
-{
-"44
-[e ( _SMSMotor ..  ]
+"47
+[e ( _InitPorts ..  ]
 "48
-[e ( _KeypadMotor ..  ]
+[e ( _TiInitTimer ..  ]
 "49
-[e ( _menuMotor ..  ]
+[e = _tmr ( _TiGetTimer ..  ]
 "50
-}
-[e :U 282 ]
-[e $U 283  ]
-[e :U 284 ]
+[e ( _initJoystick ..  ]
 "51
-[e :UE 281 ]
+[e ( _initKeypad ..  ]
+"52
+[e ( _LcInit (2 , -> -> 2 `i `uc -> -> 16 `i `uc ]
+"53
+[e ( _initSIO ..  ]
+"54
+[e :U 284 ]
+{
+"55
+[e $ ! >= ( _TiGetTics (1 _tmr -> 1000 `i 286  ]
+{
+"56
+[e = _LATA -> ~ -> _LATA `i `uc ]
+"57
+[e ( _TiResetTics (1 _tmr ]
+"58
+}
+[e :U 286 ]
+"60
+[e ( _SMSMotor ..  ]
+"64
+[e ( _KeypadMotor ..  ]
+"65
+[e ( _menuMotor ..  ]
+"66
+[e ( _joystickMotor ..  ]
+"67
+}
+[e :U 283 ]
+[e $U 284  ]
+[e :U 285 ]
+"68
+[e :UE 282 ]
 }

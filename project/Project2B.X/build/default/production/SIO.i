@@ -1,4 +1,4 @@
-# 1 "Joystick.c"
+# 1 "SIO.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "Joystick.c" 2
+# 1 "SIO.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\xc.h" 3
@@ -4611,15 +4611,7 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\xc.h" 2 3
-# 2 "Joystick.c" 2
-
-# 1 "./Joystick.h" 1
-
-
-
-
-
-
+# 2 "SIO.c" 2
 
 # 1 "./SIO.h" 1
 
@@ -4633,104 +4625,24 @@ void initSIO(void);
 char SiIsAvailable(void);
 
 void SiSendChar(char myByte);
-# 8 "./Joystick.h" 2
+# 3 "SIO.c" 2
 
 
-
-
-
-
-
-void joystickMotor(void);
-void initJoystick(void);
-# 3 "Joystick.c" 2
-
-
-static char send;
-static char x,y;
-static char moved;
-
-void initJoystick(void){
-    TRISAbits.TRISA0 = 1;
-    TRISAbits.TRISA1 = 1;
-    ADCON0 = 0x03;
-    ADCON1 = 0x0D;
-    ADCON2 = 0x44;
-
-    TRISCbits.TRISC0 = 0;
-    TRISCbits.TRISC1 = 0;
-    TRISCbits.TRISC2 = 0;
-    TRISCbits.TRISC3 = 0;
-    moved = 0;
+void initSIO(void){
+    SPBRG=64;
+    TRISC |= 0xC0;
+ TXSTA = 0b00100100;
+ RCSTA = 0b10010000;
+ BAUDCONbits.BRG16 = 0;
+    TRISCbits.TRISC6=1;
+    TRISCbits.TRISC7=1;
+# 21 "SIO.c"
 }
 
-
-void joystickMotor(void){
-    static char state = 0;
-
-    switch (state){
-        case 0:
-            if (ADCON0bits.GO_DONE == 0){
-                y = ADRESH;
-                ADCON0bits.CHS0=0;
-                state = 1;
-                ADCON0bits.GO_DONE=1;
-            }
-            break;
-        case 1:
-            if (ADCON0bits.GO_DONE == 0){
-                x = ADRESH;
-                ADCON0bits.CHS0=1;
-                state = 2;
-            }
-            break;
-        case 2:
-            if (moved){
-                if (x >= 100 && x <= 150 && y >= 100 && y <= 150){
-                    moved = 0;
-                }
-            }else {
-                if (x <= 10){
-                    send = 'A';
-                    moved = 1;
-                } else if (x >= 240){
-                    send = 'D';
-                    moved = 1;
-                } else if (y <= 10){
-                    send = 'S';
-                    moved = 1;
-                } else if (y >= 240){
-                    send = 'W';
-                    moved = 1;
-
-                }
-
-            }
-            state = 10;
-            break;
-
-        case 4:
-            if(SiIsAvailable()){
-                SiSendChar(send);
-                state = 0;
-                ADCON0bits.GO_DONE=1;
-            }
-            break;
-
-        case 10:
-
-            state = 0;
-            ADCON0bits.GO_DONE=1;
-            break;
-    }
-
+char SiIsAvailable(void){
+    return TXSTAbits.TRMT;
 }
 
-
-char JoMoved(void){
-    return moved;
-}
-
-char JoDirection(void){
-    return send;
+void SiSendChar(char myByte){
+    TXREG = myByte;
 }
