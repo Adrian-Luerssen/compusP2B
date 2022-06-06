@@ -4702,6 +4702,9 @@ void KeSetMode(char menuMode);
 
 
 
+
+
+void initMenu(void);
 void menuMotor(void);
 void displayMenu (char menuMode,char row);
 # 6 "main.c" 2
@@ -4739,11 +4742,22 @@ void initJoystick(void);
 # 7 "main.c" 2
 
 
+# 1 "./Audio.h" 1
+# 10 "./Audio.h"
+void initAudio(void);
+
+void audioMotor(void);
+
+void startSong(void);
+
+void stopSong(void);
+# 9 "main.c" 2
 
 
 
 
-#pragma config OSC = HS
+
+#pragma config OSC = HSPLL
 #pragma config PBADEN = DIG
 #pragma config MCLRE = OFF
 #pragma config DEBUG = OFF
@@ -4770,30 +4784,20 @@ char tmr;
 
 
 void InitPorts(void){
-    OSCCON = 0x00;
-    OSCTUNE = 0x04;
-    OSCTUNEbits.PLLEN =1;
-    TRISAbits.TRISA3 = 0;
+
 }
 
 void main(void){
-    InitPorts();
     TiInitTimer();
-    tmr = TiGetTimer();
     initJoystick();
  initKeypad();
     LcInit(2,16);
     initSIO();
+    initMenu();
+    initAudio();
  while(1){
-        if (TiGetTics(tmr) >= 1000){
-            LATA = ~LATA;
-            TiResetTics(tmr);
-        }
-
-            SMSMotor();
-
-
-
+        audioMotor();
+        SMSMotor();
         KeypadMotor();
         menuMotor();
         joystickMotor();

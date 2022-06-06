@@ -4629,14 +4629,20 @@ void SiSendChar(char myByte);
 
 
 void initSIO(void){
-    SPBRG=64;
-    TRISC |= 0xC0;
- TXSTA = 0b00100100;
- RCSTA = 0b10010000;
- BAUDCONbits.BRG16 = 0;
-    TRISCbits.TRISC6=1;
-    TRISCbits.TRISC7=1;
-# 21 "SIO.c"
+# 14 "SIO.c"
+    TRISCbits.TRISC7 = 1;
+    TRISCbits.TRISC6 = 1;
+    TXSTAbits.BRGH = 1;
+    TXSTAbits.TXEN = 1;
+    TXSTAbits.SYNC = 0;
+
+    RCSTAbits.SPEN = 1;
+    RCSTAbits.CREN = 1;
+
+    BAUDCONbits.BRG16 = 0;
+
+    SPBRG = 255;
+
 }
 
 char SiIsAvailable(void){

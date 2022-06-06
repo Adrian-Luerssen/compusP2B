@@ -3,8 +3,8 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 #include "TTimer.h"
-#define AUDIO_ON()          LATCbits.LATC0=1;
-#define AUDIO_OFF()         LATCbits.LATC0=0;
+#define AUDIO_ON()          LATCbits.LATC3=1;
+#define AUDIO_OFF()         LATCbits.LATC3=0;
 
 
 void initAudio(void);

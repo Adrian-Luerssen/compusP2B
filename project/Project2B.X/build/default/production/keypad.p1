@@ -84,9 +84,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13
 [; ;./TTimer.h: 13: int TiGetTics(char Handle);
 [v _TiGetTics `(i ~T0 @X0 0 ef1`uc ]
-"1213 C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h
-[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1213: extern volatile unsigned char LATC __attribute__((address(0xF8B)));
-[v _LATC `Vuc ~T0 @X0 0 e@3979 ]
 "23 ./keypad.h
 [; ;./keypad.h: 23: char KeGetGenericValue(void);
 [v _KeGetGenericValue `(uc ~T0 @X0 0 ef ]
@@ -992,164 +989,152 @@ Version 4.0 HI-TECH Software Intermediate Code
 "136
 [; ;keypad.c: 136:         case 0:
 [e :U 310 ]
-"137
-[; ;keypad.c: 137:             LATC = available;
-[e = _LATC -> _available `uc ]
-"138
-[; ;keypad.c: 138:             if (TiGetTics(timer_SMS)>=1000){
-[e $ ! >= ( _TiGetTics (1 _timer_SMS -> 1000 `i 311  ]
+"139
+[; ;keypad.c: 139:             if(pressed){
+[e $ ! != -> _pressed `i -> 0 `i 311  ]
 {
 "140
-[; ;keypad.c: 140:                 previous = 0;
-[e = _previous -> -> 0 `i `uc ]
-"141
-[; ;keypad.c: 141:                 numPresses = 0;
-[e = _numPresses -> -> 0 `i `uc ]
-"142
-[; ;keypad.c: 142:                 available = 0;
-[e = _available -> -> 0 `i `uc ]
-"143
-[; ;keypad.c: 143:                 TiResetTics(timer_SMS);
-[e ( _TiResetTics (1 _timer_SMS ]
-"145
-[; ;keypad.c: 145:             }else{
-}
-[e $U 312  ]
-[e :U 311 ]
-{
-"146
-[; ;keypad.c: 146:                 if(pressed){
-[e $ ! != -> _pressed `i -> 0 `i 313  ]
-{
-"147
-[; ;keypad.c: 147:                     stateSMS=1;
+[; ;keypad.c: 140:                 stateSMS=1;
 [e = _stateSMS -> -> 1 `i `uc ]
-"148
-[; ;keypad.c: 148:                     currentKey = KeGetGenericValue();
+"141
+[; ;keypad.c: 141:                 currentKey = KeGetGenericValue();
 [e = _currentKey ( _KeGetGenericValue ..  ]
-"149
-[; ;keypad.c: 149:                     available = 2;
+"142
+[; ;keypad.c: 142:                 available = 2;
 [e = _available -> -> 2 `i `uc ]
-"150
-[; ;keypad.c: 150:                     if(numPresses != 0 && previous != currentKey ){
+"143
+[; ;keypad.c: 143:                 if (TiGetTics(timer_SMS)>=1000){
+[e $ ! >= ( _TiGetTics (1 _timer_SMS -> 1000 `i 312  ]
+{
+"144
+[; ;keypad.c: 144:                     available = 1;
+[e = _available -> -> 1 `i `uc ]
+"145
+[; ;keypad.c: 145:                     numPresses = 0;
+[e = _numPresses -> -> 0 `i `uc ]
+"146
+[; ;keypad.c: 146:                     previous = 0;
+[e = _previous -> -> 0 `i `uc ]
+"147
+[; ;keypad.c: 147:                 } else if(numPresses != 0 && previous != currentKey ){
+}
+[e $U 313  ]
+[e :U 312 ]
 [e $ ! && != -> _numPresses `i -> 0 `i != -> _previous `i -> _currentKey `i 314  ]
 {
-"152
-[; ;keypad.c: 152:                         available = 1;
+"149
+[; ;keypad.c: 149:                     available = 1;
 [e = _available -> -> 1 `i `uc ]
-"154
-[; ;keypad.c: 154:                         previous = currentKey;
+"151
+[; ;keypad.c: 151:                     previous = currentKey;
 [e = _previous _currentKey ]
-"156
-[; ;keypad.c: 156:                         numPresses = 0;
+"153
+[; ;keypad.c: 153:                     numPresses = 0;
 [e = _numPresses -> -> 0 `i `uc ]
-"157
-[; ;keypad.c: 157:                     }
+"154
+[; ;keypad.c: 154:                 }
 }
 [e :U 314 ]
-"160
-[; ;keypad.c: 160:                     TiResetTics(timer_SMS);
+[e :U 313 ]
+"157
+[; ;keypad.c: 157:                 TiResetTics(timer_SMS);
 [e ( _TiResetTics (1 _timer_SMS ]
-"162
-[; ;keypad.c: 162:                 }else{
+"159
+[; ;keypad.c: 159:             }else{
 }
 [e $U 315  ]
-[e :U 313 ]
+[e :U 311 ]
 {
-"163
-[; ;keypad.c: 163:                   previous=currentKey;
+"160
+[; ;keypad.c: 160:               previous=currentKey;
 [e = _previous _currentKey ]
-"164
-[; ;keypad.c: 164:                 }
+"161
+[; ;keypad.c: 161:             }
 }
 [e :U 315 ]
 "165
-[; ;keypad.c: 165:             }
-}
-[e :U 312 ]
-"168
-[; ;keypad.c: 168:             break;
+[; ;keypad.c: 165:             break;
 [e $U 308  ]
-"170
-[; ;keypad.c: 170:         case 1:
+"167
+[; ;keypad.c: 167:         case 1:
 [e :U 316 ]
-"175
-[; ;keypad.c: 175:             numPresses++;
+"172
+[; ;keypad.c: 172:             numPresses++;
 [e ++ _numPresses -> -> 1 `i `uc ]
-"176
-[; ;keypad.c: 176:             stateSMS = 2;
+"173
+[; ;keypad.c: 173:             stateSMS = 2;
 [e = _stateSMS -> -> 2 `i `uc ]
-"177
-[; ;keypad.c: 177:             break;
+"174
+[; ;keypad.c: 174:             break;
 [e $U 308  ]
-"179
-[; ;keypad.c: 179:         case 2:
+"176
+[; ;keypad.c: 176:         case 2:
 [e :U 317 ]
-"180
-[; ;keypad.c: 180:             if (!pressed){
+"177
+[; ;keypad.c: 177:             if (!pressed){
 [e $ ! ! != -> _pressed `i -> 0 `i 318  ]
 {
-"181
-[; ;keypad.c: 181:                 TiResetTics(timer_SMS);
+"178
+[; ;keypad.c: 178:                 TiResetTics(timer_SMS);
 [e ( _TiResetTics (1 _timer_SMS ]
-"183
-[; ;keypad.c: 183:                 stateSMS = 0;
+"180
+[; ;keypad.c: 180:                 stateSMS = 0;
 [e = _stateSMS -> -> 0 `i `uc ]
-"184
-[; ;keypad.c: 184:             }
+"181
+[; ;keypad.c: 181:             }
 }
 [e :U 318 ]
-"185
-[; ;keypad.c: 185:             break;
+"182
+[; ;keypad.c: 182:             break;
 [e $U 308  ]
-"187
-[; ;keypad.c: 187:         case 3:
+"184
+[; ;keypad.c: 184:         case 3:
 [e :U 319 ]
-"188
-[; ;keypad.c: 188:             if(pressed){
+"185
+[; ;keypad.c: 185:             if(pressed){
 [e $ ! != -> _pressed `i -> 0 `i 320  ]
 {
-"189
-[; ;keypad.c: 189:                 stateSMS = 4;
+"186
+[; ;keypad.c: 186:                 stateSMS = 4;
 [e = _stateSMS -> -> 4 `i `uc ]
-"190
-[; ;keypad.c: 190:             }
+"187
+[; ;keypad.c: 187:             }
 }
 [e :U 320 ]
+"189
+[; ;keypad.c: 189:             break;
+[e $U 308  ]
+"190
+[; ;keypad.c: 190:         case 4:
+[e :U 321 ]
+"191
+[; ;keypad.c: 191:             stateSMS = 5;
+[e = _stateSMS -> -> 5 `i `uc ]
 "192
 [; ;keypad.c: 192:             break;
 [e $U 308  ]
 "193
-[; ;keypad.c: 193:         case 4:
-[e :U 321 ]
-"194
-[; ;keypad.c: 194:             stateSMS = 5;
-[e = _stateSMS -> -> 5 `i `uc ]
-"195
-[; ;keypad.c: 195:             break;
-[e $U 308  ]
-"196
-[; ;keypad.c: 196:         case 5:
+[; ;keypad.c: 193:         case 5:
 [e :U 322 ]
-"197
-[; ;keypad.c: 197:             if (!pressed){
+"194
+[; ;keypad.c: 194:             if (!pressed){
 [e $ ! ! != -> _pressed `i -> 0 `i 323  ]
 {
-"198
-[; ;keypad.c: 198:                 TiResetTics(timer_SMS);
+"195
+[; ;keypad.c: 195:                 TiResetTics(timer_SMS);
 [e ( _TiResetTics (1 _timer_SMS ]
-"200
-[; ;keypad.c: 200:                 stateSMS = 3;
+"197
+[; ;keypad.c: 197:                 stateSMS = 3;
 [e = _stateSMS -> -> 3 `i `uc ]
-"201
-[; ;keypad.c: 201:             }
+"198
+[; ;keypad.c: 198:             }
 }
 [e :U 323 ]
-"202
-[; ;keypad.c: 202:             break;
+"199
+[; ;keypad.c: 199:             break;
 [e $U 308  ]
-"203
-[; ;keypad.c: 203:     }
+"200
+[; ;keypad.c: 200:     }
 }
 [e $U 308  ]
 [e :U 309 ]
@@ -1161,186 +1146,186 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 5 `i 322
  308 ]
 [e :U 308 ]
-"207
-[; ;keypad.c: 207: }
+"204
+[; ;keypad.c: 204: }
 [e :UE 307 ]
 }
-"210
-[; ;keypad.c: 210: char isPressed(void) {
+"207
+[; ;keypad.c: 207: char isPressed(void) {
 [v _isPressed `(uc ~T0 @X0 1 ef ]
 {
 [e :U _isPressed ]
 [f ]
-"212
-[; ;keypad.c: 212:  return pressed && (stateSMS == 1||stateSMS == 4);
+"209
+[; ;keypad.c: 209:  return pressed && (stateSMS == 1||stateSMS == 4);
 [e ) -> -> && != -> _pressed `i -> 0 `i || == -> _stateSMS `i -> 1 `i == -> _stateSMS `i -> 4 `i `i `uc ]
 [e $UE 324  ]
-"213
-[; ;keypad.c: 213: }
+"210
+[; ;keypad.c: 210: }
 [e :UE 324 ]
 }
-"214
-[; ;keypad.c: 214: char getColumn (void){
+"211
+[; ;keypad.c: 211: char getColumn (void){
 [v _getColumn `(uc ~T0 @X0 1 ef ]
 {
 [e :U _getColumn ]
 [f ]
-"215
-[; ;keypad.c: 215:     if (!PORTBbits.RB0) return 0;
+"212
+[; ;keypad.c: 212:     if (!PORTBbits.RB0) return 0;
 [e $ ! ! != -> . . _PORTBbits 0 0 `i -> 0 `i 326  ]
 [e ) -> -> 0 `i `uc ]
 [e $UE 325  ]
 [e :U 326 ]
-"216
-[; ;keypad.c: 216:     if (!PORTBbits.RB1) return 1;
+"213
+[; ;keypad.c: 213:     if (!PORTBbits.RB1) return 1;
 [e $ ! ! != -> . . _PORTBbits 0 1 `i -> 0 `i 327  ]
 [e ) -> -> 1 `i `uc ]
 [e $UE 325  ]
 [e :U 327 ]
-"217
-[; ;keypad.c: 217:     return 2;
+"214
+[; ;keypad.c: 214:     return 2;
 [e ) -> -> 2 `i `uc ]
 [e $UE 325  ]
-"218
-[; ;keypad.c: 218: }
+"215
+[; ;keypad.c: 215: }
 [e :UE 325 ]
 }
-"220
-[; ;keypad.c: 220: char KeAvailable(void){
+"217
+[; ;keypad.c: 217: char KeAvailable(void){
 [v _KeAvailable `(uc ~T0 @X0 1 ef ]
 {
 [e :U _KeAvailable ]
 [f ]
-"221
-[; ;keypad.c: 221:     return available;
+"218
+[; ;keypad.c: 218:     return available;
 [e ) _available ]
 [e $UE 328  ]
-"222
-[; ;keypad.c: 222: }
+"219
+[; ;keypad.c: 219: }
 [e :UE 328 ]
 }
-"224
-[; ;keypad.c: 224: char KeGetCharValue(void){
+"221
+[; ;keypad.c: 221: char KeGetCharValue(void){
 [v _KeGetCharValue `(uc ~T0 @X0 1 ef ]
 {
 [e :U _KeGetCharValue ]
 [f ]
-"225
-[; ;keypad.c: 225:     return getFullValue(KeGetGenericValue());
+"222
+[; ;keypad.c: 222:     return getFullValue(KeGetGenericValue());
 [e ) ( _getFullValue (1 ( _KeGetGenericValue ..  ]
 [e $UE 329  ]
-"226
-[; ;keypad.c: 226: }
+"223
+[; ;keypad.c: 223: }
 [e :UE 329 ]
 }
-"227
-[; ;keypad.c: 227: char KeGetGenericValue(void){
+"224
+[; ;keypad.c: 224: char KeGetGenericValue(void){
 [v _KeGetGenericValue `(uc ~T0 @X0 1 ef ]
 {
 [e :U _KeGetGenericValue ]
 [f ]
-"228
-[; ;keypad.c: 228:     return TABLE[(row*3)+getColumn()];
+"225
+[; ;keypad.c: 225:     return TABLE[(row*3)+getColumn()];
 [e ) *U + &U _TABLE * -> -> + * -> _row `i -> 3 `i -> ( _getColumn ..  `i `ui `ux -> -> # *U &U _TABLE `ui `ux ]
 [e $UE 330  ]
-"229
-[; ;keypad.c: 229: }
+"226
+[; ;keypad.c: 226: }
 [e :UE 330 ]
 }
-"233
-[; ;keypad.c: 233: char getFullValue(char generic){
+"230
+[; ;keypad.c: 230: char getFullValue(char generic){
 [v _getFullValue `(uc ~T0 @X0 1 ef1`uc ]
 {
 [e :U _getFullValue ]
 [v _generic `uc ~T0 @X0 1 r1 ]
 [f ]
-"235
-[; ;keypad.c: 235:     if (generic - '0' >= 2 && generic - '0' <= 9){
+"232
+[; ;keypad.c: 232:     if (generic - '0' >= 2 && generic - '0' <= 9){
 [e $ ! && >= - -> _generic `ui -> 48 `ui -> -> 2 `i `ui <= - -> _generic `ui -> 48 `ui -> -> 9 `i `ui 332  ]
 {
-"236
-[; ;keypad.c: 236:         if (SMSTABLE[generic - '0' - 1][(numPresses-1)] == '\0'){
+"233
+[; ;keypad.c: 233:         if (SMSTABLE[generic - '0' - 1][(numPresses-1)] == '\0'){
 [e $ ! == -> *U + &U *U + &U _SMSTABLE * -> - - -> _generic `ui -> 48 `ui -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _SMSTABLE `ui -> -> 6 `i `ui `ux * -> -> - -> _numPresses `i -> 1 `i `ui `ux -> -> # *U &U *U + &U _SMSTABLE * -> - - -> _generic `ui -> 48 `ui -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _SMSTABLE `ui -> -> 6 `i `ui `ux `ui `ux `ui -> 0 `ui 333  ]
 {
-"237
-[; ;keypad.c: 237:             numPresses = 1;
+"234
+[; ;keypad.c: 234:             numPresses = 1;
 [e = _numPresses -> -> 1 `i `uc ]
-"238
-[; ;keypad.c: 238:         }
+"235
+[; ;keypad.c: 235:         }
 }
 [e :U 333 ]
-"239
-[; ;keypad.c: 239:         return SMSTABLE[generic - '0' - 1][(numPresses-1)];
+"236
+[; ;keypad.c: 236:         return SMSTABLE[generic - '0' - 1][(numPresses-1)];
 [e ) *U + &U *U + &U _SMSTABLE * -> - - -> _generic `ui -> 48 `ui -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _SMSTABLE `ui -> -> 6 `i `ui `ux * -> -> - -> _numPresses `i -> 1 `i `ui `ux -> -> # *U &U *U + &U _SMSTABLE * -> - - -> _generic `ui -> 48 `ui -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _SMSTABLE `ui -> -> 6 `i `ui `ux `ui `ux ]
 [e $UE 331  ]
-"240
-[; ;keypad.c: 240:     }
+"237
+[; ;keypad.c: 237:     }
 }
 [e :U 332 ]
-"241
-[; ;keypad.c: 241:     return generic;
+"238
+[; ;keypad.c: 238:     return generic;
 [e ) _generic ]
 [e $UE 331  ]
-"243
-[; ;keypad.c: 243: }
+"240
+[; ;keypad.c: 240: }
 [e :UE 331 ]
 }
-"245
-[; ;keypad.c: 245: char getPresses(void) {
+"242
+[; ;keypad.c: 242: char getPresses(void) {
 [v _getPresses `(uc ~T0 @X0 1 ef ]
 {
 [e :U _getPresses ]
 [f ]
-"246
-[; ;keypad.c: 246:     return available;
+"243
+[; ;keypad.c: 243:     return available;
 [e ) _available ]
 [e $UE 334  ]
-"247
-[; ;keypad.c: 247: }
+"244
+[; ;keypad.c: 244: }
 [e :UE 334 ]
 }
-"250
-[; ;keypad.c: 250: void KeSetMode(char menuMode){
+"247
+[; ;keypad.c: 247: void KeSetMode(char menuMode){
 [v _KeSetMode `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _KeSetMode ]
 [v _menuMode `uc ~T0 @X0 1 r1 ]
 [f ]
-"251
-[; ;keypad.c: 251:     if (menuMode == 1){
+"248
+[; ;keypad.c: 248:     if (menuMode == 1){
 [e $ ! == -> _menuMode `i -> 1 `i 336  ]
 {
-"252
-[; ;keypad.c: 252:         previous = 0;
+"249
+[; ;keypad.c: 249:         previous = 0;
 [e = _previous -> -> 0 `i `uc ]
-"253
-[; ;keypad.c: 253:         numPresses = 0;
+"250
+[; ;keypad.c: 250:         numPresses = 0;
 [e = _numPresses -> -> 0 `i `uc ]
-"254
-[; ;keypad.c: 254:         available = 0;
+"251
+[; ;keypad.c: 251:         available = 0;
 [e = _available -> -> 0 `i `uc ]
-"255
-[; ;keypad.c: 255:         stateSMS = 2;
+"252
+[; ;keypad.c: 252:         stateSMS = 2;
 [e = _stateSMS -> -> 2 `i `uc ]
-"256
-[; ;keypad.c: 256:         TiResetTics(timer_SMS);
+"253
+[; ;keypad.c: 253:         TiResetTics(timer_SMS);
 [e ( _TiResetTics (1 _timer_SMS ]
-"257
-[; ;keypad.c: 257:     } else if (menuMode == 0){
+"254
+[; ;keypad.c: 254:     } else if (menuMode == 0){
 }
 [e $U 337  ]
 [e :U 336 ]
 [e $ ! == -> _menuMode `i -> 0 `i 338  ]
 {
-"258
-[; ;keypad.c: 258:         stateSMS = 4;
+"255
+[; ;keypad.c: 255:         stateSMS = 4;
 [e = _stateSMS -> -> 4 `i `uc ]
-"259
-[; ;keypad.c: 259:     }
+"256
+[; ;keypad.c: 256:     }
 }
 [e :U 338 ]
 [e :U 337 ]
-"261
-[; ;keypad.c: 261: }
+"258
+[; ;keypad.c: 258: }
 [e :UE 335 ]
 }

@@ -5,4 +5,5 @@ keypad.h  \
 LcTLCD.h  \
 Menu.h  \
 Joystick.h  \
-SIO.h 
+SIO.h  \
+Audio.h 

@@ -6,11 +6,12 @@
 #include "Menu.h"
 #include "Joystick.h"
 #include "SIO.h"
+#include "Audio.h"
 //#include "TPORTB.h"
 //#include "TSIO.h"
 //#include "TADC.h"
 
-#pragma config OSC = HS //INTIO2
+#pragma config OSC = HSPLL //INTIO2
 #pragma config PBADEN = DIG
 #pragma config MCLRE = OFF
 #pragma config DEBUG = OFF
@@ -37,30 +38,20 @@ char tmr;
 
 //Defining a High Priority Interrupt. 
 void InitPorts(void){
-    OSCCON = 0x00;
-    OSCTUNE = 0x04;
-    OSCTUNEbits.PLLEN =1;
-    TRISAbits.TRISA3 = 0;
+
 }
 
 void main(void){
-    InitPorts();
     TiInitTimer();
-    tmr = TiGetTimer();
     initJoystick();
 	initKeypad();
     LcInit(2,16);
     initSIO();
+    initMenu();
+    initAudio();
 	while(1){
-        if (TiGetTics(tmr) >= 1000){
-            LATA = ~LATA;
-            TiResetTics(tmr);
-        }
-        //if (MeGetKeypadMode == 0){
-            SMSMotor();
-        //} else {
-            //KeyPadGameMotor();
-        //}
+        audioMotor();
+        SMSMotor();
         KeypadMotor();
         menuMotor();
         joystickMotor();

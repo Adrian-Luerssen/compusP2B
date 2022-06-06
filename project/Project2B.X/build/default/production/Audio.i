@@ -4672,13 +4672,17 @@ void stopSong(void);
 
 
 static char state;
-static char timer;
+static char periodTimer;
+static char timerSong;
 static char period;
 static char start;
 
 void initAudio(void) {
+    TRISCbits.TRISC3 = 0;
     state = 0;
-    timer = TiGetTimer();
+    periodTimer = TiGetTimer();
+    timerSong = TiGetTimer();
+    period = 1;
 }
 
 void audioMotor(void){
@@ -4687,17 +4691,25 @@ void audioMotor(void){
 
             break;
         case 1:
-            if (TiGetTics(timer)>= period){
-                TiResetTics(timer);
-                LATCbits.LATC0=1;;
+            if (TiGetTics(periodTimer)>= (period+1)){
+                TiResetTics(periodTimer);
+                LATCbits.LATC3=1;;
                 state = 2;
             }
             break;
         case 2:
-            if (TiGetTics(timer)>= period){
-                TiResetTics(timer);
-                LATCbits.LATC0=0;;
-                state = 1;
+            if (TiGetTics(periodTimer)>= (period+1)){
+                TiResetTics(periodTimer);
+                LATCbits.LATC3=0;;
+                state = 3;
+            }
+            break;
+
+        case 3:
+            state = 1;
+            if (TiGetTics(timerSong) >= 1000){
+                period = (period+1)%5;
+                TiResetTics(timerSong);
             }
             break;
 
@@ -4705,10 +4717,10 @@ void audioMotor(void){
 }
 
 void startSong(void){
-    TiResetTics(timer);
+    TiResetTics(periodTimer);
     state = 1;
 }
 void stopSong(void){
-    LATCbits.LATC0=0;;
+    LATCbits.LATC3=0;;
     state = 0;
 }

@@ -134,35 +134,32 @@ void SMSMotor(void){
     switch(stateSMS){
 
         case 0:
-            LATC = available;
-            if (TiGetTics(timer_SMS)>=1000){
-                //next
-                previous = 0;
-                numPresses = 0;
-                available = 0; // reset
+            //LATC = available;
+            
+            if(pressed){
+                stateSMS=1;
+                currentKey = KeGetGenericValue();
+                available = 2;
+                if (TiGetTics(timer_SMS)>=1000){
+                    available = 1;
+                    numPresses = 0;
+                    previous = 0;
+                } else if(numPresses != 0 && previous != currentKey ){
+                    //next
+                    available = 1; // reset but new value;
+
+                    previous = currentKey;
+                    //stateSMS=0;
+                    numPresses = 0;
+                }
+
+
                 TiResetTics(timer_SMS);
 
             }else{
-                if(pressed){
-                    stateSMS=1;
-                    currentKey = KeGetGenericValue();
-                    available = 2;
-                    if(numPresses != 0 && previous != currentKey ){
-                        //next
-                        available = 1; // reset but new value;
-                        
-                        previous = currentKey;
-                        //stateSMS=0;
-                        numPresses = 0;
-                    }
-                    
-
-                    TiResetTics(timer_SMS);
-
-                }else{
-                  previous=currentKey;
-                }
+              previous=currentKey;
             }
+            
 
 
             break;

@@ -1,4 +1,19 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"1944 C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1944:     struct {
+[s S70 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S70 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"1954
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1954:     struct {
+[s S71 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S71 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"1943
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1943: typedef union {
+[u S69 `S70 1 `S71 1 ]
+[n S69 . . . ]
+"1965
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1965: extern volatile TRISCbits_t TRISCbits __attribute__((address(0xF94)));
+[v _TRISCbits `VS69 ~T0 @X0 0 e@3988 ]
 "18 ./TTimer.h
 [; ;./TTimer.h: 18: char TiGetTimer(void);
 [v _TiGetTimer `(uc ~T0 @X0 0 ef ]
@@ -441,135 +456,171 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Audio.c: 14: static char state;
 [v _state `uc ~T0 @X0 1 s ]
 "15
-[; ;Audio.c: 15: static char timer;
-[v _timer `uc ~T0 @X0 1 s ]
+[; ;Audio.c: 15: static char periodTimer;
+[v _periodTimer `uc ~T0 @X0 1 s ]
 "16
-[; ;Audio.c: 16: static char period;
-[v _period `uc ~T0 @X0 1 s ]
+[; ;Audio.c: 16: static char timerSong;
+[v _timerSong `uc ~T0 @X0 1 s ]
 "17
-[; ;Audio.c: 17: static char start;
+[; ;Audio.c: 17: static char period;
+[v _period `uc ~T0 @X0 1 s ]
+"18
+[; ;Audio.c: 18: static char start;
 [v _start `uc ~T0 @X0 1 s ]
-"19
-[; ;Audio.c: 19: void initAudio(void) {
+"20
+[; ;Audio.c: 20: void initAudio(void) {
 [v _initAudio `(v ~T0 @X0 1 ef ]
 {
 [e :U _initAudio ]
 [f ]
-"20
-[; ;Audio.c: 20:     state = 0;
-[e = _state -> -> 0 `i `uc ]
 "21
-[; ;Audio.c: 21:     timer = TiGetTimer();
-[e = _timer ( _TiGetTimer ..  ]
+[; ;Audio.c: 21:     TRISCbits.TRISC3 = 0;
+[e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
 "22
-[; ;Audio.c: 22: }
+[; ;Audio.c: 22:     state = 0;
+[e = _state -> -> 0 `i `uc ]
+"23
+[; ;Audio.c: 23:     periodTimer = TiGetTimer();
+[e = _periodTimer ( _TiGetTimer ..  ]
+"24
+[; ;Audio.c: 24:     timerSong = TiGetTimer();
+[e = _timerSong ( _TiGetTimer ..  ]
+"25
+[; ;Audio.c: 25:     period = 1;
+[e = _period -> -> 1 `i `uc ]
+"26
+[; ;Audio.c: 26: }
 [e :UE 280 ]
 }
-"24
-[; ;Audio.c: 24: void audioMotor(void){
+"28
+[; ;Audio.c: 28: void audioMotor(void){
 [v _audioMotor `(v ~T0 @X0 1 ef ]
 {
 [e :U _audioMotor ]
 [f ]
-"25
-[; ;Audio.c: 25:     switch(state){
+"29
+[; ;Audio.c: 29:     switch(state){
 [e $U 283  ]
 {
-"26
-[; ;Audio.c: 26:         case 0:
-[e :U 284 ]
-"28
-[; ;Audio.c: 28:             break;
-[e $U 282  ]
-"29
-[; ;Audio.c: 29:         case 1:
-[e :U 285 ]
 "30
-[; ;Audio.c: 30:             if (TiGetTics(timer)>= period){
-[e $ ! >= ( _TiGetTics (1 _timer -> _period `i 286  ]
-{
-"31
-[; ;Audio.c: 31:                 TiResetTics(timer);
-[e ( _TiResetTics (1 _timer ]
+[; ;Audio.c: 30:         case 0:
+[e :U 284 ]
 "32
-[; ;Audio.c: 32:                 LATCbits.LATC0=1;;
-[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
+[; ;Audio.c: 32:             break;
+[e $U 282  ]
 "33
-[; ;Audio.c: 33:                 state = 2;
-[e = _state -> -> 2 `i `uc ]
+[; ;Audio.c: 33:         case 1:
+[e :U 285 ]
 "34
-[; ;Audio.c: 34:             }
+[; ;Audio.c: 34:             if (TiGetTics(periodTimer)>= (period+1)){
+[e $ ! >= ( _TiGetTics (1 _periodTimer + -> _period `i -> 1 `i 286  ]
+{
+"35
+[; ;Audio.c: 35:                 TiResetTics(periodTimer);
+[e ( _TiResetTics (1 _periodTimer ]
+"36
+[; ;Audio.c: 36:                 LATCbits.LATC3=1;;
+[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
+"37
+[; ;Audio.c: 37:                 state = 2;
+[e = _state -> -> 2 `i `uc ]
+"38
+[; ;Audio.c: 38:             }
 }
 [e :U 286 ]
-"35
-[; ;Audio.c: 35:             break;
-[e $U 282  ]
-"36
-[; ;Audio.c: 36:         case 2:
-[e :U 287 ]
-"37
-[; ;Audio.c: 37:             if (TiGetTics(timer)>= period){
-[e $ ! >= ( _TiGetTics (1 _timer -> _period `i 288  ]
-{
-"38
-[; ;Audio.c: 38:                 TiResetTics(timer);
-[e ( _TiResetTics (1 _timer ]
 "39
-[; ;Audio.c: 39:                 LATCbits.LATC0=0;;
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;Audio.c: 39:             break;
+[e $U 282  ]
 "40
-[; ;Audio.c: 40:                 state = 1;
-[e = _state -> -> 1 `i `uc ]
+[; ;Audio.c: 40:         case 2:
+[e :U 287 ]
 "41
-[; ;Audio.c: 41:             }
+[; ;Audio.c: 41:             if (TiGetTics(periodTimer)>= (period+1)){
+[e $ ! >= ( _TiGetTics (1 _periodTimer + -> _period `i -> 1 `i 288  ]
+{
+"42
+[; ;Audio.c: 42:                 TiResetTics(periodTimer);
+[e ( _TiResetTics (1 _periodTimer ]
+"43
+[; ;Audio.c: 43:                 LATCbits.LATC3=0;;
+[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
+"44
+[; ;Audio.c: 44:                 state = 3;
+[e = _state -> -> 3 `i `uc ]
+"45
+[; ;Audio.c: 45:             }
 }
 [e :U 288 ]
-"42
-[; ;Audio.c: 42:             break;
+"46
+[; ;Audio.c: 46:             break;
 [e $U 282  ]
-"44
-[; ;Audio.c: 44:     }
+"48
+[; ;Audio.c: 48:         case 3:
+[e :U 289 ]
+"49
+[; ;Audio.c: 49:             state = 1;
+[e = _state -> -> 1 `i `uc ]
+"50
+[; ;Audio.c: 50:             if (TiGetTics(timerSong) >= 1000){
+[e $ ! >= ( _TiGetTics (1 _timerSong -> 1000 `i 290  ]
+{
+"51
+[; ;Audio.c: 51:                 period = (period+1)%5;
+[e = _period -> % + -> _period `i -> 1 `i -> 5 `i `uc ]
+"52
+[; ;Audio.c: 52:                 TiResetTics(timerSong);
+[e ( _TiResetTics (1 _timerSong ]
+"53
+[; ;Audio.c: 53:             }
+}
+[e :U 290 ]
+"54
+[; ;Audio.c: 54:             break;
+[e $U 282  ]
+"56
+[; ;Audio.c: 56:     }
 }
 [e $U 282  ]
 [e :U 283 ]
 [e [\ -> _state `i , $ -> 0 `i 284
  , $ -> 1 `i 285
  , $ -> 2 `i 287
+ , $ -> 3 `i 289
  282 ]
 [e :U 282 ]
-"45
-[; ;Audio.c: 45: }
+"57
+[; ;Audio.c: 57: }
 [e :UE 281 ]
 }
-"47
-[; ;Audio.c: 47: void startSong(void){
+"59
+[; ;Audio.c: 59: void startSong(void){
 [v _startSong `(v ~T0 @X0 1 ef ]
 {
 [e :U _startSong ]
 [f ]
-"48
-[; ;Audio.c: 48:     TiResetTics(timer);
-[e ( _TiResetTics (1 _timer ]
-"49
-[; ;Audio.c: 49:     state = 1;
+"60
+[; ;Audio.c: 60:     TiResetTics(periodTimer);
+[e ( _TiResetTics (1 _periodTimer ]
+"61
+[; ;Audio.c: 61:     state = 1;
 [e = _state -> -> 1 `i `uc ]
-"50
-[; ;Audio.c: 50: }
-[e :UE 289 ]
+"62
+[; ;Audio.c: 62: }
+[e :UE 291 ]
 }
-"51
-[; ;Audio.c: 51: void stopSong(void){
+"63
+[; ;Audio.c: 63: void stopSong(void){
 [v _stopSong `(v ~T0 @X0 1 ef ]
 {
 [e :U _stopSong ]
 [f ]
-"52
-[; ;Audio.c: 52:     LATCbits.LATC0=0;;
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
-"53
-[; ;Audio.c: 53:     state = 0;
+"64
+[; ;Audio.c: 64:     LATCbits.LATC3=0;;
+[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
+"65
+[; ;Audio.c: 65:     state = 0;
 [e = _state -> -> 0 `i `uc ]
-"54
-[; ;Audio.c: 54: }
-[e :UE 290 ]
+"66
+[; ;Audio.c: 66: }
+[e :UE 292 ]
 }

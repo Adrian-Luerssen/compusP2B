@@ -4707,6 +4707,9 @@ char KeGetGenericValue(void);
 void KeSetMode(char menuMode);
 # 6 "./Menu.h" 2
 
+
+
+void initMenu(void);
 void menuMotor(void);
 void displayMenu (char menuMode,char row);
 # 2 "Menu.c" 2
@@ -4722,9 +4725,14 @@ static const char LOGREGSCREEN [2][6] = {"USER:\0","PSWD:\0"};
 static const char MAINMENU[4][28] = {"1.PLAY A GAME\0","2.MODIFY TIME\0","3.SHOW GENERAL TOP 5 SCORES\0","4.LOGOUT\0"};
 
 
-
+static char timer;
 static char LCDrow,LCDcol = 0;
 static char val;
+
+void initMenu(void){
+    timer = TiGetTimer();
+}
+
 
 void menuMotor(void){
     static char state = 1;
@@ -4761,9 +4769,10 @@ void menuMotor(void){
             }
             break;
         case 4:
-            if (LCDcol >= 12 && getPresses() == 0){
+            if (LCDcol >= 12 && TiGetTics(timer) >= 1000){
                 state = 5;
             }else if (isPressed()){
+                TiResetTics(timer);
                 if (getPresses() == 2){
                     LcGotoXY(LCDcol--,LCDrow);
                 }

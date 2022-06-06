@@ -41,28 +41,33 @@ void joystickMotor(void){
             }
             break;
         case 2:
+            state = 10;
             if (moved){
                 if (x >= CENTRE_L && x <= CENTRE_H && y >= CENTRE_L && y <= CENTRE_H){
                     moved = 0;
                 }
             }else {
                 if (x <= LEFT){
-                    send = 'A';
+                    send = 0x41;
                     moved = 1;
+                    state = 4;
                 } else if (x >= RIGHT){
-                    send = 'D';
+                    send = 0x44;
                     moved = 1;
+                    state = 4;
                 } else if (y <= LEFT){
-                    send = 'S';
+                    send = 83;
                     moved = 1;
+                    state = 4;
                 } else if (y >= RIGHT){
-                    send = 'W';
+                    send = 87;
                     moved = 1;
+                    state = 4;
                     
                 }
                 
             }
-            state = 10;
+            
             break;
 
         case 4:
