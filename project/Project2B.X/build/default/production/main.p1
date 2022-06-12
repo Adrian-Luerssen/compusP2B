@@ -1,10 +1,10 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [t ~ __interrupt . k ]
 [t T41 __interrupt ]
-"27 ./TTimer.h
+"28 ./TTimer.h
 [v __TiRSITimer `(v ~T0 @X0 0 ef ]
 [p mainexit ]
-"5
+"6
 [v _TiInitTimer `(v ~T0 @X0 0 ef ]
 "16 ./Joystick.h
 [; ;./Joystick.h: 16: void initJoystick(void);
@@ -18,27 +18,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8 ./SIO.h
 [; ;./SIO.h: 8: void initSIO(void);
 [v _initSIO `(v ~T0 @X0 0 ef ]
-"9 ./Menu.h
-[; ;./Menu.h: 9: void initMenu(void);
+"11 ./Menu.h
+[; ;./Menu.h: 11: void initMenu(void);
 [v _initMenu `(v ~T0 @X0 0 ef ]
-"10 ./Audio.h
-[; ;./Audio.h: 10: void initAudio(void);
-[v _initAudio `(v ~T0 @X0 0 ef ]
-"12
-[; ;./Audio.h: 12: void audioMotor(void);
-[v _audioMotor `(v ~T0 @X0 0 ef ]
+"32 ./EEPROM.h
+[; ;./EEPROM.h: 32: void initData(void);
+[v _initData `(v ~T0 @X0 0 ef ]
 "15 ./keypad.h
 [; ;./keypad.h: 15: void SMSMotor(void);
 [v _SMSMotor `(v ~T0 @X0 0 ef ]
 "16
 [; ;./keypad.h: 16: void KeypadMotor(void);
 [v _KeypadMotor `(v ~T0 @X0 0 ef ]
-"10 ./Menu.h
-[; ;./Menu.h: 10: void menuMotor(void);
+"12 ./Menu.h
+[; ;./Menu.h: 12: void menuMotor(void);
 [v _menuMotor `(v ~T0 @X0 0 ef ]
 "15 ./Joystick.h
 [; ;./Joystick.h: 15: void joystickMotor(void);
 [v _joystickMotor `(v ~T0 @X0 0 ef ]
+"34 ./EEPROM.h
+[; ;./EEPROM.h: 34: void dataMotor(void);
+[v _dataMotor `(v ~T0 @X0 0 ef ]
 "55 C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 55: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -453,96 +453,79 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7011
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 7011: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"14 main.c
-[; ;main.c: 14: 
+"15 main.c
+[; ;main.c: 15:     initJoystick();
 [p x OSC  =  HSPLL  ]
-"15
-[; ;main.c: 15: 
-[p x PBADEN  =  DIG ]
 "16
-[; ;main.c: 16: 
-[p x MCLRE  =  OFF ]
+[; ;main.c: 16:  initKeypad();
+[p x PBADEN  =  DIG ]
 "17
-[; ;main.c: 17: void InitPorts(void){
-[p x DEBUG  =  OFF ]
+[; ;main.c: 17:     LcInit(2,16);
+[p x MCLRE  =  OFF ]
 "18
-[; ;main.c: 18: 
-[p x PWRT  =  OFF ]
+[; ;main.c: 18:     initSIO();
+[p x DEBUG  =  OFF ]
 "19
-[; ;main.c: 19: }
-[p x BOR  =  OFF ]
+[; ;main.c: 19:     initMenu();
+[p x PWRT  =  OFF ]
 "20
 [; ;main.c: 20: 
-[p x WDT  =  OFF ]
+[p x BOR  =  OFF ]
 "21
-[; ;main.c: 21: void main(void){
+[; ;main.c: 21:     initData();
+[p x WDT  =  OFF ]
+"22
+[; ;main.c: 22:  while(1){
 [p x LVP  =  OFF ]
 [v $root$_RSI_High `(v ~T0 @X0 0 e ]
-"30
-[; ;main.c: 30:         audioMotor();
+"31
 [v _RSI_High `(v ~T41 @X0 1 ef ]
 {
 [e :U _RSI_High ]
 [f ]
-"32
-[; ;main.c: 32:         KeypadMotor();
-[e ( __TiRSITimer ..  ]
 "33
-[; ;main.c: 33:         menuMotor();
-[e :UE 280 ]
-}
+[e ( __TiRSITimer ..  ]
 "34
-[; ;main.c: 34:         joystickMotor();
-[v _tick_count `i ~T0 @X0 1 e ]
-"35
-[; ;main.c: 35:  }
-[v _tmr `uc ~T0 @X0 1 e ]
-"40
-[v _InitPorts `(v ~T0 @X0 1 ef ]
-{
-[e :U _InitPorts ]
-[f ]
-"42
-[e :UE 281 ]
+[e :UE 282 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"44
+"37
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"45
+"38
 [e ( _TiInitTimer ..  ]
-"46
+"39
 [e ( _initJoystick ..  ]
-"47
+"40
 [e ( _initKeypad ..  ]
-"48
+"41
 [e ( _LcInit (2 , -> -> 2 `i `uc -> -> 16 `i `uc ]
-"49
+"42
 [e ( _initSIO ..  ]
-"50
+"43
 [e ( _initMenu ..  ]
-"51
-[e ( _initAudio ..  ]
-"52
-[e :U 284 ]
-{
-"53
-[e ( _audioMotor ..  ]
-"54
-[e ( _SMSMotor ..  ]
-"55
-[e ( _KeypadMotor ..  ]
-"56
-[e ( _menuMotor ..  ]
-"57
-[e ( _joystickMotor ..  ]
-"58
-}
-[e :U 283 ]
-[e $U 284  ]
+"45
+[e ( _initData ..  ]
+"46
 [e :U 285 ]
-"59
-[e :UE 282 ]
+{
+"48
+[e ( _SMSMotor ..  ]
+"49
+[e ( _KeypadMotor ..  ]
+"50
+[e ( _menuMotor ..  ]
+"51
+[e ( _joystickMotor ..  ]
+"52
+[e ( _dataMotor ..  ]
+"53
+}
+[e :U 284 ]
+[e $U 285  ]
+[e :U 286 ]
+"54
+[e :UE 283 ]
 }

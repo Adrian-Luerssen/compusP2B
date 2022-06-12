@@ -140,7 +140,7 @@ void SMSMotor(void){
                 stateSMS=1;
                 currentKey = KeGetGenericValue();
                 available = 2;
-                if (TiGetTics(timer_SMS)>=1000){
+                if (TiGetTics(timer_SMS)>=TSECOND){
                     available = 1;
                     numPresses = 0;
                     previous = 0;

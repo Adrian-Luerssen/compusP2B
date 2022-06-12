@@ -14,5 +14,9 @@
 
 void joystickMotor(void);
 void initJoystick(void);
+
+char JoMoved(void);
+
+char JoDirection(void);
 #endif	
 

@@ -4630,6 +4630,7 @@ unsigned char __t3rd16on(void);
 
 
 
+
 void TiInitTimer(void);
 
 
@@ -4707,7 +4708,7 @@ void audioMotor(void){
 
         case 3:
             state = 1;
-            if (TiGetTics(timerSong) >= 1000){
+            if (TiGetTics(timerSong) >= 1200){
                 period = (period+1)%5;
                 TiResetTics(timerSong);
             }

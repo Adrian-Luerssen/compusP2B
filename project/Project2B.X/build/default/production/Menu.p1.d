@@ -3,4 +3,7 @@ Menu.c  \
 Menu.h  \
 LcTLCD.h  \
 keypad.h  \
-TTimer.h 
+TTimer.h  \
+EEPROM.h  \
+Joystick.h  \
+SIO.h 

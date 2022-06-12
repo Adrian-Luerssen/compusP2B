@@ -37,9 +37,11 @@ void TiInitTimer(void) {
 void _TiRSITimer (void) {
 //Timer Interrupt Service Routine
     //@ 40MHz (Tinst = 100nS), we want 1ms/Tinst=10.000 tics 2*16-10.000=0xD8F0
-    TMR0H = 0xD8;
-    TMR0L = 0xF0;
-
+    //@ 40MHz (Tinst = 100nS), we want 0.833ms/Tinst=8330 tics 2*16-8330=0x208A
+    //TMR0H = 0xD8;
+    //TMR0L = 0xF0;
+    TMR0H = 0x20;
+    TMR0L = 0x8A;
     INTCONbits.TMR0IF = 0;
     h_Tics++;
 

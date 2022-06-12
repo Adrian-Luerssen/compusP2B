@@ -1,4 +1,4 @@
-# 1 "keypad.c"
+# 1 "EEPROM.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,9 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "keypad.c" 2
-# 10 "keypad.c"
+# 1 "EEPROM.c" 2
+
+
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4611,48 +4612,40 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\xc.h" 2 3
-# 10 "keypad.c" 2
+# 3 "EEPROM.c" 2
 
-
-# 1 "./keypad.h" 1
-
-
+# 1 "./EEPROM.h" 1
 
 
 
 
 
+typedef struct {
+    char username [9];
+    char password [9];
+} User;
 
-# 1 "./TTimer.h" 1
+typedef struct {
+    char score;
+    char userNum;
+} Score;
+# 32 "./EEPROM.h"
+void initData(void);
 
+void dataMotor(void);
 
+void DaFindUser(User logUser);
 
+char DaGetUserNumber(void);
 
+void DaSaveUser(User regUser);
 
-void TiInitTimer(void);
+char DaGetStatus(void);
 
+char DaGetIdle(void);
 
-
-void TiResetTics(char Handle);
-
-
-
-int TiGetTics(char Handle);
-
-
-
-
-char TiGetTimer(void);
-
-
-
-
-void TiFreeTimer (char Handle);
-
-
-
-void _TiRSITimer (void);
-# 9 "./keypad.h" 2
+void readUserData (void);
+# 4 "EEPROM.c" 2
 
 # 1 "./LcTLCD.h" 1
 # 65 "./LcTLCD.h"
@@ -4686,267 +4679,253 @@ void LcGotoXY(char Column, char Row);
 void LcPutChar(char c);
 # 103 "./LcTLCD.h"
 void LcPutString(char *s);
-# 10 "./keypad.h" 2
+# 5 "EEPROM.c" 2
+# 14 "EEPROM.c"
+static char state;
+static char userNum;
+static char position;
+static char status;
+static User mUser;
+static User users[8];
+static Score topScores[5];
+static char lastUserPointer;
 
-
-
-
-void initKeypad(void);
-void SMSMotor(void);
-void KeypadMotor(void);
-char isPressed(void);
-char KeAvailable(void);
-char KeGetCharValue(void);
-char getFullValue(char generic);
-char getColumn (void);
-char getPresses(void);
-char KeGetGenericValue(void);
-void KeSetMode(char menuMode);
-# 12 "keypad.c" 2
-
-
-
-
-static const char SMSTABLE[9][6] = {"1\0","ABC2\0","DEF3\0","GHI4\0","JKL5\0","MNO6\0","PQRS7\0","TUV8\0","WXYZ9\0"};
-static const char TABLE[12]= {'1','2','3','4','5','6','7','8','9','*','0','#'};
-
-static char row;
-static char timerBounces,timer_SMS;
-static char currentKey;
-static char previous;
-static char pressed;
-static char numPresses;
-static char available = 0;
-static char state = 0;
-static char stateSMS = 0;
-
-void initKeypad(void){
-    INTCON2bits.RBPU = 0;
-
-
-    TRISBbits.TRISB0 = 1;
-    TRISBbits.TRISB1 = 1;
-    TRISBbits.TRISB2 = 1;
-    TRISBbits.TRISB3 = 0;
-    TRISBbits.TRISB4 = 0;
-    TRISBbits.TRISB5 = 0;
-    TRISBbits.TRISB6 = 0;
-    timerBounces = TiGetTimer();
-    timer_SMS = TiGetTimer();
-
+void initData(void) {
+    state = 0;
+    for (userNum = 0; userNum < 8; userNum++){
+        readUserData();
+    }
+    for (position = 0; position < 10; position = position+2){
+        EECON1bits.EEPGD = 0;
+        EECON1bits.CFGS = 0;
+        EEADR = (0x90)+position;
+        EECON1bits.RD = 1;
+        topScores[position].score = EEDATA;
+        EECON1bits.EEPGD = 0;
+        EECON1bits.CFGS = 0;
+        EEADR = (0x90)+position+1;
+        EECON1bits.RD = 1;
+        while (EECON1bits.RD == 1){}
+        topScores[position].userNum = EEDATA;
+    }
+    EECON1bits.EEPGD = 0;
+    EECON1bits.CFGS = 0;
+    EEADR = 0x95;
+    EECON1bits.RD = 1;
+    while (EECON1bits.RD == 1){}
+    lastUserPointer = EEDATA;
+    if (lastUserPointer == 0xFF){
+        lastUserPointer = 0;
+    }
 }
 
-
-void KeypadMotor(void){
-
-    switch (state){
+void dataMotor(void){
+    switch(state){
         case 0:
 
-            if (!!(PORTBbits.RB0 && PORTBbits.RB1 && PORTBbits.RB2)){
-                LATBbits.LATB3=0;
-                LATBbits.LATB4=1;
-                LATBbits.LATB5=1;
-                LATBbits.LATB6=1;
-                state=1;
-                row=0;
-            }else{
-                state=4;
-            }
             break;
         case 1:
-           if (!!(PORTBbits.RB0 && PORTBbits.RB1 && PORTBbits.RB2)){
-                LATBbits.LATB3=1;
-                LATBbits.LATB4=0;
-                LATBbits.LATB5=1;
-                LATBbits.LATB6=1;
-                state=2;
-                row=1;
+            status = 2;
+            if (userNum != 8){
+                state = 2;
 
-            }else{
-                state=4;
+            } else {
+                status = 1;
+                state = 0;
             }
-           break;
+            break;
+
         case 2:
-            if (!!(PORTBbits.RB0 && PORTBbits.RB1 && PORTBbits.RB2)){
-                LATBbits.LATB3=1;
-                LATBbits.LATB4=1;
-                LATBbits.LATB5=0;
-                LATBbits.LATB6=1;
-                state=3;
-                row=2;
-            }else{
-                state=4;
+            if (users[userNum].username[position] == mUser.username[position]){
+
+                if (mUser.username[position] == '\0'){
+                    state = 3;
+                    LcGotoXY(10,1);
+                    position = 0;
+                }else {
+                    position++;
+                }
+
+            } else {
+                state = 4;
+
             }
-           break;
+            break;
+
         case 3:
-            if (!!(PORTBbits.RB0 && PORTBbits.RB1 && PORTBbits.RB2)){
-                LATBbits.LATB3=1;
-                LATBbits.LATB4=1;
-                LATBbits.LATB5=1;
-                LATBbits.LATB6=0;
-                row=3;
-                state=0;
-            }else{
-                state=4;
+
+
+            if (users[userNum].password[position] == mUser.password[position]){
+
+                if (mUser.password[position] == '\0'){
+                    state = 0;
+                    status = 0;
+                }else {
+                    position++;
+                }
+            } else {
+                state = 4;
             }
-           break;
+
+
+            break;
+
         case 4:
-            state=5;
-            TiResetTics(timerBounces);
+
+            position = 0;
+            userNum++;
+            state = 1;
             break;
         case 5:
-            if (TiGetTics(timerBounces) >= 25){
-                if (!!(PORTBbits.RB0 && PORTBbits.RB1 && PORTBbits.RB2)){
-                    state = 0;
-                } else{
-                    pressed = 1;
-                    state = 6;
-                }
+            if (userNum != 8){
+                state = 6;
+
+            } else {
+                state = 10;
             }
             break;
         case 6:
-            if (!!(PORTBbits.RB0 && PORTBbits.RB1 && PORTBbits.RB2)){
-                TiResetTics(timerBounces);
+            if (users[userNum].username[position] == mUser.username[position]){
+
+                if (mUser.username[position] == '\0'){
+                    state = 0;
+                    status = 4;
+                }else {
+                    position++;
+                }
+
+            } else {
                 state = 7;
+
             }
             break;
         case 7:
-            if (TiGetTics(timerBounces) >= 25){
-                if (!!(PORTBbits.RB0 && PORTBbits.RB1 && PORTBbits.RB2)){
-                    pressed = 0;
-                    state = 0;
-                } else {
-                    state = 6;
+            position = 0;
+            userNum++;
+            state = 5;
+            break;
+        case 10:
+            EEADR = (lastUserPointer*24)+position;
+            EEDATA = mUser.username[position];
+            users[lastUserPointer].username[position] = mUser.username[position];
+            EECON1bits.EEPGD = 0;
+            EECON1bits.CFGS = 0;
+            EECON1bits.WREN = 1;
+            INTCONbits.GIE = 0;
+            EECON2 = 0x55;
+            EECON2 = 0xAA;
+            EECON1bits.WR = 1;
+            INTCONbits.GIE = 1;
+            EECON1bits.WREN = 0;
+            state = 11;
+            break;
+        case 11:
+            if(EECON1bits.WR == 0){
+                if(mUser.username[position] != '\0'){
+                    position++;
+                    state = 10;
+                } else{
+                    position = 0;
+                    state = 12;
                 }
             }
             break;
-    }
-}
-
-
-void SMSMotor(void){
-    switch(stateSMS){
-
-        case 0:
-
-
-            if(pressed){
-                stateSMS=1;
-                currentKey = KeGetGenericValue();
-                available = 2;
-                if (TiGetTics(timer_SMS)>=1200){
-                    available = 1;
-                    numPresses = 0;
-                    previous = 0;
-                } else if(numPresses != 0 && previous != currentKey ){
-
-                    available = 1;
-
-                    previous = currentKey;
-
-                    numPresses = 0;
+        case 12:
+            EEADR = (lastUserPointer*24)+position+9;
+            EEDATA = mUser.password[position];
+            users[lastUserPointer].password[position] = mUser.password[position];
+            EECON1bits.EEPGD = 0;
+            EECON1bits.CFGS = 0;
+            EECON1bits.WREN = 1;
+            INTCONbits.GIE = 0;
+            EECON2 = 0x55;
+            EECON2 = 0xAA;
+            EECON1bits.WR = 1;
+            INTCONbits.GIE = 1;
+            EECON1bits.WREN = 0;
+            state = 13;
+            break;
+        case 13:
+            if(EECON1bits.WR == 0){
+                if(mUser.password[position] != '\0'){
+                    position++;
+                    state = 12;
+                } else{
+                    position = 0;
+                    state = 14;
                 }
-
-
-                TiResetTics(timer_SMS);
-
-            }else{
-              previous=currentKey;
-            }
-
-
-
-            break;
-
-        case 1:
-
-
-
-
-            numPresses++;
-            stateSMS = 2;
-            break;
-
-        case 2:
-            if (!pressed){
-                TiResetTics(timer_SMS);
-
-                stateSMS = 0;
             }
             break;
-
-        case 3:
-            if(pressed){
-                stateSMS = 4;
-            }
-
+        case 14:
+            lastUserPointer = (lastUserPointer+1)%8;
+            EEADR = 0x95;
+            EEDATA = lastUserPointer;
+            EECON1bits.EEPGD = 0;
+            EECON1bits.CFGS = 0;
+            EECON1bits.WREN = 1;
+            INTCONbits.GIE = 0;
+            EECON2 = 0x55;
+            EECON2 = 0xAA;
+            EECON1bits.WR = 1;
+            INTCONbits.GIE = 1;
+            EECON1bits.WREN = 0;
+            state = 15;
             break;
-        case 4:
-            stateSMS = 5;
-            break;
-        case 5:
-            if (!pressed){
-                TiResetTics(timer_SMS);
-
-                stateSMS = 3;
+        case 15:
+            if(EECON1bits.WR == 0){
+                status = 3;
+                state = 0;
             }
             break;
     }
-
-
-
 }
 
 
-char isPressed(void) {
-
- return pressed && (stateSMS == 1||stateSMS == 4);
-}
-char getColumn (void){
-    if (!PORTBbits.RB0) return 0;
-    if (!PORTBbits.RB1) return 1;
-    return 2;
+void DaFindUser(User logUser){
+    state = 1;
+    userNum = 0;
+    mUser = logUser;
+    status = 2;
+    LcGotoXY(10,0);
 }
 
-char KeAvailable(void){
-    return available;
-}
-
-char KeGetCharValue(void){
-    return getFullValue(KeGetGenericValue());
-}
-char KeGetGenericValue(void){
-    return TABLE[(row*3)+getColumn()];
+char DagetUserNumber(void){
+    return userNum;
 }
 
 
 
-char getFullValue(char generic){
+void DaSaveUser(User regUser){
+    state = 5;
+    position = 0;
+    userNum = 0;
+    mUser = regUser;
+    status = 2;
+}
 
-    if (generic - '0' >= 2 && generic - '0' <= 9){
-        if (SMSTABLE[generic - '0' - 1][(numPresses-1)] == '\0'){
-            numPresses = 1;
-        }
-        return SMSTABLE[generic - '0' - 1][(numPresses-1)];
+char DaGetStatus(void){
+    return status;
+}
+
+char DaGetIdle(void){
+    return state == 0;
+}
+
+void readUserData (void) {
+    for (position = 0; position < 9; position++){
+        EECON1bits.EEPGD = 0;
+        EECON1bits.CFGS = 0;
+        EEADR = (userNum*24)+position;
+        EECON1bits.RD = 1;
+        while (EECON1bits.RD == 1){}
+        users[userNum].username[position] = EEDATA;
     }
-    return generic;
-
-}
-
-char getPresses(void) {
-    return available;
-}
-
-
-void KeSetMode(char menuMode){
-    if (menuMode == 1){
-        previous = 0;
-        numPresses = 0;
-        available = 0;
-        stateSMS = 2;
-        TiResetTics(timer_SMS);
-    } else if (menuMode == 0){
-        stateSMS = 4;
+    for (position = 0; position < 9; position++){
+        EECON1bits.EEPGD = 0;
+        EECON1bits.CFGS = 0;
+        EEADR = (userNum*24)+9+position;
+        EECON1bits.RD = 1;
+        while (EECON1bits.RD == 1){}
+        users[userNum].password[position] = EEDATA;
     }
-
 }

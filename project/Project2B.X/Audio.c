@@ -47,7 +47,7 @@ void audioMotor(void){
             
         case 3:
             state = 1;
-            if (TiGetTics(timerSong) >= 1000){
+            if (TiGetTics(timerSong) >= TSECOND){
                 period = (period+1)%5;
                 TiResetTics(timerSong);
             }

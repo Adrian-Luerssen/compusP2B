@@ -568,147 +568,147 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U __TiRSITimer ]
 [f ]
-"40
-[; ;TTimer.c: 40:     TMR0H = 0xD8;
-[e = _TMR0H -> -> 216 `i `uc ]
-"41
-[; ;TTimer.c: 41:     TMR0L = 0xF0;
-[e = _TMR0L -> -> 240 `i `uc ]
 "43
-[; ;TTimer.c: 43:     INTCONbits.TMR0IF = 0;
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;TTimer.c: 43:     TMR0H = 0x20;
+[e = _TMR0H -> -> 32 `i `uc ]
 "44
-[; ;TTimer.c: 44:     h_Tics++;
-[e ++ _h_Tics -> -> 1 `i `ui ]
+[; ;TTimer.c: 44:     TMR0L = 0x8A;
+[e = _TMR0L -> -> 138 `i `uc ]
+"45
+[; ;TTimer.c: 45:     INTCONbits.TMR0IF = 0;
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
 "46
-[; ;TTimer.c: 46:     if (h_Tics>=30000) {
+[; ;TTimer.c: 46:     h_Tics++;
+[e ++ _h_Tics -> -> 1 `i `ui ]
+"48
+[; ;TTimer.c: 48:     if (h_Tics>=30000) {
 [e $ ! >= _h_Tics -> -> 30000 `i `ui 286  ]
 {
-"48
-[; ;TTimer.c: 48:         for (counter=0;counter<25;counter++){
+"50
+[; ;TTimer.c: 50:         for (counter=0;counter<25;counter++){
 {
 [e = _counter -> -> 0 `i `uc ]
 [e $ < -> _counter `i -> 25 `i 287  ]
 [e $U 288  ]
 [e :U 287 ]
 {
-"49
-[; ;TTimer.c: 49:             if (s_Timers[counter].b_busy==1){
+"51
+[; ;TTimer.c: 51:             if (s_Timers[counter].b_busy==1){
 [e $ ! == -> . *U + &U _s_Timers * -> _counter `ux -> -> # *U &U _s_Timers `ui `ux 1 `i -> 1 `i 290  ]
 {
-"50
-[; ;TTimer.c: 50:                 s_Timers[counter].h_initialTics -= h_Tics;
+"52
+[; ;TTimer.c: 52:                 s_Timers[counter].h_initialTics -= h_Tics;
 [e =- . *U + &U _s_Timers * -> _counter `ux -> -> # *U &U _s_Timers `ui `ux 0 _h_Tics ]
-"51
-[; ;TTimer.c: 51:             }
+"53
+[; ;TTimer.c: 53:             }
 }
 [e :U 290 ]
-"52
-[; ;TTimer.c: 52:         }
+"54
+[; ;TTimer.c: 54:         }
 }
 [e ++ _counter -> -> 1 `i `uc ]
 [e $ < -> _counter `i -> 25 `i 287  ]
 [e :U 288 ]
 }
-"53
-[; ;TTimer.c: 53:         h_Tics=0;
+"55
+[; ;TTimer.c: 55:         h_Tics=0;
 [e = _h_Tics -> -> 0 `i `ui ]
-"54
-[; ;TTimer.c: 54:     }
+"56
+[; ;TTimer.c: 56:     }
 }
 [e :U 286 ]
-"56
-[; ;TTimer.c: 56: }
+"58
+[; ;TTimer.c: 58: }
 [e :UE 285 ]
 }
-"57
-[; ;TTimer.c: 57: void TiResetTics(char Handle) {
+"59
+[; ;TTimer.c: 59: void TiResetTics(char Handle) {
 [v _TiResetTics `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _TiResetTics ]
 [v _Handle `uc ~T0 @X0 1 r1 ]
 [f ]
-"61
-[; ;TTimer.c: 61:     s_Timers[Handle].h_initialTics=h_Tics;
+"63
+[; ;TTimer.c: 63:     s_Timers[Handle].h_initialTics=h_Tics;
 [e = . *U + &U _s_Timers * -> _Handle `ux -> -> # *U &U _s_Timers `ui `ux 0 _h_Tics ]
-"62
-[; ;TTimer.c: 62: }
+"64
+[; ;TTimer.c: 64: }
 [e :UE 291 ]
 }
-"63
-[; ;TTimer.c: 63: int TiGetTics(char Handle) {
+"65
+[; ;TTimer.c: 65: int TiGetTics(char Handle) {
 [v _TiGetTics `(i ~T0 @X0 1 ef1`uc ]
 {
 [e :U _TiGetTics ]
 [v _Handle `uc ~T0 @X0 1 r1 ]
 [f ]
-"67
-[; ;TTimer.c: 67:     volatile unsigned int actual;
-[v _actual `Vui ~T0 @X0 1 a ]
-"68
-[; ;TTimer.c: 68:     actual=h_Tics;
-[e = _actual _h_Tics ]
 "69
-[; ;TTimer.c: 69:     return (actual-(s_Timers[Handle].h_initialTics));
+[; ;TTimer.c: 69:     volatile unsigned int actual;
+[v _actual `Vui ~T0 @X0 1 a ]
+"70
+[; ;TTimer.c: 70:     actual=h_Tics;
+[e = _actual _h_Tics ]
+"71
+[; ;TTimer.c: 71:     return (actual-(s_Timers[Handle].h_initialTics));
 [e ) -> - _actual . *U + &U _s_Timers * -> _Handle `ux -> -> # *U &U _s_Timers `ui `ux 0 `i ]
 [e $UE 292  ]
-"71
-[; ;TTimer.c: 71: }
+"73
+[; ;TTimer.c: 73: }
 [e :UE 292 ]
 }
-"72
-[; ;TTimer.c: 72: char TiGetTimer(void) {
+"74
+[; ;TTimer.c: 74: char TiGetTimer(void) {
 [v _TiGetTimer `(uc ~T0 @X0 1 ef ]
 {
 [e :U _TiGetTimer ]
 [f ]
-"76
-[; ;TTimer.c: 76:     counter=0;
+"78
+[; ;TTimer.c: 78:     counter=0;
 [e = _counter -> -> 0 `i `uc ]
-"77
-[; ;TTimer.c: 77:     while (s_Timers[counter].b_busy==1) {
+"79
+[; ;TTimer.c: 79:     while (s_Timers[counter].b_busy==1) {
 [e $U 294  ]
 [e :U 295 ]
 {
-"78
-[; ;TTimer.c: 78:         counter++;
+"80
+[; ;TTimer.c: 80:         counter++;
 [e ++ _counter -> -> 1 `i `uc ]
-"79
-[; ;TTimer.c: 79:  if (counter == 25) return -1;
+"81
+[; ;TTimer.c: 81:  if (counter == 25) return -1;
 [e $ ! == -> _counter `i -> 25 `i 297  ]
 [e ) -> -U -> 1 `i `uc ]
 [e $UE 293  ]
 [e :U 297 ]
-"80
-[; ;TTimer.c: 80:     }
+"82
+[; ;TTimer.c: 82:     }
 }
 [e :U 294 ]
-"77
-[; ;TTimer.c: 77:     while (s_Timers[counter].b_busy==1) {
+"79
+[; ;TTimer.c: 79:     while (s_Timers[counter].b_busy==1) {
 [e $ == -> . *U + &U _s_Timers * -> _counter `ux -> -> # *U &U _s_Timers `ui `ux 1 `i -> 1 `i 295  ]
 [e :U 296 ]
-"81
-[; ;TTimer.c: 81:     s_Timers[counter].b_busy=1;
+"83
+[; ;TTimer.c: 83:     s_Timers[counter].b_busy=1;
 [e = . *U + &U _s_Timers * -> _counter `ux -> -> # *U &U _s_Timers `ui `ux 1 -> -> 1 `i `uc ]
-"82
-[; ;TTimer.c: 82:     return (counter);
+"84
+[; ;TTimer.c: 84:     return (counter);
 [e ) _counter ]
 [e $UE 293  ]
-"83
-[; ;TTimer.c: 83: }
+"85
+[; ;TTimer.c: 85: }
 [e :UE 293 ]
 }
-"84
-[; ;TTimer.c: 84: void TiFreeTimer (char Handle) {
+"86
+[; ;TTimer.c: 86: void TiFreeTimer (char Handle) {
 [v _TiFreeTimer `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _TiFreeTimer ]
 [v _Handle `uc ~T0 @X0 1 r1 ]
 [f ]
-"87
-[; ;TTimer.c: 87:     s_Timers[Handle].b_busy=0;
+"89
+[; ;TTimer.c: 89:     s_Timers[Handle].b_busy=0;
 [e = . *U + &U _s_Timers * -> _Handle `ux -> -> # *U &U _s_Timers `ui `ux 1 -> -> 0 `i `uc ]
-"88
-[; ;TTimer.c: 88: }
+"90
+[; ;TTimer.c: 90: }
 [e :UE 298 ]
 }

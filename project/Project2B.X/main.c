@@ -7,6 +7,7 @@
 #include "Joystick.h"
 #include "SIO.h"
 #include "Audio.h"
+#include "EEPROM.h"
 //#include "TPORTB.h"
 //#include "TSIO.h"
 //#include "TADC.h"
@@ -31,15 +32,7 @@ void __interrupt() RSI_High(void){
 	//void __interrupt() RSI_High(void){
 	_TiRSITimer();
 }
-int tick_count;
-char tmr;
-//Important: We CANNOT call interrupting functions from our code 
-//The returns from the interrupts are different than the returns from the rest of the functions.
 
-//Defining a High Priority Interrupt. 
-void InitPorts(void){
-
-}
 
 void main(void){
     TiInitTimer();
@@ -48,13 +41,15 @@ void main(void){
     LcInit(2,16);
     initSIO();
     initMenu();
-    initAudio();
+    //initAudio();
+    initData();
 	while(1){
-        audioMotor();
+        //audioMotor();
         SMSMotor();
         KeypadMotor();
         menuMotor();
         joystickMotor();
+        dataMotor();
 	}				
 }
 

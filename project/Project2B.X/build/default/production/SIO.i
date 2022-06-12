@@ -4629,7 +4629,8 @@ void SiSendChar(char myByte);
 
 
 void initSIO(void){
-# 14 "SIO.c"
+
+
     TRISCbits.TRISC7 = 1;
     TRISCbits.TRISC6 = 1;
     TXSTAbits.BRGH = 1;

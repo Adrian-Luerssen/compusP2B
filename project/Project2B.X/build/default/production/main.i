@@ -4617,6 +4617,7 @@ unsigned char __t3rd16on(void);
 
 
 
+
 void TiInitTimer(void);
 
 
@@ -4703,11 +4704,38 @@ void KeSetMode(char menuMode);
 
 
 
+# 1 "./EEPROM.h" 1
 
-void initMenu(void);
-void menuMotor(void);
-void displayMenu (char menuMode,char row);
-# 6 "main.c" 2
+
+
+
+
+typedef struct {
+    char username [9];
+    char password [9];
+} User;
+
+typedef struct {
+    char score;
+    char userNum;
+} Score;
+# 32 "./EEPROM.h"
+void initData(void);
+
+void dataMotor(void);
+
+void DaFindUser(User logUser);
+
+char DaGetUserNumber(void);
+
+void DaSaveUser(User regUser);
+
+char DaGetStatus(void);
+
+char DaGetIdle(void);
+
+void readUserData (void);
+# 8 "./Menu.h" 2
 
 # 1 "./Joystick.h" 1
 
@@ -4739,7 +4767,18 @@ void SiSendChar(char myByte);
 
 void joystickMotor(void);
 void initJoystick(void);
-# 7 "main.c" 2
+
+char JoMoved(void);
+
+char JoDirection(void);
+# 9 "./Menu.h" 2
+
+
+void initMenu(void);
+void menuMotor(void);
+void displayMenu (char menuMode,char row);
+# 6 "main.c" 2
+
 
 
 # 1 "./Audio.h" 1
@@ -4752,6 +4791,7 @@ void startSong(void);
 
 void stopSong(void);
 # 9 "main.c" 2
+
 
 
 
@@ -4777,15 +4817,7 @@ void __attribute__((picinterrupt(("")))) RSI_High(void){
 
  _TiRSITimer();
 }
-int tick_count;
-char tmr;
 
-
-
-
-void InitPorts(void){
-
-}
 
 void main(void){
     TiInitTimer();
@@ -4794,12 +4826,14 @@ void main(void){
     LcInit(2,16);
     initSIO();
     initMenu();
-    initAudio();
+
+    initData();
  while(1){
-        audioMotor();
+
         SMSMotor();
         KeypadMotor();
         menuMotor();
         joystickMotor();
+        dataMotor();
  }
 }

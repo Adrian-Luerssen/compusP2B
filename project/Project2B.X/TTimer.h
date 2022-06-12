@@ -1,6 +1,7 @@
 #ifndef TTIMER_H
 #define	TTIMER_H
 
+#define TSECOND 1200
 
 void TiInitTimer(void);
 //Pre: --

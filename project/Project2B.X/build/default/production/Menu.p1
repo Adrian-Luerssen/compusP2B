@@ -1,9 +1,13 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"18 ./TTimer.h
-[; ;./TTimer.h: 18: char TiGetTimer(void);
+"6 ./EEPROM.h
+[; ;./EEPROM.h: 6: typedef struct {
+[s S280 `uc -> 9 `i `uc -> 9 `i ]
+[n S280 . username password ]
+"19 ./TTimer.h
+[; ;./TTimer.h: 19: char TiGetTimer(void);
 [v _TiGetTimer `(uc ~T0 @X0 0 ef ]
-"11 ./Menu.h
-[; ;./Menu.h: 11: void displayMenu (char menuMode,char row);
+"13 ./Menu.h
+[; ;./Menu.h: 13: void displayMenu (char menuMode,char row);
 [v _displayMenu `(v ~T0 @X0 0 ef2`uc`uc ]
 "83 ./LcTLCD.h
 [; ;./LcTLCD.h: 83: void LcCursorOff(void);
@@ -26,21 +30,39 @@ Version 4.0 HI-TECH Software Intermediate Code
 "79
 [; ;./LcTLCD.h: 79: void LcCursorOn(void);
 [v _LcCursorOn `(v ~T0 @X0 0 ef ]
-"13 ./TTimer.h
-[; ;./TTimer.h: 13: int TiGetTics(char Handle);
+"14 ./TTimer.h
+[; ;./TTimer.h: 14: int TiGetTics(char Handle);
 [v _TiGetTics `(i ~T0 @X0 0 ef1`uc ]
-"9
-[; ;./TTimer.h: 9: void TiResetTics(char Handle);
+"10
+[; ;./TTimer.h: 10: void TiResetTics(char Handle);
 [v _TiResetTics `(v ~T0 @X0 0 ef1`uc ]
 "22 ./keypad.h
 [; ;./keypad.h: 22: char getPresses(void);
 [v _getPresses `(uc ~T0 @X0 0 ef ]
+"19
+[; ;./keypad.h: 19: char KeGetCharValue(void);
+[v _KeGetCharValue `(uc ~T0 @X0 0 ef ]
 "92 ./LcTLCD.h
 [; ;./LcTLCD.h: 92: void LcPutChar(char c);
 [v _LcPutChar `(v ~T0 @X0 0 ef1`uc ]
-"19 ./keypad.h
-[; ;./keypad.h: 19: char KeGetCharValue(void);
-[v _KeGetCharValue `(uc ~T0 @X0 0 ef ]
+"36 ./EEPROM.h
+[; ;./EEPROM.h: 36: void DaFindUser(User logUser);
+[v _DaFindUser `(v ~T0 @X0 0 ef1`S280 ]
+"40
+[; ;./EEPROM.h: 40: void DaSaveUser(User regUser);
+[v _DaSaveUser `(v ~T0 @X0 0 ef1`S280 ]
+"44
+[; ;./EEPROM.h: 44: char DaGetIdle(void);
+[v _DaGetIdle `(uc ~T0 @X0 0 ef ]
+"42
+[; ;./EEPROM.h: 42: char DaGetStatus(void);
+[v _DaGetStatus `(uc ~T0 @X0 0 ef ]
+"18 ./Joystick.h
+[; ;./Joystick.h: 18: char JoMoved(void);
+[v _JoMoved `(uc ~T0 @X0 0 ef ]
+"20
+[; ;./Joystick.h: 20: char JoDirection(void);
+[v _JoDirection `(uc ~T0 @X0 0 ef ]
 "55 C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 55: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -455,10 +477,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7011
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 7011: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-[v F2613 `Cuc ~T0 @X0 -> 11 `i t ]
-"9 Menu.c
-[; ;Menu.c: 9: static const char LOGINMENU[2][11]= {"1.LOGIN\0","2.REGISTER\0"};
-[v _LOGINMENU `F2613 ~T0 @X0 -> 2 `i s ]
+[v F2639 `Cuc ~T0 @X0 -> 11 `i t ]
+"10 Menu.c
+[; ;Menu.c: 10: static const char LOGINMENU[2][11]= {"1.LOGIN\0","2.REGISTER\0"};
+[v _LOGINMENU `F2639 ~T0 @X0 -> 2 `i s ]
 [i _LOGINMENU
 :U ..
 :U ..
@@ -487,10 +509,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-[v F2615 `Cuc ~T0 @X0 -> 6 `i t ]
-"10
-[; ;Menu.c: 10: static const char LOGREGSCREEN [2][6] = {"USER:\0","PSWD:\0"};
-[v _LOGREGSCREEN `F2615 ~T0 @X0 -> 2 `i s ]
+[v F2641 `Cuc ~T0 @X0 -> 6 `i t ]
+"11
+[; ;Menu.c: 11: static const char LOGREGSCREEN [2][6] = {"USER:\0","PSWD:\0"};
+[v _LOGREGSCREEN `F2641 ~T0 @X0 -> 2 `i s ]
 [i _LOGREGSCREEN
 :U ..
 :U ..
@@ -511,10 +533,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-[v F2617 `Cuc ~T0 @X0 -> 28 `i t ]
-"11
-[; ;Menu.c: 11: static const char MAINMENU[4][28] = {"1.PLAY A GAME\0","2.MODIFY TIME\0","3.SHOW GENERAL TOP 5 SCORES\0","4.LOGOUT\0"};
-[v _MAINMENU `F2617 ~T0 @X0 -> 4 `i s ]
+[v F2643 `Cuc ~T0 @X0 -> 28 `i t ]
+"12
+[; ;Menu.c: 12: static const char MAINMENU[4][28] = {"1.PLAY A GAME\0","2.MODIFY TIME\0","3.SHOW GENERAL\0 TOP 5 SCORES\0","4.LOGOUT\0"};
+[v _MAINMENU `F2643 ~T0 @X0 -> 4 `i s ]
 [i _MAINMENU
 :U ..
 :U ..
@@ -566,6 +588,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 82 `c
 -> 65 `c
 -> 76 `c
+-> 0 `c
 -> 32 `c
 -> 84 `c
 -> 79 `c
@@ -579,7 +602,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 82 `c
 -> 69 `c
 -> 83 `c
--> 0 `c
 ..
 :U ..
 -> 52 `c
@@ -595,210 +617,205 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"14
-[; ;Menu.c: 14: static char timer;
-[v _timer `uc ~T0 @X0 1 s ]
 "15
-[; ;Menu.c: 15: static char LCDrow,LCDcol = 0;
+[; ;Menu.c: 15: static char timer;
+[v _timer `uc ~T0 @X0 1 s ]
+"16
+[; ;Menu.c: 16: static char LCDrow,LCDcol = 0;
 [v _LCDrow `uc ~T0 @X0 1 s ]
 [v _LCDcol `uc ~T0 @X0 1 s ]
 [i _LCDcol
 -> -> 0 `i `uc
 ]
-"16
-[; ;Menu.c: 16: static char val;
+"17
+[; ;Menu.c: 17: static char val;
 [v _val `uc ~T0 @X0 1 s ]
 "18
-[; ;Menu.c: 18: void initMenu(void){
+[; ;Menu.c: 18: static User mUser;
+[v _mUser `S280 ~T0 @X0 1 s ]
+"20
+[; ;Menu.c: 20: void initMenu(void){
 [v _initMenu `(v ~T0 @X0 1 ef ]
 {
 [e :U _initMenu ]
 [f ]
-"19
-[; ;Menu.c: 19:     timer = TiGetTimer();
+"21
+[; ;Menu.c: 21:     timer = TiGetTimer();
 [e = _timer ( _TiGetTimer ..  ]
-"20
-[; ;Menu.c: 20: }
-[e :UE 281 ]
+"22
+[; ;Menu.c: 22: }
+[e :UE 283 ]
 }
-"23
-[; ;Menu.c: 23: void menuMotor(void){
+"25
+[; ;Menu.c: 25: void menuMotor(void){
 [v _menuMotor `(v ~T0 @X0 1 ef ]
 {
 [e :U _menuMotor ]
 [f ]
-"24
-[; ;Menu.c: 24:     static char state = 1;
-[v F2624 `uc ~T0 @X0 1 s state ]
-[i F2624
+"26
+[; ;Menu.c: 26:     static char state = 1;
+[v F2651 `uc ~T0 @X0 1 s state ]
+[i F2651
 -> -> 1 `i `uc
 ]
-"25
-[; ;Menu.c: 25:     switch (state){
-[e $U 284  ]
-{
-"26
-[; ;Menu.c: 26:         case 1:
-[e :U 285 ]
 "27
-[; ;Menu.c: 27:             displayMenu(0,0);
-[e ( _displayMenu (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;Menu.c: 27:     switch (state){
+[e $U 286  ]
+{
 "28
-[; ;Menu.c: 28:             if (LCDrow == 2){
-[e $ ! == -> _LCDrow `i -> 2 `i 286  ]
-{
-"29
-[; ;Menu.c: 29:                 LcCursorOff();
-[e ( _LcCursorOff ..  ]
-"30
-[; ;Menu.c: 30:                 KeSetMode(0);
-[e ( _KeSetMode (1 -> -> 0 `i `uc ]
-"31
-[; ;Menu.c: 31:                 state = 2;
-[e = F2624 -> -> 2 `i `uc ]
-"32
-[; ;Menu.c: 32:             }
-}
-[e :U 286 ]
-"33
-[; ;Menu.c: 33:             break;
-[e $U 283  ]
-"34
-[; ;Menu.c: 34:         case 2:
+[; ;Menu.c: 28:         case 1:
 [e :U 287 ]
-"35
-[; ;Menu.c: 35:             if (isPressed()){
-[e $ ! != -> ( _isPressed ..  `i -> 0 `i 288  ]
+"29
+[; ;Menu.c: 29:             displayMenu(0,0);
+[e ( _displayMenu (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"30
+[; ;Menu.c: 30:             if (LCDrow == 2){
+[e $ ! == -> _LCDrow `i -> 2 `i 288  ]
 {
-"36
-[; ;Menu.c: 36:                 val = KeGetGenericValue() - '0';
-[e = _val -> - -> ( _KeGetGenericValue ..  `ui -> 48 `ui `uc ]
-"37
-[; ;Menu.c: 37:                 if (val == 1||val == 2){
-[e $ ! || == -> _val `i -> 1 `i == -> _val `i -> 2 `i 289  ]
-{
-"38
-[; ;Menu.c: 38:                     LcClear();
-[e ( _LcClear ..  ]
-"39
-[; ;Menu.c: 39:                     LcGotoXY(0,0);
-[e ( _LcGotoXY (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"40
-[; ;Menu.c: 40:                     KeSetMode(1);
-[e ( _KeSetMode (1 -> -> 1 `i `uc ]
-"41
-[; ;Menu.c: 41:                     LCDcol = LCDrow = 0;
-[e = _LCDcol = _LCDrow -> -> 0 `i `uc ]
-"42
-[; ;Menu.c: 42:                     state = 3;
-[e = F2624 -> -> 3 `i `uc ]
-"43
-[; ;Menu.c: 43:                 }
-}
-[e :U 289 ]
-"44
-[; ;Menu.c: 44:             }
+"31
+[; ;Menu.c: 31:                 LcCursorOff();
+[e ( _LcCursorOff ..  ]
+"32
+[; ;Menu.c: 32:                 KeSetMode(0);
+[e ( _KeSetMode (1 -> -> 0 `i `uc ]
+"33
+[; ;Menu.c: 33:                 state = 2;
+[e = F2651 -> -> 2 `i `uc ]
+"34
+[; ;Menu.c: 34:             }
 }
 [e :U 288 ]
-"45
-[; ;Menu.c: 45:             break;
-[e $U 283  ]
-"47
-[; ;Menu.c: 47:         case 3:
-[e :U 290 ]
-"48
-[; ;Menu.c: 48:             displayMenu(1,0);
-[e ( _displayMenu (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
-"49
-[; ;Menu.c: 49:             if (LCDrow == 2){
-[e $ ! == -> _LCDrow `i -> 2 `i 291  ]
+"35
+[; ;Menu.c: 35:             break;
+[e $U 285  ]
+"36
+[; ;Menu.c: 36:         case 2:
+[e :U 289 ]
+"37
+[; ;Menu.c: 37:             if (isPressed()){
+[e $ ! != -> ( _isPressed ..  `i -> 0 `i 290  ]
 {
-"50
-[; ;Menu.c: 50:                 LCDrow = 0;
-[e = _LCDrow -> -> 0 `i `uc ]
-"51
-[; ;Menu.c: 51:                 LCDcol = 5;
-[e = _LCDcol -> -> 5 `i `uc ]
-"52
-[; ;Menu.c: 52:                 LcGotoXY(LCDcol,LCDrow);
-[e ( _LcGotoXY (2 , _LCDcol _LCDrow ]
-"53
-[; ;Menu.c: 53:                 LcCursorOn();
-[e ( _LcCursorOn ..  ]
-"54
-[; ;Menu.c: 54:                 state = 4;
-[e = F2624 -> -> 4 `i `uc ]
-"55
-[; ;Menu.c: 55:             }
+"38
+[; ;Menu.c: 38:                 val = KeGetGenericValue() - '0';
+[e = _val -> - -> ( _KeGetGenericValue ..  `ui -> 48 `ui `uc ]
+"39
+[; ;Menu.c: 39:                 if (val == 1||val == 2){
+[e $ ! || == -> _val `i -> 1 `i == -> _val `i -> 2 `i 291  ]
+{
+"40
+[; ;Menu.c: 40:                     LcClear();
+[e ( _LcClear ..  ]
+"41
+[; ;Menu.c: 41:                     LcGotoXY(0,0);
+[e ( _LcGotoXY (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"42
+[; ;Menu.c: 42:                     KeSetMode(1);
+[e ( _KeSetMode (1 -> -> 1 `i `uc ]
+"43
+[; ;Menu.c: 43:                     LCDcol = LCDrow = 0;
+[e = _LCDcol = _LCDrow -> -> 0 `i `uc ]
+"44
+[; ;Menu.c: 44:                     state = 3;
+[e = F2651 -> -> 3 `i `uc ]
+"45
+[; ;Menu.c: 45:                 }
 }
 [e :U 291 ]
-"56
-[; ;Menu.c: 56:             break;
-[e $U 283  ]
-"57
-[; ;Menu.c: 57:         case 4:
-[e :U 292 ]
-"58
-[; ;Menu.c: 58:             if (LCDcol >= 12 && TiGetTics(timer) >= 1000){
-[e $ ! && >= -> _LCDcol `i -> 12 `i >= ( _TiGetTics (1 _timer -> 1000 `i 293  ]
-{
-"59
-[; ;Menu.c: 59:                 state = 5;
-[e = F2624 -> -> 5 `i `uc ]
-"60
-[; ;Menu.c: 60:             }else if (isPressed()){
+"46
+[; ;Menu.c: 46:             }
 }
-[e $U 294  ]
+[e :U 290 ]
+"47
+[; ;Menu.c: 47:             break;
+[e $U 285  ]
+"49
+[; ;Menu.c: 49:         case 3:
+[e :U 292 ]
+"50
+[; ;Menu.c: 50:             displayMenu(1,0);
+[e ( _displayMenu (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
+"51
+[; ;Menu.c: 51:             if (LCDrow == 2){
+[e $ ! == -> _LCDrow `i -> 2 `i 293  ]
+{
+"52
+[; ;Menu.c: 52:                 LCDrow = 0;
+[e = _LCDrow -> -> 0 `i `uc ]
+"53
+[; ;Menu.c: 53:                 LCDcol = 5;
+[e = _LCDcol -> -> 5 `i `uc ]
+"54
+[; ;Menu.c: 54:                 LcGotoXY(LCDcol,LCDrow);
+[e ( _LcGotoXY (2 , _LCDcol _LCDrow ]
+"55
+[; ;Menu.c: 55:                 LcCursorOn();
+[e ( _LcCursorOn ..  ]
+"56
+[; ;Menu.c: 56:                 state = 4;
+[e = F2651 -> -> 4 `i `uc ]
+"57
+[; ;Menu.c: 57:             }
+}
 [e :U 293 ]
-[e $ ! != -> ( _isPressed ..  `i -> 0 `i 295  ]
+"58
+[; ;Menu.c: 58:             break;
+[e $U 285  ]
+"59
+[; ;Menu.c: 59:         case 4:
+[e :U 294 ]
+"60
+[; ;Menu.c: 60:             if (LCDcol >= 12 && TiGetTics(timer) >= 1200){
+[e $ ! && >= -> _LCDcol `i -> 12 `i >= ( _TiGetTics (1 _timer -> 1200 `i 295  ]
 {
 "61
-[; ;Menu.c: 61:                 TiResetTics(timer);
-[e ( _TiResetTics (1 _timer ]
+[; ;Menu.c: 61:                 state = 5;
+[e = F2651 -> -> 5 `i `uc ]
 "62
-[; ;Menu.c: 62:                 if (getPresses() == 2){
-[e $ ! == -> ( _getPresses ..  `i -> 2 `i 296  ]
+[; ;Menu.c: 62:             }else if (isPressed()){
+}
+[e $U 296  ]
+[e :U 295 ]
+[e $ ! != -> ( _isPressed ..  `i -> 0 `i 297  ]
 {
 "63
-[; ;Menu.c: 63:                     LcGotoXY(LCDcol--,LCDrow);
-[e ( _LcGotoXY (2 , -- _LCDcol -> -> 1 `i `uc _LCDrow ]
+[; ;Menu.c: 63:                 TiResetTics(timer);
+[e ( _TiResetTics (1 _timer ]
 "64
-[; ;Menu.c: 64:                 }
-}
-[e :U 296 ]
+[; ;Menu.c: 64:                 if (getPresses() == 2){
+[e $ ! == -> ( _getPresses ..  `i -> 2 `i 298  ]
+{
 "65
-[; ;Menu.c: 65:                 if (KeGetGenericValue() != '#'){
-[e $ ! != -> ( _KeGetGenericValue ..  `ui -> 35 `ui 297  ]
-{
+[; ;Menu.c: 65:                     LcGotoXY(LCDcol,LCDrow);
+[e ( _LcGotoXY (2 , _LCDcol _LCDrow ]
 "66
-[; ;Menu.c: 66:                     LcPutChar(KeGetCharValue());
-[e ( _LcPutChar (1 ( _KeGetCharValue ..  ]
+[; ;Menu.c: 66:                     LCDcol--;
+[e -- _LCDcol -> -> 1 `i `uc ]
 "67
-[; ;Menu.c: 67:                     LCDcol++;
-[e ++ _LCDcol -> -> 1 `i `uc ]
-"69
-[; ;Menu.c: 69:                     if (val == 1){
-[e $ ! == -> _val `i -> 1 `i 298  ]
-{
-"71
-[; ;Menu.c: 71:                     } else {
+[; ;Menu.c: 67:                 }
 }
-[e $U 299  ]
 [e :U 298 ]
+"68
+[; ;Menu.c: 68:                 if (KeGetGenericValue() != '#'){
+[e $ ! != -> ( _KeGetGenericValue ..  `ui -> 35 `ui 299  ]
 {
-"73
-[; ;Menu.c: 73:                     }
-}
-[e :U 299 ]
+"69
+[; ;Menu.c: 69:                     mUser.username[LCDcol-4] = KeGetCharValue();
+[e = *U + &U . _mUser 0 * -> -> - -> _LCDcol `i -> 4 `i `ui `ux -> -> # *U &U . _mUser 0 `ui `ux ( _KeGetCharValue ..  ]
+"70
+[; ;Menu.c: 70:                     LcPutChar(mUser.username[LCDcol-4]);
+[e ( _LcPutChar (1 *U + &U . _mUser 0 * -> -> - -> _LCDcol `i -> 4 `i `ui `ux -> -> # *U &U . _mUser 0 `ui `ux ]
+"71
+[; ;Menu.c: 71:                     LCDcol++;
+[e ++ _LCDcol -> -> 1 `i `uc ]
 "75
 [; ;Menu.c: 75:                 } else {
 }
 [e $U 300  ]
-[e :U 297 ]
+[e :U 299 ]
 {
 "76
 [; ;Menu.c: 76:                     state = 5;
-[e = F2624 -> -> 5 `i `uc ]
+[e = F2651 -> -> 5 `i `uc ]
 "77
 [; ;Menu.c: 77:                 }
 }
@@ -806,185 +823,452 @@ Version 4.0 HI-TECH Software Intermediate Code
 "78
 [; ;Menu.c: 78:             }
 }
-[e :U 295 ]
-[e :U 294 ]
+[e :U 297 ]
+[e :U 296 ]
 "80
 [; ;Menu.c: 80:             break;
-[e $U 283  ]
+[e $U 285  ]
 "81
 [; ;Menu.c: 81:         case 5:
 [e :U 301 ]
 "83
-[; ;Menu.c: 83:             LCDrow = 1;
-[e = _LCDrow -> -> 1 `i `uc ]
+[; ;Menu.c: 83:             mUser.username[LCDcol-4] = '\0';
+[e = *U + &U . _mUser 0 * -> -> - -> _LCDcol `i -> 4 `i `ui `ux -> -> # *U &U . _mUser 0 `ui `ux -> -> 0 `ui `uc ]
 "84
-[; ;Menu.c: 84:             LCDcol = 5;
-[e = _LCDcol -> -> 5 `i `uc ]
+[; ;Menu.c: 84:             LCDrow = 1;
+[e = _LCDrow -> -> 1 `i `uc ]
 "85
-[; ;Menu.c: 85:             KeSetMode(1);
-[e ( _KeSetMode (1 -> -> 1 `i `uc ]
+[; ;Menu.c: 85:             LCDcol = 5;
+[e = _LCDcol -> -> 5 `i `uc ]
 "86
-[; ;Menu.c: 86:             LcGotoXY(LCDcol,LCDrow);
-[e ( _LcGotoXY (2 , _LCDcol _LCDrow ]
+[; ;Menu.c: 86:             KeSetMode(1);
+[e ( _KeSetMode (1 -> -> 1 `i `uc ]
 "87
-[; ;Menu.c: 87:             state = 6;
-[e = F2624 -> -> 6 `i `uc ]
+[; ;Menu.c: 87:             LcGotoXY(LCDcol,LCDrow);
+[e ( _LcGotoXY (2 , _LCDcol _LCDrow ]
 "88
-[; ;Menu.c: 88:             break;
-[e $U 283  ]
+[; ;Menu.c: 88:             state = 6;
+[e = F2651 -> -> 6 `i `uc ]
 "89
-[; ;Menu.c: 89:         case 6:
-[e :U 302 ]
+[; ;Menu.c: 89:             break;
+[e $U 285  ]
 "90
-[; ;Menu.c: 90:             if (isPressed()){
+[; ;Menu.c: 90:         case 6:
+[e :U 302 ]
+"91
+[; ;Menu.c: 91:             if (isPressed()){
 [e $ ! != -> ( _isPressed ..  `i -> 0 `i 303  ]
 {
-"91
-[; ;Menu.c: 91:                 if (getPresses() == 2){
+"92
+[; ;Menu.c: 92:                 if (getPresses() == 2){
 [e $ ! == -> ( _getPresses ..  `i -> 2 `i 304  ]
 {
-"92
-[; ;Menu.c: 92:                     LcGotoXY(LCDcol--,LCDrow);
-[e ( _LcGotoXY (2 , -- _LCDcol -> -> 1 `i `uc _LCDrow ]
 "93
-[; ;Menu.c: 93:                 }
+[; ;Menu.c: 93:                     LcGotoXY(LCDcol,LCDrow);
+[e ( _LcGotoXY (2 , _LCDcol _LCDrow ]
+"94
+[; ;Menu.c: 94:                     LCDcol--;
+[e -- _LCDcol -> -> 1 `i `uc ]
+"95
+[; ;Menu.c: 95:                 }
 }
 [e :U 304 ]
-"95
-[; ;Menu.c: 95:                 if (KeGetGenericValue() != '#'){
+"97
+[; ;Menu.c: 97:                 if (KeGetGenericValue() != '#'){
 [e $ ! != -> ( _KeGetGenericValue ..  `ui -> 35 `ui 305  ]
 {
-"96
-[; ;Menu.c: 96:                     LcPutChar(KeGetCharValue());
-[e ( _LcPutChar (1 ( _KeGetCharValue ..  ]
-"97
-[; ;Menu.c: 97:                     LCDcol++;
-[e ++ _LCDcol -> -> 1 `i `uc ]
 "98
-[; ;Menu.c: 98:                     if (val == 1){
-[e $ ! == -> _val `i -> 1 `i 306  ]
-{
+[; ;Menu.c: 98:                     mUser.password[LCDcol-4] = KeGetCharValue();
+[e = *U + &U . _mUser 1 * -> -> - -> _LCDcol `i -> 4 `i `ui `ux -> -> # *U &U . _mUser 1 `ui `ux ( _KeGetCharValue ..  ]
+"99
+[; ;Menu.c: 99:                     LcPutChar(mUser.password[LCDcol-4]);
+[e ( _LcPutChar (1 *U + &U . _mUser 1 * -> -> - -> _LCDcol `i -> 4 `i `ui `ux -> -> # *U &U . _mUser 1 `ui `ux ]
 "100
-[; ;Menu.c: 100:                     } else {
+[; ;Menu.c: 100:                     LCDcol++;
+[e ++ _LCDcol -> -> 1 `i `uc ]
+"101
+[; ;Menu.c: 101:                 } else {
 }
-[e $U 307  ]
-[e :U 306 ]
+[e $U 306  ]
+[e :U 305 ]
 {
 "102
-[; ;Menu.c: 102:                     }
-}
-[e :U 307 ]
+[; ;Menu.c: 102:                     mUser.password[LCDcol-4] = '\0';
+[e = *U + &U . _mUser 1 * -> -> - -> _LCDcol `i -> 4 `i `ui `ux -> -> # *U &U . _mUser 1 `ui `ux -> -> 0 `ui `uc ]
 "103
-[; ;Menu.c: 103:                 }
-}
-[e :U 305 ]
+[; ;Menu.c: 103:                     state = 7;
+[e = F2651 -> -> 7 `i `uc ]
 "104
-[; ;Menu.c: 104:             }
+[; ;Menu.c: 104:                 }
+}
+[e :U 306 ]
+"105
+[; ;Menu.c: 105:             }
 }
 [e :U 303 ]
-"106
-[; ;Menu.c: 106:             break;
-[e $U 283  ]
 "107
-[; ;Menu.c: 107:     }
+[; ;Menu.c: 107:             break;
+[e $U 285  ]
+"108
+[; ;Menu.c: 108:         case 7:
+[e :U 307 ]
+"109
+[; ;Menu.c: 109:             if (val == 1){
+[e $ ! == -> _val `i -> 1 `i 308  ]
+{
+"110
+[; ;Menu.c: 110:                 DaFindUser(mUser);
+[e ( _DaFindUser (1 _mUser ]
+"112
+[; ;Menu.c: 112:             } else {
 }
-[e $U 283  ]
-[e :U 284 ]
-[e [\ -> F2624 `i , $ -> 1 `i 285
- , $ -> 2 `i 287
- , $ -> 3 `i 290
- , $ -> 4 `i 292
+[e $U 309  ]
+[e :U 308 ]
+{
+"113
+[; ;Menu.c: 113:                 DaSaveUser(mUser);
+[e ( _DaSaveUser (1 _mUser ]
+"114
+[; ;Menu.c: 114:             }
+}
+[e :U 309 ]
+"115
+[; ;Menu.c: 115:             state = 8;
+[e = F2651 -> -> 8 `i `uc ]
+"116
+[; ;Menu.c: 116:             break;
+[e $U 285  ]
+"117
+[; ;Menu.c: 117:         case 8:
+[e :U 310 ]
+"118
+[; ;Menu.c: 118:             if (DaGetIdle()){
+[e $ ! != -> ( _DaGetIdle ..  `i -> 0 `i 311  ]
+{
+"119
+[; ;Menu.c: 119:                 if (val == 1){
+[e $ ! == -> _val `i -> 1 `i 312  ]
+{
+"120
+[; ;Menu.c: 120:                     if (DaGetStatus() == 0){
+[e $ ! == -> ( _DaGetStatus ..  `i -> 0 `i 313  ]
+{
+"122
+[; ;Menu.c: 122:                         state = 9;
+[e = F2651 -> -> 9 `i `uc ]
+"123
+[; ;Menu.c: 123:                         val =0;
+[e = _val -> -> 0 `i `uc ]
+"124
+[; ;Menu.c: 124:                     } else if (DaGetStatus() == 1){
+}
+[e $U 314  ]
+[e :U 313 ]
+[e $ ! == -> ( _DaGetStatus ..  `i -> 1 `i 315  ]
+{
+"125
+[; ;Menu.c: 125:                         KeSetMode(0);
+[e ( _KeSetMode (1 -> -> 0 `i `uc ]
+"126
+[; ;Menu.c: 126:                         state = 1;
+[e = F2651 -> -> 1 `i `uc ]
+"128
+[; ;Menu.c: 128:                     }
+}
+[e :U 315 ]
+[e :U 314 ]
+"129
+[; ;Menu.c: 129:                 } else {
+}
+[e $U 316  ]
+[e :U 312 ]
+{
+"130
+[; ;Menu.c: 130:                     if (DaGetStatus() == 3){
+[e $ ! == -> ( _DaGetStatus ..  `i -> 3 `i 317  ]
+{
+"131
+[; ;Menu.c: 131:                         KeSetMode(1);
+[e ( _KeSetMode (1 -> -> 1 `i `uc ]
+"132
+[; ;Menu.c: 132:                         state = 3;
+[e = F2651 -> -> 3 `i `uc ]
+"133
+[; ;Menu.c: 133:                         val = 1;
+[e = _val -> -> 1 `i `uc ]
+"134
+[; ;Menu.c: 134:                     } else if (DaGetStatus() == 4){
+}
+[e $U 318  ]
+[e :U 317 ]
+[e $ ! == -> ( _DaGetStatus ..  `i -> 4 `i 319  ]
+{
+"135
+[; ;Menu.c: 135:                         KeSetMode(0);
+[e ( _KeSetMode (1 -> -> 0 `i `uc ]
+"136
+[; ;Menu.c: 136:                         state = 1;
+[e = F2651 -> -> 1 `i `uc ]
+"137
+[; ;Menu.c: 137:                     }
+}
+[e :U 319 ]
+[e :U 318 ]
+"138
+[; ;Menu.c: 138:                 }
+}
+[e :U 316 ]
+"140
+[; ;Menu.c: 140:                 LcClear();
+[e ( _LcClear ..  ]
+"141
+[; ;Menu.c: 141:                 LcGotoXY(0,0);
+[e ( _LcGotoXY (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"142
+[; ;Menu.c: 142:                 LCDcol = LCDrow = 0;
+[e = _LCDcol = _LCDrow -> -> 0 `i `uc ]
+"143
+[; ;Menu.c: 143:             }
+}
+[e :U 311 ]
+"144
+[; ;Menu.c: 144:             break;
+[e $U 285  ]
+"145
+[; ;Menu.c: 145:         case 9:
+[e :U 320 ]
+"147
+[; ;Menu.c: 147:             displayMenu(2,val);
+[e ( _displayMenu (2 , -> -> 2 `i `uc _val ]
+"148
+[; ;Menu.c: 148:             if (LCDrow == 2 || LCDrow+val >= 4){
+[e $ ! || == -> _LCDrow `i -> 2 `i >= + -> _LCDrow `i -> _val `i -> 4 `i 321  ]
+{
+"149
+[; ;Menu.c: 149:                 LcCursorOff();
+[e ( _LcCursorOff ..  ]
+"150
+[; ;Menu.c: 150:                 state = 10;
+[e = F2651 -> -> 10 `i `uc ]
+"151
+[; ;Menu.c: 151:             }
+}
+[e :U 321 ]
+"152
+[; ;Menu.c: 152:             break;
+[e $U 285  ]
+"153
+[; ;Menu.c: 153:         case 10:
+[e :U 322 ]
+"154
+[; ;Menu.c: 154:             if (!JoMoved()){
+[e $ ! ! != -> ( _JoMoved ..  `i -> 0 `i 323  ]
+{
+"155
+[; ;Menu.c: 155:                 state = 11;
+[e = F2651 -> -> 11 `i `uc ]
+"156
+[; ;Menu.c: 156:             }
+}
+[e :U 323 ]
+"157
+[; ;Menu.c: 157:             break;
+[e $U 285  ]
+"158
+[; ;Menu.c: 158:         case 11:
+[e :U 324 ]
+"159
+[; ;Menu.c: 159:             if (JoMoved()){
+[e $ ! != -> ( _JoMoved ..  `i -> 0 `i 325  ]
+{
+"160
+[; ;Menu.c: 160:                 if (JoDirection() == 'S' && val < 4){
+[e $ ! && == -> ( _JoDirection ..  `ui -> 83 `ui < -> _val `i -> 4 `i 326  ]
+{
+"161
+[; ;Menu.c: 161:                     val++;
+[e ++ _val -> -> 1 `i `uc ]
+"162
+[; ;Menu.c: 162:                 } else if(JoDirection() == 'W' && val > 0){
+}
+[e $U 327  ]
+[e :U 326 ]
+[e $ ! && == -> ( _JoDirection ..  `ui -> 87 `ui > -> _val `i -> 0 `i 328  ]
+{
+"163
+[; ;Menu.c: 163:                     val--;
+[e -- _val -> -> 1 `i `uc ]
+"164
+[; ;Menu.c: 164:                 }
+}
+[e :U 328 ]
+[e :U 327 ]
+"165
+[; ;Menu.c: 165:                 state = 9;
+[e = F2651 -> -> 9 `i `uc ]
+"166
+[; ;Menu.c: 166:                 LcClear();
+[e ( _LcClear ..  ]
+"167
+[; ;Menu.c: 167:                 LCDcol = LCDrow = 0;
+[e = _LCDcol = _LCDrow -> -> 0 `i `uc ]
+"168
+[; ;Menu.c: 168:             }
+}
+[e :U 325 ]
+"169
+[; ;Menu.c: 169:             break;
+[e $U 285  ]
+"170
+[; ;Menu.c: 170:     }
+}
+[e $U 285  ]
+[e :U 286 ]
+[e [\ -> F2651 `i , $ -> 1 `i 287
+ , $ -> 2 `i 289
+ , $ -> 3 `i 292
+ , $ -> 4 `i 294
  , $ -> 5 `i 301
  , $ -> 6 `i 302
- 283 ]
-[e :U 283 ]
-"108
-[; ;Menu.c: 108: }
-[e :UE 282 ]
+ , $ -> 7 `i 307
+ , $ -> 8 `i 310
+ , $ -> 9 `i 320
+ , $ -> 10 `i 322
+ , $ -> 11 `i 324
+ 285 ]
+[e :U 285 ]
+"171
+[; ;Menu.c: 171: }
+[e :UE 284 ]
 }
-"112
-[; ;Menu.c: 112: void displayMenu (char menuMode,char row){
+"175
+[; ;Menu.c: 175: void displayMenu (char menuMode, char row){
 [v _displayMenu `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _displayMenu ]
 [v _menuMode `uc ~T0 @X0 1 r1 ]
 [v _row `uc ~T0 @X0 1 r2 ]
 [f ]
-"113
-[; ;Menu.c: 113:     if (menuMode == 0){
-[e $ ! == -> _menuMode `i -> 0 `i 309  ]
+"176
+[; ;Menu.c: 176:     if (menuMode == 0){
+[e $ ! == -> _menuMode `i -> 0 `i 330  ]
 {
-"114
-[; ;Menu.c: 114:         if (LOGINMENU[LCDrow+row][LCDcol] != '\0'){
-[e $ ! != -> *U + &U *U + &U _LOGINMENU * -> -> + -> _LCDrow `i -> _row `i `ui `ux -> * -> # *U &U *U &U _LOGINMENU `ui -> -> 11 `i `ui `ux * -> _LCDcol `ux -> -> # *U &U *U + &U _LOGINMENU * -> -> + -> _LCDrow `i -> _row `i `ui `ux -> * -> # *U &U *U &U _LOGINMENU `ui -> -> 11 `i `ui `ux `ui `ux `ui -> 0 `ui 310  ]
+"177
+[; ;Menu.c: 177:         if (LOGINMENU[LCDrow][LCDcol] != '\0'){
+[e $ ! != -> *U + &U *U + &U _LOGINMENU * -> _LCDrow `ux -> * -> # *U &U *U &U _LOGINMENU `ui -> -> 11 `i `ui `ux * -> _LCDcol `ux -> -> # *U &U *U + &U _LOGINMENU * -> _LCDrow `ux -> * -> # *U &U *U &U _LOGINMENU `ui -> -> 11 `i `ui `ux `ui `ux `ui -> 0 `ui 331  ]
 {
-"115
-[; ;Menu.c: 115:             LcPutChar(LOGINMENU[LCDrow+row][LCDcol]);
-[e ( _LcPutChar (1 *U + &U *U + &U _LOGINMENU * -> -> + -> _LCDrow `i -> _row `i `ui `ux -> * -> # *U &U *U &U _LOGINMENU `ui -> -> 11 `i `ui `ux * -> _LCDcol `ux -> -> # *U &U *U + &U _LOGINMENU * -> -> + -> _LCDrow `i -> _row `i `ui `ux -> * -> # *U &U *U &U _LOGINMENU `ui -> -> 11 `i `ui `ux `ui `ux ]
-"116
-[; ;Menu.c: 116:             LCDcol++;
+"178
+[; ;Menu.c: 178:             LcPutChar(LOGINMENU[LCDrow][LCDcol]);
+[e ( _LcPutChar (1 *U + &U *U + &U _LOGINMENU * -> _LCDrow `ux -> * -> # *U &U *U &U _LOGINMENU `ui -> -> 11 `i `ui `ux * -> _LCDcol `ux -> -> # *U &U *U + &U _LOGINMENU * -> _LCDrow `ux -> * -> # *U &U *U &U _LOGINMENU `ui -> -> 11 `i `ui `ux `ui `ux ]
+"179
+[; ;Menu.c: 179:             LCDcol++;
 [e ++ _LCDcol -> -> 1 `i `uc ]
-"117
-[; ;Menu.c: 117:         } else {
+"180
+[; ;Menu.c: 180:         } else {
 }
-[e $U 311  ]
-[e :U 310 ]
+[e $U 332  ]
+[e :U 331 ]
 {
-"118
-[; ;Menu.c: 118:             LCDrow++;
+"181
+[; ;Menu.c: 181:             LCDrow++;
 [e ++ _LCDrow -> -> 1 `i `uc ]
-"119
-[; ;Menu.c: 119:             LcGotoXY(0,1);
+"182
+[; ;Menu.c: 182:             LcGotoXY(0,1);
 [e ( _LcGotoXY (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-"120
-[; ;Menu.c: 120:             LCDcol = 0;
+"183
+[; ;Menu.c: 183:             LCDcol = 0;
 [e = _LCDcol -> -> 0 `i `uc ]
-"121
-[; ;Menu.c: 121:         }
+"184
+[; ;Menu.c: 184:         }
 }
-[e :U 311 ]
-"122
-[; ;Menu.c: 122:     } else if (menuMode == 1) {
+[e :U 332 ]
+"185
+[; ;Menu.c: 185:     } else if (menuMode == 1) {
 }
-[e $U 312  ]
-[e :U 309 ]
-[e $ ! == -> _menuMode `i -> 1 `i 313  ]
+[e $U 333  ]
+[e :U 330 ]
+[e $ ! == -> _menuMode `i -> 1 `i 334  ]
 {
-"123
-[; ;Menu.c: 123:         if (LOGREGSCREEN[LCDrow][LCDcol] != '\0'){
-[e $ ! != -> *U + &U *U + &U _LOGREGSCREEN * -> _LCDrow `ux -> * -> # *U &U *U &U _LOGREGSCREEN `ui -> -> 6 `i `ui `ux * -> _LCDcol `ux -> -> # *U &U *U + &U _LOGREGSCREEN * -> _LCDrow `ux -> * -> # *U &U *U &U _LOGREGSCREEN `ui -> -> 6 `i `ui `ux `ui `ux `ui -> 0 `ui 314  ]
+"186
+[; ;Menu.c: 186:         if (LOGREGSCREEN[LCDrow][LCDcol] != '\0'){
+[e $ ! != -> *U + &U *U + &U _LOGREGSCREEN * -> _LCDrow `ux -> * -> # *U &U *U &U _LOGREGSCREEN `ui -> -> 6 `i `ui `ux * -> _LCDcol `ux -> -> # *U &U *U + &U _LOGREGSCREEN * -> _LCDrow `ux -> * -> # *U &U *U &U _LOGREGSCREEN `ui -> -> 6 `i `ui `ux `ui `ux `ui -> 0 `ui 335  ]
 {
-"124
-[; ;Menu.c: 124:             LcPutChar(LOGREGSCREEN[LCDrow][LCDcol]);
+"187
+[; ;Menu.c: 187:             LcPutChar(LOGREGSCREEN[LCDrow][LCDcol]);
 [e ( _LcPutChar (1 *U + &U *U + &U _LOGREGSCREEN * -> _LCDrow `ux -> * -> # *U &U *U &U _LOGREGSCREEN `ui -> -> 6 `i `ui `ux * -> _LCDcol `ux -> -> # *U &U *U + &U _LOGREGSCREEN * -> _LCDrow `ux -> * -> # *U &U *U &U _LOGREGSCREEN `ui -> -> 6 `i `ui `ux `ui `ux ]
-"125
-[; ;Menu.c: 125:             LCDcol++;
+"188
+[; ;Menu.c: 188:             LCDcol++;
 [e ++ _LCDcol -> -> 1 `i `uc ]
-"126
-[; ;Menu.c: 126:         } else {
+"189
+[; ;Menu.c: 189:         } else {
 }
-[e $U 315  ]
-[e :U 314 ]
+[e $U 336  ]
+[e :U 335 ]
 {
-"127
-[; ;Menu.c: 127:             LCDrow++;
+"190
+[; ;Menu.c: 190:             LCDrow++;
 [e ++ _LCDrow -> -> 1 `i `uc ]
-"128
-[; ;Menu.c: 128:             LcGotoXY(0,1);
+"191
+[; ;Menu.c: 191:             LcGotoXY(0,1);
 [e ( _LcGotoXY (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-"129
-[; ;Menu.c: 129:             LCDcol = 0;
+"192
+[; ;Menu.c: 192:             LCDcol = 0;
 [e = _LCDcol -> -> 0 `i `uc ]
-"130
-[; ;Menu.c: 130:         }
+"193
+[; ;Menu.c: 193:         }
 }
-[e :U 315 ]
-"131
-[; ;Menu.c: 131:     }
+[e :U 336 ]
+"194
+[; ;Menu.c: 194:     } else if (menuMode == 2){
 }
-[e :U 313 ]
-[e :U 312 ]
-"134
-[; ;Menu.c: 134: }
-[e :UE 308 ]
+[e $U 337  ]
+[e :U 334 ]
+[e $ ! == -> _menuMode `i -> 2 `i 338  ]
+{
+"195
+[; ;Menu.c: 195:         if (LCDrow+row < 4){
+[e $ ! < + -> _LCDrow `i -> _row `i -> 4 `i 339  ]
+{
+"196
+[; ;Menu.c: 196:             if (MAINMENU[LCDrow+row][LCDcol] != '\0'){
+[e $ ! != -> *U + &U *U + &U _MAINMENU * -> -> + -> _LCDrow `i -> _row `i `ui `ux -> * -> # *U &U *U &U _MAINMENU `ui -> -> 28 `i `ui `ux * -> _LCDcol `ux -> -> # *U &U *U + &U _MAINMENU * -> -> + -> _LCDrow `i -> _row `i `ui `ux -> * -> # *U &U *U &U _MAINMENU `ui -> -> 28 `i `ui `ux `ui `ux `ui -> 0 `ui 340  ]
+{
+"197
+[; ;Menu.c: 197:                 LcPutChar(MAINMENU[LCDrow+row][LCDcol]);
+[e ( _LcPutChar (1 *U + &U *U + &U _MAINMENU * -> -> + -> _LCDrow `i -> _row `i `ui `ux -> * -> # *U &U *U &U _MAINMENU `ui -> -> 28 `i `ui `ux * -> _LCDcol `ux -> -> # *U &U *U + &U _MAINMENU * -> -> + -> _LCDrow `i -> _row `i `ui `ux -> * -> # *U &U *U &U _MAINMENU `ui -> -> 28 `i `ui `ux `ui `ux ]
+"198
+[; ;Menu.c: 198:                 LCDcol++;
+[e ++ _LCDcol -> -> 1 `i `uc ]
+"199
+[; ;Menu.c: 199:             } else {
+}
+[e $U 341  ]
+[e :U 340 ]
+{
+"200
+[; ;Menu.c: 200:                 LCDrow++;
+[e ++ _LCDrow -> -> 1 `i `uc ]
+"201
+[; ;Menu.c: 201:                 LcGotoXY(0,1);
+[e ( _LcGotoXY (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+"202
+[; ;Menu.c: 202:                 LCDcol = 0;
+[e = _LCDcol -> -> 0 `i `uc ]
+"203
+[; ;Menu.c: 203:             }
+}
+[e :U 341 ]
+"204
+[; ;Menu.c: 204:         }
+}
+[e :U 339 ]
+"206
+[; ;Menu.c: 206:     }
+}
+[e :U 338 ]
+[e :U 337 ]
+[e :U 333 ]
+"209
+[; ;Menu.c: 209: }
+[e :UE 329 ]
 }

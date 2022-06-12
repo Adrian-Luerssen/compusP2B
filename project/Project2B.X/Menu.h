@@ -5,6 +5,8 @@
 #include "LcTLCD.h"
 #include "keypad.h"
 #include "TTimer.h"
+#include "EEPROM.h"
+#include "Joystick.h"
 
 void initMenu(void);
 void menuMotor(void);
