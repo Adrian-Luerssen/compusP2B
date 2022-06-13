@@ -7,4 +7,5 @@ Menu.h  \
 EEPROM.h  \
 Joystick.h  \
 SIO.h  \
+time.h  \
 Audio.h 

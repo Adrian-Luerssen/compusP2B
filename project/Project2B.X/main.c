@@ -8,6 +8,7 @@
 #include "SIO.h"
 #include "Audio.h"
 #include "EEPROM.h"
+#include "time.h"
 //#include "TPORTB.h"
 //#include "TSIO.h"
 //#include "TADC.h"
@@ -42,6 +43,7 @@ void main(void){
     initSIO();
     initMenu();
     //initAudio();
+    initTime();
     initData();
 	while(1){
         //audioMotor();
@@ -50,6 +52,7 @@ void main(void){
         menuMotor();
         joystickMotor();
         dataMotor();
+        timeMotor();
 	}				
 }
 

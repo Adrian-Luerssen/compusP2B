@@ -7,6 +7,7 @@
 #include "TTimer.h"
 #include "EEPROM.h"
 #include "Joystick.h"
+#include "time.h"
 
 void initMenu(void);
 void menuMotor(void);

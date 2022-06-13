@@ -4620,3 +4620,197 @@ unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\xc.h" 2 3
 # 9 "time.c" 2
 
+# 1 "./time.h" 1
+
+
+
+
+
+# 1 "./TTimer.h" 1
+
+
+
+
+
+void TiInitTimer(void);
+
+
+
+void TiResetTics(char Handle);
+
+
+
+int TiGetTics(char Handle);
+
+
+
+
+char TiGetTimer(void);
+
+
+
+
+void TiFreeTimer (char Handle);
+
+
+
+void _TiRSITimer (void);
+# 6 "./time.h" 2
+
+# 1 "./LcTLCD.h" 1
+# 65 "./LcTLCD.h"
+void LcInit(char rows, char columns);
+
+
+
+
+
+
+void LcEnd(void);
+
+
+void LcClear(void);
+
+
+
+void LcCursorOn(void);
+
+
+
+void LcCursorOff(void);
+
+
+
+void LcGotoXY(char Column, char Row);
+
+
+
+
+void LcPutChar(char c);
+# 103 "./LcTLCD.h"
+void LcPutString(char *s);
+# 7 "./time.h" 2
+
+void initTime(void);
+
+void timeMotor(void);
+
+void startTimer(void);
+
+void stopTimer(void);
+
+void resetTimer(void);
+void displayTimeRemaining(void);
+# 10 "time.c" 2
+
+static char seconds = 0;
+static char minutes = 30;
+static char second[2] = {0,0};
+static char minute[2] = {3,0};
+static char timer;
+static char state = 0;
+void initTime(void){
+    timer = TiGetTimer();
+}
+
+void timeMotor(void) {
+    switch (state){
+        case 0:
+
+            break;
+        case 1:
+            if (TiGetTics(timer) >= 1200){
+                TiResetTics(timer);
+                state = 2;
+                LcGotoXY(0,1);
+                if (second[1] == 0){
+                    second[1] = 9;
+                    if (second[0] == 0){
+                        second[0] = 5;
+                        if (minute[1] == 0){
+                            minute[1] = 9;
+                            if (minute[0] == 0){
+                                state = 10;
+                            }else{
+                                minute[0]--;
+                            }
+                        }else{
+                            minute[1]--;
+                        }
+                    }else {
+                        second[0]--;
+                    }
+                } else {
+                    second[1]--;
+                }
+            }
+            break;
+        case 2:
+
+            LcPutChar(minute[0]+'0');
+            state = 3;
+            break;
+        case 3:
+
+            LcPutChar(minute[1]+'0');
+            state = 4;
+            break;
+        case 4:
+
+            LcPutChar(':');
+            state = 5;
+            break;
+        case 5:
+
+            LcPutChar(second[0]+'0');
+            state = 6;
+            break;
+        case 6:
+
+            LcPutChar(second[1]+'0');
+            state = 1;
+            break;
+        case 7:
+
+            LcPutChar(minute[0]+'0');
+            state = 8;
+            break;
+        case 8:
+
+            LcPutChar(minute[1]+'0');
+            state = 9;
+            break;
+        case 9:
+
+            LcPutChar(':');
+            state = 10;
+            break;
+        case 10:
+
+            LcPutChar(second[0]+'0');
+            state = 11;
+            break;
+        case 11:
+
+            LcPutChar(second[1]+'0');
+            state = 0;
+    }
+}
+
+void startTimer(void){
+    state = 1;
+    TiResetTics(timer);
+}
+void stopTimer(void){
+    state = 0;
+}
+void displayTimeRemaining(void){
+    state = 7;
+    LcGotoXY(11,0);
+}
+void resetTimer(void){
+    second[1] = seconds/10;
+    second[0] = seconds%10;
+    minute[0] = minutes%10;
+    minute[1] = minutes/10;
+}

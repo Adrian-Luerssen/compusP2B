@@ -4779,6 +4779,26 @@ char JoDirection(void);
 void JoSetMode(char mode);
 # 9 "./Menu.h" 2
 
+# 1 "./time.h" 1
+
+
+
+
+
+
+
+void initTime(void);
+
+void timeMotor(void);
+
+void startTimer(void);
+
+void stopTimer(void);
+
+void resetTimer(void);
+void displayTimeRemaining(void);
+# 10 "./Menu.h" 2
+
 
 void initMenu(void);
 void menuMotor(void);
@@ -4797,6 +4817,7 @@ void startSong(void);
 
 void stopSong(void);
 # 9 "main.c" 2
+
 
 
 
@@ -4833,6 +4854,7 @@ void main(void){
     initSIO();
     initMenu();
 
+    initTime();
     initData();
  while(1){
 
@@ -4841,5 +4863,6 @@ void main(void){
         menuMotor();
         joystickMotor();
         dataMotor();
+        timeMotor();
  }
 }

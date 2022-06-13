@@ -4784,6 +4784,26 @@ char JoDirection(void);
 void JoSetMode(char mode);
 # 9 "./Menu.h" 2
 
+# 1 "./time.h" 1
+
+
+
+
+
+
+
+void initTime(void);
+
+void timeMotor(void);
+
+void startTimer(void);
+
+void stopTimer(void);
+
+void resetTimer(void);
+void displayTimeRemaining(void);
+# 10 "./Menu.h" 2
+
 
 void initMenu(void);
 void menuMotor(void);
@@ -4801,6 +4821,9 @@ static const char LOGINMENU[2][11]= {"1.LOGIN\0","2.REGISTER\0"};
 static const char LOGREGSCREEN [2][6] = {"USER:\0","PSWD:\0"};
 static const char MAINMENU[4][28] = {"1.PLAY A GAME\0","2.MODIFY TIME\0","3.SHOW GENERAL TOP 5 SCORES \0","4.LOGOUT\0"};
 static const char MAINMENUSIZE[4] = {14,14,28,9};
+static const char ERROR[9] = {"ERRORS: \0"};
+static const char TIME[16] = {"TIME REMAINING: \0"};
+static const char RESULTS[2][11] = {"TIME LEFT:\0","SCORE:\0"};
 
 
 static char timer;
@@ -4993,14 +5016,17 @@ void menuMotor(void){
                 if (val == 'K'){
                     state = 14;
                     JoSetMode(1);
+                    LcClear();
+                    LCDcol = LCDrow = 0;
                 }
             }
             break;
         case 14:
 
             displayMenu(3,0);
-            if (LCDrow == 2){
+            if (LCDrow == 1){
                 LcCursorOff();
+                startTimer();
                 state = 15;
             }
             break;
@@ -5010,6 +5036,7 @@ void menuMotor(void){
                 if (val == '*' || val == '#'){
                     if (val == '*'){
                         state = 17;
+                        stopTimer();
                     }
                 } else {
                     state = 16;
@@ -5037,7 +5064,7 @@ void menuMotor(void){
             }
             break;
         case 19:
-            displayMenu(3,0);
+            displayMenu(4,0);
             if(LCDrow == 2){
                 state = 20;
             }
@@ -5063,8 +5090,12 @@ void menuMotor(void){
             }
             break;
         case 22:
-            displayMenu(4,0);
+            displayMenu(5,0);
             if(LCDrow == 2){
+                LcGotoXY(7,1);
+                LcPutChar((mScore/10)+'0');
+                LcPutChar((mScore%10)+'0');
+                displayTimeRemaining();
                 state = 23;
             }
             break;
@@ -5128,6 +5159,40 @@ void displayMenu (char menuMode, char row){
             }
         }
 
+    }else if (menuMode == 3){
+        if (TIME[LCDcol] != '\0'){
+                LcPutChar(TIME[LCDcol]);
+                LCDcol++;
+            } else {
+                LCDrow++;
+                LcGotoXY(0,1);
+                LCDcol = 0;
+            }
+    } else if (menuMode == 4){
+        if (LCDrow == 0){
+           if (ERROR[LCDcol] != '\0'){
+                LcPutChar(ERROR[LCDcol]);
+                LCDcol++;
+            } else {
+                LCDrow++;
+                LcGotoXY(0,1);
+                LCDcol = 0;
+            }
+        } else {
+            LcPutChar(val);
+            LcPutChar(LCDcolm);
+            LCDrow++;
+        }
+
+    } else if (menuMode == 5){
+        if (RESULTS[LCDrow][LCDcol] != '\0'){
+            LcPutChar(RESULTS[LCDrow][LCDcol]);
+            LCDcol++;
+        } else {
+            LCDrow++;
+            LcGotoXY(0,1);
+            LCDcol = 0;
+        }
     }
 
 

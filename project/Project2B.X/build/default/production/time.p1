@@ -1,4 +1,19 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"19 ./TTimer.h
+[; ;./TTimer.h: 19: char TiGetTimer(void);
+[v _TiGetTimer `(uc ~T0 @X0 0 ef ]
+"14
+[; ;./TTimer.h: 14: int TiGetTics(char Handle);
+[v _TiGetTics `(i ~T0 @X0 0 ef1`uc ]
+"10
+[; ;./TTimer.h: 10: void TiResetTics(char Handle);
+[v _TiResetTics `(v ~T0 @X0 0 ef1`uc ]
+"87 ./LcTLCD.h
+[; ;./LcTLCD.h: 87: void LcGotoXY(char Column, char Row);
+[v _LcGotoXY `(v ~T0 @X0 0 ef2`uc`uc ]
+"92
+[; ;./LcTLCD.h: 92: void LcPutChar(char c);
+[v _LcPutChar `(v ~T0 @X0 0 ef1`uc ]
 "55 C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 55: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -413,3 +428,381 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7011
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 7011: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
+"11 time.c
+[; ;time.c: 11: static char seconds = 0;
+[v _seconds `uc ~T0 @X0 1 s ]
+[i _seconds
+-> -> 0 `i `uc
+]
+"12
+[; ;time.c: 12: static char minutes = 30;
+[v _minutes `uc ~T0 @X0 1 s ]
+[i _minutes
+-> -> 30 `i `uc
+]
+"13
+[; ;time.c: 13: static char second[2] = {0,0};
+[v _second `uc ~T0 @X0 -> 2 `i s ]
+[i _second
+:U ..
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+]
+"14
+[; ;time.c: 14: static char minute[2] = {3,0};
+[v _minute `uc ~T0 @X0 -> 2 `i s ]
+[i _minute
+:U ..
+-> -> 3 `i `uc
+-> -> 0 `i `uc
+..
+]
+"15
+[; ;time.c: 15: static char timer;
+[v _timer `uc ~T0 @X0 1 s ]
+"16
+[; ;time.c: 16: static char state = 0;
+[v _state `uc ~T0 @X0 1 s ]
+[i _state
+-> -> 0 `i `uc
+]
+"17
+[; ;time.c: 17: void initTime(void){
+[v _initTime `(v ~T0 @X0 1 ef ]
+{
+[e :U _initTime ]
+[f ]
+"18
+[; ;time.c: 18:     timer = TiGetTimer();
+[e = _timer ( _TiGetTimer ..  ]
+"19
+[; ;time.c: 19: }
+[e :UE 280 ]
+}
+"21
+[; ;time.c: 21: void timeMotor(void) {
+[v _timeMotor `(v ~T0 @X0 1 ef ]
+{
+[e :U _timeMotor ]
+[f ]
+"22
+[; ;time.c: 22:     switch (state){
+[e $U 283  ]
+{
+"23
+[; ;time.c: 23:         case 0:
+[e :U 284 ]
+"25
+[; ;time.c: 25:             break;
+[e $U 282  ]
+"26
+[; ;time.c: 26:         case 1:
+[e :U 285 ]
+"27
+[; ;time.c: 27:             if (TiGetTics(timer) >= 1200){
+[e $ ! >= ( _TiGetTics (1 _timer -> 1200 `i 286  ]
+{
+"28
+[; ;time.c: 28:                 TiResetTics(timer);
+[e ( _TiResetTics (1 _timer ]
+"29
+[; ;time.c: 29:                 state = 2;
+[e = _state -> -> 2 `i `uc ]
+"30
+[; ;time.c: 30:                 LcGotoXY(0,1);
+[e ( _LcGotoXY (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+"31
+[; ;time.c: 31:                 if (second[1] == 0){
+[e $ ! == -> *U + &U _second * -> -> -> 1 `i `ui `ux -> -> # *U &U _second `ui `ux `i -> 0 `i 287  ]
+{
+"32
+[; ;time.c: 32:                     second[1] = 9;
+[e = *U + &U _second * -> -> -> 1 `i `ui `ux -> -> # *U &U _second `ui `ux -> -> 9 `i `uc ]
+"33
+[; ;time.c: 33:                     if (second[0] == 0){
+[e $ ! == -> *U + &U _second * -> -> -> 0 `i `ui `ux -> -> # *U &U _second `ui `ux `i -> 0 `i 288  ]
+{
+"34
+[; ;time.c: 34:                         second[0] = 5;
+[e = *U + &U _second * -> -> -> 0 `i `ui `ux -> -> # *U &U _second `ui `ux -> -> 5 `i `uc ]
+"35
+[; ;time.c: 35:                         if (minute[1] == 0){
+[e $ ! == -> *U + &U _minute * -> -> -> 1 `i `ui `ux -> -> # *U &U _minute `ui `ux `i -> 0 `i 289  ]
+{
+"36
+[; ;time.c: 36:                             minute[1] = 9;
+[e = *U + &U _minute * -> -> -> 1 `i `ui `ux -> -> # *U &U _minute `ui `ux -> -> 9 `i `uc ]
+"37
+[; ;time.c: 37:                             if (minute[0] == 0){
+[e $ ! == -> *U + &U _minute * -> -> -> 0 `i `ui `ux -> -> # *U &U _minute `ui `ux `i -> 0 `i 290  ]
+{
+"38
+[; ;time.c: 38:                                 state = 10;
+[e = _state -> -> 10 `i `uc ]
+"39
+[; ;time.c: 39:                             }else{
+}
+[e $U 291  ]
+[e :U 290 ]
+{
+"40
+[; ;time.c: 40:                                 minute[0]--;
+[e -- *U + &U _minute * -> -> -> 0 `i `ui `ux -> -> # *U &U _minute `ui `ux -> -> 1 `i `uc ]
+"41
+[; ;time.c: 41:                             }
+}
+[e :U 291 ]
+"42
+[; ;time.c: 42:                         }else{
+}
+[e $U 292  ]
+[e :U 289 ]
+{
+"43
+[; ;time.c: 43:                             minute[1]--;
+[e -- *U + &U _minute * -> -> -> 1 `i `ui `ux -> -> # *U &U _minute `ui `ux -> -> 1 `i `uc ]
+"44
+[; ;time.c: 44:                         }
+}
+[e :U 292 ]
+"45
+[; ;time.c: 45:                     }else {
+}
+[e $U 293  ]
+[e :U 288 ]
+{
+"46
+[; ;time.c: 46:                         second[0]--;
+[e -- *U + &U _second * -> -> -> 0 `i `ui `ux -> -> # *U &U _second `ui `ux -> -> 1 `i `uc ]
+"47
+[; ;time.c: 47:                     }
+}
+[e :U 293 ]
+"48
+[; ;time.c: 48:                 } else {
+}
+[e $U 294  ]
+[e :U 287 ]
+{
+"49
+[; ;time.c: 49:                     second[1]--;
+[e -- *U + &U _second * -> -> -> 1 `i `ui `ux -> -> # *U &U _second `ui `ux -> -> 1 `i `uc ]
+"50
+[; ;time.c: 50:                 }
+}
+[e :U 294 ]
+"51
+[; ;time.c: 51:             }
+}
+[e :U 286 ]
+"52
+[; ;time.c: 52:             break;
+[e $U 282  ]
+"53
+[; ;time.c: 53:         case 2:
+[e :U 295 ]
+"55
+[; ;time.c: 55:             LcPutChar(minute[0]+'0');
+[e ( _LcPutChar (1 -> + -> *U + &U _minute * -> -> -> 0 `i `ui `ux -> -> # *U &U _minute `ui `ux `ui -> 48 `ui `uc ]
+"56
+[; ;time.c: 56:             state = 3;
+[e = _state -> -> 3 `i `uc ]
+"57
+[; ;time.c: 57:             break;
+[e $U 282  ]
+"58
+[; ;time.c: 58:         case 3:
+[e :U 296 ]
+"60
+[; ;time.c: 60:             LcPutChar(minute[1]+'0');
+[e ( _LcPutChar (1 -> + -> *U + &U _minute * -> -> -> 1 `i `ui `ux -> -> # *U &U _minute `ui `ux `ui -> 48 `ui `uc ]
+"61
+[; ;time.c: 61:             state = 4;
+[e = _state -> -> 4 `i `uc ]
+"62
+[; ;time.c: 62:             break;
+[e $U 282  ]
+"63
+[; ;time.c: 63:         case 4:
+[e :U 297 ]
+"65
+[; ;time.c: 65:             LcPutChar(':');
+[e ( _LcPutChar (1 -> -> 58 `ui `uc ]
+"66
+[; ;time.c: 66:             state = 5;
+[e = _state -> -> 5 `i `uc ]
+"67
+[; ;time.c: 67:             break;
+[e $U 282  ]
+"68
+[; ;time.c: 68:         case 5:
+[e :U 298 ]
+"70
+[; ;time.c: 70:             LcPutChar(second[0]+'0');
+[e ( _LcPutChar (1 -> + -> *U + &U _second * -> -> -> 0 `i `ui `ux -> -> # *U &U _second `ui `ux `ui -> 48 `ui `uc ]
+"71
+[; ;time.c: 71:             state = 6;
+[e = _state -> -> 6 `i `uc ]
+"72
+[; ;time.c: 72:             break;
+[e $U 282  ]
+"73
+[; ;time.c: 73:         case 6:
+[e :U 299 ]
+"75
+[; ;time.c: 75:             LcPutChar(second[1]+'0');
+[e ( _LcPutChar (1 -> + -> *U + &U _second * -> -> -> 1 `i `ui `ux -> -> # *U &U _second `ui `ux `ui -> 48 `ui `uc ]
+"76
+[; ;time.c: 76:             state = 1;
+[e = _state -> -> 1 `i `uc ]
+"77
+[; ;time.c: 77:             break;
+[e $U 282  ]
+"78
+[; ;time.c: 78:         case 7:
+[e :U 300 ]
+"80
+[; ;time.c: 80:             LcPutChar(minute[0]+'0');
+[e ( _LcPutChar (1 -> + -> *U + &U _minute * -> -> -> 0 `i `ui `ux -> -> # *U &U _minute `ui `ux `ui -> 48 `ui `uc ]
+"81
+[; ;time.c: 81:             state = 8;
+[e = _state -> -> 8 `i `uc ]
+"82
+[; ;time.c: 82:             break;
+[e $U 282  ]
+"83
+[; ;time.c: 83:         case 8:
+[e :U 301 ]
+"85
+[; ;time.c: 85:             LcPutChar(minute[1]+'0');
+[e ( _LcPutChar (1 -> + -> *U + &U _minute * -> -> -> 1 `i `ui `ux -> -> # *U &U _minute `ui `ux `ui -> 48 `ui `uc ]
+"86
+[; ;time.c: 86:             state = 9;
+[e = _state -> -> 9 `i `uc ]
+"87
+[; ;time.c: 87:             break;
+[e $U 282  ]
+"88
+[; ;time.c: 88:         case 9:
+[e :U 302 ]
+"90
+[; ;time.c: 90:             LcPutChar(':');
+[e ( _LcPutChar (1 -> -> 58 `ui `uc ]
+"91
+[; ;time.c: 91:             state = 10;
+[e = _state -> -> 10 `i `uc ]
+"92
+[; ;time.c: 92:             break;
+[e $U 282  ]
+"93
+[; ;time.c: 93:         case 10:
+[e :U 303 ]
+"95
+[; ;time.c: 95:             LcPutChar(second[0]+'0');
+[e ( _LcPutChar (1 -> + -> *U + &U _second * -> -> -> 0 `i `ui `ux -> -> # *U &U _second `ui `ux `ui -> 48 `ui `uc ]
+"96
+[; ;time.c: 96:             state = 11;
+[e = _state -> -> 11 `i `uc ]
+"97
+[; ;time.c: 97:             break;
+[e $U 282  ]
+"98
+[; ;time.c: 98:         case 11:
+[e :U 304 ]
+"100
+[; ;time.c: 100:             LcPutChar(second[1]+'0');
+[e ( _LcPutChar (1 -> + -> *U + &U _second * -> -> -> 1 `i `ui `ux -> -> # *U &U _second `ui `ux `ui -> 48 `ui `uc ]
+"101
+[; ;time.c: 101:             state = 0;
+[e = _state -> -> 0 `i `uc ]
+"102
+[; ;time.c: 102:     }
+}
+[e $U 282  ]
+[e :U 283 ]
+[e [\ -> _state `i , $ -> 0 `i 284
+ , $ -> 1 `i 285
+ , $ -> 2 `i 295
+ , $ -> 3 `i 296
+ , $ -> 4 `i 297
+ , $ -> 5 `i 298
+ , $ -> 6 `i 299
+ , $ -> 7 `i 300
+ , $ -> 8 `i 301
+ , $ -> 9 `i 302
+ , $ -> 10 `i 303
+ , $ -> 11 `i 304
+ 282 ]
+[e :U 282 ]
+"103
+[; ;time.c: 103: }
+[e :UE 281 ]
+}
+"105
+[; ;time.c: 105: void startTimer(void){
+[v _startTimer `(v ~T0 @X0 1 ef ]
+{
+[e :U _startTimer ]
+[f ]
+"106
+[; ;time.c: 106:     state = 1;
+[e = _state -> -> 1 `i `uc ]
+"107
+[; ;time.c: 107:     TiResetTics(timer);
+[e ( _TiResetTics (1 _timer ]
+"108
+[; ;time.c: 108: }
+[e :UE 305 ]
+}
+"109
+[; ;time.c: 109: void stopTimer(void){
+[v _stopTimer `(v ~T0 @X0 1 ef ]
+{
+[e :U _stopTimer ]
+[f ]
+"110
+[; ;time.c: 110:     state = 0;
+[e = _state -> -> 0 `i `uc ]
+"111
+[; ;time.c: 111: }
+[e :UE 306 ]
+}
+"112
+[; ;time.c: 112: void displayTimeRemaining(void){
+[v _displayTimeRemaining `(v ~T0 @X0 1 ef ]
+{
+[e :U _displayTimeRemaining ]
+[f ]
+"113
+[; ;time.c: 113:     state = 7;
+[e = _state -> -> 7 `i `uc ]
+"114
+[; ;time.c: 114:     LcGotoXY(11,0);
+[e ( _LcGotoXY (2 , -> -> 11 `i `uc -> -> 0 `i `uc ]
+"115
+[; ;time.c: 115: }
+[e :UE 307 ]
+}
+"116
+[; ;time.c: 116: void resetTimer(void){
+[v _resetTimer `(v ~T0 @X0 1 ef ]
+{
+[e :U _resetTimer ]
+[f ]
+"117
+[; ;time.c: 117:     second[1] = seconds/10;
+[e = *U + &U _second * -> -> -> 1 `i `ui `ux -> -> # *U &U _second `ui `ux -> / -> _seconds `i -> 10 `i `uc ]
+"118
+[; ;time.c: 118:     second[0] = seconds%10;
+[e = *U + &U _second * -> -> -> 0 `i `ui `ux -> -> # *U &U _second `ui `ux -> % -> _seconds `i -> 10 `i `uc ]
+"119
+[; ;time.c: 119:     minute[0] = minutes%10;
+[e = *U + &U _minute * -> -> -> 0 `i `ui `ux -> -> # *U &U _minute `ui `ux -> % -> _minutes `i -> 10 `i `uc ]
+"120
+[; ;time.c: 120:     minute[1] = minutes/10;
+[e = *U + &U _minute * -> -> -> 1 `i `ui `ux -> -> # *U &U _minute `ui `ux -> / -> _minutes `i -> 10 `i `uc ]
+"121
+[; ;time.c: 121: }
+[e :UE 308 ]
+}
