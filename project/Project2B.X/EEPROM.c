@@ -19,6 +19,7 @@ static User mUser;
 static User users[8];
 static Score topScores[5];
 static char lastUserPointer;
+static char saveScore;
 
 void initData(void) {
     state = 0;
@@ -207,6 +208,60 @@ void dataMotor(void){
                 state = 0;
             }
             break;
+        case 20:
+            if (position == 5){
+                if (topScores[status].score < saveScore){
+                    topScores[status].score = saveScore;
+                    topScores[status].userNum = userNum;
+                    state = 21;
+                } else{
+                    state = 0;
+                }
+            }else {
+                if (topScores[position].score < topScores[status].score){
+                    status = position;
+                }
+                position++;
+            }
+            break;
+        case 21:
+            EEADR = SCORE_POSITION + (status*2);
+            EEDATA = saveScore;
+            EECON1bits.EEPGD = 0;
+            EECON1bits.CFGS = 0;
+            EECON1bits.WREN = 1;
+            INTCONbits.GIE = 0;
+            EECON2 = 0x55;
+            EECON2 = 0xAA;
+            EECON1bits.WR = 1;
+            INTCONbits.GIE = 1;
+            EECON1bits.WREN = 0;
+            state = 22;
+            break;
+        case 22:
+            if(EECON1bits.WR == 0){
+                state = 23;
+            }
+            break;
+        case 23:
+            EEADR = SCORE_POSITION + (status*2)+1;
+            EEDATA = userNum;
+            EECON1bits.EEPGD = 0;
+            EECON1bits.CFGS = 0;
+            EECON1bits.WREN = 1;
+            INTCONbits.GIE = 0;
+            EECON2 = 0x55;
+            EECON2 = 0xAA;
+            EECON1bits.WR = 1;
+            INTCONbits.GIE = 1;
+            EECON1bits.WREN = 0;
+            state = 24;
+            break;
+        case 24:
+            if(EECON1bits.WR == 0){
+                state = 0;
+            }
+            break;
     }
 }
 
@@ -239,6 +294,13 @@ char DaGetStatus(void){
 
 char DaGetIdle(void){
     return state == 0;
+}
+
+void DaSaveScore(char userScore) {
+    saveScore = userScore;
+    position = 0;
+    status = 0;
+    state = 20;
 }
 
 void readUserData (void) {

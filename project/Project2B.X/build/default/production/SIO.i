@@ -4625,6 +4625,9 @@ void initSIO(void);
 char SiIsAvailable(void);
 
 void SiSendChar(char myByte);
+char SiRecievedByte(void);
+
+char SiReadByte(void);
 # 3 "SIO.c" 2
 
 
@@ -4652,4 +4655,12 @@ char SiIsAvailable(void){
 
 void SiSendChar(char myByte){
     TXREG = myByte;
+}
+
+char SiRecievedByte(void){
+    return PIR1bits.RCIF;
+}
+
+char SiReadByte(void){
+    return RCREG;
 }

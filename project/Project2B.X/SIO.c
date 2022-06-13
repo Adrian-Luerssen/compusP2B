@@ -27,3 +27,11 @@ char SiIsAvailable(void){
 void SiSendChar(char myByte){
     TXREG = myByte;
 }
+
+char SiRecievedByte(void){
+    return PIR1bits.RCIF;
+}
+
+char SiReadByte(void){
+    return RCREG;
+}

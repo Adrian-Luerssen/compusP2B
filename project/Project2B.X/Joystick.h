@@ -18,5 +18,6 @@ void initJoystick(void);
 char JoMoved(void);
 
 char JoDirection(void);
+void JoSetMode(char mode);
 #endif	
 

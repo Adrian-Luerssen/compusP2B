@@ -4735,6 +4735,8 @@ char DaGetStatus(void);
 char DaGetIdle(void);
 
 void readUserData (void);
+
+void DaSaveScore(char userScore);
 # 8 "./Menu.h" 2
 
 # 1 "./Joystick.h" 1
@@ -4757,6 +4759,9 @@ void initSIO(void);
 char SiIsAvailable(void);
 
 void SiSendChar(char myByte);
+char SiRecievedByte(void);
+
+char SiReadByte(void);
 # 8 "./Joystick.h" 2
 
 
@@ -4771,6 +4776,7 @@ void initJoystick(void);
 char JoMoved(void);
 
 char JoDirection(void);
+void JoSetMode(char mode);
 # 9 "./Menu.h" 2
 
 

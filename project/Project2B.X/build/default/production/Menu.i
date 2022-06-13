@@ -4740,6 +4740,8 @@ char DaGetStatus(void);
 char DaGetIdle(void);
 
 void readUserData (void);
+
+void DaSaveScore(char userScore);
 # 8 "./Menu.h" 2
 
 # 1 "./Joystick.h" 1
@@ -4762,6 +4764,9 @@ void initSIO(void);
 char SiIsAvailable(void);
 
 void SiSendChar(char myByte);
+char SiRecievedByte(void);
+
+char SiReadByte(void);
 # 8 "./Joystick.h" 2
 
 
@@ -4776,6 +4781,7 @@ void initJoystick(void);
 char JoMoved(void);
 
 char JoDirection(void);
+void JoSetMode(char mode);
 # 9 "./Menu.h" 2
 
 
@@ -4793,14 +4799,15 @@ typedef struct {
 
 static const char LOGINMENU[2][11]= {"1.LOGIN\0","2.REGISTER\0"};
 static const char LOGREGSCREEN [2][6] = {"USER:\0","PSWD:\0"};
-static const char MAINMENU[4][28] = {"1.PLAY A GAME\0","2.MODIFY TIME\0","3.SHOW GENERAL\0 TOP 5 SCORES\0","4.LOGOUT\0"};
+static const char MAINMENU[4][28] = {"1.PLAY A GAME\0","2.MODIFY TIME\0","3.SHOW GENERAL TOP 5 SCORES \0","4.LOGOUT\0"};
+static const char MAINMENUSIZE[4] = {14,14,28,9};
 
 
 static char timer;
-static char LCDrow,LCDcol = 0;
+static char LCDrow,LCDcol,LCDcolm = 0;
 static char val;
 static User mUser;
-
+static char mScore;
 void initMenu(void){
     timer = TiGetTimer();
 }
@@ -4901,12 +4908,12 @@ void menuMotor(void){
         case 8:
             if (DaGetIdle()){
                 if (val == 1){
+                    KeSetMode(0);
                     if (DaGetStatus() == 0){
 
                         state = 9;
                         val =0;
                     } else if (DaGetStatus() == 1){
-                        KeSetMode(0);
                         state = 1;
 
                     }
@@ -4937,10 +4944,17 @@ void menuMotor(void){
         case 10:
             if (!JoMoved()){
                 state = 11;
+                TiResetTics(timer);
             }
             break;
         case 11:
-            if (JoMoved()){
+            if (TiGetTics(timer) >= 600){
+                LCDcolm++;
+                LCDcolm = LCDcolm % MAINMENUSIZE[2];
+                state = 9;
+                LcClear();
+                LCDcol = LCDrow = 0;
+            }else if (JoMoved()){
                 if (JoDirection() == 'S' && val < 4){
                     val++;
                 } else if(JoDirection() == 'W' && val > 0){
@@ -4949,6 +4963,123 @@ void menuMotor(void){
                 state = 9;
                 LcClear();
                 LCDcol = LCDrow = 0;
+            } else if (isPressed() && KeGetGenericValue() == '#'){
+                if (val == 0){
+                    val = 0;
+                    state = 12;
+                }else {
+                   state = (val+1)*20;
+                }
+
+
+
+
+
+            }
+            break;
+        case 12:
+            if (SiIsAvailable()){
+                SiSendChar(mUser.username[val]);
+                if (mUser.username[val] == '\0'){
+                    state = 13;
+                } else {
+                    val++;
+                }
+            }
+            break;
+        case 13:
+            if (SiRecievedByte()){
+                val = SiReadByte();
+                if (val == 'K'){
+                    state = 14;
+                    JoSetMode(1);
+                }
+            }
+            break;
+        case 14:
+
+            displayMenu(3,0);
+            if (LCDrow == 2){
+                LcCursorOff();
+                state = 15;
+            }
+            break;
+        case 15:
+            if (isPressed()){
+                val = KeGetGenericValue();
+                if (val == '*' || val == '#'){
+                    if (val == '*'){
+                        state = 17;
+                    }
+                } else {
+                    state = 16;
+                }
+
+            }
+            break;
+        case 16:
+            if (SiIsAvailable()){
+                SiSendChar(val);
+                state = 15;
+            }
+            break;
+        case 17:
+            if (SiIsAvailable()){
+                SiSendChar('F');
+                state = 18;
+            }
+            break;
+        case 18:
+            if (SiRecievedByte()){
+                mScore = SiReadByte();
+                state = 20;
+                TiResetTics(timer);
+            }
+            break;
+        case 19:
+            displayMenu(3,0);
+            if(LCDrow == 2){
+                state = 20;
+            }
+            break;
+        case 20:
+            if (TiGetTics(timer) >= 1200*3){
+                state = 22;
+                LcClear();
+                LCDcol = LCDrow = 0;
+                LcGotoXY(0,0);
+            }else if (SiRecievedByte()){
+                val = SiReadByte();
+                state = 21;
+            }
+            break;
+        case 21:
+            if (SiRecievedByte()){
+                LCDcolm = SiReadByte();
+                state = 19;
+                LcClear();
+                LCDcol = LCDrow = 0;
+                LcGotoXY(0,0);
+            }
+            break;
+        case 22:
+            displayMenu(4,0);
+            if(LCDrow == 2){
+                state = 23;
+            }
+            break;
+        case 23:
+            if (isPressed() && KeGetGenericValue() == '#'){
+                DaSaveScore(mScore);
+                state = 24;
+            }
+            break;
+        case 24:
+            if (DaGetIdle()){
+                state = 9;
+                LcClear();
+                LCDcol = LCDrow = val = LCDcolm = 0;
+                LcGotoXY(0,0);
             }
             break;
     }
@@ -4977,7 +5108,17 @@ void displayMenu (char menuMode, char row){
         }
     } else if (menuMode == 2){
         if (LCDrow+row < 4){
-            if (MAINMENU[LCDrow+row][LCDcol] != '\0'){
+            if (MAINMENUSIZE[LCDrow+row] > 16){
+                if (LCDcol < 16){
+                    LcPutChar(MAINMENU[LCDrow+row][(LCDcol+LCDcolm) % MAINMENUSIZE[LCDrow+row]]);
+                    LCDcol++;
+                }else {
+                    LCDrow++;
+                    LcGotoXY(0,1);
+                    LCDcol = 0;
+                }
+
+            }else if (MAINMENU[LCDrow+row][LCDcol] != '\0'){
                 LcPutChar(MAINMENU[LCDrow+row][LCDcol]);
                 LCDcol++;
             } else {

@@ -4633,6 +4633,9 @@ void initSIO(void);
 char SiIsAvailable(void);
 
 void SiSendChar(char myByte);
+char SiRecievedByte(void);
+
+char SiReadByte(void);
 # 8 "./Joystick.h" 2
 
 
@@ -4647,13 +4650,15 @@ void initJoystick(void);
 char JoMoved(void);
 
 char JoDirection(void);
+void JoSetMode(char mode);
 # 3 "Joystick.c" 2
 
 
 static char send;
 static char x,y;
 static char moved;
- static char stateJoy = 0;
+static char stateJoy = 0;
+static char joyMode = 0;
 
 void initJoystick(void){
     TRISAbits.TRISA0 = 1;
@@ -4694,7 +4699,7 @@ void joystickMotor(void){
             }
             break;
         case 2:
-            stateJoy = 5;
+            stateJoy = 4;
             if (moved){
                 if (x >= 100 && x <= 150 && y >= 100 && y <= 150){
                     moved = 0;
@@ -4704,36 +4709,38 @@ void joystickMotor(void){
                 if (x <= 10){
                     send = 'A';
                     moved = 1;
-                    stateJoy = 4;
+                    stateJoy = 4+joyMode;
                 } else if (x >= 240){
                     send = 'D';
                     moved = 1;
-                    stateJoy = 4;
+                    stateJoy = 4+joyMode;
                 } else if (y <= 10){
                     send = 'S';
                     moved = 1;
-                    stateJoy = 4;
+                    stateJoy = 4+joyMode;
                 } else if (y >= 240){
                     send = 'W';
                     moved = 1;
-                    stateJoy = 4;
+                    stateJoy = 4+joyMode;
                 }
 
             }
 
             break;
 
+
+
         case 4:
+            stateJoy = 0;
+            ADCON0bits.GO_DONE=1;
+            break;
+
+        case 5:
             if(SiIsAvailable()){
                 SiSendChar(send);
                 stateJoy = 0;
                 ADCON0bits.GO_DONE=1;
             }
-            break;
-
-        case 5:
-            stateJoy = 0;
-            ADCON0bits.GO_DONE=1;
             break;
         default:
             stateJoy = 0;
@@ -4749,4 +4756,8 @@ char JoMoved(void){
 
 char JoDirection(void){
     return send;
+}
+
+void JoSetMode(char mode){
+    joyMode = mode;
 }

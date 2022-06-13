@@ -44,5 +44,7 @@ char DaGetStatus(void);
 char DaGetIdle(void);
 
 void readUserData (void);
+
+void DaSaveScore(char userScore);
 #endif	/* XC_HEADER_TEMPLATE_H */
 

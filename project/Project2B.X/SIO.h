@@ -9,7 +9,9 @@ void initSIO(void);
 char SiIsAvailable(void);
 
 void SiSendChar(char myByte);
+char SiRecievedByte(void);
 
+char SiReadByte(void);
 
 #endif	
 
