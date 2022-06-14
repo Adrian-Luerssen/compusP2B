@@ -232,6 +232,10 @@ void menuMotor(void){
                     state = 16;
                 }
                 
+            } else if (SiRecievedByte()){
+                mScore = SiReadByte();
+                state = 20;
+                TiResetTics(timer);
             }
             break;
         case 16:

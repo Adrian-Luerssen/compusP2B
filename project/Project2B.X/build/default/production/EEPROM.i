@@ -4860,6 +4860,57 @@ void dataMotor(void){
             }
             break;
         case 14:
+            if (position == 5){
+                state = 18;
+                position = 0;
+            } else{
+               if (topScores[position].userNum == lastUserPointer){
+                    state = 15;
+                }
+               position++;
+            }
+            break;
+        case 15:
+            topScores[position].score = 0xF0;
+            EEADR = 0x90 +(position*2);
+            EEDATA = 0xF0;
+            EECON1bits.EEPGD = 0;
+            EECON1bits.CFGS = 0;
+            EECON1bits.WREN = 1;
+            INTCONbits.GIE = 0;
+            EECON2 = 0x55;
+            EECON2 = 0xAA;
+            EECON1bits.WR = 1;
+            INTCONbits.GIE = 1;
+            EECON1bits.WREN = 0;
+            state = 15;
+            break;
+        case 16:
+            if(EECON1bits.WR == 0){
+                state = 17;
+            }
+            break;
+        case 17:
+            topScores[position].userNum = 0xF0;
+            EEADR = 0x90 +(position*2)+1;
+            EEDATA = 0xF0;
+            EECON1bits.EEPGD = 0;
+            EECON1bits.CFGS = 0;
+            EECON1bits.WREN = 1;
+            INTCONbits.GIE = 0;
+            EECON2 = 0x55;
+            EECON2 = 0xAA;
+            EECON1bits.WR = 1;
+            INTCONbits.GIE = 1;
+            EECON1bits.WREN = 0;
+            state = 180;
+            break;
+        case 180:
+            if(EECON1bits.WR == 0){
+                state = 14;
+            }
+            break;
+        case 18:
             lastUserPointer = (lastUserPointer+1)%8;
             EEADR = 0x95;
             EEDATA = lastUserPointer;
@@ -4874,7 +4925,7 @@ void dataMotor(void){
             EECON1bits.WREN = 0;
             state = 15;
             break;
-        case 15:
+        case 19:
             if(EECON1bits.WR == 0){
                 status = 3;
                 state = 0;

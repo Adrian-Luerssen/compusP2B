@@ -37,17 +37,17 @@
 [v _initData initData `(v  1 e 1 0 ]
 "53
 [v _dataMotor dataMotor `(v  1 e 1 0 ]
-"269
+"320
 [v _DaFindUser DaFindUser `(v  1 e 1 0 ]
-"283
+"334
 [v _DaSaveUser DaSaveUser `(v  1 e 1 0 ]
-"291
+"342
 [v _DaGetStatus DaGetStatus `(uc  1 e 1 0 ]
-"295
+"346
 [v _DaGetIdle DaGetIdle `(uc  1 e 1 0 ]
-"299
+"350
 [v _DaSaveScore DaSaveScore `(v  1 e 1 0 ]
-"306
+"357
 [v _readUserData readUserData `(v  1 e 1 0 ]
 "11 C:\Users\adril\OneDrive\Desktop\Compus\compusP2B\project\Project2B.X\Joystick.c
 [v _initJoystick initJoystick `(v  1 e 1 0 ]
@@ -113,7 +113,7 @@
 [v _initMenu initMenu `(v  1 e 1 0 ]
 "29
 [v _menuMotor menuMotor `(v  1 e 1 0 ]
-"311
+"315
 [v _displayMenu displayMenu `(v  1 e 1 0 ]
 "5 C:\Users\adril\OneDrive\Desktop\Compus\compusP2B\project\Project2B.X\SIO.c
 [v _initSIO initSIO `(v  1 e 1 0 ]
@@ -714,7 +714,7 @@
 {
 "30
 [v menuMotor@state state `uc  1 s 1 state ]
-"307
+"311
 } 0
 "109 C:\Users\adril\OneDrive\Desktop\Compus\compusP2B\project\Project2B.X\time.c
 [v _stopTimer stopTimer `(v  1 e 1 0 ]
@@ -741,14 +741,14 @@
 {
 "115
 } 0
-"311 C:\Users\adril\OneDrive\Desktop\Compus\compusP2B\project\Project2B.X\Menu.c
+"315 C:\Users\adril\OneDrive\Desktop\Compus\compusP2B\project\Project2B.X\Menu.c
 [v _displayMenu displayMenu `(v  1 e 1 0 ]
 {
 [v displayMenu@menuMode menuMode `uc  1 a 1 wreg ]
 [v displayMenu@menuMode menuMode `uc  1 a 1 wreg ]
 [v displayMenu@row row `uc  1 p 1 22 ]
 [v displayMenu@menuMode menuMode `uc  1 a 1 27 ]
-"389
+"393
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
@@ -873,37 +873,37 @@
 {
 "107
 } 0
-"283 C:\Users\adril\OneDrive\Desktop\Compus\compusP2B\project\Project2B.X\EEPROM.c
+"334 C:\Users\adril\OneDrive\Desktop\Compus\compusP2B\project\Project2B.X\EEPROM.c
 [v _DaSaveUser DaSaveUser `(v  1 e 1 0 ]
 {
 [s S884 . 18 `[9]uc 1 username 9 0 `[9]uc 1 password 9 9 ]
 [v DaSaveUser@regUser regUser `S884  1 p 18 5 ]
-"289
+"340
 } 0
-"299
+"350
 [v _DaSaveScore DaSaveScore `(v  1 e 1 0 ]
 {
 [v DaSaveScore@userScore userScore `uc  1 a 1 wreg ]
 [v DaSaveScore@userScore userScore `uc  1 a 1 wreg ]
 [v DaSaveScore@userScore userScore `uc  1 a 1 5 ]
-"304
+"355
 } 0
-"291
+"342
 [v _DaGetStatus DaGetStatus `(uc  1 e 1 0 ]
 {
-"293
+"344
 } 0
-"295
+"346
 [v _DaGetIdle DaGetIdle `(uc  1 e 1 0 ]
 {
-"297
+"348
 } 0
-"269
+"320
 [v _DaFindUser DaFindUser `(v  1 e 1 0 ]
 {
 [s S884 . 18 `[9]uc 1 username 9 0 `[9]uc 1 password 9 9 ]
 [v DaFindUser@logUser logUser `S884  1 p 18 21 ]
-"275
+"326
 } 0
 "29 C:\Users\adril\OneDrive\Desktop\Compus\compusP2B\project\Project2B.X\Joystick.c
 [v _joystickMotor joystickMotor `(v  1 e 1 0 ]
@@ -953,15 +953,15 @@
 {
 "51
 } 0
-"306
+"357
 [v _readUserData readUserData `(v  1 e 1 0 ]
 {
-"323
+"374
 } 0
 "53
 [v _dataMotor dataMotor `(v  1 e 1 0 ]
 {
-"266
+"317
 } 0
 "134 C:\Users\adril\OneDrive\Desktop\Compus\compusP2B\project\Project2B.X\LcTLCD.c
 [v _LcGotoXY LcGotoXY `(v  1 e 1 0 ]

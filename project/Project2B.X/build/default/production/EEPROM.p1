@@ -1036,247 +1036,411 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;EEPROM.c: 190:         case 14:
 [e :U 333 ]
 "191
-[; ;EEPROM.c: 191:             lastUserPointer = (lastUserPointer+1)%8;
-[e = _lastUserPointer -> % + -> _lastUserPointer `i -> 1 `i -> 8 `i `uc ]
-"192
-[; ;EEPROM.c: 192:             EEADR = 0x95;
-[e = _EEADR -> -> 149 `i `uc ]
-"193
-[; ;EEPROM.c: 193:             EEDATA = lastUserPointer;
-[e = _EEDATA -> _lastUserPointer `uc ]
-"194
-[; ;EEPROM.c: 194:             EECON1bits.EEPGD = 0;
-[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
-"195
-[; ;EEPROM.c: 195:             EECON1bits.CFGS = 0;
-[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
-"196
-[; ;EEPROM.c: 196:             EECON1bits.WREN = 1;
-[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
-"197
-[; ;EEPROM.c: 197:             INTCONbits.GIE = 0;
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-"198
-[; ;EEPROM.c: 198:             EECON2 = 0x55;
-[e = _EECON2 -> -> 85 `i `uc ]
-"199
-[; ;EEPROM.c: 199:             EECON2 = 0xAA;
-[e = _EECON2 -> -> 170 `i `uc ]
-"200
-[; ;EEPROM.c: 200:             EECON1bits.WR = 1;
-[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
-"201
-[; ;EEPROM.c: 201:             INTCONbits.GIE = 1;
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"202
-[; ;EEPROM.c: 202:             EECON1bits.WREN = 0;
-[e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
-"203
-[; ;EEPROM.c: 203:             state = 15;
-[e = _state -> -> 15 `i `uc ]
-"204
-[; ;EEPROM.c: 204:             break;
-[e $U 297  ]
-"205
-[; ;EEPROM.c: 205:         case 15:
-[e :U 334 ]
-"206
-[; ;EEPROM.c: 206:             if(EECON1bits.WR == 0){
-[e $ ! == -> . . _EECON1bits 0 1 `i -> 0 `i 335  ]
+[; ;EEPROM.c: 191:             if (position == 5){
+[e $ ! == -> _position `i -> 5 `i 334  ]
 {
-"207
-[; ;EEPROM.c: 207:                 status = 3;
-[e = _status -> -> 3 `i `uc ]
-"208
-[; ;EEPROM.c: 208:                 state = 0;
-[e = _state -> -> 0 `i `uc ]
-"209
-[; ;EEPROM.c: 209:             }
+"192
+[; ;EEPROM.c: 192:                 state = 18;
+[e = _state -> -> 18 `i `uc ]
+"193
+[; ;EEPROM.c: 193:                 position = 0;
+[e = _position -> -> 0 `i `uc ]
+"194
+[; ;EEPROM.c: 194:             } else{
+}
+[e $U 335  ]
+[e :U 334 ]
+{
+"195
+[; ;EEPROM.c: 195:                if (topScores[position].userNum == lastUserPointer){
+[e $ ! == -> . *U + &U _topScores * -> _position `ux -> -> # *U &U _topScores `ui `ux 1 `i -> _lastUserPointer `i 336  ]
+{
+"196
+[; ;EEPROM.c: 196:                     state = 15;
+[e = _state -> -> 15 `i `uc ]
+"197
+[; ;EEPROM.c: 197:                 }
+}
+[e :U 336 ]
+"198
+[; ;EEPROM.c: 198:                position++;
+[e ++ _position -> -> 1 `i `uc ]
+"199
+[; ;EEPROM.c: 199:             }
 }
 [e :U 335 ]
-"210
-[; ;EEPROM.c: 210:             break;
+"200
+[; ;EEPROM.c: 200:             break;
 [e $U 297  ]
+"201
+[; ;EEPROM.c: 201:         case 15:
+[e :U 337 ]
+"202
+[; ;EEPROM.c: 202:             topScores[position].score = 0xF0;
+[e = . *U + &U _topScores * -> _position `ux -> -> # *U &U _topScores `ui `ux 0 -> -> 240 `i `uc ]
+"203
+[; ;EEPROM.c: 203:             EEADR = 0x90 +(position*2);
+[e = _EEADR -> + -> 144 `i * -> _position `i -> 2 `i `uc ]
+"204
+[; ;EEPROM.c: 204:             EEDATA = 0xF0;
+[e = _EEDATA -> -> 240 `i `uc ]
+"205
+[; ;EEPROM.c: 205:             EECON1bits.EEPGD = 0;
+[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
+"206
+[; ;EEPROM.c: 206:             EECON1bits.CFGS = 0;
+[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
+"207
+[; ;EEPROM.c: 207:             EECON1bits.WREN = 1;
+[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
+"208
+[; ;EEPROM.c: 208:             INTCONbits.GIE = 0;
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+"209
+[; ;EEPROM.c: 209:             EECON2 = 0x55;
+[e = _EECON2 -> -> 85 `i `uc ]
+"210
+[; ;EEPROM.c: 210:             EECON2 = 0xAA;
+[e = _EECON2 -> -> 170 `i `uc ]
 "211
-[; ;EEPROM.c: 211:         case 20:
-[e :U 336 ]
+[; ;EEPROM.c: 211:             EECON1bits.WR = 1;
+[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
 "212
-[; ;EEPROM.c: 212:             if (position == 5){
-[e $ ! == -> _position `i -> 5 `i 337  ]
-{
+[; ;EEPROM.c: 212:             INTCONbits.GIE = 1;
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
 "213
-[; ;EEPROM.c: 213:                 if (topScores[status].score < saveScore){
-[e $ ! < -> . *U + &U _topScores * -> _status `ux -> -> # *U &U _topScores `ui `ux 0 `i -> _saveScore `i 338  ]
-{
+[; ;EEPROM.c: 213:             EECON1bits.WREN = 0;
+[e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
 "214
-[; ;EEPROM.c: 214:                     topScores[status].score = saveScore;
-[e = . *U + &U _topScores * -> _status `ux -> -> # *U &U _topScores `ui `ux 0 _saveScore ]
+[; ;EEPROM.c: 214:             state = 15;
+[e = _state -> -> 15 `i `uc ]
 "215
-[; ;EEPROM.c: 215:                     topScores[status].userNum = userNum;
-[e = . *U + &U _topScores * -> _status `ux -> -> # *U &U _topScores `ui `ux 1 _userNum ]
+[; ;EEPROM.c: 215:             break;
+[e $U 297  ]
 "216
-[; ;EEPROM.c: 216:                     state = 21;
-[e = _state -> -> 21 `i `uc ]
-"217
-[; ;EEPROM.c: 217:                 } else{
-}
-[e $U 339  ]
+[; ;EEPROM.c: 216:         case 16:
 [e :U 338 ]
+"217
+[; ;EEPROM.c: 217:             if(EECON1bits.WR == 0){
+[e $ ! == -> . . _EECON1bits 0 1 `i -> 0 `i 339  ]
 {
 "218
-[; ;EEPROM.c: 218:                     state = 0;
-[e = _state -> -> 0 `i `uc ]
+[; ;EEPROM.c: 218:                 state = 17;
+[e = _state -> -> 17 `i `uc ]
 "219
-[; ;EEPROM.c: 219:                 }
+[; ;EEPROM.c: 219:             }
 }
 [e :U 339 ]
 "220
-[; ;EEPROM.c: 220:             }else {
-}
-[e $U 340  ]
-[e :U 337 ]
-{
-"221
-[; ;EEPROM.c: 221:                 if (topScores[position].score < topScores[status].score){
-[e $ ! < -> . *U + &U _topScores * -> _position `ux -> -> # *U &U _topScores `ui `ux 0 `i -> . *U + &U _topScores * -> _status `ux -> -> # *U &U _topScores `ui `ux 0 `i 341  ]
-{
-"222
-[; ;EEPROM.c: 222:                     status = position;
-[e = _status _position ]
-"223
-[; ;EEPROM.c: 223:                 }
-}
-[e :U 341 ]
-"224
-[; ;EEPROM.c: 224:                 position++;
-[e ++ _position -> -> 1 `i `uc ]
-"225
-[; ;EEPROM.c: 225:             }
-}
-[e :U 340 ]
-"226
-[; ;EEPROM.c: 226:             break;
+[; ;EEPROM.c: 220:             break;
 [e $U 297  ]
-"227
-[; ;EEPROM.c: 227:         case 21:
-[e :U 342 ]
-"228
-[; ;EEPROM.c: 228:             EEADR = 0x90 + (status*2);
-[e = _EEADR -> + -> 144 `i * -> _status `i -> 2 `i `uc ]
-"229
-[; ;EEPROM.c: 229:             EEDATA = saveScore;
-[e = _EEDATA -> _saveScore `uc ]
-"230
-[; ;EEPROM.c: 230:             EECON1bits.EEPGD = 0;
+"221
+[; ;EEPROM.c: 221:         case 17:
+[e :U 340 ]
+"222
+[; ;EEPROM.c: 222:             topScores[position].userNum = 0xF0;
+[e = . *U + &U _topScores * -> _position `ux -> -> # *U &U _topScores `ui `ux 1 -> -> 240 `i `uc ]
+"223
+[; ;EEPROM.c: 223:             EEADR = 0x90 +(position*2)+1;
+[e = _EEADR -> + + -> 144 `i * -> _position `i -> 2 `i -> 1 `i `uc ]
+"224
+[; ;EEPROM.c: 224:             EEDATA = 0xF0;
+[e = _EEDATA -> -> 240 `i `uc ]
+"225
+[; ;EEPROM.c: 225:             EECON1bits.EEPGD = 0;
 [e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
-"231
-[; ;EEPROM.c: 231:             EECON1bits.CFGS = 0;
+"226
+[; ;EEPROM.c: 226:             EECON1bits.CFGS = 0;
 [e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
-"232
-[; ;EEPROM.c: 232:             EECON1bits.WREN = 1;
+"227
+[; ;EEPROM.c: 227:             EECON1bits.WREN = 1;
 [e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
-"233
-[; ;EEPROM.c: 233:             INTCONbits.GIE = 0;
+"228
+[; ;EEPROM.c: 228:             INTCONbits.GIE = 0;
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-"234
-[; ;EEPROM.c: 234:             EECON2 = 0x55;
+"229
+[; ;EEPROM.c: 229:             EECON2 = 0x55;
 [e = _EECON2 -> -> 85 `i `uc ]
-"235
-[; ;EEPROM.c: 235:             EECON2 = 0xAA;
+"230
+[; ;EEPROM.c: 230:             EECON2 = 0xAA;
 [e = _EECON2 -> -> 170 `i `uc ]
-"236
-[; ;EEPROM.c: 236:             EECON1bits.WR = 1;
+"231
+[; ;EEPROM.c: 231:             EECON1bits.WR = 1;
 [e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
-"237
-[; ;EEPROM.c: 237:             INTCONbits.GIE = 1;
+"232
+[; ;EEPROM.c: 232:             INTCONbits.GIE = 1;
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"238
-[; ;EEPROM.c: 238:             EECON1bits.WREN = 0;
+"233
+[; ;EEPROM.c: 233:             EECON1bits.WREN = 0;
 [e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
+"234
+[; ;EEPROM.c: 234:             state = 180;
+[e = _state -> -> 180 `i `uc ]
+"235
+[; ;EEPROM.c: 235:             break;
+[e $U 297  ]
+"236
+[; ;EEPROM.c: 236:         case 180:
+[e :U 341 ]
+"237
+[; ;EEPROM.c: 237:             if(EECON1bits.WR == 0){
+[e $ ! == -> . . _EECON1bits 0 1 `i -> 0 `i 342  ]
+{
+"238
+[; ;EEPROM.c: 238:                 state = 14;
+[e = _state -> -> 14 `i `uc ]
 "239
-[; ;EEPROM.c: 239:             state = 22;
-[e = _state -> -> 22 `i `uc ]
+[; ;EEPROM.c: 239:             }
+}
+[e :U 342 ]
 "240
 [; ;EEPROM.c: 240:             break;
 [e $U 297  ]
 "241
-[; ;EEPROM.c: 241:         case 22:
+[; ;EEPROM.c: 241:         case 18:
 [e :U 343 ]
 "242
-[; ;EEPROM.c: 242:             if(EECON1bits.WR == 0){
-[e $ ! == -> . . _EECON1bits 0 1 `i -> 0 `i 344  ]
-{
+[; ;EEPROM.c: 242:             lastUserPointer = (lastUserPointer+1)%8;
+[e = _lastUserPointer -> % + -> _lastUserPointer `i -> 1 `i -> 8 `i `uc ]
 "243
-[; ;EEPROM.c: 243:                 state = 23;
-[e = _state -> -> 23 `i `uc ]
+[; ;EEPROM.c: 243:             EEADR = 0x95;
+[e = _EEADR -> -> 149 `i `uc ]
 "244
-[; ;EEPROM.c: 244:             }
-}
-[e :U 344 ]
+[; ;EEPROM.c: 244:             EEDATA = lastUserPointer;
+[e = _EEDATA -> _lastUserPointer `uc ]
 "245
-[; ;EEPROM.c: 245:             break;
-[e $U 297  ]
-"246
-[; ;EEPROM.c: 246:         case 23:
-[e :U 345 ]
-"247
-[; ;EEPROM.c: 247:             EEADR = 0x90 + (status*2)+1;
-[e = _EEADR -> + + -> 144 `i * -> _status `i -> 2 `i -> 1 `i `uc ]
-"248
-[; ;EEPROM.c: 248:             EEDATA = userNum;
-[e = _EEDATA -> _userNum `uc ]
-"249
-[; ;EEPROM.c: 249:             EECON1bits.EEPGD = 0;
+[; ;EEPROM.c: 245:             EECON1bits.EEPGD = 0;
 [e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
-"250
-[; ;EEPROM.c: 250:             EECON1bits.CFGS = 0;
+"246
+[; ;EEPROM.c: 246:             EECON1bits.CFGS = 0;
 [e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
-"251
-[; ;EEPROM.c: 251:             EECON1bits.WREN = 1;
+"247
+[; ;EEPROM.c: 247:             EECON1bits.WREN = 1;
 [e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
-"252
-[; ;EEPROM.c: 252:             INTCONbits.GIE = 0;
+"248
+[; ;EEPROM.c: 248:             INTCONbits.GIE = 0;
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-"253
-[; ;EEPROM.c: 253:             EECON2 = 0x55;
+"249
+[; ;EEPROM.c: 249:             EECON2 = 0x55;
 [e = _EECON2 -> -> 85 `i `uc ]
-"254
-[; ;EEPROM.c: 254:             EECON2 = 0xAA;
+"250
+[; ;EEPROM.c: 250:             EECON2 = 0xAA;
 [e = _EECON2 -> -> 170 `i `uc ]
-"255
-[; ;EEPROM.c: 255:             EECON1bits.WR = 1;
+"251
+[; ;EEPROM.c: 251:             EECON1bits.WR = 1;
 [e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
-"256
-[; ;EEPROM.c: 256:             INTCONbits.GIE = 1;
+"252
+[; ;EEPROM.c: 252:             INTCONbits.GIE = 1;
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"257
-[; ;EEPROM.c: 257:             EECON1bits.WREN = 0;
+"253
+[; ;EEPROM.c: 253:             EECON1bits.WREN = 0;
 [e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
-"258
-[; ;EEPROM.c: 258:             state = 24;
-[e = _state -> -> 24 `i `uc ]
-"259
-[; ;EEPROM.c: 259:             break;
+"254
+[; ;EEPROM.c: 254:             state = 15;
+[e = _state -> -> 15 `i `uc ]
+"255
+[; ;EEPROM.c: 255:             break;
 [e $U 297  ]
-"260
-[; ;EEPROM.c: 260:         case 24:
-[e :U 346 ]
-"261
-[; ;EEPROM.c: 261:             if(EECON1bits.WR == 0){
-[e $ ! == -> . . _EECON1bits 0 1 `i -> 0 `i 347  ]
+"256
+[; ;EEPROM.c: 256:         case 19:
+[e :U 344 ]
+"257
+[; ;EEPROM.c: 257:             if(EECON1bits.WR == 0){
+[e $ ! == -> . . _EECON1bits 0 1 `i -> 0 `i 345  ]
 {
-"262
-[; ;EEPROM.c: 262:                 state = 0;
+"258
+[; ;EEPROM.c: 258:                 status = 3;
+[e = _status -> -> 3 `i `uc ]
+"259
+[; ;EEPROM.c: 259:                 state = 0;
 [e = _state -> -> 0 `i `uc ]
-"263
-[; ;EEPROM.c: 263:             }
+"260
+[; ;EEPROM.c: 260:             }
 }
-[e :U 347 ]
-"264
-[; ;EEPROM.c: 264:             break;
+[e :U 345 ]
+"261
+[; ;EEPROM.c: 261:             break;
 [e $U 297  ]
+"262
+[; ;EEPROM.c: 262:         case 20:
+[e :U 346 ]
+"263
+[; ;EEPROM.c: 263:             if (position == 5){
+[e $ ! == -> _position `i -> 5 `i 347  ]
+{
+"264
+[; ;EEPROM.c: 264:                 if (topScores[status].score < saveScore){
+[e $ ! < -> . *U + &U _topScores * -> _status `ux -> -> # *U &U _topScores `ui `ux 0 `i -> _saveScore `i 348  ]
+{
 "265
-[; ;EEPROM.c: 265:     }
+[; ;EEPROM.c: 265:                     topScores[status].score = saveScore;
+[e = . *U + &U _topScores * -> _status `ux -> -> # *U &U _topScores `ui `ux 0 _saveScore ]
+"266
+[; ;EEPROM.c: 266:                     topScores[status].userNum = userNum;
+[e = . *U + &U _topScores * -> _status `ux -> -> # *U &U _topScores `ui `ux 1 _userNum ]
+"267
+[; ;EEPROM.c: 267:                     state = 21;
+[e = _state -> -> 21 `i `uc ]
+"268
+[; ;EEPROM.c: 268:                 } else{
+}
+[e $U 349  ]
+[e :U 348 ]
+{
+"269
+[; ;EEPROM.c: 269:                     state = 0;
+[e = _state -> -> 0 `i `uc ]
+"270
+[; ;EEPROM.c: 270:                 }
+}
+[e :U 349 ]
+"271
+[; ;EEPROM.c: 271:             }else {
+}
+[e $U 350  ]
+[e :U 347 ]
+{
+"272
+[; ;EEPROM.c: 272:                 if (topScores[position].score < topScores[status].score){
+[e $ ! < -> . *U + &U _topScores * -> _position `ux -> -> # *U &U _topScores `ui `ux 0 `i -> . *U + &U _topScores * -> _status `ux -> -> # *U &U _topScores `ui `ux 0 `i 351  ]
+{
+"273
+[; ;EEPROM.c: 273:                     status = position;
+[e = _status _position ]
+"274
+[; ;EEPROM.c: 274:                 }
+}
+[e :U 351 ]
+"275
+[; ;EEPROM.c: 275:                 position++;
+[e ++ _position -> -> 1 `i `uc ]
+"276
+[; ;EEPROM.c: 276:             }
+}
+[e :U 350 ]
+"277
+[; ;EEPROM.c: 277:             break;
+[e $U 297  ]
+"278
+[; ;EEPROM.c: 278:         case 21:
+[e :U 352 ]
+"279
+[; ;EEPROM.c: 279:             EEADR = 0x90 + (status*2);
+[e = _EEADR -> + -> 144 `i * -> _status `i -> 2 `i `uc ]
+"280
+[; ;EEPROM.c: 280:             EEDATA = saveScore;
+[e = _EEDATA -> _saveScore `uc ]
+"281
+[; ;EEPROM.c: 281:             EECON1bits.EEPGD = 0;
+[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
+"282
+[; ;EEPROM.c: 282:             EECON1bits.CFGS = 0;
+[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
+"283
+[; ;EEPROM.c: 283:             EECON1bits.WREN = 1;
+[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
+"284
+[; ;EEPROM.c: 284:             INTCONbits.GIE = 0;
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+"285
+[; ;EEPROM.c: 285:             EECON2 = 0x55;
+[e = _EECON2 -> -> 85 `i `uc ]
+"286
+[; ;EEPROM.c: 286:             EECON2 = 0xAA;
+[e = _EECON2 -> -> 170 `i `uc ]
+"287
+[; ;EEPROM.c: 287:             EECON1bits.WR = 1;
+[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
+"288
+[; ;EEPROM.c: 288:             INTCONbits.GIE = 1;
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"289
+[; ;EEPROM.c: 289:             EECON1bits.WREN = 0;
+[e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
+"290
+[; ;EEPROM.c: 290:             state = 22;
+[e = _state -> -> 22 `i `uc ]
+"291
+[; ;EEPROM.c: 291:             break;
+[e $U 297  ]
+"292
+[; ;EEPROM.c: 292:         case 22:
+[e :U 353 ]
+"293
+[; ;EEPROM.c: 293:             if(EECON1bits.WR == 0){
+[e $ ! == -> . . _EECON1bits 0 1 `i -> 0 `i 354  ]
+{
+"294
+[; ;EEPROM.c: 294:                 state = 23;
+[e = _state -> -> 23 `i `uc ]
+"295
+[; ;EEPROM.c: 295:             }
+}
+[e :U 354 ]
+"296
+[; ;EEPROM.c: 296:             break;
+[e $U 297  ]
+"297
+[; ;EEPROM.c: 297:         case 23:
+[e :U 355 ]
+"298
+[; ;EEPROM.c: 298:             EEADR = 0x90 + (status*2)+1;
+[e = _EEADR -> + + -> 144 `i * -> _status `i -> 2 `i -> 1 `i `uc ]
+"299
+[; ;EEPROM.c: 299:             EEDATA = userNum;
+[e = _EEDATA -> _userNum `uc ]
+"300
+[; ;EEPROM.c: 300:             EECON1bits.EEPGD = 0;
+[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
+"301
+[; ;EEPROM.c: 301:             EECON1bits.CFGS = 0;
+[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
+"302
+[; ;EEPROM.c: 302:             EECON1bits.WREN = 1;
+[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
+"303
+[; ;EEPROM.c: 303:             INTCONbits.GIE = 0;
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+"304
+[; ;EEPROM.c: 304:             EECON2 = 0x55;
+[e = _EECON2 -> -> 85 `i `uc ]
+"305
+[; ;EEPROM.c: 305:             EECON2 = 0xAA;
+[e = _EECON2 -> -> 170 `i `uc ]
+"306
+[; ;EEPROM.c: 306:             EECON1bits.WR = 1;
+[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
+"307
+[; ;EEPROM.c: 307:             INTCONbits.GIE = 1;
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"308
+[; ;EEPROM.c: 308:             EECON1bits.WREN = 0;
+[e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
+"309
+[; ;EEPROM.c: 309:             state = 24;
+[e = _state -> -> 24 `i `uc ]
+"310
+[; ;EEPROM.c: 310:             break;
+[e $U 297  ]
+"311
+[; ;EEPROM.c: 311:         case 24:
+[e :U 356 ]
+"312
+[; ;EEPROM.c: 312:             if(EECON1bits.WR == 0){
+[e $ ! == -> . . _EECON1bits 0 1 `i -> 0 `i 357  ]
+{
+"313
+[; ;EEPROM.c: 313:                 state = 0;
+[e = _state -> -> 0 `i `uc ]
+"314
+[; ;EEPROM.c: 314:             }
+}
+[e :U 357 ]
+"315
+[; ;EEPROM.c: 315:             break;
+[e $U 297  ]
+"316
+[; ;EEPROM.c: 316:     }
 }
 [e $U 297  ]
 [e :U 298 ]
@@ -1293,220 +1457,225 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 12 `i 328
  , $ -> 13 `i 329
  , $ -> 14 `i 333
- , $ -> 15 `i 334
- , $ -> 20 `i 336
- , $ -> 21 `i 342
- , $ -> 22 `i 343
- , $ -> 23 `i 345
- , $ -> 24 `i 346
+ , $ -> 15 `i 337
+ , $ -> 16 `i 338
+ , $ -> 17 `i 340
+ , $ -> 180 `i 341
+ , $ -> 18 `i 343
+ , $ -> 19 `i 344
+ , $ -> 20 `i 346
+ , $ -> 21 `i 352
+ , $ -> 22 `i 353
+ , $ -> 23 `i 355
+ , $ -> 24 `i 356
  297 ]
 [e :U 297 ]
-"266
-[; ;EEPROM.c: 266: }
+"317
+[; ;EEPROM.c: 317: }
 [e :UE 296 ]
 }
-"269
-[; ;EEPROM.c: 269: void DaFindUser(User logUser){
+"320
+[; ;EEPROM.c: 320: void DaFindUser(User logUser){
 [v _DaFindUser `(v ~T0 @X0 1 ef1`S280 ]
 {
 [e :U _DaFindUser ]
 [v _logUser `S280 ~T0 @X0 1 r1 ]
 [f ]
-"270
-[; ;EEPROM.c: 270:     state = 1;
+"321
+[; ;EEPROM.c: 321:     state = 1;
 [e = _state -> -> 1 `i `uc ]
-"271
-[; ;EEPROM.c: 271:     userNum = 0;
+"322
+[; ;EEPROM.c: 322:     userNum = 0;
 [e = _userNum -> -> 0 `i `uc ]
-"272
-[; ;EEPROM.c: 272:     mUser = logUser;
+"323
+[; ;EEPROM.c: 323:     mUser = logUser;
 [e = _mUser _logUser ]
-"273
-[; ;EEPROM.c: 273:     status = 2;
+"324
+[; ;EEPROM.c: 324:     status = 2;
 [e = _status -> -> 2 `i `uc ]
-"274
-[; ;EEPROM.c: 274:     LcGotoXY(10,0);
+"325
+[; ;EEPROM.c: 325:     LcGotoXY(10,0);
 [e ( _LcGotoXY (2 , -> -> 10 `i `uc -> -> 0 `i `uc ]
-"275
-[; ;EEPROM.c: 275: }
-[e :UE 348 ]
+"326
+[; ;EEPROM.c: 326: }
+[e :UE 358 ]
 }
-"277
-[; ;EEPROM.c: 277: char DagetUserNumber(void){
+"328
+[; ;EEPROM.c: 328: char DagetUserNumber(void){
 [v _DagetUserNumber `(uc ~T0 @X0 1 ef ]
 {
 [e :U _DagetUserNumber ]
 [f ]
-"278
-[; ;EEPROM.c: 278:     return userNum;
+"329
+[; ;EEPROM.c: 329:     return userNum;
 [e ) _userNum ]
-[e $UE 349  ]
-"279
-[; ;EEPROM.c: 279: }
-[e :UE 349 ]
+[e $UE 359  ]
+"330
+[; ;EEPROM.c: 330: }
+[e :UE 359 ]
 }
-"283
-[; ;EEPROM.c: 283: void DaSaveUser(User regUser){
+"334
+[; ;EEPROM.c: 334: void DaSaveUser(User regUser){
 [v _DaSaveUser `(v ~T0 @X0 1 ef1`S280 ]
 {
 [e :U _DaSaveUser ]
 [v _regUser `S280 ~T0 @X0 1 r1 ]
 [f ]
-"284
-[; ;EEPROM.c: 284:     state = 5;
+"335
+[; ;EEPROM.c: 335:     state = 5;
 [e = _state -> -> 5 `i `uc ]
-"285
-[; ;EEPROM.c: 285:     position = 0;
+"336
+[; ;EEPROM.c: 336:     position = 0;
 [e = _position -> -> 0 `i `uc ]
-"286
-[; ;EEPROM.c: 286:     userNum = 0;
+"337
+[; ;EEPROM.c: 337:     userNum = 0;
 [e = _userNum -> -> 0 `i `uc ]
-"287
-[; ;EEPROM.c: 287:     mUser = regUser;
+"338
+[; ;EEPROM.c: 338:     mUser = regUser;
 [e = _mUser _regUser ]
-"288
-[; ;EEPROM.c: 288:     status = 2;
+"339
+[; ;EEPROM.c: 339:     status = 2;
 [e = _status -> -> 2 `i `uc ]
-"289
-[; ;EEPROM.c: 289: }
-[e :UE 350 ]
+"340
+[; ;EEPROM.c: 340: }
+[e :UE 360 ]
 }
-"291
-[; ;EEPROM.c: 291: char DaGetStatus(void){
+"342
+[; ;EEPROM.c: 342: char DaGetStatus(void){
 [v _DaGetStatus `(uc ~T0 @X0 1 ef ]
 {
 [e :U _DaGetStatus ]
 [f ]
-"292
-[; ;EEPROM.c: 292:     return status;
+"343
+[; ;EEPROM.c: 343:     return status;
 [e ) _status ]
-[e $UE 351  ]
-"293
-[; ;EEPROM.c: 293: }
-[e :UE 351 ]
+[e $UE 361  ]
+"344
+[; ;EEPROM.c: 344: }
+[e :UE 361 ]
 }
-"295
-[; ;EEPROM.c: 295: char DaGetIdle(void){
+"346
+[; ;EEPROM.c: 346: char DaGetIdle(void){
 [v _DaGetIdle `(uc ~T0 @X0 1 ef ]
 {
 [e :U _DaGetIdle ]
 [f ]
-"296
-[; ;EEPROM.c: 296:     return state == 0;
+"347
+[; ;EEPROM.c: 347:     return state == 0;
 [e ) -> -> == -> _state `i -> 0 `i `i `uc ]
-[e $UE 352  ]
-"297
-[; ;EEPROM.c: 297: }
-[e :UE 352 ]
+[e $UE 362  ]
+"348
+[; ;EEPROM.c: 348: }
+[e :UE 362 ]
 }
-"299
-[; ;EEPROM.c: 299: void DaSaveScore(char userScore) {
+"350
+[; ;EEPROM.c: 350: void DaSaveScore(char userScore) {
 [v _DaSaveScore `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _DaSaveScore ]
 [v _userScore `uc ~T0 @X0 1 r1 ]
 [f ]
-"300
-[; ;EEPROM.c: 300:     saveScore = userScore;
+"351
+[; ;EEPROM.c: 351:     saveScore = userScore;
 [e = _saveScore _userScore ]
-"301
-[; ;EEPROM.c: 301:     position = 0;
+"352
+[; ;EEPROM.c: 352:     position = 0;
 [e = _position -> -> 0 `i `uc ]
-"302
-[; ;EEPROM.c: 302:     status = 0;
+"353
+[; ;EEPROM.c: 353:     status = 0;
 [e = _status -> -> 0 `i `uc ]
-"303
-[; ;EEPROM.c: 303:     state = 20;
+"354
+[; ;EEPROM.c: 354:     state = 20;
 [e = _state -> -> 20 `i `uc ]
-"304
-[; ;EEPROM.c: 304: }
-[e :UE 353 ]
+"355
+[; ;EEPROM.c: 355: }
+[e :UE 363 ]
 }
-"306
-[; ;EEPROM.c: 306: void readUserData (void) {
+"357
+[; ;EEPROM.c: 357: void readUserData (void) {
 [v _readUserData `(v ~T0 @X0 1 ef ]
 {
 [e :U _readUserData ]
 [f ]
-"307
-[; ;EEPROM.c: 307:     for (position = 0; position < 9; position++){
+"358
+[; ;EEPROM.c: 358:     for (position = 0; position < 9; position++){
 {
 [e = _position -> -> 0 `i `uc ]
-[e $ < -> _position `i -> 9 `i 355  ]
-[e $U 356  ]
-[e :U 355 ]
-{
-"308
-[; ;EEPROM.c: 308:         EECON1bits.EEPGD = 0;
-[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
-"309
-[; ;EEPROM.c: 309:         EECON1bits.CFGS = 0;
-[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
-"310
-[; ;EEPROM.c: 310:         EEADR = (userNum*24)+position;
-[e = _EEADR -> + * -> _userNum `i -> 24 `i -> _position `i `uc ]
-"311
-[; ;EEPROM.c: 311:         EECON1bits.RD = 1;
-[e = . . _EECON1bits 0 0 -> -> 1 `i `uc ]
-"312
-[; ;EEPROM.c: 312:         while (EECON1bits.RD == 1){}
-[e $U 358  ]
-[e :U 359 ]
-{
-}
-[e :U 358 ]
-[e $ == -> . . _EECON1bits 0 0 `i -> 1 `i 359  ]
-[e :U 360 ]
-"313
-[; ;EEPROM.c: 313:         users[userNum].username[position] = EEDATA;
-[e = *U + &U . *U + &U _users * -> _userNum `ux -> -> # *U &U _users `ui `ux 0 * -> _position `ux -> -> # *U &U . *U + &U _users * -> _userNum `ux -> -> # *U &U _users `ui `ux 0 `ui `ux -> _EEDATA `uc ]
-"314
-[; ;EEPROM.c: 314:     }
-}
-[e ++ _position -> -> 1 `i `uc ]
-[e $ < -> _position `i -> 9 `i 355  ]
-[e :U 356 ]
-}
-"315
-[; ;EEPROM.c: 315:     for (position = 0; position < 9; position++){
-{
-[e = _position -> -> 0 `i `uc ]
-[e $ < -> _position `i -> 9 `i 361  ]
-[e $U 362  ]
-[e :U 361 ]
-{
-"316
-[; ;EEPROM.c: 316:         EECON1bits.EEPGD = 0;
-[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
-"317
-[; ;EEPROM.c: 317:         EECON1bits.CFGS = 0;
-[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
-"318
-[; ;EEPROM.c: 318:         EEADR = (userNum*24)+9+position;
-[e = _EEADR -> + + * -> _userNum `i -> 24 `i -> 9 `i -> _position `i `uc ]
-"319
-[; ;EEPROM.c: 319:         EECON1bits.RD = 1;
-[e = . . _EECON1bits 0 0 -> -> 1 `i `uc ]
-"320
-[; ;EEPROM.c: 320:         while (EECON1bits.RD == 1){}
-[e $U 364  ]
+[e $ < -> _position `i -> 9 `i 365  ]
+[e $U 366  ]
 [e :U 365 ]
 {
+"359
+[; ;EEPROM.c: 359:         EECON1bits.EEPGD = 0;
+[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
+"360
+[; ;EEPROM.c: 360:         EECON1bits.CFGS = 0;
+[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
+"361
+[; ;EEPROM.c: 361:         EEADR = (userNum*24)+position;
+[e = _EEADR -> + * -> _userNum `i -> 24 `i -> _position `i `uc ]
+"362
+[; ;EEPROM.c: 362:         EECON1bits.RD = 1;
+[e = . . _EECON1bits 0 0 -> -> 1 `i `uc ]
+"363
+[; ;EEPROM.c: 363:         while (EECON1bits.RD == 1){}
+[e $U 368  ]
+[e :U 369 ]
+{
 }
-[e :U 364 ]
-[e $ == -> . . _EECON1bits 0 0 `i -> 1 `i 365  ]
-[e :U 366 ]
-"321
-[; ;EEPROM.c: 321:         users[userNum].password[position] = EEDATA;
-[e = *U + &U . *U + &U _users * -> _userNum `ux -> -> # *U &U _users `ui `ux 1 * -> _position `ux -> -> # *U &U . *U + &U _users * -> _userNum `ux -> -> # *U &U _users `ui `ux 1 `ui `ux -> _EEDATA `uc ]
-"322
-[; ;EEPROM.c: 322:     }
+[e :U 368 ]
+[e $ == -> . . _EECON1bits 0 0 `i -> 1 `i 369  ]
+[e :U 370 ]
+"364
+[; ;EEPROM.c: 364:         users[userNum].username[position] = EEDATA;
+[e = *U + &U . *U + &U _users * -> _userNum `ux -> -> # *U &U _users `ui `ux 0 * -> _position `ux -> -> # *U &U . *U + &U _users * -> _userNum `ux -> -> # *U &U _users `ui `ux 0 `ui `ux -> _EEDATA `uc ]
+"365
+[; ;EEPROM.c: 365:     }
 }
 [e ++ _position -> -> 1 `i `uc ]
-[e $ < -> _position `i -> 9 `i 361  ]
-[e :U 362 ]
+[e $ < -> _position `i -> 9 `i 365  ]
+[e :U 366 ]
 }
-"323
-[; ;EEPROM.c: 323: }
-[e :UE 354 ]
+"366
+[; ;EEPROM.c: 366:     for (position = 0; position < 9; position++){
+{
+[e = _position -> -> 0 `i `uc ]
+[e $ < -> _position `i -> 9 `i 371  ]
+[e $U 372  ]
+[e :U 371 ]
+{
+"367
+[; ;EEPROM.c: 367:         EECON1bits.EEPGD = 0;
+[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
+"368
+[; ;EEPROM.c: 368:         EECON1bits.CFGS = 0;
+[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
+"369
+[; ;EEPROM.c: 369:         EEADR = (userNum*24)+9+position;
+[e = _EEADR -> + + * -> _userNum `i -> 24 `i -> 9 `i -> _position `i `uc ]
+"370
+[; ;EEPROM.c: 370:         EECON1bits.RD = 1;
+[e = . . _EECON1bits 0 0 -> -> 1 `i `uc ]
+"371
+[; ;EEPROM.c: 371:         while (EECON1bits.RD == 1){}
+[e $U 374  ]
+[e :U 375 ]
+{
+}
+[e :U 374 ]
+[e $ == -> . . _EECON1bits 0 0 `i -> 1 `i 375  ]
+[e :U 376 ]
+"372
+[; ;EEPROM.c: 372:         users[userNum].password[position] = EEDATA;
+[e = *U + &U . *U + &U _users * -> _userNum `ux -> -> # *U &U _users `ui `ux 1 * -> _position `ux -> -> # *U &U . *U + &U _users * -> _userNum `ux -> -> # *U &U _users `ui `ux 1 `ui `ux -> _EEDATA `uc ]
+"373
+[; ;EEPROM.c: 373:     }
+}
+[e ++ _position -> -> 1 `i `uc ]
+[e $ < -> _position `i -> 9 `i 371  ]
+[e :U 372 ]
+}
+"374
+[; ;EEPROM.c: 374: }
+[e :UE 364 ]
 }
