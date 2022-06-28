@@ -11,15 +11,15 @@
 ### Memory Usage ###
  Intel Hex-file ranges:
   0h - 3h		(dist/default/production\Project2B.X.production.hex)
-  8h - 193h		(dist/default/production\Project2B.X.production.hex)
-  200h - 18E2h		(dist/default/production\Project2B.X.production.hex)
-  18E4h - 1FFFh		(dist/default/production\Project2B.X.production.hex)
+  8h - 197h		(dist/default/production\Project2B.X.production.hex)
+  200h - 18E6h		(dist/default/production\Project2B.X.production.hex)
+  18E8h - 1FFFh		(dist/default/production\Project2B.X.production.hex)
   200000h - 200007h		(dist/default/production\Project2B.X.production.hex)
   300000h - 30000Dh		(dist/default/production\Project2B.X.production.hex)
  Unused ranges:
   4h - 7h
-  194h - 1FFh
-  18E3h - 18E3h
+  198h - 1FFh
+  18E7h - 18E7h
   2000h - 1FFFFFh
   200008h - 2FFFFFh
 
@@ -55,7 +55,7 @@
 00000160 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000170 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000180 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00000190 | H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- -- -- --
+00000190 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --
 ----------------------------------------------------------
 00000200 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000210 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
@@ -423,7 +423,7 @@
 000018B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000018C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000018D0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-000018E0 | H1 H1 H1 -- H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000018E0 | H1 H1 H1 H1 H1 H1 H1 -- H1 H1 H1 H1 H1 H1 H1 H1
 000018F0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001900 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001910 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1

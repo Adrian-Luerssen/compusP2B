@@ -790,8 +790,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! && && != -> ( _isPressed ..  `i -> 0 `i != -> ( _KeGetGenericValue ..  `ui -> 42 `ui != -> ( _KeGetGenericValue ..  `ui -> 35 `ui 306  ]
 {
 "389
-[; ;time.c: 389:                 minute = KeGetGenericValue()-'0';
-[e = _minute -> - -> ( _KeGetGenericValue ..  `ui -> 48 `ui `uc ]
+[; ;time.c: 389:                 minute = (KeGetGenericValue()-'0')*10;
+[e = _minute -> * - -> ( _KeGetGenericValue ..  `ui -> 48 `ui -> -> 10 `i `ui `uc ]
 "390
 [; ;time.c: 390:                 LcPutChar(KeGetGenericValue());
 [e ( _LcPutChar (1 ( _KeGetGenericValue ..  ]
@@ -813,8 +813,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! && && != -> ( _isPressed ..  `i -> 0 `i != -> ( _KeGetGenericValue ..  `ui -> 42 `ui != -> ( _KeGetGenericValue ..  `ui -> 35 `ui 308  ]
 {
 "396
-[; ;time.c: 396:                 minute = minute*10 +KeGetGenericValue()-'0';
-[e = _minute -> - -> + * -> _minute `i -> 10 `i -> ( _KeGetGenericValue ..  `i `ui -> 48 `ui `uc ]
+[; ;time.c: 396:                 minute +=KeGetGenericValue()-'0';
+[e =+ _minute -> - -> ( _KeGetGenericValue ..  `ui -> 48 `ui `uc ]
 "397
 [; ;time.c: 397:                 LcPutChar(KeGetGenericValue());
 [e ( _LcPutChar (1 ( _KeGetGenericValue ..  ]
@@ -839,8 +839,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! && && != -> ( _isPressed ..  `i -> 0 `i != -> ( _KeGetGenericValue ..  `ui -> 42 `ui != -> ( _KeGetGenericValue ..  `ui -> 35 `ui 310  ]
 {
 "404
-[; ;time.c: 404:                 second = KeGetGenericValue()-'0';
-[e = _second -> - -> ( _KeGetGenericValue ..  `ui -> 48 `ui `uc ]
+[; ;time.c: 404:                 second = (KeGetGenericValue()-'0')*10;
+[e = _second -> * - -> ( _KeGetGenericValue ..  `ui -> 48 `ui -> -> 10 `i `ui `uc ]
 "405
 [; ;time.c: 405:                 LcPutChar(KeGetGenericValue());
 [e ( _LcPutChar (1 ( _KeGetGenericValue ..  ]
@@ -862,8 +862,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! && && != -> ( _isPressed ..  `i -> 0 `i != -> ( _KeGetGenericValue ..  `ui -> 42 `ui != -> ( _KeGetGenericValue ..  `ui -> 35 `ui 312  ]
 {
 "411
-[; ;time.c: 411:                 second = second*10 +KeGetGenericValue()-'0';
-[e = _second -> - -> + * -> _second `i -> 10 `i -> ( _KeGetGenericValue ..  `i `ui -> 48 `ui `uc ]
+[; ;time.c: 411:                 second += KeGetGenericValue()-'0';
+[e =+ _second -> - -> ( _KeGetGenericValue ..  `ui -> 48 `ui `uc ]
 "412
 [; ;time.c: 412:                 LcPutChar(KeGetGenericValue());
 [e ( _LcPutChar (1 ( _KeGetGenericValue ..  ]

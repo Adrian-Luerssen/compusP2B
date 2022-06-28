@@ -5207,6 +5207,7 @@ void menuMotor(void){
                     LCDcolm = 0;
                     state = 9;
                     val =0;
+                    resetTimer();
                 } else if (KeGetGenericValue() == '#'){
                     if (val >= 4){
                         resetDisplay();

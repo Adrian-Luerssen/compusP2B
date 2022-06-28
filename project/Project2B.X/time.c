@@ -386,14 +386,14 @@ void timeMotor(void) {
             
         case 25:
             if (isPressed() && KeGetGenericValue() != '*' && KeGetGenericValue() != '#' ){
-                minute = KeGetGenericValue()-'0';
+                minute = (KeGetGenericValue()-'0')*10;
                 LcPutChar(KeGetGenericValue());
                 state = 26;
             }
             break;
         case 26:
             if (isPressed() && KeGetGenericValue() != '*' && KeGetGenericValue() != '#' ){
-                minute = minute*10 +KeGetGenericValue()-'0';
+                minute +=KeGetGenericValue()-'0';
                 LcPutChar(KeGetGenericValue());
                 LcPutChar(':');
                 state = 27;
@@ -401,14 +401,14 @@ void timeMotor(void) {
             break;
         case 27:
             if (isPressed() && KeGetGenericValue() != '*' && KeGetGenericValue() != '#' ){
-                second = KeGetGenericValue()-'0';
+                second = (KeGetGenericValue()-'0')*10;
                 LcPutChar(KeGetGenericValue());
                 state = 28;
             }
             break;
         case 28:
             if (isPressed() && KeGetGenericValue() != '*' && KeGetGenericValue() != '#' ){
-                second = second*10 +KeGetGenericValue()-'0';
+                second += KeGetGenericValue()-'0';
                 LcPutChar(KeGetGenericValue());
                 state = 29;
             }

@@ -1902,287 +1902,290 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Menu.c: 347:                     val =0;
 [e = _val -> -> 0 `i `uc ]
 "348
-[; ;Menu.c: 348:                 } else if (KeGetGenericValue() == '#'){
+[; ;Menu.c: 348:                     resetTimer();
+[e ( _resetTimer ..  ]
+"349
+[; ;Menu.c: 349:                 } else if (KeGetGenericValue() == '#'){
 }
 [e $U 380  ]
 [e :U 379 ]
 [e $ ! == -> ( _KeGetGenericValue ..  `ui -> 35 `ui 381  ]
 {
-"349
-[; ;Menu.c: 349:                     if (val >= 4){
+"350
+[; ;Menu.c: 350:                     if (val >= 4){
 [e $ ! >= -> _val `i -> 4 `i 382  ]
 {
-"350
-[; ;Menu.c: 350:                         resetDisplay();
-[e ( _resetDisplay ..  ]
 "351
-[; ;Menu.c: 351:                         LCDcolm = 0;
-[e = _LCDcolm -> -> 0 `i `uc ]
+[; ;Menu.c: 351:                         resetDisplay();
+[e ( _resetDisplay ..  ]
 "352
-[; ;Menu.c: 352:                         state = 9;
-[e = F2716 -> -> 9 `i `uc ]
+[; ;Menu.c: 352:                         LCDcolm = 0;
+[e = _LCDcolm -> -> 0 `i `uc ]
 "353
-[; ;Menu.c: 353:                         val =0;
-[e = _val -> -> 0 `i `uc ]
+[; ;Menu.c: 353:                         state = 9;
+[e = F2716 -> -> 9 `i `uc ]
 "354
-[; ;Menu.c: 354:                     }
+[; ;Menu.c: 354:                         val =0;
+[e = _val -> -> 0 `i `uc ]
+"355
+[; ;Menu.c: 355:                     }
 }
 [e :U 382 ]
-"355
-[; ;Menu.c: 355:                 } else {
+"356
+[; ;Menu.c: 356:                 } else {
 }
 [e $U 383  ]
 [e :U 381 ]
 {
-"356
-[; ;Menu.c: 356:                     val++;
-[e ++ _val -> -> 1 `i `uc ]
 "357
-[; ;Menu.c: 357:                 }
+[; ;Menu.c: 357:                     val++;
+[e ++ _val -> -> 1 `i `uc ]
+"358
+[; ;Menu.c: 358:                 }
 }
 [e :U 383 ]
 [e :U 380 ]
-"358
-[; ;Menu.c: 358:             }
+"359
+[; ;Menu.c: 359:             }
 }
 [e :U 378 ]
-"359
-[; ;Menu.c: 359:             break;
+"360
+[; ;Menu.c: 360:             break;
 [e $U 285  ]
-"361
-[; ;Menu.c: 361:         case 60:
-[e :U 384 ]
 "362
-[; ;Menu.c: 362:             if (DaGetNumScores() == 0){
+[; ;Menu.c: 362:         case 60:
+[e :U 384 ]
+"363
+[; ;Menu.c: 363:             if (DaGetNumScores() == 0){
 [e $ ! == -> ( _DaGetNumScores ..  `i -> 0 `i 385  ]
 {
-"363
-[; ;Menu.c: 363:                 state = 9;
-[e = F2716 -> -> 9 `i `uc ]
 "364
-[; ;Menu.c: 364:             }else{
+[; ;Menu.c: 364:                 state = 9;
+[e = F2716 -> -> 9 `i `uc ]
+"365
+[; ;Menu.c: 365:             }else{
 }
 [e $U 386  ]
 [e :U 385 ]
 {
-"366
-[; ;Menu.c: 366:                 displayScoresMarquee();
-[e ( _displayScoresMarquee ..  ]
 "367
-[; ;Menu.c: 367:                 state = 61;
-[e = F2716 -> -> 61 `i `uc ]
+[; ;Menu.c: 367:                 displayScoresMarquee();
+[e ( _displayScoresMarquee ..  ]
 "368
-[; ;Menu.c: 368:                 if (DaGetNumScores() == 1) state+=2;
+[; ;Menu.c: 368:                 state = 61;
+[e = F2716 -> -> 61 `i `uc ]
+"369
+[; ;Menu.c: 369:                 if (DaGetNumScores() == 1) state+=2;
 [e $ ! == -> ( _DaGetNumScores ..  `i -> 1 `i 387  ]
 [e =+ F2716 -> -> 2 `i `uc ]
 [e :U 387 ]
-"369
-[; ;Menu.c: 369:             }
+"370
+[; ;Menu.c: 370:             }
 }
 [e :U 386 ]
-"371
-[; ;Menu.c: 371:             break;
-[e $U 285  ]
 "372
-[; ;Menu.c: 372:         case 61:
-[e :U 388 ]
+[; ;Menu.c: 372:             break;
+[e $U 285  ]
 "373
-[; ;Menu.c: 373:             if (DaGetIdle()){
+[; ;Menu.c: 373:         case 61:
+[e :U 388 ]
+"374
+[; ;Menu.c: 374:             if (DaGetIdle()){
 [e $ ! != -> ( _DaGetIdle ..  `i -> 0 `i 389  ]
 {
-"374
-[; ;Menu.c: 374:                 state = 62;
-[e = F2716 -> -> 62 `i `uc ]
 "375
-[; ;Menu.c: 375:                 TiResetTics(timer);
-[e ( _TiResetTics (1 _timer ]
+[; ;Menu.c: 375:                 state = 62;
+[e = F2716 -> -> 62 `i `uc ]
 "376
-[; ;Menu.c: 376:             }
+[; ;Menu.c: 376:                 TiResetTics(timer);
+[e ( _TiResetTics (1 _timer ]
+"377
+[; ;Menu.c: 377:             }
 }
 [e :U 389 ]
-"377
-[; ;Menu.c: 377:             break;
-[e $U 285  ]
 "378
-[; ;Menu.c: 378:         case 62:
-[e :U 390 ]
+[; ;Menu.c: 378:             break;
+[e $U 285  ]
 "379
-[; ;Menu.c: 379:             state = 63;
-[e = F2716 -> -> 63 `i `uc ]
+[; ;Menu.c: 379:         case 62:
+[e :U 390 ]
 "380
-[; ;Menu.c: 380:             if (TiGetTics(timer) >= 1200){
+[; ;Menu.c: 380:             state = 63;
+[e = F2716 -> -> 63 `i `uc ]
+"381
+[; ;Menu.c: 381:             if (TiGetTics(timer) >= 1200){
 [e $ ! >= ( _TiGetTics (1 _timer -> 1200 `i 391  ]
 {
-"381
-[; ;Menu.c: 381:                 CantaIR(0x10 | 0x08);
-[e ( _CantaIR (1 -> | -> 16 `i -> 8 `i `uc ]
 "382
-[; ;Menu.c: 382:                 LCDcolm++;
-[e ++ _LCDcolm -> -> 1 `i `uc ]
+[; ;Menu.c: 382:                 CantaIR(0x10 | 0x08);
+[e ( _CantaIR (1 -> | -> 16 `i -> 8 `i `uc ]
 "383
-[; ;Menu.c: 383:                 if (LCDcolm == 16){
+[; ;Menu.c: 383:                 LCDcolm++;
+[e ++ _LCDcolm -> -> 1 `i `uc ]
+"384
+[; ;Menu.c: 384:                 if (LCDcolm == 16){
 [e $ ! == -> _LCDcolm `i -> 16 `i 392  ]
 {
-"384
-[; ;Menu.c: 384:                     resetDisplay();
-[e ( _resetDisplay ..  ]
 "385
-[; ;Menu.c: 385:                     LCDcolm = 0;
-[e = _LCDcolm -> -> 0 `i `uc ]
+[; ;Menu.c: 385:                     resetDisplay();
+[e ( _resetDisplay ..  ]
 "386
-[; ;Menu.c: 386:                     state = 60;
-[e = F2716 -> -> 60 `i `uc ]
+[; ;Menu.c: 386:                     LCDcolm = 0;
+[e = _LCDcolm -> -> 0 `i `uc ]
 "387
-[; ;Menu.c: 387:                     incrementPosition();
-[e ( _incrementPosition ..  ]
+[; ;Menu.c: 387:                     state = 60;
+[e = F2716 -> -> 60 `i `uc ]
 "388
-[; ;Menu.c: 388:                 }
+[; ;Menu.c: 388:                     incrementPosition();
+[e ( _incrementPosition ..  ]
+"389
+[; ;Menu.c: 389:                 }
 }
 [e :U 392 ]
-"389
-[; ;Menu.c: 389:                 TiResetTics(timer);
-[e ( _TiResetTics (1 _timer ]
 "390
-[; ;Menu.c: 390:             }
+[; ;Menu.c: 390:                 TiResetTics(timer);
+[e ( _TiResetTics (1 _timer ]
+"391
+[; ;Menu.c: 391:             }
 }
 [e :U 391 ]
-"392
-[; ;Menu.c: 392:             break;
-[e $U 285  ]
 "393
-[; ;Menu.c: 393:         case 63:
-[e :U 393 ]
+[; ;Menu.c: 393:             break;
+[e $U 285  ]
 "394
-[; ;Menu.c: 394:             if (DaGetNumScores() > 1) state = 62;
+[; ;Menu.c: 394:         case 63:
+[e :U 393 ]
+"395
+[; ;Menu.c: 395:             if (DaGetNumScores() > 1) state = 62;
 [e $ ! > -> ( _DaGetNumScores ..  `i -> 1 `i 394  ]
 [e = F2716 -> -> 62 `i `uc ]
 [e :U 394 ]
-"395
-[; ;Menu.c: 395:             if (isPressed() && KeGetGenericValue() == '#'){
+"396
+[; ;Menu.c: 396:             if (isPressed() && KeGetGenericValue() == '#'){
 [e $ ! && != -> ( _isPressed ..  `i -> 0 `i == -> ( _KeGetGenericValue ..  `ui -> 35 `ui 395  ]
 {
-"396
-[; ;Menu.c: 396:                 resetDisplay();
-[e ( _resetDisplay ..  ]
 "397
-[; ;Menu.c: 397:                 LCDcolm = 0;
-[e = _LCDcolm -> -> 0 `i `uc ]
+[; ;Menu.c: 397:                 resetDisplay();
+[e ( _resetDisplay ..  ]
 "398
-[; ;Menu.c: 398:                 state = 9;
-[e = F2716 -> -> 9 `i `uc ]
+[; ;Menu.c: 398:                 LCDcolm = 0;
+[e = _LCDcolm -> -> 0 `i `uc ]
 "399
-[; ;Menu.c: 399:                 val =0;
-[e = _val -> -> 0 `i `uc ]
+[; ;Menu.c: 399:                 state = 9;
+[e = F2716 -> -> 9 `i `uc ]
 "400
-[; ;Menu.c: 400:             }
+[; ;Menu.c: 400:                 val =0;
+[e = _val -> -> 0 `i `uc ]
+"401
+[; ;Menu.c: 401:             }
 }
 [e :U 395 ]
-"401
-[; ;Menu.c: 401:             break;
+"402
+[; ;Menu.c: 402:             break;
 [e $U 285  ]
-"404
-[; ;Menu.c: 404:         case 80:
-[e :U 396 ]
 "405
-[; ;Menu.c: 405:             displayLogOut();
-[e ( _displayLogOut ..  ]
+[; ;Menu.c: 405:         case 80:
+[e :U 396 ]
 "406
-[; ;Menu.c: 406:             if (LCDrow == 1){
+[; ;Menu.c: 406:             displayLogOut();
+[e ( _displayLogOut ..  ]
+"407
+[; ;Menu.c: 407:             if (LCDrow == 1){
 [e $ ! == -> _LCDrow `i -> 1 `i 397  ]
 {
-"407
-[; ;Menu.c: 407:                 state = 81;
-[e = F2716 -> -> 81 `i `uc ]
 "408
-[; ;Menu.c: 408:                 TiResetTics(timer);
-[e ( _TiResetTics (1 _timer ]
+[; ;Menu.c: 408:                 state = 81;
+[e = F2716 -> -> 81 `i `uc ]
 "409
-[; ;Menu.c: 409:             }
+[; ;Menu.c: 409:                 TiResetTics(timer);
+[e ( _TiResetTics (1 _timer ]
+"410
+[; ;Menu.c: 410:             }
 }
 [e :U 397 ]
-"410
-[; ;Menu.c: 410:             break;
-[e $U 285  ]
 "411
-[; ;Menu.c: 411:         case 81:
-[e :U 398 ]
+[; ;Menu.c: 411:             break;
+[e $U 285  ]
 "412
-[; ;Menu.c: 412:             if (TiGetTics(timer) >= 3600){
+[; ;Menu.c: 412:         case 81:
+[e :U 398 ]
+"413
+[; ;Menu.c: 413:             if (TiGetTics(timer) >= 3600){
 [e $ ! >= ( _TiGetTics (1 _timer -> 3600 `i 399  ]
 {
-"413
-[; ;Menu.c: 413:                 state = 0;
-[e = F2716 -> -> 0 `i `uc ]
 "414
-[; ;Menu.c: 414:                 resetDisplay();
-[e ( _resetDisplay ..  ]
+[; ;Menu.c: 414:                 state = 0;
+[e = F2716 -> -> 0 `i `uc ]
 "415
-[; ;Menu.c: 415:                 LCDcolm = 0;
-[e = _LCDcolm -> -> 0 `i `uc ]
+[; ;Menu.c: 415:                 resetDisplay();
+[e ( _resetDisplay ..  ]
 "416
-[; ;Menu.c: 416:                 val =0;
-[e = _val -> -> 0 `i `uc ]
+[; ;Menu.c: 416:                 LCDcolm = 0;
+[e = _LCDcolm -> -> 0 `i `uc ]
 "417
-[; ;Menu.c: 417:             }
+[; ;Menu.c: 417:                 val =0;
+[e = _val -> -> 0 `i `uc ]
+"418
+[; ;Menu.c: 418:             }
 }
 [e :U 399 ]
-"418
-[; ;Menu.c: 418:             break;
-[e $U 285  ]
 "419
-[; ;Menu.c: 419:         case 100:
-[e :U 400 ]
+[; ;Menu.c: 419:             break;
+[e $U 285  ]
 "420
-[; ;Menu.c: 420:             displayString(&sysTime);
-[e ( _displayString (1 -> &U _sysTime `*uc ]
+[; ;Menu.c: 420:         case 100:
+[e :U 400 ]
 "421
-[; ;Menu.c: 421:             if(LCDrow == 1){
+[; ;Menu.c: 421:             displayString(&sysTime);
+[e ( _displayString (1 -> &U _sysTime `*uc ]
+"422
+[; ;Menu.c: 422:             if(LCDrow == 1){
 [e $ ! == -> _LCDrow `i -> 1 `i 401  ]
 {
-"422
-[; ;Menu.c: 422:                 displaySysTime();
-[e ( _displaySysTime ..  ]
 "423
-[; ;Menu.c: 423:                 state = 101;
-[e = F2716 -> -> 101 `i `uc ]
+[; ;Menu.c: 423:                 displaySysTime();
+[e ( _displaySysTime ..  ]
 "424
-[; ;Menu.c: 424:             }
+[; ;Menu.c: 424:                 state = 101;
+[e = F2716 -> -> 101 `i `uc ]
+"425
+[; ;Menu.c: 425:             }
 }
 [e :U 401 ]
-"425
-[; ;Menu.c: 425:             break;
-[e $U 285  ]
 "426
-[; ;Menu.c: 426:         case 101:
-[e :U 402 ]
+[; ;Menu.c: 426:             break;
+[e $U 285  ]
 "427
-[; ;Menu.c: 427:             if (isPressed() && KeGetGenericValue() == '#'){
+[; ;Menu.c: 427:         case 101:
+[e :U 402 ]
+"428
+[; ;Menu.c: 428:             if (isPressed() && KeGetGenericValue() == '#'){
 [e $ ! && != -> ( _isPressed ..  `i -> 0 `i == -> ( _KeGetGenericValue ..  `ui -> 35 `ui 403  ]
 {
-"428
-[; ;Menu.c: 428:                 resetDisplay();
-[e ( _resetDisplay ..  ]
 "429
-[; ;Menu.c: 429:                 LCDcolm = 0;
-[e = _LCDcolm -> -> 0 `i `uc ]
+[; ;Menu.c: 429:                 resetDisplay();
+[e ( _resetDisplay ..  ]
 "430
-[; ;Menu.c: 430:                 state = 9;
-[e = F2716 -> -> 9 `i `uc ]
+[; ;Menu.c: 430:                 LCDcolm = 0;
+[e = _LCDcolm -> -> 0 `i `uc ]
 "431
-[; ;Menu.c: 431:                 stopTimer();
-[e ( _stopTimer ..  ]
+[; ;Menu.c: 431:                 state = 9;
+[e = F2716 -> -> 9 `i `uc ]
 "432
-[; ;Menu.c: 432:                 val =0;
-[e = _val -> -> 0 `i `uc ]
+[; ;Menu.c: 432:                 stopTimer();
+[e ( _stopTimer ..  ]
 "433
-[; ;Menu.c: 433:             }
+[; ;Menu.c: 433:                 val =0;
+[e = _val -> -> 0 `i `uc ]
+"434
+[; ;Menu.c: 434:             }
 }
 [e :U 403 ]
-"434
-[; ;Menu.c: 434:             break;
-[e $U 285  ]
 "435
-[; ;Menu.c: 435:     }
+[; ;Menu.c: 435:             break;
+[e $U 285  ]
+"436
+[; ;Menu.c: 436:     }
 }
 [e $U 285  ]
 [e :U 286 ]
@@ -2223,284 +2226,284 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 101 `i 402
  285 ]
 [e :U 285 ]
-"436
-[; ;Menu.c: 436: }
+"437
+[; ;Menu.c: 437: }
 [e :UE 284 ]
 }
-"438
-[; ;Menu.c: 438: void resetDisplay(void){
+"439
+[; ;Menu.c: 439: void resetDisplay(void){
 [v _resetDisplay `(v ~T0 @X0 1 ef ]
 {
 [e :U _resetDisplay ]
 [f ]
-"439
-[; ;Menu.c: 439:     LcClear();
-[e ( _LcClear ..  ]
 "440
-[; ;Menu.c: 440:     LCDcol = LCDrow = 0;
-[e = _LCDcol = _LCDrow -> -> 0 `i `uc ]
+[; ;Menu.c: 440:     LcClear();
+[e ( _LcClear ..  ]
 "441
-[; ;Menu.c: 441: }
+[; ;Menu.c: 441:     LCDcol = LCDrow = 0;
+[e = _LCDcol = _LCDrow -> -> 0 `i `uc ]
+"442
+[; ;Menu.c: 442: }
 [e :UE 404 ]
 }
-"443
-[; ;Menu.c: 443: void displayString(char* string){
+"444
+[; ;Menu.c: 444: void displayString(char* string){
 [v _displayString `(v ~T0 @X0 1 ef1`*uc ]
 {
 [e :U _displayString ]
 [v _string `*uc ~T0 @X0 1 r1 ]
 [f ]
-"444
-[; ;Menu.c: 444:     if (string[LCDcol+LCDcolm] != '\0'){
+"445
+[; ;Menu.c: 445:     if (string[LCDcol+LCDcolm] != '\0'){
 [e $ ! != -> *U + _string * -> + -> _LCDcol `i -> _LCDcolm `i `x -> -> # *U _string `i `x `ui -> 0 `ui 406  ]
 {
-"445
-[; ;Menu.c: 445:         LcPutChar(string[LCDcol+LCDcolm]);
-[e ( _LcPutChar (1 *U + _string * -> + -> _LCDcol `i -> _LCDcolm `i `x -> -> # *U _string `i `x ]
 "446
-[; ;Menu.c: 446:         LCDcol++;
-[e ++ _LCDcol -> -> 1 `i `uc ]
+[; ;Menu.c: 446:         LcPutChar(string[LCDcol+LCDcolm]);
+[e ( _LcPutChar (1 *U + _string * -> + -> _LCDcol `i -> _LCDcolm `i `x -> -> # *U _string `i `x ]
 "447
-[; ;Menu.c: 447:     } else {
+[; ;Menu.c: 447:         LCDcol++;
+[e ++ _LCDcol -> -> 1 `i `uc ]
+"448
+[; ;Menu.c: 448:     } else {
 }
 [e $U 407  ]
 [e :U 406 ]
 {
-"448
-[; ;Menu.c: 448:         nextRow();
-[e ( _nextRow ..  ]
 "449
-[; ;Menu.c: 449:     }
+[; ;Menu.c: 449:         nextRow();
+[e ( _nextRow ..  ]
+"450
+[; ;Menu.c: 450:     }
 }
 [e :U 407 ]
-"450
-[; ;Menu.c: 450: }
+"451
+[; ;Menu.c: 451: }
 [e :UE 405 ]
 }
-"453
-[; ;Menu.c: 453: void mainMenu(void){
+"454
+[; ;Menu.c: 454: void mainMenu(void){
 [v _mainMenu `(v ~T0 @X0 1 ef ]
 {
 [e :U _mainMenu ]
 [f ]
-"454
-[; ;Menu.c: 454:     if (LCDrow+val < 5){
+"455
+[; ;Menu.c: 455:     if (LCDrow+val < 5){
 [e $ ! < + -> _LCDrow `i -> _val `i -> 5 `i 409  ]
 {
-"455
-[; ;Menu.c: 455:         if (MAINMENUSIZE[LCDrow+val] > 16){
+"456
+[; ;Menu.c: 456:         if (MAINMENUSIZE[LCDrow+val] > 16){
 [e $ ! > -> *U + &U _MAINMENUSIZE * -> -> + -> _LCDrow `i -> _val `i `ui `ux -> -> # *U &U _MAINMENUSIZE `ui `ux `i -> 16 `i 410  ]
 {
-"456
-[; ;Menu.c: 456:             if (LCDcol < 16){
+"457
+[; ;Menu.c: 457:             if (LCDcol < 16){
 [e $ ! < -> _LCDcol `i -> 16 `i 411  ]
 {
-"457
-[; ;Menu.c: 457:                 LcPutChar(MAINMENU[LCDrow+val][(LCDcol+LCDcolm) % MAINMENUSIZE[LCDrow+val]]);
-[e ( _LcPutChar (1 *U + &U *U + &U _MAINMENU * -> -> + -> _LCDrow `i -> _val `i `ui `ux -> * -> # *U &U *U &U _MAINMENU `ui -> -> 28 `i `ui `ux * -> -> % + -> _LCDcol `i -> _LCDcolm `i -> *U + &U _MAINMENUSIZE * -> -> + -> _LCDrow `i -> _val `i `ui `ux -> -> # *U &U _MAINMENUSIZE `ui `ux `i `ui `ux -> -> # *U &U *U + &U _MAINMENU * -> -> + -> _LCDrow `i -> _val `i `ui `ux -> * -> # *U &U *U &U _MAINMENU `ui -> -> 28 `i `ui `ux `ui `ux ]
 "458
-[; ;Menu.c: 458:                 LCDcol++;
-[e ++ _LCDcol -> -> 1 `i `uc ]
+[; ;Menu.c: 458:                 LcPutChar(MAINMENU[LCDrow+val][(LCDcol+LCDcolm) % MAINMENUSIZE[LCDrow+val]]);
+[e ( _LcPutChar (1 *U + &U *U + &U _MAINMENU * -> -> + -> _LCDrow `i -> _val `i `ui `ux -> * -> # *U &U *U &U _MAINMENU `ui -> -> 28 `i `ui `ux * -> -> % + -> _LCDcol `i -> _LCDcolm `i -> *U + &U _MAINMENUSIZE * -> -> + -> _LCDrow `i -> _val `i `ui `ux -> -> # *U &U _MAINMENUSIZE `ui `ux `i `ui `ux -> -> # *U &U *U + &U _MAINMENU * -> -> + -> _LCDrow `i -> _val `i `ui `ux -> * -> # *U &U *U &U _MAINMENU `ui -> -> 28 `i `ui `ux `ui `ux ]
 "459
-[; ;Menu.c: 459:             }else {
+[; ;Menu.c: 459:                 LCDcol++;
+[e ++ _LCDcol -> -> 1 `i `uc ]
+"460
+[; ;Menu.c: 460:             }else {
 }
 [e $U 412  ]
 [e :U 411 ]
 {
-"460
-[; ;Menu.c: 460:                 nextRow();
-[e ( _nextRow ..  ]
 "461
-[; ;Menu.c: 461:             }
+[; ;Menu.c: 461:                 nextRow();
+[e ( _nextRow ..  ]
+"462
+[; ;Menu.c: 462:             }
 }
 [e :U 412 ]
-"463
-[; ;Menu.c: 463:         }else if (MAINMENU[LCDrow+val][LCDcol] != '\0'){
+"464
+[; ;Menu.c: 464:         }else if (MAINMENU[LCDrow+val][LCDcol] != '\0'){
 }
 [e $U 413  ]
 [e :U 410 ]
 [e $ ! != -> *U + &U *U + &U _MAINMENU * -> -> + -> _LCDrow `i -> _val `i `ui `ux -> * -> # *U &U *U &U _MAINMENU `ui -> -> 28 `i `ui `ux * -> _LCDcol `ux -> -> # *U &U *U + &U _MAINMENU * -> -> + -> _LCDrow `i -> _val `i `ui `ux -> * -> # *U &U *U &U _MAINMENU `ui -> -> 28 `i `ui `ux `ui `ux `ui -> 0 `ui 414  ]
 {
-"464
-[; ;Menu.c: 464:             LcPutChar(MAINMENU[LCDrow+val][LCDcol]);
-[e ( _LcPutChar (1 *U + &U *U + &U _MAINMENU * -> -> + -> _LCDrow `i -> _val `i `ui `ux -> * -> # *U &U *U &U _MAINMENU `ui -> -> 28 `i `ui `ux * -> _LCDcol `ux -> -> # *U &U *U + &U _MAINMENU * -> -> + -> _LCDrow `i -> _val `i `ui `ux -> * -> # *U &U *U &U _MAINMENU `ui -> -> 28 `i `ui `ux `ui `ux ]
 "465
-[; ;Menu.c: 465:             LCDcol++;
-[e ++ _LCDcol -> -> 1 `i `uc ]
+[; ;Menu.c: 465:             LcPutChar(MAINMENU[LCDrow+val][LCDcol]);
+[e ( _LcPutChar (1 *U + &U *U + &U _MAINMENU * -> -> + -> _LCDrow `i -> _val `i `ui `ux -> * -> # *U &U *U &U _MAINMENU `ui -> -> 28 `i `ui `ux * -> _LCDcol `ux -> -> # *U &U *U + &U _MAINMENU * -> -> + -> _LCDrow `i -> _val `i `ui `ux -> * -> # *U &U *U &U _MAINMENU `ui -> -> 28 `i `ui `ux `ui `ux ]
 "466
-[; ;Menu.c: 466:         } else {
+[; ;Menu.c: 466:             LCDcol++;
+[e ++ _LCDcol -> -> 1 `i `uc ]
+"467
+[; ;Menu.c: 467:         } else {
 }
 [e $U 415  ]
 [e :U 414 ]
 {
-"467
-[; ;Menu.c: 467:             nextRow();
-[e ( _nextRow ..  ]
 "468
-[; ;Menu.c: 468:         }
+[; ;Menu.c: 468:             nextRow();
+[e ( _nextRow ..  ]
+"469
+[; ;Menu.c: 469:         }
 }
 [e :U 415 ]
 [e :U 413 ]
-"469
-[; ;Menu.c: 469:     }
+"470
+[; ;Menu.c: 470:     }
 }
 [e :U 409 ]
-"470
-[; ;Menu.c: 470: }
+"471
+[; ;Menu.c: 471: }
 [e :UE 408 ]
 }
-"472
-[; ;Menu.c: 472: void displayError(void){
+"473
+[; ;Menu.c: 473: void displayError(void){
 [v _displayError `(v ~T0 @X0 1 ef ]
 {
 [e :U _displayError ]
 [f ]
-"473
-[; ;Menu.c: 473:     if (LCDrow == 0){
+"474
+[; ;Menu.c: 474:     if (LCDrow == 0){
 [e $ ! == -> _LCDrow `i -> 0 `i 417  ]
 {
-"474
-[; ;Menu.c: 474:        if (ERROR[LCDcol] != '\0'){
+"475
+[; ;Menu.c: 475:        if (ERROR[LCDcol] != '\0'){
 [e $ ! != -> *U + &U _ERROR * -> _LCDcol `ux -> -> # *U &U _ERROR `ui `ux `ui -> 0 `ui 418  ]
 {
-"475
-[; ;Menu.c: 475:             LcPutChar(ERROR[LCDcol]);
-[e ( _LcPutChar (1 *U + &U _ERROR * -> _LCDcol `ux -> -> # *U &U _ERROR `ui `ux ]
 "476
-[; ;Menu.c: 476:             LCDcol++;
-[e ++ _LCDcol -> -> 1 `i `uc ]
+[; ;Menu.c: 476:             LcPutChar(ERROR[LCDcol]);
+[e ( _LcPutChar (1 *U + &U _ERROR * -> _LCDcol `ux -> -> # *U &U _ERROR `ui `ux ]
 "477
-[; ;Menu.c: 477:         } else {
+[; ;Menu.c: 477:             LCDcol++;
+[e ++ _LCDcol -> -> 1 `i `uc ]
+"478
+[; ;Menu.c: 478:         } else {
 }
 [e $U 419  ]
 [e :U 418 ]
 {
-"478
-[; ;Menu.c: 478:         nextRow();
-[e ( _nextRow ..  ]
 "479
-[; ;Menu.c: 479:         }
+[; ;Menu.c: 479:         nextRow();
+[e ( _nextRow ..  ]
+"480
+[; ;Menu.c: 480:         }
 }
 [e :U 419 ]
-"480
-[; ;Menu.c: 480:     } else {
+"481
+[; ;Menu.c: 481:     } else {
 }
 [e $U 420  ]
 [e :U 417 ]
 {
-"481
-[; ;Menu.c: 481:         LcPutChar(val);
-[e ( _LcPutChar (1 _val ]
 "482
-[; ;Menu.c: 482:         LcPutChar(LCDcolm);
-[e ( _LcPutChar (1 _LCDcolm ]
+[; ;Menu.c: 482:         LcPutChar(val);
+[e ( _LcPutChar (1 _val ]
 "483
-[; ;Menu.c: 483:         LCDrow++;
-[e ++ _LCDrow -> -> 1 `i `uc ]
+[; ;Menu.c: 483:         LcPutChar(LCDcolm);
+[e ( _LcPutChar (1 _LCDcolm ]
 "484
-[; ;Menu.c: 484:     }
+[; ;Menu.c: 484:         LCDrow++;
+[e ++ _LCDrow -> -> 1 `i `uc ]
+"485
+[; ;Menu.c: 485:     }
 }
 [e :U 420 ]
-"485
-[; ;Menu.c: 485: }
+"486
+[; ;Menu.c: 486: }
 [e :UE 416 ]
 }
-"486
-[; ;Menu.c: 486: void displayResults(void){
+"487
+[; ;Menu.c: 487: void displayResults(void){
 [v _displayResults `(v ~T0 @X0 1 ef ]
 {
 [e :U _displayResults ]
 [f ]
-"487
-[; ;Menu.c: 487:     if (RESULTS[LCDrow][LCDcol] != '\0'){
+"488
+[; ;Menu.c: 488:     if (RESULTS[LCDrow][LCDcol] != '\0'){
 [e $ ! != -> *U + &U *U + &U _RESULTS * -> _LCDrow `ux -> * -> # *U &U *U &U _RESULTS `ui -> -> 11 `i `ui `ux * -> _LCDcol `ux -> -> # *U &U *U + &U _RESULTS * -> _LCDrow `ux -> * -> # *U &U *U &U _RESULTS `ui -> -> 11 `i `ui `ux `ui `ux `ui -> 0 `ui 422  ]
 {
-"488
-[; ;Menu.c: 488:         LcPutChar(RESULTS[LCDrow][LCDcol]);
-[e ( _LcPutChar (1 *U + &U *U + &U _RESULTS * -> _LCDrow `ux -> * -> # *U &U *U &U _RESULTS `ui -> -> 11 `i `ui `ux * -> _LCDcol `ux -> -> # *U &U *U + &U _RESULTS * -> _LCDrow `ux -> * -> # *U &U *U &U _RESULTS `ui -> -> 11 `i `ui `ux `ui `ux ]
 "489
-[; ;Menu.c: 489:         LCDcol++;
-[e ++ _LCDcol -> -> 1 `i `uc ]
+[; ;Menu.c: 489:         LcPutChar(RESULTS[LCDrow][LCDcol]);
+[e ( _LcPutChar (1 *U + &U *U + &U _RESULTS * -> _LCDrow `ux -> * -> # *U &U *U &U _RESULTS `ui -> -> 11 `i `ui `ux * -> _LCDcol `ux -> -> # *U &U *U + &U _RESULTS * -> _LCDrow `ux -> * -> # *U &U *U &U _RESULTS `ui -> -> 11 `i `ui `ux `ui `ux ]
 "490
-[; ;Menu.c: 490:     } else {
+[; ;Menu.c: 490:         LCDcol++;
+[e ++ _LCDcol -> -> 1 `i `uc ]
+"491
+[; ;Menu.c: 491:     } else {
 }
 [e $U 423  ]
 [e :U 422 ]
 {
-"491
-[; ;Menu.c: 491:         nextRow();
-[e ( _nextRow ..  ]
 "492
-[; ;Menu.c: 492:     }
+[; ;Menu.c: 492:         nextRow();
+[e ( _nextRow ..  ]
+"493
+[; ;Menu.c: 493:     }
 }
 [e :U 423 ]
-"493
-[; ;Menu.c: 493: }
+"494
+[; ;Menu.c: 494: }
 [e :UE 421 ]
 }
-"495
-[; ;Menu.c: 495: void displayLogOut(void){
+"496
+[; ;Menu.c: 496: void displayLogOut(void){
 [v _displayLogOut `(v ~T0 @X0 1 ef ]
 {
 [e :U _displayLogOut ]
 [f ]
-"496
-[; ;Menu.c: 496:     if (LOGOUTMESSAGE[LCDcol] != '\0'){
+"497
+[; ;Menu.c: 497:     if (LOGOUTMESSAGE[LCDcol] != '\0'){
 [e $ ! != -> *U + &U _LOGOUTMESSAGE * -> _LCDcol `ux -> -> # *U &U _LOGOUTMESSAGE `ui `ux `ui -> 0 `ui 425  ]
 {
-"497
-[; ;Menu.c: 497:         LcPutChar(LOGOUTMESSAGE[LCDcol]);
-[e ( _LcPutChar (1 *U + &U _LOGOUTMESSAGE * -> _LCDcol `ux -> -> # *U &U _LOGOUTMESSAGE `ui `ux ]
 "498
-[; ;Menu.c: 498:         LCDcol++;
-[e ++ _LCDcol -> -> 1 `i `uc ]
+[; ;Menu.c: 498:         LcPutChar(LOGOUTMESSAGE[LCDcol]);
+[e ( _LcPutChar (1 *U + &U _LOGOUTMESSAGE * -> _LCDcol `ux -> -> # *U &U _LOGOUTMESSAGE `ui `ux ]
 "499
-[; ;Menu.c: 499:     } else if (mUser.username[LCDcolm] != '\0' && LCDcolm < 8) {
+[; ;Menu.c: 499:         LCDcol++;
+[e ++ _LCDcol -> -> 1 `i `uc ]
+"500
+[; ;Menu.c: 500:     } else if (mUser.username[LCDcolm] != '\0' && LCDcolm < 8) {
 }
 [e $U 426  ]
 [e :U 425 ]
 [e $ ! && != -> *U + &U . _mUser 0 * -> _LCDcolm `ux -> -> # *U &U . _mUser 0 `ui `ux `ui -> 0 `ui < -> _LCDcolm `i -> 8 `i 427  ]
 {
-"500
-[; ;Menu.c: 500:         LcPutChar(mUser.username[LCDcolm]);
-[e ( _LcPutChar (1 *U + &U . _mUser 0 * -> _LCDcolm `ux -> -> # *U &U . _mUser 0 `ui `ux ]
 "501
-[; ;Menu.c: 501:         LCDcolm++;
-[e ++ _LCDcolm -> -> 1 `i `uc ]
+[; ;Menu.c: 501:         LcPutChar(mUser.username[LCDcolm]);
+[e ( _LcPutChar (1 *U + &U . _mUser 0 * -> _LCDcolm `ux -> -> # *U &U . _mUser 0 `ui `ux ]
 "502
-[; ;Menu.c: 502:     } else {
+[; ;Menu.c: 502:         LCDcolm++;
+[e ++ _LCDcolm -> -> 1 `i `uc ]
+"503
+[; ;Menu.c: 503:     } else {
 }
 [e $U 428  ]
 [e :U 427 ]
 {
-"503
-[; ;Menu.c: 503:         nextRow();
-[e ( _nextRow ..  ]
 "504
-[; ;Menu.c: 504:     }
+[; ;Menu.c: 504:         nextRow();
+[e ( _nextRow ..  ]
+"505
+[; ;Menu.c: 505:     }
 }
 [e :U 428 ]
 [e :U 426 ]
-"506
-[; ;Menu.c: 506: }
+"507
+[; ;Menu.c: 507: }
 [e :UE 424 ]
 }
-"507
-[; ;Menu.c: 507: void nextRow(void){
+"508
+[; ;Menu.c: 508: void nextRow(void){
 [v _nextRow `(v ~T0 @X0 1 ef ]
 {
 [e :U _nextRow ]
 [f ]
-"508
-[; ;Menu.c: 508:     LCDrow++;
-[e ++ _LCDrow -> -> 1 `i `uc ]
 "509
-[; ;Menu.c: 509:     LcGotoXY(0,1);
-[e ( _LcGotoXY (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;Menu.c: 509:     LCDrow++;
+[e ++ _LCDrow -> -> 1 `i `uc ]
 "510
-[; ;Menu.c: 510:     LCDcol = 0;
-[e = _LCDcol -> -> 0 `i `uc ]
+[; ;Menu.c: 510:     LcGotoXY(0,1);
+[e ( _LcGotoXY (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
 "511
-[; ;Menu.c: 511: }
+[; ;Menu.c: 511:     LCDcol = 0;
+[e = _LCDcol -> -> 0 `i `uc ]
+"512
+[; ;Menu.c: 512: }
 [e :UE 429 ]
 }
