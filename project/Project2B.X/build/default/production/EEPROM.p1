@@ -10,8 +10,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "50
 [; ;./EEPROM.h: 50: void readUserData (void);
 [v _readUserData `(v ~T0 @X0 0 ef ]
-"56
-[; ;./EEPROM.h: 56: char readEEPROM(char address);
+"57
+[; ;./EEPROM.h: 57: char readEEPROM(char address);
 [v _readEEPROM `(uc ~T0 @X0 0 ef1`uc ]
 "54
 [; ;./EEPROM.h: 54: void saveEEPROM(char ad, char data);

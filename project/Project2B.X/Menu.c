@@ -378,7 +378,7 @@ void menuMotor(void){
             break;
         case 62:
             state = 63;
-            if (TiGetTics(timer) >= TSECOND){
+            if (TiGetTics(timer) >= TDISPREFRESH){
                 CantaIR(BITS_8 | DISPLAY_CONTROL);
                 LCDcolm++;
                 if (LCDcolm == 16){

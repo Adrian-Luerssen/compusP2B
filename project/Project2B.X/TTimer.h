@@ -3,7 +3,7 @@
 
 #define TSECOND 1200
 #define T3SECOND 3600
-#define TDISPREFRESH 600
+#define TDISPREFRESH 1200
 void TiInitTimer(void);
 //Pre: --
 //Post: Initializes the timer0 to interrupt each 1ms.

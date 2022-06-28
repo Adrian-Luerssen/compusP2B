@@ -53,10 +53,16 @@ void DaSaveScore(char userScore);
 
 void saveEEPROM(char ad, char data);
 char DaGetScoreMarquee(char LCDcol,char LCDrow,char LCDcolm);
+
 char readEEPROM(char address);
+
 char DaGetNumScores(void);
+
 void incrementPosition(void);
+
 void displayScoresMarquee(void);
+
 void resetPosition(void);
+
 #endif	/* XC_HEADER_TEMPLATE_H */
 

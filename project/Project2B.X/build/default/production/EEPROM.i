@@ -4857,10 +4857,15 @@ void DaSaveScore(char userScore);
 
 void saveEEPROM(char ad, char data);
 char DaGetScoreMarquee(char LCDcol,char LCDrow,char LCDcolm);
+
 char readEEPROM(char address);
+
 char DaGetNumScores(void);
+
 void incrementPosition(void);
+
 void displayScoresMarquee(void);
+
 void resetPosition(void);
 # 4 "EEPROM.c" 2
 # 13 "EEPROM.c"

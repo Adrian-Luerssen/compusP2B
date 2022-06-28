@@ -4754,10 +4754,15 @@ void DaSaveScore(char userScore);
 
 void saveEEPROM(char ad, char data);
 char DaGetScoreMarquee(char LCDcol,char LCDrow,char LCDcolm);
+
 char readEEPROM(char address);
+
 char DaGetNumScores(void);
+
 void incrementPosition(void);
+
 void displayScoresMarquee(void);
+
 void resetPosition(void);
 # 8 "./Menu.h" 2
 
@@ -5042,7 +5047,7 @@ void menuMotor(void){
             break;
         case 11:
             if (val < 4 && val > 0){
-                if (TiGetTics(timer) >= 600){
+                if (TiGetTics(timer) >= 1200){
                     LCDcolm++;
                     LCDcolm = LCDcolm % MAINMENUSIZE[2];
                     state = 9;

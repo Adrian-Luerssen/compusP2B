@@ -66,8 +66,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "20
 [; ;./Joystick.h: 20: char JoDirection(void);
 [v _JoDirection `(uc ~T0 @X0 0 ef ]
-"60 ./EEPROM.h
-[; ;./EEPROM.h: 60: void resetPosition(void);
+"65 ./EEPROM.h
+[; ;./EEPROM.h: 65: void resetPosition(void);
 [v _resetPosition `(v ~T0 @X0 0 ef ]
 "10 ./SIO.h
 [; ;./SIO.h: 10: char SiIsAvailable(void);
@@ -111,8 +111,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "21 ./time.h
 [; ;./time.h: 21: void modifyTime(void);
 [v _modifyTime `(v ~T0 @X0 0 ef ]
-"57 ./EEPROM.h
-[; ;./EEPROM.h: 57: char DaGetNumScores(void);
+"59 ./EEPROM.h
+[; ;./EEPROM.h: 59: char DaGetNumScores(void);
 [v _DaGetNumScores `(uc ~T0 @X0 0 ef ]
 "25 ./Menu.h
 [; ;./Menu.h: 25: void displayScoresMarquee(void);
@@ -120,8 +120,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "117 ./LcTLCD.h
 [; ;./LcTLCD.h: 117: void CantaIR(char IR);
 [v _CantaIR `(v ~T0 @X0 0 ef1`uc ]
-"58 ./EEPROM.h
-[; ;./EEPROM.h: 58: void incrementPosition(void);
+"61 ./EEPROM.h
+[; ;./EEPROM.h: 61: void incrementPosition(void);
 [v _incrementPosition `(v ~T0 @X0 0 ef ]
 "17 ./Menu.h
 [; ;./Menu.h: 17: void displayLogOut(void);
@@ -1353,8 +1353,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! && < -> _val `i -> 4 `i > -> _val `i -> 0 `i 327  ]
 {
 "183
-[; ;Menu.c: 183:                 if (TiGetTics(timer) >= 600){
-[e $ ! >= ( _TiGetTics (1 _timer -> 600 `i 328  ]
+[; ;Menu.c: 183:                 if (TiGetTics(timer) >= 1200){
+[e $ ! >= ( _TiGetTics (1 _timer -> 1200 `i 328  ]
 {
 "184
 [; ;Menu.c: 184:                     LCDcolm++;
