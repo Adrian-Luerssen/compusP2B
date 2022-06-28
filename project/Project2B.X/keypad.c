@@ -28,8 +28,7 @@ static char stateSMS = 0;
 
 void initKeypad(void){
     INTCON2bits.RBPU = 0;
-
-    
+  
     TRISBbits.TRISB0 = 1;
     TRISBbits.TRISB1 = 1;
     TRISBbits.TRISB2 = 1;
@@ -37,6 +36,7 @@ void initKeypad(void){
     TRISBbits.TRISB4 = 0;
     TRISBbits.TRISB5 = 0;
     TRISBbits.TRISB6 = 0;
+    TRISAbits.TRISA4 = 0;
     timerBounces = TiGetTimer();
     timer_SMS = TiGetTimer();
     //LcCursorOn();
@@ -132,7 +132,7 @@ void KeypadMotor(void){
 
 void SMSMotor(void){
     switch(stateSMS){
-
+        LATAbits.LATA4 = pressed;
         case 0:
             //LATC = available;
             

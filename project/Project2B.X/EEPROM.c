@@ -3,7 +3,6 @@
 #include <xc.h>
 #include "EEPROM.h"
 #include "LcTLCD.h"
-#define BYTES_PER_USER 24
 #define LOGIN_CORRECT 0
 #define LOGIN_FAILED 1
 #define IN_PROCESS 2
@@ -11,42 +10,37 @@
 #define REGISTER_FAILED 4
 #define IDLE 5
 
+static char numScores;
+static char position;
+
 static char state;
 static char userNum;
-static char position;
 static char status;
-static User mUser;
+static User* mUser;
 static User users[8];
 static Score topScores[5];
+
 static char lastUserPointer;
 static char saveScore;
+static char saveState;
 
 void initData(void) {
     state = 0;
     for (userNum = 0; userNum < 8; userNum++){
         readUserData();
     }
-    for (position = 0; position < 10; position = position+2){
-        EECON1bits.EEPGD = 0;
-        EECON1bits.CFGS = 0;
-        EEADR = (SCORE_POSITION)+position;
-        EECON1bits.RD = 1;
-        topScores[position].score = EEDATA;
-        EECON1bits.EEPGD = 0;
-        EECON1bits.CFGS = 0;
-        EEADR = (SCORE_POSITION)+position+1;
-        EECON1bits.RD = 1;
-        while (EECON1bits.RD == 1){}
-        topScores[position].userNum = EEDATA;
+    for (position = 0; position < 5;){
+        topScores[position].score = readEEPROM((SCORE_POSITION)+position);
+        topScores[position].userNum = readEEPROM((SCORE_USER_POSITION)+position);
+        position++;
     }
-    EECON1bits.EEPGD = 0;
-    EECON1bits.CFGS = 0;
-    EEADR = POINTER_POSITION;
-    EECON1bits.RD = 1;
-    while (EECON1bits.RD == 1){}
-    lastUserPointer = EEDATA;
+    lastUserPointer = readEEPROM(POINTER_POSITION);
+    numScores = readEEPROM(LASTSCORE_POINTER);
     if (lastUserPointer == 0xFF){
         lastUserPointer = 0;
+    }
+    if (numScores == 0xFF){
+        numScores = 0;
     }
 }
 
@@ -67,46 +61,43 @@ void dataMotor(void){
             break;
             
         case 2:
-            if (users[userNum].username[position] == mUser.username[position]){
-                //LcPutChar(mUser.username[position]);
-                if (mUser.username[position] == '\0'){
+            if (users[userNum].username[position] == (*mUser).username[position]){
+                //LcPutChar((*mUser).username[position]);
+                
+                if ((*mUser).username[position] == '\0'){
                     state = 3;
-                    LcGotoXY(10,1);
                     position = 0;
-                }else {
+                } else {
                     position++;
                 }
-                
             } else {
-                state = 4;
-                
+                position = 0;
+                userNum++;
+                state = 1;
             }
             break; 
             
         case 3:
             // if character different state = 0 login unsuccessful
 
-            if (users[userNum].password[position] == mUser.password[position]){
-                //LcPutChar(mUser.password[position]);
-                if (mUser.password[position] == '\0'){
+            if (users[userNum].password[position] == (*mUser).password[position]){
+                //LcPutChar((*mUser).password[position]);
+                if ((*mUser).password[position] == '\0'){
                     state = 0;
                     status = LOGIN_CORRECT;
                 }else {
                     position++;
                 }
             } else {
-                state = 4;
+                
+                status = LOGIN_FAILED;
+                state = 0;
             }
                 // login successful state = 0;
             
             break;
             
-        case 4:
-            //GOTO NEXT USER IN MEMORY
-            position = 0;
-            userNum++;
-            state = 1;
-            break; 
+        
         case 5:
             if (userNum != 8){
                 state = 6;
@@ -116,9 +107,9 @@ void dataMotor(void){
             }
             break;
         case 6:
-            if (users[userNum].username[position] == mUser.username[position]){
-                //LcPutChar(mUser.username[position]);
-                if (mUser.username[position] == '\0'){
+            if (users[userNum].username[position] == (*mUser).username[position]){
+                //LcPutChar((*mUser).username[position]);
+                if ((*mUser).username[position] == '\0'){
                     state = 0;
                     status = REGISTER_FAILED;
                 }else {
@@ -136,134 +127,101 @@ void dataMotor(void){
             state = 5;
             break;
         case 10:
-            EEADR = (lastUserPointer*BYTES_PER_USER)+position;
-            EEDATA = mUser.username[position];
-            users[lastUserPointer].username[position] = mUser.username[position];
-            EECON1bits.EEPGD = 0;
-            EECON1bits.CFGS = 0;
-            EECON1bits.WREN = 1;
-            INTCONbits.GIE = 0;
-            EECON2 = 0x55;
-            EECON2 = 0xAA;
-            EECON1bits.WR = 1;
-            INTCONbits.GIE = 1;
-            EECON1bits.WREN = 0;
+            
+            saveEEPROM((lastUserPointer*16)+position ,(*mUser).username[position]);
+            users[lastUserPointer].username[position] = (*mUser).username[position];
+            if(position < 7){
+                position++;
+                saveState = 10;
+            } else{
+                position = 0;
+                saveState = 12;
+            }
             state = 11;
             break;
         case 11:
             if(EECON1bits.WR == 0){
-                if(mUser.username[position] != '\0'){
-                    position++;
-                    state = 10;
-                } else{
-                    position = 0;
-                    state = 12;
-                }
+                state = saveState;
             }
             break;
         case 12:
-            EEADR = (lastUserPointer*BYTES_PER_USER)+position+9;
-            EEDATA = mUser.password[position];
-            users[lastUserPointer].password[position] = mUser.password[position];
-            EECON1bits.EEPGD = 0;
-            EECON1bits.CFGS = 0;
-            EECON1bits.WREN = 1;
-            INTCONbits.GIE = 0;
-            EECON2 = 0x55;
-            EECON2 = 0xAA;
-            EECON1bits.WR = 1;
-            INTCONbits.GIE = 1;
-            EECON1bits.WREN = 0;
-            state = 13;
-            break;
-        case 13:
-            if(EECON1bits.WR == 0){
-                if(mUser.password[position] != '\0'){
-                    position++;
-                    state = 12;
-                } else{
-                    position = 0;
-                    state = 14;
-                }
+            users[lastUserPointer].password[position] = (*mUser).password[position];
+            saveEEPROM((lastUserPointer*16)+position+8,(*mUser).password[position]);
+            if(position < 7){
+                position++;
+                saveState = 12;
+            } else{
+                position = 0;
+                saveState = 14;
             }
+            state = 11;
             break;
         case 14:
-            if (position == 5){
-                state = 18;
+            if (position >= numScores){
+                state = 16;
                 position = 0;
-            } else{
-               if (topScores[position].userNum == lastUserPointer){
-                    state = 15;
-                } 
-               position++;
-            } 
-            break;
-        case 15:
-            topScores[position].score = 0xF0;
-            EEADR = SCORE_POSITION+(position*2);
-            EEDATA = 0xF0;
-            EECON1bits.EEPGD = 0;
-            EECON1bits.CFGS = 0;
-            EECON1bits.WREN = 1;
-            INTCONbits.GIE = 0;
-            EECON2 = 0x55;
-            EECON2 = 0xAA;
-            EECON1bits.WR = 1;
-            INTCONbits.GIE = 1;
-            EECON1bits.WREN = 0;
-            state = 15;
-            break;
-        case 16:
-            if(EECON1bits.WR == 0){
-                state = 17;
+            } else if (topScores[position].userNum == lastUserPointer){
+                topScores[position].userNum = 0xFF;
+                topScores[position].score = 0xFF;
+                numScores--;
+                state = 15;
+            }else{
+                position++;
             }
             break;
-        case 17:
-            topScores[position].userNum = 0xF0;
-            EEADR = SCORE_POSITION+(position*2)+1;
-            EEDATA = 0xF0;
-            EECON1bits.EEPGD = 0;
-            EECON1bits.CFGS = 0;
-            EECON1bits.WREN = 1;
-            INTCONbits.GIE = 0;
-            EECON2 = 0x55;
-            EECON2 = 0xAA;
-            EECON1bits.WR = 1;
-            INTCONbits.GIE = 1;
-            EECON1bits.WREN = 0;
-            state = 180;
-            break;
-        case 180:
-            if(EECON1bits.WR == 0){
+        case 15:
+            if (position < numScores){
+                topScores[position].userNum = topScores[position+1].userNum;
+                topScores[position].score = topScores[position+1].score;
+                position++;
+            } else {
+                position = 0;
                 state = 14;
             }
             break;
-        case 18:
-            lastUserPointer = (lastUserPointer+1)%8;
-            EEADR = POINTER_POSITION;
-            EEDATA = lastUserPointer;
-            EECON1bits.EEPGD = 0;
-            EECON1bits.CFGS = 0;
-            EECON1bits.WREN = 1;
-            INTCONbits.GIE = 0;
-            EECON2 = 0x55;
-            EECON2 = 0xAA;
-            EECON1bits.WR = 1;
-            INTCONbits.GIE = 1;
-            EECON1bits.WREN = 0;
-            state = 15;
-            break;
-        case 19:
-            if(EECON1bits.WR == 0){
-                status = REGISTERED_CORRECTLY;
-                state = 0;
+        case 16:
+            if (position < 5){
+                saveEEPROM(SCORE_POSITION + position, topScores[position].score);
+                saveState = 17;
+                state = 11;
+            }else {
+                state = 18;
             }
             break;
+        case 17:
+            
+            saveEEPROM(SCORE_USER_POSITION + position, topScores[position].userNum);
+            saveState = 16;
+            state = 11;
+            position++;
+            
+            break;
+        case 18:
+            
+            saveEEPROM(LASTSCORE_POINTER,numScores);
+
+            saveState = 19;
+            state = 11;
+            break;
+        case 19:
+            lastUserPointer = (lastUserPointer+1)%8;
+            saveEEPROM(POINTER_POSITION,lastUserPointer);
+            saveState = 0;
+            status = REGISTERED_CORRECTLY;
+            state = 11;
+            break;
+            
         case 20:
-            if (position == 5){
+            if (numScores < 5){
+                status = numScores;
+                numScores++;
+                saveEEPROM(LASTSCORE_POINTER,numScores);
+                
+                saveState = 21;
+                state = 11;
+                
+            }else if (position == 5){
                 if (topScores[status].score < saveScore){
-                    topScores[status].score = saveScore;
-                    topScores[status].userNum = userNum;
                     state = 21;
                 } else{
                     state = 0;
@@ -276,48 +234,63 @@ void dataMotor(void){
             }
             break;
         case 21:
-            EEADR = SCORE_POSITION + (status*2);
-            EEDATA = saveScore;
-            EECON1bits.EEPGD = 0;
-            EECON1bits.CFGS = 0;
-            EECON1bits.WREN = 1;
-            INTCONbits.GIE = 0;
-            EECON2 = 0x55;
-            EECON2 = 0xAA;
-            EECON1bits.WR = 1;
-            INTCONbits.GIE = 1;
-            EECON1bits.WREN = 0;
+            topScores[status].score = saveScore;
+            topScores[status].userNum = userNum;
             state = 22;
             break;
         case 22:
-            if(EECON1bits.WR == 0){
-                state = 23;
-            }
+            saveEEPROM(SCORE_POSITION + status,saveScore);
+            saveState = 23;
+            state = 11;
             break;
         case 23:
-            EEADR = SCORE_POSITION + (status*2)+1;
-            EEDATA = userNum;
-            EECON1bits.EEPGD = 0;
-            EECON1bits.CFGS = 0;
-            EECON1bits.WREN = 1;
-            INTCONbits.GIE = 0;
-            EECON2 = 0x55;
-            EECON2 = 0xAA;
-            EECON1bits.WR = 1;
-            INTCONbits.GIE = 1;
-            EECON1bits.WREN = 0;
-            state = 24;
+            saveEEPROM(SCORE_USER_POSITION + status,userNum);
+            saveState = 0;
+            state = 11;
             break;
-        case 24:
-            if(EECON1bits.WR == 0){
-                state = 0;
+        case 50:
+            if (users[topScores[position].userNum].username[status] != '\0'){
+                LcPutChar(users[topScores[position].userNum].username[status]);
+                status++;
+            } else {
+                LcPutChar(':');
+                state = 51;
+                LcGotoXY(0,1);
+                status = 0;
             }
             break;
+        case 51:
+            LcPutChar((topScores[position].score/10)+'0');
+            LcPutChar((topScores[position].score%10)+'0');
+            LcGotoXY(16,0);
+            if (position == numScores){ position = 0;}
+            state = 52;
+            break;
+        case 52:
+            saveState = position+1 == numScores? 0:position+1;
+            if (users[topScores[saveState].userNum].username[status] != '\0'){
+                LcPutChar(users[topScores[saveState].userNum].username[status]);
+                status++;
+            } else {
+                LcPutChar(':');
+                state = 53;
+                LcGotoXY(16,1);
+            }
+            break;
+        case 53:
+            LcPutChar((topScores[saveState].score/10)+'0');
+            LcPutChar((topScores[saveState].score%10)+'0');
+            state = 0;
+            break;
+        
     }
 }
 
-
-void DaFindUser(User logUser){
+void displayScoresMarquee(void){
+    state = 50;
+    status = 0;
+}
+void DaFindUser(User* logUser){
     state = 1;
     userNum = 0;
     mUser = logUser;
@@ -331,7 +304,7 @@ char DagetUserNumber(void){
 
 
 
-void DaSaveUser(User regUser){
+void DaSaveUser(User* regUser){
     state = 5;
     position = 0;
     userNum = 0;
@@ -349,26 +322,57 @@ char DaGetIdle(void){
 
 void DaSaveScore(char userScore) {
     saveScore = userScore;
+    LcClear();
+    LcPutChar((saveScore/10)+'0');
+    LcPutChar((saveScore%10)+'0');
     position = 0;
     status = 0;
     state = 20;
 }
 
 void readUserData (void) {
-    for (position = 0; position < 9; position++){
-        EECON1bits.EEPGD = 0;
-        EECON1bits.CFGS = 0;
-        EEADR = (userNum*BYTES_PER_USER)+position;
-        EECON1bits.RD = 1;
-        while (EECON1bits.RD == 1){}
-        users[userNum].username[position] = EEDATA;
+    for (position = 0; position < 8; position++){
+        users[userNum].username[position] = readEEPROM((userNum*16)+position);
     }
-    for (position = 0; position < 9; position++){
-        EECON1bits.EEPGD = 0;
-        EECON1bits.CFGS = 0;
-        EEADR = (userNum*BYTES_PER_USER)+9+position;
-        EECON1bits.RD = 1;
-        while (EECON1bits.RD == 1){}
-        users[userNum].password[position] = EEDATA;
+    users[userNum].username[8] = '\0';
+    for (position = 0; position < 8; position++){
+        users[userNum].password[position] = readEEPROM((userNum*16)+8+position);
     }
+    users[userNum].password[8] = '\0';
+}
+
+void saveEEPROM(char ad, char data){
+    EEADR = ad;
+    EEDATA = data;
+    EECON1bits.EEPGD = 0;
+    EECON1bits.CFGS = 0;
+    EECON1bits.WREN = 1;
+    INTCONbits.GIE = 0;
+    EECON2 = 0x55;
+    EECON2 = 0xAA;
+    EECON1bits.WR = 1;
+    INTCONbits.GIE = 1;
+    EECON1bits.WREN = 0;
+}
+
+
+
+
+char readEEPROM(char address){
+    EECON1bits.EEPGD = 0;
+    EECON1bits.CFGS = 0;
+    EEADR = address;
+    EECON1bits.RD = 1;
+    return EEDATA;
+}
+
+char DaGetNumScores(void){
+    return numScores;
+}
+void incrementPosition(void){
+    position++;
+}
+
+void resetPosition(void){
+    position = 0;
 }

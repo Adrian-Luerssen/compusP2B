@@ -42,17 +42,18 @@ void main(void){
     LcInit(2,16);
     initSIO();
     initMenu();
-    //initAudio();
+    initAudio();
     initTime();
     initData();
 	while(1){
-        //audioMotor();
+        audioMotor();
         SMSMotor();
         KeypadMotor();
         menuMotor();
         joystickMotor();
         dataMotor();
         timeMotor();
+        btMotor();
 	}				
 }
 

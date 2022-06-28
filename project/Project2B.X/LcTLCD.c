@@ -25,14 +25,7 @@
 //
 //--------------------------------CONSTANTS---AREA-----------
 //
-#define FUNCTION_SET	0x20
-#define BITS_8			0x10
-#define DISPLAY_CONTROL	0x08
-#define DISPLAY_ON		0x04
-#define CURSOR_ON		0x02
-#define DISPLAY_CLEAR	0x01
-#define ENTRY_MODE		0x04
-#define SET_DDRAM		0x80
+
 //
 //---------------------------End--CONSTANTS---AREA-----------
 //
@@ -52,7 +45,6 @@ static int Timer;
 //--------------------------------PROTOTIPE--AREA-----------
 //
 void Espera(int Timer, int ms);
-void CantaIR(char IR);
 void CantaData(char Data);
 void WaitForBusy(void);
 void EscriuPrimeraOrdre(char);
@@ -71,7 +63,7 @@ void LcInit(char rows, char columns) {
 // Pre: There is a free timer
 // Post: This routine can last until 100ms
 // Post: The display remains cleared, the cursor is turned OFF and at the position (0, 0).
-	int i;
+	char i;
 	Timer = TiGetTimer(); 
 	Rows = rows; Columns = columns;
 	RowAct = ColumnAct = 0;
@@ -135,21 +127,22 @@ void LcGotoXY(char Column, char Row) {
 // Pre : Column between 0 and 39, row between 0 and 3. 
 // Post: Sets the cursor to those coordinates. 
 // Post: The next order can last until 40us.
-	int Fisics;
+	char Fisics;
 	// calculating the effective address of the LCD ram. 
-	switch (Rows) {
+	Fisics = Column + (!Row ? 0 : 0x40);
+    /*switch (Rows) {
 		case 2:
 			Fisics = Column + (!Row ? 0 : 0x40); break;
 		case 4:
 			Fisics = Column;
 			if (Row == 1) Fisics += 0x40; else
-			if (Row == 2) Fisics += Columns;      /* 0x14; */ else
-			if (Row == 3) Fisics += 0x40+Columns; /* 0x54; */
+			if (Row == 2) Fisics += Columns; else     // 0x14; 
+			if (Row == 3) Fisics += 0x40+Columns; // 0x54; 
 			break;
 		case 1:
 		default:
 			Fisics = Column; break;
-	}
+	}*/
 	// applying the command
 	WaitForBusy();
 	CantaIR(SET_DDRAM | Fisics);
@@ -171,7 +164,13 @@ void LcPutChar(char c) {
 	WaitForBusy(); CantaData(c);
 	// The cursor position is recalculated.
 	++ColumnAct;
-	if (Rows == 3) {
+    
+    if (ColumnAct >= 40) {
+        ColumnAct = 0;
+		if (++RowAct >= 2) RowAct = 0;
+		LcGotoXY(ColumnAct, RowAct);
+	}
+    /*if (Rows == 3) {
 		if (ColumnAct >= 20) {
 			ColumnAct = 0;
 			if (++RowAct >= 4) RowAct = 0;
@@ -188,7 +187,7 @@ void LcPutChar(char c) {
 	if (RowAct == 1) {
 		if (ColumnAct >= 40) ColumnAct = 0;
 		LcGotoXY(ColumnAct, RowAct);
-	}
+	}*/
 }
 
 

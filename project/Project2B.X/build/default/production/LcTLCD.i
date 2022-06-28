@@ -4618,6 +4618,7 @@ unsigned char __t3rd16on(void);
 
 
 
+
 void TiInitTimer(void);
 
 
@@ -4643,7 +4644,7 @@ void TiFreeTimer (char Handle);
 void _TiRSITimer (void);
 # 22 "LcTLCD.c" 2
 # 1 "./LcTLCD.h" 1
-# 65 "./LcTLCD.h"
+# 73 "./LcTLCD.h"
 void LcInit(char rows, char columns);
 
 
@@ -4672,10 +4673,16 @@ void LcGotoXY(char Column, char Row);
 
 
 void LcPutChar(char c);
-# 103 "./LcTLCD.h"
+# 111 "./LcTLCD.h"
 void LcPutString(char *s);
+
+
+
+
+
+void CantaIR(char IR);
 # 23 "LcTLCD.c" 2
-# 44 "LcTLCD.c"
+# 37 "LcTLCD.c"
 static unsigned char Rows, Columns;
 static unsigned char RowAct, ColumnAct;
 static int Timer;
@@ -4687,18 +4694,17 @@ static int Timer;
 
 
 void Espera(int Timer, int ms);
-void CantaIR(char IR);
 void CantaData(char Data);
 void WaitForBusy(void);
 void EscriuPrimeraOrdre(char);
-# 68 "LcTLCD.c"
+# 60 "LcTLCD.c"
 void LcInit(char rows, char columns) {
 
 
 
 
 
- int i;
+ char i;
  Timer = TiGetTimer();
  Rows = rows; Columns = columns;
  RowAct = ColumnAct = 0;
@@ -4762,22 +4768,10 @@ void LcGotoXY(char Column, char Row) {
 
 
 
- int Fisics;
+ char Fisics;
 
- switch (Rows) {
-  case 2:
-   Fisics = Column + (!Row ? 0 : 0x40); break;
-  case 4:
-   Fisics = Column;
-   if (Row == 1) Fisics += 0x40; else
-   if (Row == 2) Fisics += Columns; else
-   if (Row == 3) Fisics += 0x40+Columns;
-   break;
-  case 1:
-  default:
-   Fisics = Column; break;
- }
-
+ Fisics = Column + (!Row ? 0 : 0x40);
+# 147 "LcTLCD.c"
  WaitForBusy();
  CantaIR(0x80 | Fisics);
 
@@ -4786,28 +4780,17 @@ void LcGotoXY(char Column, char Row) {
 }
 
 void LcPutChar(char c) {
-# 171 "LcTLCD.c"
+# 164 "LcTLCD.c"
  WaitForBusy(); CantaData(c);
 
  ++ColumnAct;
- if (Rows == 3) {
-  if (ColumnAct >= 20) {
-   ColumnAct = 0;
-   if (++RowAct >= 4) RowAct = 0;
-   LcGotoXY(ColumnAct, RowAct);
-  }
- } else
- if (Rows == 2) {
-  if (ColumnAct >= 40) {
-   ColumnAct = 0;
-   if (++RowAct >= 2) RowAct = 0;
-   LcGotoXY(ColumnAct, RowAct);
-  }
- } else
- if (RowAct == 1) {
-  if (ColumnAct >= 40) ColumnAct = 0;
+
+    if (ColumnAct >= 40) {
+        ColumnAct = 0;
+  if (++RowAct >= 2) RowAct = 0;
   LcGotoXY(ColumnAct, RowAct);
  }
+# 191 "LcTLCD.c"
 }
 
 
@@ -4817,7 +4800,7 @@ void LcPutString(char *s) {
 
  while(*s) LcPutChar(*s++);
 }
-# 210 "LcTLCD.c"
+# 209 "LcTLCD.c"
 void Espera(int Timer, int ms) {
  TiResetTics(Timer);
  while(TiGetTics(Timer) < ms);

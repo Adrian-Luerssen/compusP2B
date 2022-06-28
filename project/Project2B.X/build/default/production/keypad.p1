@@ -33,8 +33,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1743
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1743: extern volatile TRISBbits_t TRISBbits __attribute__((address(0xF93)));
 [v _TRISBbits `VS63 ~T0 @X0 0 e@3987 ]
-"19 ./TTimer.h
-[; ;./TTimer.h: 19: char TiGetTimer(void);
+"1500
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1500:     struct {
+[s S58 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S58 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
+"1510
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1510:     struct {
+[s S59 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S59 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
+"1499
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1499: typedef union {
+[u S57 `S58 1 `S59 1 ]
+[n S57 . . . ]
+"1521
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1521: extern volatile TRISAbits_t TRISAbits __attribute__((address(0xF92)));
+[v _TRISAbits `VS57 ~T0 @X0 0 e@3986 ]
+"20 ./TTimer.h
+[; ;./TTimer.h: 20: char TiGetTimer(void);
 [v _TiGetTimer `(uc ~T0 @X0 0 ef ]
 "291 C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 291:     struct {
@@ -78,12 +93,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1128
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1128: extern volatile LATBbits_t LATBbits __attribute__((address(0xF8A)));
 [v _LATBbits `VS45 ~T0 @X0 0 e@3978 ]
-"10 ./TTimer.h
-[; ;./TTimer.h: 10: void TiResetTics(char Handle);
+"11 ./TTimer.h
+[; ;./TTimer.h: 11: void TiResetTics(char Handle);
 [v _TiResetTics `(v ~T0 @X0 0 ef1`uc ]
-"14
-[; ;./TTimer.h: 14: int TiGetTics(char Handle);
+"15
+[; ;./TTimer.h: 15: int TiGetTics(char Handle);
 [v _TiGetTics `(i ~T0 @X0 0 ef1`uc ]
+"995 C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 995:     struct {
+[s S43 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S43 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
+"1005
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1005:     struct {
+[s S44 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S44 . LA0 LA1 LA2 LA3 LA4 LA5 LA6 LA7 ]
+"994
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 994: typedef union {
+[u S42 `S43 1 `S44 1 ]
+[n S42 . . . ]
+"1016
+[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1016: extern volatile LATAbits_t LATAbits __attribute__((address(0xF89)));
+[v _LATAbits `VS42 ~T0 @X0 0 e@3977 ]
 "23 ./keypad.h
 [; ;./keypad.h: 23: char KeGetGenericValue(void);
 [v _KeGetGenericValue `(uc ~T0 @X0 0 ef ]
@@ -504,10 +534,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7011
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 7011: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-[v F2604 `Cuc ~T0 @X0 -> 6 `i t ]
+[v F2606 `Cuc ~T0 @X0 -> 6 `i t ]
 "16 keypad.c
 [; ;keypad.c: 16: static const char SMSTABLE[9][6] = {"1\0","ABC2\0","DEF3\0","GHI4\0","JKL5\0","MNO6\0","PQRS7\0","TUV8\0","WXYZ9\0"};
-[v _SMSTABLE `F2604 ~T0 @X0 -> 9 `i s ]
+[v _SMSTABLE `F2606 ~T0 @X0 -> 9 `i s ]
 [i _SMSTABLE
 :U ..
 :U ..
@@ -646,27 +676,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 "30
 [; ;keypad.c: 30:     INTCON2bits.RBPU = 0;
 [e = . . _INTCON2bits 2 1 -> -> 0 `i `uc ]
-"33
-[; ;keypad.c: 33:     TRISBbits.TRISB0 = 1;
+"32
+[; ;keypad.c: 32:     TRISBbits.TRISB0 = 1;
 [e = . . _TRISBbits 0 0 -> -> 1 `i `uc ]
-"34
-[; ;keypad.c: 34:     TRISBbits.TRISB1 = 1;
+"33
+[; ;keypad.c: 33:     TRISBbits.TRISB1 = 1;
 [e = . . _TRISBbits 0 1 -> -> 1 `i `uc ]
-"35
-[; ;keypad.c: 35:     TRISBbits.TRISB2 = 1;
+"34
+[; ;keypad.c: 34:     TRISBbits.TRISB2 = 1;
 [e = . . _TRISBbits 0 2 -> -> 1 `i `uc ]
-"36
-[; ;keypad.c: 36:     TRISBbits.TRISB3 = 0;
+"35
+[; ;keypad.c: 35:     TRISBbits.TRISB3 = 0;
 [e = . . _TRISBbits 0 3 -> -> 0 `i `uc ]
-"37
-[; ;keypad.c: 37:     TRISBbits.TRISB4 = 0;
+"36
+[; ;keypad.c: 36:     TRISBbits.TRISB4 = 0;
 [e = . . _TRISBbits 0 4 -> -> 0 `i `uc ]
-"38
-[; ;keypad.c: 38:     TRISBbits.TRISB5 = 0;
+"37
+[; ;keypad.c: 37:     TRISBbits.TRISB5 = 0;
 [e = . . _TRISBbits 0 5 -> -> 0 `i `uc ]
-"39
-[; ;keypad.c: 39:     TRISBbits.TRISB6 = 0;
+"38
+[; ;keypad.c: 38:     TRISBbits.TRISB6 = 0;
 [e = . . _TRISBbits 0 6 -> -> 0 `i `uc ]
+"39
+[; ;keypad.c: 39:     TRISAbits.TRISA4 = 0;
+[e = . . _TRISAbits 0 4 -> -> 0 `i `uc ]
 "40
 [; ;keypad.c: 40:     timerBounces = TiGetTimer();
 [e = _timerBounces ( _TiGetTimer ..  ]
@@ -986,6 +1019,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;keypad.c: 134:     switch(stateSMS){
 [e $U 309  ]
 {
+"135
+[; ;keypad.c: 135:         LATAbits.LATA4 = pressed;
+[e = . . _LATAbits 0 4 -> _pressed `uc ]
 "136
 [; ;keypad.c: 136:         case 0:
 [e :U 310 ]

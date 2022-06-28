@@ -1,0 +1,1352 @@
+[p PRO_MODE GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK SPACEOPT EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4321 ]
+[d frameptr 4065 ]
+"5 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Bluetooth.c
+[v _initBluetooth initBluetooth `(v  1 e 1 0 ]
+"15
+[v _SiSendChar SiSendChar `(v  1 e 1 0 ]
+"21
+[v _SiIsAvailable SiIsAvailable `(uc  1 e 1 0 ]
+"27
+[v _SiHasReceived SiHasReceived `(uc  1 e 1 0 ]
+"31
+[v _SiGetChar SiGetChar `(uc  1 e 1 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\lbdiv.c
+[v ___lbdiv __lbdiv `(uc  1 e 1 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\lbmod.c
+[v ___lbmod __lbmod `(uc  1 e 1 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"26 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\EEPROM.c
+[v _initROM initROM `(v  1 e 1 0 ]
+"39
+[v _writeToROM writeToROM `(v  1 e 1 0 ]
+"53
+[v _readFromROM readFromROM `(uc  1 e 1 0 ]
+"61
+[v _motorROM motorROM `(v  1 e 1 0 ]
+"278
+[v _storeUser storeUser `(v  1 e 1 0 ]
+"282
+[v _storePass storePass `(v  1 e 1 0 ]
+"286
+[v _startWriteUser startWriteUser `(v  1 e 1 0 ]
+"290
+[v _login login `(uc  1 e 1 0 ]
+"311
+[v _signup signup `(uc  1 e 1 0 ]
+"331
+[v _getFlag getFlag `(uc  1 e 1 0 ]
+"335
+[v _getNumUsers getNumUsers `(uc  1 e 1 0 ]
+"340
+[v _compare compare `(uc  1 e 1 0 ]
+"361
+[v _storeScore storeScore `(v  1 e 1 0 ]
+"369
+[v _doneWritingROM doneWritingROM `(uc  1 e 1 0 ]
+"373
+[v _startReadingUser startReadingUser `(v  1 e 1 0 ]
+"380
+[v _readUser readUser `(uc  1 e 1 0 ]
+"414
+[v _startReadingScore startReadingScore `(v  1 e 1 0 ]
+"419
+[v _anotherScore anotherScore `(v  1 e 1 0 ]
+"424
+[v _readScore readScore `(uc  1 e 1 0 ]
+"16 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\EUSART.c
+[v _initEUSART initEUSART `(v  1 e 1 0 ]
+"26
+[v _motorEUSART motorEUSART `(v  1 e 1 0 ]
+"60
+[v _EUIsAvailable EUIsAvailable `(uc  1 e 1 0 ]
+"64
+[v _EUSendChar EUSendChar `(v  1 e 1 0 ]
+"15 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Joystick.c
+[v _initJoystk initJoystk `(v  1 e 1 0 ]
+"25
+[v _motorJoystk motorJoystk `(v  1 e 1 0 ]
+"53 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Keyboard.c
+[v _shiftColumns shiftColumns `(v  1 e 1 0 ]
+"59
+[v _initKeyboard initKeyboard `(v  1 e 1 0 ]
+"72
+[v _motorKeyboard motorKeyboard `(v  1 e 1 0 ]
+"156
+[v _KeEnableSMS KeEnableSMS `(v  1 e 1 0 ]
+"160
+[v _KeDisableSMS KeDisableSMS `(v  1 e 1 0 ]
+"85 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\LcTLCD.c
+[v _LcInit LcInit `(v  1 e 1 0 ]
+"132
+[v _LcClear LcClear `(v  1 e 1 0 ]
+"142
+[v _LcCursorOn LcCursorOn `(v  1 e 1 0 ]
+"149
+[v _LcCursorOff LcCursorOff `(v  1 e 1 0 ]
+"156
+[v _LcGotoXY LcGotoXY `(v  1 e 1 0 ]
+"184
+[v _LcPutChar LcPutChar `(v  1 e 1 0 ]
+"226
+[v _LcDelete LcDelete `(v  1 e 1 0 ]
+"231
+[v _GetLength GetLength `(uc  1 e 1 0 ]
+"244
+[v _LcPrintLine LcPrintLine `(uc  1 e 1 0 ]
+"287
+[v _GetSecondLength GetSecondLength `(uc  1 e 1 0 ]
+"300
+[v _setLine setLine `(v  1 e 1 0 ]
+"305
+[v _LcPrintSecondLine LcPrintSecondLine `(uc  1 e 1 0 ]
+"359
+[v _Espera Espera `(v  1 e 1 0 ]
+"364
+[v _CantaPartAlta CantaPartAlta `(v  1 e 1 0 ]
+"371
+[v _CantaPartBaixa CantaPartBaixa `(v  1 e 1 0 ]
+"378
+[v _CantaIR CantaIR `(v  1 e 1 0 ]
+"394
+[v _CantaData CantaData `(v  1 e 1 0 ]
+"410
+[v _WaitForBusy WaitForBusy `(v  1 e 1 0 ]
+"428
+[v _EscriuPrimeraOrdre EscriuPrimeraOrdre `(v  1 e 1 0 ]
+"40 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Logic.c
+[v _initLogic initLogic `(v  1 e 1 0 ]
+"55
+[v _LoPlaySound LoPlaySound `(v  1 e 1 0 ]
+"61
+[v _LoEndGame LoEndGame `(v  1 e 1 0 ]
+"72
+[v _LoGotKey LoGotKey `(v  1 e 1 0 ]
+"90
+[v _LoMoveUp LoMoveUp `(v  1 e 1 0 ]
+"108
+[v _LoMoveDown LoMoveDown `(v  1 e 1 0 ]
+"126
+[v _LoMoveLeft LoMoveLeft `(v  1 e 1 0 ]
+"134
+[v _LoMoveRight LoMoveRight `(v  1 e 1 0 ]
+"142
+[v _motorLogic motorLogic `(v  1 e 1 0 ]
+"19 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\main.c
+[v _my_interrupts my_interrupts `IIH(v  1 e 1 0 ]
+"23
+[v _main main `(v  1 e 1 0 ]
+"15 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Speaker.c
+[v _initSpeaker initSpeaker `(v  1 e 1 0 ]
+"21
+[v _motorSpeaker motorSpeaker `(v  1 e 1 0 ]
+"28
+[v _SPPlay SPPlay `(v  1 e 1 0 ]
+"34
+[v _SPOneSec SPOneSec `(v  1 e 1 0 ]
+"22 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Time.c
+[v _initTimeADT initTimeADT `(v  1 e 1 0 ]
+"28
+[v _motorTime motorTime `(v  1 e 1 0 ]
+"87
+[v _TimUpdateTime TimUpdateTime `(v  1 e 1 0 ]
+"121
+[v _TimEnableTime TimEnableTime `(v  1 e 1 0 ]
+"130
+[v _TimDisableTime TimDisableTime `(v  1 e 1 0 ]
+"134
+[v _TimModifyTime TimModifyTime `(v  1 e 1 0 ]
+"144
+[v _TimGetEndTime TimGetEndTime `(uc  1 e 1 0 ]
+"151
+[v _TimResetTime TimResetTime `(v  1 e 1 0 ]
+"16 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\TTimer.c
+[v _TiInitTimer TiInitTimer `(v  1 e 1 0 ]
+"36
+[v __TiRSITimer _TiRSITimer `(v  1 e 1 0 ]
+"56
+[v _TiResetTics TiResetTics `(v  1 e 1 0 ]
+"62
+[v _TiGetTics TiGetTics `(i  1 e 2 0 ]
+"71
+[v _TiGetTimer TiGetTimer `(uc  1 e 1 0 ]
+[s S795 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"329 C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h
+[s S835 . 1 `uc 1 INT0 1 0 :1:0 
+`uc 1 INT1 1 0 :1:1 
+`uc 1 INT2 1 0 :1:2 
+`uc 1 CCP2 1 0 :1:3 
+`uc 1 KBI0 1 0 :1:4 
+`uc 1 KBI1 1 0 :1:5 
+`uc 1 KBI2 1 0 :1:6 
+`uc 1 KBI3 1 0 :1:7 
+]
+[s S844 . 1 `uc 1 AN12 1 0 :1:0 
+`uc 1 AN10 1 0 :1:1 
+`uc 1 AN8 1 0 :1:2 
+`uc 1 AN9 1 0 :1:3 
+`uc 1 AN11 1 0 :1:4 
+`uc 1 PGM 1 0 :1:5 
+`uc 1 PGC 1 0 :1:6 
+`uc 1 PGD 1 0 :1:7 
+]
+[s S853 . 1 `uc 1 FLT0 1 0 :1:0 
+]
+[s S855 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2_PA2 1 0 :1:3 
+]
+[u S858 . 1 `S795 1 . 1 0 `S835 1 . 1 0 `S844 1 . 1 0 `S853 1 . 1 0 `S855 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES858  1 e 1 @3969 ]
+[s S37 . 1 `uc 1 RD0 1 0 :1:0 
+`uc 1 RD1 1 0 :1:1 
+`uc 1 RD2 1 0 :1:2 
+`uc 1 RD3 1 0 :1:3 
+`uc 1 RD4 1 0 :1:4 
+`uc 1 RD5 1 0 :1:5 
+`uc 1 RD6 1 0 :1:6 
+`uc 1 RD7 1 0 :1:7 
+]
+"681
+[s S162 . 1 `uc 1 PSP0 1 0 :1:0 
+`uc 1 PSP1 1 0 :1:1 
+`uc 1 PSP2 1 0 :1:2 
+`uc 1 PSP3 1 0 :1:3 
+`uc 1 PSP4 1 0 :1:4 
+`uc 1 PSP5 1 0 :1:5 
+`uc 1 PSP6 1 0 :1:6 
+`uc 1 PSP7 1 0 :1:7 
+]
+[s S171 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 P1B 1 0 :1:5 
+`uc 1 P1C 1 0 :1:6 
+`uc 1 P1D 1 0 :1:7 
+]
+[s S176 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 SS2 1 0 :1:7 
+]
+[u S179 . 1 `S37 1 . 1 0 `S162 1 . 1 0 `S171 1 . 1 0 `S176 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES179  1 e 1 @3971 ]
+[s S687 . 1 `uc 1 LATA0 1 0 :1:0 
+`uc 1 LATA1 1 0 :1:1 
+`uc 1 LATA2 1 0 :1:2 
+`uc 1 LATA3 1 0 :1:3 
+`uc 1 LATA4 1 0 :1:4 
+`uc 1 LATA5 1 0 :1:5 
+`uc 1 LATA6 1 0 :1:6 
+`uc 1 LATA7 1 0 :1:7 
+]
+"1016
+[s S696 . 1 `uc 1 LA0 1 0 :1:0 
+`uc 1 LA1 1 0 :1:1 
+`uc 1 LA2 1 0 :1:2 
+`uc 1 LA3 1 0 :1:3 
+`uc 1 LA4 1 0 :1:4 
+`uc 1 LA5 1 0 :1:5 
+`uc 1 LA6 1 0 :1:6 
+`uc 1 LA7 1 0 :1:7 
+]
+[u S705 . 1 `S687 1 . 1 0 `S696 1 . 1 0 ]
+[v _LATAbits LATAbits `VES705  1 e 1 @3977 ]
+[s S1222 . 1 `uc 1 LATC0 1 0 :1:0 
+`uc 1 LATC1 1 0 :1:1 
+`uc 1 LATC2 1 0 :1:2 
+`uc 1 LATC3 1 0 :1:3 
+`uc 1 LATC4 1 0 :1:4 
+`uc 1 LATC5 1 0 :1:5 
+`uc 1 LATC6 1 0 :1:6 
+`uc 1 LATC7 1 0 :1:7 
+]
+"1240
+[s S1231 . 1 `uc 1 LC0 1 0 :1:0 
+`uc 1 LC1 1 0 :1:1 
+`uc 1 LC2 1 0 :1:2 
+`uc 1 LC3 1 0 :1:3 
+`uc 1 LC4 1 0 :1:4 
+`uc 1 LC5 1 0 :1:5 
+`uc 1 LC6 1 0 :1:6 
+`uc 1 LC7 1 0 :1:7 
+]
+[u S1240 . 1 `S1222 1 . 1 0 `S1231 1 . 1 0 ]
+[v _LATCbits LATCbits `VES1240  1 e 1 @3979 ]
+[s S113 . 1 `uc 1 LATD0 1 0 :1:0 
+`uc 1 LATD1 1 0 :1:1 
+`uc 1 LATD2 1 0 :1:2 
+`uc 1 LATD3 1 0 :1:3 
+`uc 1 LATD4 1 0 :1:4 
+`uc 1 LATD5 1 0 :1:5 
+`uc 1 LATD6 1 0 :1:6 
+`uc 1 LATD7 1 0 :1:7 
+]
+"1352
+[s S122 . 1 `uc 1 LD0 1 0 :1:0 
+`uc 1 LD1 1 0 :1:1 
+`uc 1 LD2 1 0 :1:2 
+`uc 1 LD3 1 0 :1:3 
+`uc 1 LD4 1 0 :1:4 
+`uc 1 LD5 1 0 :1:5 
+`uc 1 LD6 1 0 :1:6 
+`uc 1 LD7 1 0 :1:7 
+]
+[u S131 . 1 `S113 1 . 1 0 `S122 1 . 1 0 ]
+[v _LATDbits LATDbits `VES131  1 e 1 @3980 ]
+"1437
+[v _LATE LATE `VEuc  1 e 1 @3981 ]
+[s S494 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+`uc 1 TRISA6 1 0 :1:6 
+`uc 1 TRISA7 1 0 :1:7 
+]
+"1521
+[s S503 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+[u S512 . 1 `S494 1 . 1 0 `S503 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES512  1 e 1 @3986 ]
+[s S786 . 1 `uc 1 TRISB0 1 0 :1:0 
+`uc 1 TRISB1 1 0 :1:1 
+`uc 1 TRISB2 1 0 :1:2 
+`uc 1 TRISB3 1 0 :1:3 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"1743
+[u S804 . 1 `S786 1 . 1 0 `S795 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES804  1 e 1 @3987 ]
+[s S989 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"1965
+[s S998 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+[u S1007 . 1 `S989 1 . 1 0 `S998 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES1007  1 e 1 @3988 ]
+[s S28 . 1 `uc 1 TRISD0 1 0 :1:0 
+`uc 1 TRISD1 1 0 :1:1 
+`uc 1 TRISD2 1 0 :1:2 
+`uc 1 TRISD3 1 0 :1:3 
+`uc 1 TRISD4 1 0 :1:4 
+`uc 1 TRISD5 1 0 :1:5 
+`uc 1 TRISD6 1 0 :1:6 
+`uc 1 TRISD7 1 0 :1:7 
+]
+"2187
+[u S46 . 1 `S28 1 . 1 0 `S37 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES46  1 e 1 @3989 ]
+"2377
+[v _TRISE TRISE `VEuc  1 e 1 @3990 ]
+[s S1131 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+`uc 1 PSPIF 1 0 :1:7 
+]
+"2705
+[s S1140 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TX1IF 1 0 :1:4 
+`uc 1 RC1IF 1 0 :1:5 
+]
+[u S1144 . 1 `S1131 1 . 1 0 `S1140 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES1144  1 e 1 @3998 ]
+[s S1509 . 1 `uc 1 RD 1 0 :1:0 
+`uc 1 WR 1 0 :1:1 
+`uc 1 WREN 1 0 :1:2 
+`uc 1 WRERR 1 0 :1:3 
+`uc 1 FREE 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CFGS 1 0 :1:6 
+`uc 1 EEPGD 1 0 :1:7 
+]
+"3056
+[s S1518 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 EEFS 1 0 :1:6 
+]
+[u S1521 . 1 `S1509 1 . 1 0 `S1518 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES1521  1 e 1 @4006 ]
+"3101
+[v _EECON2 EECON2 `VEuc  1 e 1 @4007 ]
+"3108
+[v _EEDATA EEDATA `VEuc  1 e 1 @4008 ]
+"3115
+[v _EEADR EEADR `VEuc  1 e 1 @4009 ]
+"3122
+[v _RCSTA RCSTA `VEuc  1 e 1 @4011 ]
+"3332
+[v _TXSTA TXSTA `VEuc  1 e 1 @4012 ]
+[s S1079 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"3371
+[s S1088 . 1 `uc 1 TX9D1 1 0 :1:0 
+`uc 1 TRMT1 1 0 :1:1 
+`uc 1 BRGH1 1 0 :1:2 
+`uc 1 SENDB1 1 0 :1:3 
+`uc 1 SYNC1 1 0 :1:4 
+`uc 1 TXEN1 1 0 :1:5 
+`uc 1 TX91 1 0 :1:6 
+`uc 1 CSRC1 1 0 :1:7 
+]
+[s S1097 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX8_9 1 0 :1:6 
+]
+[s S1100 . 1 `uc 1 TXD8 1 0 :1:0 
+]
+[u S1102 . 1 `S1079 1 . 1 0 `S1088 1 . 1 0 `S1097 1 . 1 0 `S1100 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES1102  1 e 1 @4012 ]
+"3588
+[v _TXREG TXREG `VEuc  1 e 1 @4013 ]
+"3600
+[v _RCREG RCREG `VEuc  1 e 1 @4014 ]
+"3612
+[v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
+[s S1031 . 1 `uc 1 ABDEN 1 0 :1:0 
+`uc 1 WUE 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 BRG16 1 0 :1:3 
+`uc 1 TXCKP 1 0 :1:4 
+`uc 1 RXDTP 1 0 :1:5 
+`uc 1 RCIDL 1 0 :1:6 
+`uc 1 ABDOVF 1 0 :1:7 
+]
+"4189
+[s S1040 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 SCKP 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 RCMT 1 0 :1:6 
+]
+[s S1045 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RXCKP 1 0 :1:5 
+]
+[s S1048 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 W4E 1 0 :1:1 
+]
+[u S1051 . 1 `S1031 1 . 1 0 `S1040 1 . 1 0 `S1045 1 . 1 0 `S1048 1 . 1 0 ]
+[v _BAUDCONbits BAUDCONbits `VES1051  1 e 1 @4024 ]
+"4646
+[v _ADCON2 ADCON2 `VEuc  1 e 1 @4032 ]
+"4717
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
+"4802
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
+[s S534 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_NOT_DONE 1 0 :1:1 
+]
+"4846
+[s S537 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS 1 0 :4:2 
+]
+[s S541 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+]
+[s S548 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 DONE 1 0 :1:1 
+]
+[s S551 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_DONE 1 0 :1:1 
+]
+[s S554 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 nDONE 1 0 :1:1 
+]
+[s S557 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_DONE 1 0 :1:1 
+]
+[s S560 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GODONE 1 0 :1:1 
+]
+[u S563 . 1 `S534 1 . 1 0 `S537 1 . 1 0 `S541 1 . 1 0 `S548 1 . 1 0 `S551 1 . 1 0 `S554 1 . 1 0 `S557 1 . 1 0 `S560 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES563  1 e 1 @4034 ]
+"4935
+[v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
+[s S304 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+]
+"5725
+[s S306 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_POR 1 0 :1:1 
+]
+[s S309 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_PD 1 0 :1:2 
+]
+[s S312 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 NOT_TO 1 0 :1:3 
+]
+[s S315 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 NOT_RI 1 0 :1:4 
+]
+[s S318 . 1 `uc 1 nBOR 1 0 :1:0 
+`uc 1 nPOR 1 0 :1:1 
+`uc 1 nPD 1 0 :1:2 
+`uc 1 nTO 1 0 :1:3 
+`uc 1 nRI 1 0 :1:4 
+`uc 1 . 1 0 :2:5 
+`uc 1 IPEN 1 0 :1:7 
+]
+[s S326 . 1 `uc 1 BOR 1 0 :1:0 
+`uc 1 POR 1 0 :1:1 
+`uc 1 PD 1 0 :1:2 
+`uc 1 TO 1 0 :1:3 
+`uc 1 RI 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 SBOREN 1 0 :1:6 
+]
+[u S334 . 1 `S304 1 . 1 0 `S306 1 . 1 0 `S309 1 . 1 0 `S312 1 . 1 0 `S315 1 . 1 0 `S318 1 . 1 0 `S326 1 . 1 0 ]
+[v _RCONbits RCONbits `VES334  1 e 1 @4048 ]
+"6184
+[v _T0CON T0CON `VEuc  1 e 1 @4053 ]
+[s S425 . 1 `uc 1 T0PS 1 0 :3:0 
+`uc 1 PSA 1 0 :1:3 
+`uc 1 T0SE 1 0 :1:4 
+`uc 1 T0CS 1 0 :1:5 
+`uc 1 T08BIT 1 0 :1:6 
+`uc 1 TMR0ON 1 0 :1:7 
+]
+"6206
+[s S432 . 1 `uc 1 T0PS0 1 0 :1:0 
+`uc 1 T0PS1 1 0 :1:1 
+`uc 1 T0PS2 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 T016BIT 1 0 :1:6 
+]
+[u S438 . 1 `S425 1 . 1 0 `S432 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES438  1 e 1 @4053 ]
+"6268
+[v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
+"6275
+[v _TMR0H TMR0H `VEuc  1 e 1 @4055 ]
+[s S373 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"6734
+[s S382 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S391 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S395 . 1 `S373 1 . 1 0 `S382 1 . 1 0 `S391 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES395  1 e 1 @4082 ]
+"4 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\EEPROM.c
+[v _address address `uc  1 s 1 address ]
+"5
+[v _users users `uc  1 s 1 users ]
+"6
+[v _userR userR `[8]uc  1 s 8 userR ]
+"7
+[v _passR passR `[8]uc  1 s 8 passR ]
+"8
+[v _user@EEPROM$F1570 user `[8]uc  1 s 8 user ]
+"9
+[v _pass@EEPROM$F1571 pass `[8]uc  1 s 8 pass ]
+"10
+[v _userInputROM userInputROM `[8]uc  1 s 8 userInputROM ]
+"11
+[v _passInputROM passInputROM `[8]uc  1 s 8 passInputROM ]
+"12
+[v _startUser startUser `uc  1 s 1 startUser ]
+"13
+[v _saveScore saveScore `uc  1 s 1 saveScore ]
+"14
+[v _position@EEPROM$F1576 position `uc  1 s 1 position ]
+"15
+[v _state@EEPROM$F1577 state `uc  1 s 1 state ]
+"16
+[v _checkUser checkUser `uc  1 s 1 checkUser ]
+"18
+[v _flagReading flagReading `uc  1 s 1 flagReading ]
+"19
+[v _pointer@EEPROM$F1581 pointer `uc  1 s 1 pointer ]
+"20
+[v _score@EEPROM$F1582 score `uc  1 s 1 score ]
+"21
+[v _scoreAux scoreAux `uc  1 s 1 scoreAux ]
+"22
+[v _empty empty `uc  1 s 1 empty ]
+"23
+[v _done done `uc  1 s 1 done ]
+"24
+[v _newestUserAddress newestUserAddress `uc  1 s 1 newestUserAddress ]
+"10 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\EUSART.c
+[v _flag@EUSART$F1265 flag `uc  1 s 1 flag ]
+"11
+[v _state@EUSART$F1266 state `uc  1 s 1 state ]
+"12
+[v _vit vit `uc  1 s 1 vit ]
+"13
+[v _tEUSART tEUSART `uc  1 s 1 tEUSART ]
+"14
+[v _index index `uc  1 s 1 index ]
+"12 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Joystick.c
+[v _state state `uc  1 s 1 state ]
+"13
+[v _times times `uc  1 s 1 times ]
+"21 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Keyboard.c
+[v _sms sms `uc  1 s 1 sms ]
+"22
+[v _row row `uc  1 s 1 row ]
+"23
+[v _column column `uc  1 s 1 column ]
+"24
+[v _prev_row prev_row `uc  1 s 1 prev_row ]
+"25
+[v _prev_column prev_column `uc  1 s 1 prev_column ]
+"26
+[v _tDebounce tDebounce `uc  1 s 1 tDebounce ]
+"27
+[v _tSMS tSMS `uc  1 s 1 tSMS ]
+"28
+[v _numerical numerical `uc  1 s 1 numerical ]
+"30
+[v _table table `C[4][3][6]uc  1 s 72 table ]
+"44 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\LcTLCD.c
+[v _Columns Columns `uc  1 s 1 Columns ]
+"45
+[v _RowAct RowAct `uc  1 s 1 RowAct ]
+[v _ColumnAct ColumnAct `uc  1 s 1 ColumnAct ]
+"46
+[v _Timer Timer `i  1 s 2 Timer ]
+"47
+[v _tMarquee tMarquee `i  1 s 2 tMarquee ]
+"48
+[v _tMarquee2 tMarquee2 `i  1 s 2 tMarquee2 ]
+"50
+[v _aux aux `uc  1 s 1 aux ]
+"51
+[v _aux2 aux2 `uc  1 s 1 aux2 ]
+"53
+[v _pointer pointer `uc  1 s 1 pointer ]
+"54
+[v _flag flag `uc  1 s 1 flag ]
+"55
+[v _shift shift `uc  1 s 1 shift ]
+"56
+[v _length length `uc  1 s 1 length ]
+"58
+[v _pointer2 pointer2 `uc  1 s 1 pointer2 ]
+"59
+[v _flag2 flag2 `uc  1 s 1 flag2 ]
+"60
+[v _shift2 shift2 `uc  1 s 1 shift2 ]
+"61
+[v _length2 length2 `uc  1 s 1 length2 ]
+"19 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Logic.c
+[v _tLogic tLogic `uc  1 s 1 tLogic ]
+"20
+[v _gameStarted gameStarted `uc  1 s 1 gameStarted ]
+"21
+[v _key key `uc  1 s 1 key ]
+"22
+[v _state@Logic$F1441 state `uc  1 s 1 state ]
+"23
+[v _position position `uc  1 s 1 position ]
+"24
+[v _user user `[8]uc  1 s 8 user ]
+"25
+[v _pass pass `[8]uc  1 s 8 pass ]
+"26
+[v _writing writing `uc  1 s 1 writing ]
+"28
+[v _menuPos menuPos `uc  1 s 1 menuPos ]
+"29
+[v _endTime endTime `[4]uc  1 s 4 endTime ]
+"30
+[v _score score `uc  1 s 1 score ]
+"31
+[v _printScore printScore `[2]uc  1 s 2 printScore ]
+"32
+[v _flag@Logic$F1451 flag `uc  1 s 1 flag ]
+"33
+[v _scoreFlag scoreFlag `uc  1 s 1 scoreFlag ]
+"34
+[v _userIndex userIndex `uc  1 s 1 userIndex ]
+"36
+[v _bufferSelect bufferSelect `uc  1 s 1 bufferSelect ]
+"37
+[v _buffer buffer `[2][81]uc  1 s 162 buffer ]
+"38
+[v _readAux readAux `[8]uc  1 s 8 readAux ]
+"11 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Speaker.c
+[v _status@Speaker$F1330 status `uc  1 s 1 status ]
+"12
+[v _tSpeaker tSpeaker `uc  1 s 1 tSpeaker ]
+"13
+[v _note note `uc  1 s 1 note ]
+"14 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Time.c
+[v _tTime tTime `uc  1 s 1 tTime ]
+"15
+[v _sendIndex sendIndex `uc  1 s 1 sendIndex ]
+"16
+[v _curSecs curSecs `[2]uc  1 s 2 curSecs ]
+"17
+[v _curMins curMins `[2]uc  1 s 2 curMins ]
+"18
+[v _status status `uc  1 s 1 status ]
+"19
+[v _initSecs initSecs `[2]uc  1 s 2 initSecs ]
+"20
+[v _initMins initMins `[2]uc  1 s 2 initMins ]
+[s S301 Timer 3 `ui 1 h_initialTics 2 0 `uc 1 b_busy 1 2 ]
+"10 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\TTimer.c
+[v _s_Timers s_Timers `[9]S301  1 e 27 0 ]
+"12
+[v _h_Tics h_Tics `ui  1 s 2 h_Tics ]
+"13
+[v _counter counter `uc  1 s 1 counter ]
+"23 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"50
+} 0
+"28 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Time.c
+[v _motorTime motorTime `(v  1 e 1 0 ]
+{
+"84
+} 0
+"87
+[v _TimUpdateTime TimUpdateTime `(v  1 e 1 0 ]
+{
+"119
+} 0
+"34 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Speaker.c
+[v _SPOneSec SPOneSec `(v  1 e 1 0 ]
+{
+"37
+} 0
+"55 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Logic.c
+[v _LoPlaySound LoPlaySound `(v  1 e 1 0 ]
+{
+"59
+} 0
+"28 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Speaker.c
+[v _SPPlay SPPlay `(v  1 e 1 0 ]
+{
+"32
+} 0
+"64 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\EUSART.c
+[v _EUSendChar EUSendChar `(v  1 e 1 0 ]
+{
+[v EUSendChar@data data `uc  1 a 1 wreg ]
+[v EUSendChar@data data `uc  1 a 1 wreg ]
+[v EUSendChar@data data `uc  1 a 1 6 ]
+"68
+} 0
+"60
+[v _EUIsAvailable EUIsAvailable `(uc  1 e 1 0 ]
+{
+"62
+} 0
+"21 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Speaker.c
+[v _motorSpeaker motorSpeaker `(v  1 e 1 0 ]
+{
+"25
+} 0
+"61 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\EEPROM.c
+[v _motorROM motorROM `(v  1 e 1 0 ]
+{
+"276
+} 0
+"39
+[v _writeToROM writeToROM `(v  1 e 1 0 ]
+{
+[v writeToROM@value value `uc  1 a 1 wreg ]
+[v writeToROM@value value `uc  1 a 1 wreg ]
+[v writeToROM@value value `uc  1 a 1 5 ]
+"51
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"10
+[v ___awdiv@quotient quotient `i  1 a 2 11 ]
+"11
+[v ___awdiv@sign sign `uc  1 a 1 10 ]
+[v ___awdiv@counter counter `uc  1 a 1 9 ]
+"7
+[v ___awdiv@dividend dividend `i  1 p 2 5 ]
+[v ___awdiv@divisor divisor `i  1 p 2 7 ]
+"41
+} 0
+"142 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Logic.c
+[v _motorLogic motorLogic `(v  1 e 1 0 ]
+{
+"543
+[v motorLogic@aux_1500 aux `uc  1 a 1 2 ]
+"525
+[v motorLogic@aux aux `uc  1 a 1 0 ]
+"656
+[v motorLogic@x x `uc  1 a 1 1 ]
+"734
+} 0
+"361 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\EEPROM.c
+[v _storeScore storeScore `(v  1 e 1 0 ]
+{
+[v storeScore@scoreIn scoreIn `uc  1 a 1 wreg ]
+[v storeScore@scoreIn scoreIn `uc  1 a 1 wreg ]
+[v storeScore@userLetter userLetter `uc  1 p 1 5 ]
+[v storeScore@pos pos `uc  1 p 1 6 ]
+[v storeScore@scoreIn scoreIn `uc  1 a 1 7 ]
+"367
+} 0
+"286
+[v _startWriteUser startWriteUser `(v  1 e 1 0 ]
+{
+"288
+} 0
+"373
+[v _startReadingUser startReadingUser `(v  1 e 1 0 ]
+{
+"378
+} 0
+"414
+[v _startReadingScore startReadingScore `(v  1 e 1 0 ]
+{
+"417
+} 0
+"311
+[v _signup signup `(uc  1 e 1 0 ]
+{
+[v signup@userInput userInput `*.30uc  1 p 1 5 ]
+"329
+} 0
+"300 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\LcTLCD.c
+[v _setLine setLine `(v  1 e 1 0 ]
+{
+"303
+} 0
+"380 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\EEPROM.c
+[v _readUser readUser `(uc  1 e 1 0 ]
+{
+"381
+[v readUser@toRead toRead `uc  1 a 1 9 ]
+"412
+} 0
+"424
+[v _readScore readScore `(uc  1 e 1 0 ]
+{
+"425
+[v readScore@aux aux `uc  1 a 1 9 ]
+"438
+} 0
+"4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\lbdiv.c
+[v ___lbdiv __lbdiv `(uc  1 e 1 0 ]
+{
+[v ___lbdiv@dividend dividend `uc  1 a 1 wreg ]
+"6
+[v ___lbdiv@quotient quotient `uc  1 a 1 8 ]
+"7
+[v ___lbdiv@counter counter `uc  1 a 1 7 ]
+"4
+[v ___lbdiv@dividend dividend `uc  1 a 1 wreg ]
+[v ___lbdiv@divisor divisor `uc  1 p 1 5 ]
+"9
+[v ___lbdiv@dividend dividend `uc  1 a 1 6 ]
+"26
+} 0
+"290 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\EEPROM.c
+[v _login login `(uc  1 e 1 0 ]
+{
+[v login@userInput userInput `*.30uc  1 p 1 5 ]
+[v login@passInput passInput `*.30uc  1 p 1 6 ]
+"309
+} 0
+"335
+[v _getNumUsers getNumUsers `(uc  1 e 1 0 ]
+{
+"338
+} 0
+"331
+[v _getFlag getFlag `(uc  1 e 1 0 ]
+{
+"333
+} 0
+"369
+[v _doneWritingROM doneWritingROM `(uc  1 e 1 0 ]
+{
+"371
+} 0
+"340
+[v _compare compare `(uc  1 e 1 0 ]
+{
+[v compare@a a `*.30uc  1 p 1 5 ]
+[v compare@b b `*.30uc  1 p 1 6 ]
+"359
+} 0
+"419
+[v _anotherScore anotherScore `(v  1 e 1 0 ]
+{
+"422
+} 0
+"151 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Time.c
+[v _TimResetTime TimResetTime `(v  1 e 1 0 ]
+{
+"156
+} 0
+"134
+[v _TimModifyTime TimModifyTime `(v  1 e 1 0 ]
+{
+[v TimModifyTime@newTime newTime `uc  1 a 1 wreg ]
+[v TimModifyTime@newTime newTime `uc  1 a 1 wreg ]
+[v TimModifyTime@position position `uc  1 p 1 20 ]
+[v TimModifyTime@newTime newTime `uc  1 a 1 26 ]
+"142
+} 0
+"144
+[v _TimGetEndTime TimGetEndTime `(uc  1 e 1 0 ]
+{
+[v TimGetEndTime@endPosition endPosition `uc  1 a 1 wreg ]
+[v TimGetEndTime@endPosition endPosition `uc  1 a 1 wreg ]
+[v TimGetEndTime@endPosition endPosition `uc  1 a 1 10 ]
+"149
+} 0
+"121
+[v _TimEnableTime TimEnableTime `(v  1 e 1 0 ]
+{
+"128
+} 0
+"27 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Bluetooth.c
+[v _SiHasReceived SiHasReceived `(uc  1 e 1 0 ]
+{
+"29
+} 0
+"31
+[v _SiGetChar SiGetChar `(uc  1 e 1 0 ]
+{
+"33
+} 0
+"61 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Logic.c
+[v _LoEndGame LoEndGame `(v  1 e 1 0 ]
+{
+"70
+} 0
+"130 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Time.c
+[v _TimDisableTime TimDisableTime `(v  1 e 1 0 ]
+{
+"132
+} 0
+"305 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\LcTLCD.c
+[v _LcPrintSecondLine LcPrintSecondLine `(uc  1 e 1 0 ]
+{
+[v LcPrintSecondLine@c2 c2 `*.39uc  1 p 2 20 ]
+"342
+} 0
+"287
+[v _GetSecondLength GetSecondLength `(uc  1 e 1 0 ]
+{
+"289
+[v GetSecondLength@aux_x aux_x `uc  1 a 1 7 ]
+"287
+[v GetSecondLength@string2 string2 `*.39uc  1 p 2 5 ]
+"298
+} 0
+"244
+[v _LcPrintLine LcPrintLine `(uc  1 e 1 0 ]
+{
+[v LcPrintLine@c c `*.35uc  1 p 2 20 ]
+"285
+} 0
+"4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\lbmod.c
+[v ___lbmod __lbmod `(uc  1 e 1 0 ]
+{
+[v ___lbmod@dividend dividend `uc  1 a 1 wreg ]
+"6
+[v ___lbmod@rem rem `uc  1 a 1 8 ]
+"7
+[v ___lbmod@counter counter `uc  1 a 1 7 ]
+"4
+[v ___lbmod@dividend dividend `uc  1 a 1 wreg ]
+[v ___lbmod@divisor divisor `uc  1 p 1 5 ]
+"9
+[v ___lbmod@dividend dividend `uc  1 a 1 6 ]
+"18
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+{
+"10
+[v ___awmod@sign sign `uc  1 a 1 10 ]
+[v ___awmod@counter counter `uc  1 a 1 9 ]
+"7
+[v ___awmod@dividend dividend `i  1 p 2 5 ]
+[v ___awmod@divisor divisor `i  1 p 2 7 ]
+"34
+} 0
+"231 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\LcTLCD.c
+[v _GetLength GetLength `(uc  1 e 1 0 ]
+{
+"233
+[v GetLength@aux_x aux_x `uc  1 a 1 9 ]
+"231
+[v GetLength@string string `*.35uc  1 p 2 5 ]
+"242
+} 0
+"142
+[v _LcCursorOn LcCursorOn `(v  1 e 1 0 ]
+{
+"147
+} 0
+"149
+[v _LcCursorOff LcCursorOff `(v  1 e 1 0 ]
+{
+"154
+} 0
+"156 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Keyboard.c
+[v _KeEnableSMS KeEnableSMS `(v  1 e 1 0 ]
+{
+"158
+} 0
+"160
+[v _KeDisableSMS KeDisableSMS `(v  1 e 1 0 ]
+{
+"162
+} 0
+"72
+[v _motorKeyboard motorKeyboard `(v  1 e 1 0 ]
+{
+"73
+[v motorKeyboard@state state `uc  1 s 1 state ]
+"154
+} 0
+"53
+[v _shiftColumns shiftColumns `(v  1 e 1 0 ]
+{
+"57
+} 0
+"72 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Logic.c
+[v _LoGotKey LoGotKey `(v  1 e 1 0 ]
+{
+[v LoGotKey@pressed pressed `uc  1 a 1 wreg ]
+[v LoGotKey@pressed pressed `uc  1 a 1 wreg ]
+[v LoGotKey@pressed pressed `uc  1 a 1 7 ]
+"88
+} 0
+"278 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\EEPROM.c
+[v _storeUser storeUser `(v  1 e 1 0 ]
+{
+[v storeUser@value value `uc  1 a 1 wreg ]
+[v storeUser@value value `uc  1 a 1 wreg ]
+[v storeUser@positionUser positionUser `uc  1 p 1 5 ]
+[v storeUser@value value `uc  1 a 1 6 ]
+"280
+} 0
+"282
+[v _storePass storePass `(v  1 e 1 0 ]
+{
+[v storePass@value value `uc  1 a 1 wreg ]
+[v storePass@value value `uc  1 a 1 wreg ]
+[v storePass@positionPass positionPass `uc  1 p 1 5 ]
+[v storePass@value value `uc  1 a 1 6 ]
+"284
+} 0
+"184 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\LcTLCD.c
+[v _LcPutChar LcPutChar `(v  1 e 1 0 ]
+{
+[v LcPutChar@c c `uc  1 a 1 wreg ]
+[v LcPutChar@c c `uc  1 a 1 wreg ]
+"194
+[v LcPutChar@c c `uc  1 a 1 19 ]
+"224
+} 0
+"394
+[v _CantaData CantaData `(v  1 e 1 0 ]
+{
+[v CantaData@Data Data `uc  1 a 1 wreg ]
+[v CantaData@Data Data `uc  1 a 1 wreg ]
+[v CantaData@Data Data `uc  1 a 1 7 ]
+"408
+} 0
+"226
+[v _LcDelete LcDelete `(v  1 e 1 0 ]
+{
+"229
+} 0
+"25 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Joystick.c
+[v _motorJoystk motorJoystk `(v  1 e 1 0 ]
+{
+"85
+} 0
+"90 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Logic.c
+[v _LoMoveUp LoMoveUp `(v  1 e 1 0 ]
+{
+"106
+} 0
+"134
+[v _LoMoveRight LoMoveRight `(v  1 e 1 0 ]
+{
+"140
+} 0
+"126
+[v _LoMoveLeft LoMoveLeft `(v  1 e 1 0 ]
+{
+"132
+} 0
+"108
+[v _LoMoveDown LoMoveDown `(v  1 e 1 0 ]
+{
+"124
+} 0
+"15 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Bluetooth.c
+[v _SiSendChar SiSendChar `(v  1 e 1 0 ]
+{
+[v SiSendChar@my_byte my_byte `uc  1 a 1 wreg ]
+[v SiSendChar@my_byte my_byte `uc  1 a 1 wreg ]
+"18
+[v SiSendChar@my_byte my_byte `uc  1 a 1 5 ]
+"19
+} 0
+"21
+[v _SiIsAvailable SiIsAvailable `(uc  1 e 1 0 ]
+{
+"25
+} 0
+"132 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\LcTLCD.c
+[v _LcClear LcClear `(v  1 e 1 0 ]
+{
+"140
+} 0
+"156
+[v _LcGotoXY LcGotoXY `(v  1 e 1 0 ]
+{
+[v LcGotoXY@Column Column `uc  1 a 1 wreg ]
+"160
+[v LcGotoXY@Fisics Fisics `i  1 a 2 14 ]
+"156
+[v LcGotoXY@Column Column `uc  1 a 1 wreg ]
+[v LcGotoXY@Row Row `uc  1 p 1 13 ]
+"161
+[v LcGotoXY@Column Column `uc  1 a 1 18 ]
+"182
+} 0
+"26 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\EUSART.c
+[v _motorEUSART motorEUSART `(v  1 e 1 0 ]
+{
+"58
+} 0
+"22 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Time.c
+[v _initTimeADT initTimeADT `(v  1 e 1 0 ]
+{
+"26
+} 0
+"15 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Speaker.c
+[v _initSpeaker initSpeaker `(v  1 e 1 0 ]
+{
+"19
+} 0
+"26 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\EEPROM.c
+[v _initROM initROM `(v  1 e 1 0 ]
+{
+"37
+} 0
+"53
+[v _readFromROM readFromROM `(uc  1 e 1 0 ]
+{
+"59
+} 0
+"40 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Logic.c
+[v _initLogic initLogic `(v  1 e 1 0 ]
+{
+"49
+} 0
+"59 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Keyboard.c
+[v _initKeyboard initKeyboard `(v  1 e 1 0 ]
+{
+"68
+} 0
+"15 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Joystick.c
+[v _initJoystk initJoystk `(v  1 e 1 0 ]
+{
+"22
+} 0
+"16 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\EUSART.c
+[v _initEUSART initEUSART `(v  1 e 1 0 ]
+{
+"24
+} 0
+"5 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\Bluetooth.c
+[v _initBluetooth initBluetooth `(v  1 e 1 0 ]
+{
+"13
+} 0
+"16 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\TTimer.c
+[v _TiInitTimer TiInitTimer `(v  1 e 1 0 ]
+{
+"34
+} 0
+"85 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\LcTLCD.c
+[v _LcInit LcInit `(v  1 e 1 0 ]
+{
+[v LcInit@rows rows `uc  1 a 1 wreg ]
+"91
+[v LcInit@i i `uc  1 a 1 19 ]
+"85
+[v LcInit@rows rows `uc  1 a 1 wreg ]
+[v LcInit@columns columns `uc  1 p 1 17 ]
+"125
+} 0
+"410
+[v _WaitForBusy WaitForBusy `(v  1 e 1 0 ]
+{
+[v WaitForBusy@Busy Busy `uc  1 a 1 12 ]
+"426
+} 0
+"71 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\TTimer.c
+[v _TiGetTimer TiGetTimer `(uc  1 e 1 0 ]
+{
+"82
+} 0
+"359 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\LcTLCD.c
+[v _Espera Espera `(v  1 e 1 0 ]
+{
+[v Espera@Timer Timer `i  1 p 2 12 ]
+[v Espera@ms ms `i  1 p 2 14 ]
+"362
+} 0
+"56 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\TTimer.c
+[v _TiResetTics TiResetTics `(v  1 e 1 0 ]
+{
+[v TiResetTics@Handle Handle `uc  1 a 1 wreg ]
+[v TiResetTics@Handle Handle `uc  1 a 1 wreg ]
+"60
+[v TiResetTics@Handle Handle `uc  1 a 1 5 ]
+"61
+} 0
+"62
+[v _TiGetTics TiGetTics `(i  1 e 2 0 ]
+{
+[v TiGetTics@Handle Handle `uc  1 a 1 wreg ]
+"66
+[v TiGetTics@actual actual `VEui  1 a 2 10 ]
+"62
+[v TiGetTics@Handle Handle `uc  1 a 1 wreg ]
+"67
+[v TiGetTics@Handle Handle `uc  1 a 1 9 ]
+"70
+} 0
+"428 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\LcTLCD.c
+[v _EscriuPrimeraOrdre EscriuPrimeraOrdre `(v  1 e 1 0 ]
+{
+[v EscriuPrimeraOrdre@ordre ordre `uc  1 a 1 wreg ]
+[v EscriuPrimeraOrdre@ordre ordre `uc  1 a 1 wreg ]
+"430
+[v EscriuPrimeraOrdre@ordre ordre `uc  1 a 1 6 ]
+"437
+} 0
+"378
+[v _CantaIR CantaIR `(v  1 e 1 0 ]
+{
+[v CantaIR@IR IR `uc  1 a 1 wreg ]
+[v CantaIR@IR IR `uc  1 a 1 wreg ]
+[v CantaIR@IR IR `uc  1 a 1 7 ]
+"392
+} 0
+"371
+[v _CantaPartBaixa CantaPartBaixa `(v  1 e 1 0 ]
+{
+[v CantaPartBaixa@c c `uc  1 a 1 wreg ]
+[v CantaPartBaixa@c c `uc  1 a 1 wreg ]
+[v CantaPartBaixa@c c `uc  1 a 1 6 ]
+"376
+} 0
+"364
+[v _CantaPartAlta CantaPartAlta `(v  1 e 1 0 ]
+{
+[v CantaPartAlta@c c `uc  1 a 1 wreg ]
+[v CantaPartAlta@c c `uc  1 a 1 wreg ]
+[v CantaPartAlta@c c `uc  1 a 1 6 ]
+"369
+} 0
+"19 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\main.c
+[v _my_interrupts my_interrupts `IIH(v  1 e 1 0 ]
+{
+"21
+} 0
+"36 C:\Users\alfon\OneDrive\Escritorio\Compus_Practica\LSSudoku\LSSudoku.X\TTimer.c
+[v __TiRSITimer _TiRSITimer `(v  1 e 1 0 ]
+{
+"55
+} 0

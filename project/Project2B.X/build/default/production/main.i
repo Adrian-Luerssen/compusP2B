@@ -4618,6 +4618,7 @@ unsigned char __t3rd16on(void);
 
 
 
+
 void TiInitTimer(void);
 
 
@@ -4646,7 +4647,7 @@ void _TiRSITimer (void);
 # 1 "./keypad.h" 1
 # 10 "./keypad.h"
 # 1 "./LcTLCD.h" 1
-# 65 "./LcTLCD.h"
+# 73 "./LcTLCD.h"
 void LcInit(char rows, char columns);
 
 
@@ -4675,8 +4676,14 @@ void LcGotoXY(char Column, char Row);
 
 
 void LcPutChar(char c);
-# 103 "./LcTLCD.h"
+# 111 "./LcTLCD.h"
 void LcPutString(char *s);
+
+
+
+
+
+void CantaIR(char IR);
 # 10 "./keypad.h" 2
 
 
@@ -4709,6 +4716,8 @@ void KeSetMode(char menuMode);
 
 
 
+# 1 "./Menu.h" 1
+# 5 "./EEPROM.h" 2
 
 typedef struct {
     char username [9];
@@ -4719,16 +4728,16 @@ typedef struct {
     char score;
     char userNum;
 } Score;
-# 32 "./EEPROM.h"
+# 36 "./EEPROM.h"
 void initData(void);
 
 void dataMotor(void);
 
-void DaFindUser(User logUser);
+void DaFindUser(User* logUser);
 
 char DaGetUserNumber(void);
 
-void DaSaveUser(User regUser);
+void DaSaveUser(User* regUser);
 
 char DaGetStatus(void);
 
@@ -4737,6 +4746,14 @@ char DaGetIdle(void);
 void readUserData (void);
 
 void DaSaveScore(char userScore);
+
+void saveEEPROM(char ad, char data);
+char DaGetScoreMarquee(char LCDcol,char LCDrow,char LCDcolm);
+char readEEPROM(char address);
+char DaGetNumScores(void);
+void incrementPosition(void);
+void displayScoresMarquee(void);
+void resetPosition(void);
 # 8 "./Menu.h" 2
 
 # 1 "./Joystick.h" 1
@@ -4755,13 +4772,17 @@ void DaSaveScore(char userScore);
 
 
 
+
 void initSIO(void);
 char SiIsAvailable(void);
 
 void SiSendChar(char myByte);
 char SiRecievedByte(void);
-
 char SiReadByte(void);
+
+void btMotor (void);
+char btAvailable(void);
+void btSendByte(char byte);
 # 8 "./Joystick.h" 2
 
 
@@ -4787,6 +4808,19 @@ void JoSetMode(char mode);
 
 
 
+# 1 "./Audio.h" 1
+# 10 "./Audio.h"
+void initAudio(void);
+
+void audioMotor(void);
+
+void startSong(void);
+
+void stopSong(void);
+# 8 "./time.h" 2
+
+
+
 void initTime(void);
 
 void timeMotor(void);
@@ -4797,33 +4831,32 @@ void stopTimer(void);
 
 void resetTimer(void);
 void displayTimeRemaining(void);
+void modifyTime(void);
+void updateSysTime(void);
+void updateGameTime(void);
+void displaySysTime(void);
+void sendChar(char bt);
+char timerOver(void);
 # 10 "./Menu.h" 2
 
 
 void initMenu(void);
 void menuMotor(void);
 void displayMenu (char menuMode,char row);
+void resetDisplay(void);
+void nextRow(void);
+void displayLogOut(void);
+void displayLogMenu(void);
+
+void displayLogreg(void);
+void mainMenu(void);
+void playScreen(void);
+void displayError(void);
+void displayResults(void);
+void displayScoresMarquee(void);
+void displayString(char* string);
 # 6 "main.c" 2
-
-
-
-# 1 "./Audio.h" 1
-# 10 "./Audio.h"
-void initAudio(void);
-
-void audioMotor(void);
-
-void startSong(void);
-
-void stopSong(void);
-# 9 "main.c" 2
-
-
-
-
-
-
-
+# 16 "main.c"
 #pragma config OSC = HSPLL
 #pragma config PBADEN = DIG
 #pragma config MCLRE = OFF
@@ -4853,16 +4886,17 @@ void main(void){
     LcInit(2,16);
     initSIO();
     initMenu();
-
+    initAudio();
     initTime();
     initData();
  while(1){
-
+        audioMotor();
         SMSMotor();
         KeypadMotor();
         menuMotor();
         joystickMotor();
         dataMotor();
         timeMotor();
+        btMotor();
  }
 }

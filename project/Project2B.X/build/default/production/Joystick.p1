@@ -77,32 +77,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4846
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 4846: extern volatile ADCON0bits_t ADCON0bits __attribute__((address(0xFC2)));
 [v _ADCON0bits `VS187 ~T0 @X0 0 e@4034 ]
-"1213
-[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1213: extern volatile unsigned char LATC __attribute__((address(0xF8B)));
-[v _LATC `Vuc ~T0 @X0 0 e@3979 ]
 "4935
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 4935: extern volatile unsigned char ADRESH __attribute__((address(0xFC4)));
 [v _ADRESH `Vuc ~T0 @X0 0 e@4036 ]
-"1219
-[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1219:     struct {
-[s S49 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S49 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
-"1229
-[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1229:     struct {
-[s S50 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S50 . LC0 LC1 LC2 LC3 LC4 LC5 LC6 LC7 ]
-"1218
-[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1218: typedef union {
-[u S48 `S49 1 `S50 1 ]
-[n S48 . . . ]
-"1240
-[; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1240: extern volatile LATCbits_t LATCbits __attribute__((address(0xF8B)));
-[v _LATCbits `VS48 ~T0 @X0 0 e@3979 ]
-"9 ./SIO.h
-[; ;./SIO.h: 9: char SiIsAvailable(void);
+"10 ./SIO.h
+[; ;./SIO.h: 10: char SiIsAvailable(void);
 [v _SiIsAvailable `(uc ~T0 @X0 0 ef ]
-"11
-[; ;./SIO.h: 11: void SiSendChar(char myByte);
+"12
+[; ;./SIO.h: 12: void SiSendChar(char myByte);
 [v _SiSendChar `(v ~T0 @X0 0 ef1`uc ]
 "55 C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 55: __asm("PORTA equ 0F80h");
@@ -596,218 +578,212 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _joystickMotor ]
 [f ]
 "30
-[; ;Joystick.c: 30:     LATC = stateJoy;
-[e = _LATC -> _stateJoy `uc ]
-"31
-[; ;Joystick.c: 31:     switch (stateJoy){
+[; ;Joystick.c: 30:     switch (stateJoy){
 [e $U 283  ]
 {
-"32
-[; ;Joystick.c: 32:         case 0:
+"31
+[; ;Joystick.c: 31:         case 0:
 [e :U 284 ]
-"33
-[; ;Joystick.c: 33:             if (ADCON0bits.GO_DONE == 0){
+"32
+[; ;Joystick.c: 32:             if (ADCON0bits.GO_DONE == 0){
 [e $ ! == -> . . _ADCON0bits 6 1 `i -> 0 `i 285  ]
 {
-"34
-[; ;Joystick.c: 34:                 y = ADRESH;
+"33
+[; ;Joystick.c: 33:                 y = ADRESH;
 [e = _y -> _ADRESH `uc ]
-"35
-[; ;Joystick.c: 35:                 ADCON0bits.CHS0=1;
+"34
+[; ;Joystick.c: 34:                 ADCON0bits.CHS0=1;
 [e = . . _ADCON0bits 2 2 -> -> 1 `i `uc ]
-"36
-[; ;Joystick.c: 36:                 ADCON0bits.CHS1=0;
+"35
+[; ;Joystick.c: 35:                 ADCON0bits.CHS1=0;
 [e = . . _ADCON0bits 2 3 -> -> 0 `i `uc ]
-"37
-[; ;Joystick.c: 37:                 stateJoy = 1;
+"36
+[; ;Joystick.c: 36:                 stateJoy = 1;
 [e = _stateJoy -> -> 1 `i `uc ]
-"38
-[; ;Joystick.c: 38:                 ADCON0bits.GO_DONE=1;
+"37
+[; ;Joystick.c: 37:                 ADCON0bits.GO_DONE=1;
 [e = . . _ADCON0bits 6 1 -> -> 1 `i `uc ]
-"39
-[; ;Joystick.c: 39:             }
+"38
+[; ;Joystick.c: 38:             }
 }
 [e :U 285 ]
-"40
-[; ;Joystick.c: 40:             break;
+"39
+[; ;Joystick.c: 39:             break;
 [e $U 282  ]
-"41
-[; ;Joystick.c: 41:         case 1:
+"40
+[; ;Joystick.c: 40:         case 1:
 [e :U 286 ]
-"42
-[; ;Joystick.c: 42:             if (ADCON0bits.GO_DONE == 0){
+"41
+[; ;Joystick.c: 41:             if (ADCON0bits.GO_DONE == 0){
 [e $ ! == -> . . _ADCON0bits 6 1 `i -> 0 `i 287  ]
 {
-"43
-[; ;Joystick.c: 43:                 x = ADRESH;
+"42
+[; ;Joystick.c: 42:                 x = ADRESH;
 [e = _x -> _ADRESH `uc ]
-"44
-[; ;Joystick.c: 44:                 ADCON0bits.CHS0=0;
+"43
+[; ;Joystick.c: 43:                 ADCON0bits.CHS0=0;
 [e = . . _ADCON0bits 2 2 -> -> 0 `i `uc ]
-"45
-[; ;Joystick.c: 45:                 ADCON0bits.CHS1=1;
+"44
+[; ;Joystick.c: 44:                 ADCON0bits.CHS1=1;
 [e = . . _ADCON0bits 2 3 -> -> 1 `i `uc ]
-"46
-[; ;Joystick.c: 46:                 stateJoy = 2;
+"45
+[; ;Joystick.c: 45:                 stateJoy = 2;
 [e = _stateJoy -> -> 2 `i `uc ]
-"47
-[; ;Joystick.c: 47:             }
+"46
+[; ;Joystick.c: 46:             }
 }
 [e :U 287 ]
-"48
-[; ;Joystick.c: 48:             break;
+"47
+[; ;Joystick.c: 47:             break;
 [e $U 282  ]
-"49
-[; ;Joystick.c: 49:         case 2:
+"48
+[; ;Joystick.c: 48:         case 2:
 [e :U 288 ]
-"50
-[; ;Joystick.c: 50:             stateJoy = 4;
+"49
+[; ;Joystick.c: 49:             stateJoy = 4;
 [e = _stateJoy -> -> 4 `i `uc ]
-"51
-[; ;Joystick.c: 51:             if (moved){
+"50
+[; ;Joystick.c: 50:             if (moved){
 [e $ ! != -> _moved `i -> 0 `i 289  ]
 {
-"52
-[; ;Joystick.c: 52:                 if (x >= 100 && x <= 150 && y >= 100 && y <= 150){
+"51
+[; ;Joystick.c: 51:                 if (x >= 100 && x <= 150 && y >= 100 && y <= 150){
 [e $ ! && && && >= -> _x `i -> 100 `i <= -> _x `i -> 150 `i >= -> _y `i -> 100 `i <= -> _y `i -> 150 `i 290  ]
 {
-"53
-[; ;Joystick.c: 53:                     moved = 0;
+"52
+[; ;Joystick.c: 52:                     moved = 0;
 [e = _moved -> -> 0 `i `uc ]
-"54
-[; ;Joystick.c: 54:                     LATCbits.LATC0 = 0;
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
-"55
-[; ;Joystick.c: 55:                 }
+"53
+[; ;Joystick.c: 53:                 }
 }
 [e :U 290 ]
-"56
-[; ;Joystick.c: 56:             }else {
+"54
+[; ;Joystick.c: 54:             }else {
 }
 [e $U 291  ]
 [e :U 289 ]
 {
-"57
-[; ;Joystick.c: 57:                 if (x <= 10){
+"55
+[; ;Joystick.c: 55:                 if (x <= 10){
 [e $ ! <= -> _x `i -> 10 `i 292  ]
 {
-"58
-[; ;Joystick.c: 58:                     send = 'A';
+"56
+[; ;Joystick.c: 56:                     send = 'A';
 [e = _send -> -> 65 `ui `uc ]
-"59
-[; ;Joystick.c: 59:                     moved = 1;
+"57
+[; ;Joystick.c: 57:                     moved = 1;
 [e = _moved -> -> 1 `i `uc ]
-"60
-[; ;Joystick.c: 60:                     stateJoy = 4+joyMode;
+"58
+[; ;Joystick.c: 58:                     stateJoy = 4+joyMode;
 [e = _stateJoy -> + -> 4 `i -> _joyMode `i `uc ]
-"61
-[; ;Joystick.c: 61:                 } else if (x >= 240){
+"59
+[; ;Joystick.c: 59:                 } else if (x >= 240){
 }
 [e $U 293  ]
 [e :U 292 ]
 [e $ ! >= -> _x `i -> 240 `i 294  ]
 {
-"62
-[; ;Joystick.c: 62:                     send = 'D';
+"60
+[; ;Joystick.c: 60:                     send = 'D';
 [e = _send -> -> 68 `ui `uc ]
-"63
-[; ;Joystick.c: 63:                     moved = 1;
+"61
+[; ;Joystick.c: 61:                     moved = 1;
 [e = _moved -> -> 1 `i `uc ]
-"64
-[; ;Joystick.c: 64:                     stateJoy = 4+joyMode;
+"62
+[; ;Joystick.c: 62:                     stateJoy = 4+joyMode;
 [e = _stateJoy -> + -> 4 `i -> _joyMode `i `uc ]
-"65
-[; ;Joystick.c: 65:                 } else if (y <= 10){
+"63
+[; ;Joystick.c: 63:                 } else if (y <= 10){
 }
 [e $U 295  ]
 [e :U 294 ]
 [e $ ! <= -> _y `i -> 10 `i 296  ]
 {
-"66
-[; ;Joystick.c: 66:                     send = 'S';
+"64
+[; ;Joystick.c: 64:                     send = 'S';
 [e = _send -> -> 83 `ui `uc ]
-"67
-[; ;Joystick.c: 67:                     moved = 1;
+"65
+[; ;Joystick.c: 65:                     moved = 1;
 [e = _moved -> -> 1 `i `uc ]
-"68
-[; ;Joystick.c: 68:                     stateJoy = 4+joyMode;
+"66
+[; ;Joystick.c: 66:                     stateJoy = 4+joyMode;
 [e = _stateJoy -> + -> 4 `i -> _joyMode `i `uc ]
-"69
-[; ;Joystick.c: 69:                 } else if (y >= 240){
+"67
+[; ;Joystick.c: 67:                 } else if (y >= 240){
 }
 [e $U 297  ]
 [e :U 296 ]
 [e $ ! >= -> _y `i -> 240 `i 298  ]
 {
-"70
-[; ;Joystick.c: 70:                     send = 'W';
+"68
+[; ;Joystick.c: 68:                     send = 'W';
 [e = _send -> -> 87 `ui `uc ]
-"71
-[; ;Joystick.c: 71:                     moved = 1;
+"69
+[; ;Joystick.c: 69:                     moved = 1;
 [e = _moved -> -> 1 `i `uc ]
-"72
-[; ;Joystick.c: 72:                     stateJoy = 4+joyMode;
+"70
+[; ;Joystick.c: 70:                     stateJoy = 4+joyMode;
 [e = _stateJoy -> + -> 4 `i -> _joyMode `i `uc ]
-"73
-[; ;Joystick.c: 73:                 }
+"71
+[; ;Joystick.c: 71:                 }
 }
 [e :U 298 ]
 [e :U 297 ]
 [e :U 295 ]
 [e :U 293 ]
-"75
-[; ;Joystick.c: 75:             }
+"73
+[; ;Joystick.c: 73:             }
 }
 [e :U 291 ]
-"77
-[; ;Joystick.c: 77:             break;
+"75
+[; ;Joystick.c: 75:             break;
 [e $U 282  ]
-"81
-[; ;Joystick.c: 81:         case 4:
+"79
+[; ;Joystick.c: 79:         case 4:
 [e :U 299 ]
-"82
-[; ;Joystick.c: 82:             stateJoy = 0;
+"80
+[; ;Joystick.c: 80:             stateJoy = 0;
 [e = _stateJoy -> -> 0 `i `uc ]
-"83
-[; ;Joystick.c: 83:             ADCON0bits.GO_DONE=1;
+"81
+[; ;Joystick.c: 81:             ADCON0bits.GO_DONE=1;
 [e = . . _ADCON0bits 6 1 -> -> 1 `i `uc ]
-"84
-[; ;Joystick.c: 84:             break;
+"82
+[; ;Joystick.c: 82:             break;
 [e $U 282  ]
-"86
-[; ;Joystick.c: 86:         case 5:
+"84
+[; ;Joystick.c: 84:         case 5:
 [e :U 300 ]
-"87
-[; ;Joystick.c: 87:             if(SiIsAvailable()){
+"85
+[; ;Joystick.c: 85:             if(SiIsAvailable()){
 [e $ ! != -> ( _SiIsAvailable ..  `i -> 0 `i 301  ]
 {
-"88
-[; ;Joystick.c: 88:                 SiSendChar(send);
+"86
+[; ;Joystick.c: 86:                 SiSendChar(send);
 [e ( _SiSendChar (1 _send ]
-"89
-[; ;Joystick.c: 89:                 stateJoy = 0;
+"87
+[; ;Joystick.c: 87:                 stateJoy = 0;
 [e = _stateJoy -> -> 0 `i `uc ]
-"90
-[; ;Joystick.c: 90:                 ADCON0bits.GO_DONE=1;
+"88
+[; ;Joystick.c: 88:                 ADCON0bits.GO_DONE=1;
 [e = . . _ADCON0bits 6 1 -> -> 1 `i `uc ]
-"91
-[; ;Joystick.c: 91:             }
+"89
+[; ;Joystick.c: 89:             }
 }
 [e :U 301 ]
-"92
-[; ;Joystick.c: 92:             break;
+"90
+[; ;Joystick.c: 90:             break;
 [e $U 282  ]
-"93
-[; ;Joystick.c: 93:         default:
+"91
+[; ;Joystick.c: 91:         default:
 [e :U 302 ]
-"94
-[; ;Joystick.c: 94:             stateJoy = 0;
+"92
+[; ;Joystick.c: 92:             stateJoy = 0;
 [e = _stateJoy -> -> 0 `i `uc ]
-"95
-[; ;Joystick.c: 95:             break;
+"93
+[; ;Joystick.c: 93:             break;
 [e $U 282  ]
-"96
-[; ;Joystick.c: 96:     }
+"94
+[; ;Joystick.c: 94:     }
 }
 [e $U 282  ]
 [e :U 283 ]
@@ -818,49 +794,49 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 5 `i 300
  302 ]
 [e :U 282 ]
-"98
-[; ;Joystick.c: 98: }
+"96
+[; ;Joystick.c: 96: }
 [e :UE 281 ]
 }
-"101
-[; ;Joystick.c: 101: char JoMoved(void){
+"99
+[; ;Joystick.c: 99: char JoMoved(void){
 [v _JoMoved `(uc ~T0 @X0 1 ef ]
 {
 [e :U _JoMoved ]
 [f ]
-"102
-[; ;Joystick.c: 102:     return moved;
+"100
+[; ;Joystick.c: 100:     return moved;
 [e ) _moved ]
 [e $UE 303  ]
-"103
-[; ;Joystick.c: 103: }
+"101
+[; ;Joystick.c: 101: }
 [e :UE 303 ]
 }
-"105
-[; ;Joystick.c: 105: char JoDirection(void){
+"103
+[; ;Joystick.c: 103: char JoDirection(void){
 [v _JoDirection `(uc ~T0 @X0 1 ef ]
 {
 [e :U _JoDirection ]
 [f ]
-"106
-[; ;Joystick.c: 106:     return send;
+"104
+[; ;Joystick.c: 104:     return send;
 [e ) _send ]
 [e $UE 304  ]
-"107
-[; ;Joystick.c: 107: }
+"105
+[; ;Joystick.c: 105: }
 [e :UE 304 ]
 }
-"109
-[; ;Joystick.c: 109: void JoSetMode(char mode){
+"107
+[; ;Joystick.c: 107: void JoSetMode(char mode){
 [v _JoSetMode `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _JoSetMode ]
 [v _mode `uc ~T0 @X0 1 r1 ]
 [f ]
-"110
-[; ;Joystick.c: 110:     joyMode = mode;
+"108
+[; ;Joystick.c: 108:     joyMode = mode;
 [e = _joyMode _mode ]
-"111
-[; ;Joystick.c: 111: }
+"109
+[; ;Joystick.c: 109: }
 [e :UE 305 ]
 }

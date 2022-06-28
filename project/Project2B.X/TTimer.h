@@ -2,6 +2,7 @@
 #define	TTIMER_H
 
 #define TSECOND 1200
+#define T3SECOND 3600
 #define TDISPREFRESH 600
 void TiInitTimer(void);
 //Pre: --

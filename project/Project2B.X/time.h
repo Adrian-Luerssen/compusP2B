@@ -5,6 +5,9 @@
 #include <xc.h> 
 #include "TTimer.h"
 #include "LcTLCD.h"
+#include "Audio.h"
+#include "SIO.h"
+#include "keypad.h"
 void initTime(void);
 
 void timeMotor(void);
@@ -15,6 +18,11 @@ void stopTimer(void);
 
 void resetTimer(void);
 void displayTimeRemaining(void);
-
+void modifyTime(void);
+void updateSysTime(void);
+void updateGameTime(void);
+void displaySysTime(void);
+void sendChar(char bt);
+char timerOver(void);
 #endif	/* XC_HEADER_TEMPLATE_H */
 

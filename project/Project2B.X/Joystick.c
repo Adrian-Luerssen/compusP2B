@@ -27,7 +27,6 @@ void initJoystick(void){
 
 
 void joystickMotor(void){
-    LATC = stateJoy;
     switch (stateJoy){
         case 0:
             if (ADCON0bits.GO_DONE == 0){
@@ -51,7 +50,6 @@ void joystickMotor(void){
             if (moved){
                 if (x >= CENTRE_L && x <= CENTRE_H && y >= CENTRE_L && y <= CENTRE_H){
                     moved = 0;
-                    LATCbits.LATC0 = 0;
                 }
             }else {
                 if (x <= LEFT){

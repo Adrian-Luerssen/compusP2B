@@ -7,14 +7,7 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "time.c" 2
-
-
-
-
-
-
-
-
+# 277 "time.c"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4618,7 +4611,7 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\xc.h" 2 3
-# 9 "time.c" 2
+# 277 "time.c" 2
 
 # 1 "./time.h" 1
 
@@ -4627,6 +4620,7 @@ unsigned char __t3rd16on(void);
 
 
 # 1 "./TTimer.h" 1
+
 
 
 
@@ -4658,7 +4652,7 @@ void _TiRSITimer (void);
 # 6 "./time.h" 2
 
 # 1 "./LcTLCD.h" 1
-# 65 "./LcTLCD.h"
+# 73 "./LcTLCD.h"
 void LcInit(char rows, char columns);
 
 
@@ -4687,9 +4681,62 @@ void LcGotoXY(char Column, char Row);
 
 
 void LcPutChar(char c);
-# 103 "./LcTLCD.h"
+# 111 "./LcTLCD.h"
 void LcPutString(char *s);
+
+
+
+
+
+void CantaIR(char IR);
 # 7 "./time.h" 2
+
+# 1 "./Audio.h" 1
+# 10 "./Audio.h"
+void initAudio(void);
+
+void audioMotor(void);
+
+void startSong(void);
+
+void stopSong(void);
+# 8 "./time.h" 2
+
+# 1 "./SIO.h" 1
+
+
+
+
+
+
+
+
+void initSIO(void);
+char SiIsAvailable(void);
+
+void SiSendChar(char myByte);
+char SiRecievedByte(void);
+char SiReadByte(void);
+
+void btMotor (void);
+char btAvailable(void);
+void btSendByte(char byte);
+# 9 "./time.h" 2
+
+# 1 "./keypad.h" 1
+# 14 "./keypad.h"
+void initKeypad(void);
+void SMSMotor(void);
+void KeypadMotor(void);
+char isPressed(void);
+char KeAvailable(void);
+char KeGetCharValue(void);
+char getFullValue(char generic);
+char getColumn (void);
+char getPresses(void);
+char KeGetGenericValue(void);
+void KeSetMode(char menuMode);
+# 10 "./time.h" 2
 
 void initTime(void);
 
@@ -4701,14 +4748,28 @@ void stopTimer(void);
 
 void resetTimer(void);
 void displayTimeRemaining(void);
-# 10 "time.c" 2
+void modifyTime(void);
+void updateSysTime(void);
+void updateGameTime(void);
+void displaySysTime(void);
+void sendChar(char bt);
+char timerOver(void);
+# 278 "time.c" 2
 
 static char seconds = 0;
 static char minutes = 30;
-static char second[2] = {0,0};
-static char minute[2] = {3,0};
+static char second = 0;
+static char minute = 30;
+
+
+
+
+static char sysSecond = 0;
+static char sysMinute = 0;
 static char timer;
 static char state = 0;
+static char game = 0;
+static char val = 0;
 void initTime(void){
     timer = TiGetTimer();
 }
@@ -4716,101 +4777,219 @@ void initTime(void){
 void timeMotor(void) {
     switch (state){
         case 0:
-
+            if (TiGetTics(timer) >= 1200){
+                TiResetTics(timer);
+                updateSysTime();
+            }
             break;
         case 1:
             if (TiGetTics(timer) >= 1200){
                 TiResetTics(timer);
                 state = 2;
                 LcGotoXY(0,1);
-                if (second[1] == 0){
-                    second[1] = 9;
-                    if (second[0] == 0){
-                        second[0] = 5;
-                        if (minute[1] == 0){
-                            minute[1] = 9;
-                            if (minute[0] == 0){
-                                state = 10;
-                            }else{
-                                minute[0]--;
-                            }
-                        }else{
-                            minute[1]--;
-                        }
-                    }else {
-                        second[0]--;
-                    }
-                } else {
-                    second[1]--;
-                }
+                updateGameTime();
+                updateSysTime();
             }
             break;
         case 2:
 
-            LcPutChar(minute[0]+'0');
-            state = 3;
+            if (btAvailable()){
+                val = minute/10;
+                sendChar(1);
+                state = 3;
+            }
+
             break;
         case 3:
 
-            LcPutChar(minute[1]+'0');
-            state = 4;
+            if (btAvailable()){
+                val = minute%10;
+                sendChar(1);
+                state = 4;
+            }
             break;
         case 4:
 
-            LcPutChar(':');
-            state = 5;
+            if (btAvailable()){
+                val = 10;
+                sendChar(1);
+                state = 5;
+            }
             break;
         case 5:
 
-            LcPutChar(second[0]+'0');
-            state = 6;
+            if (btAvailable()){
+                val = second/10;
+                sendChar(1);
+                state = 6;
+            }
             break;
         case 6:
 
-            LcPutChar(second[1]+'0');
-            state = 1;
+            if (btAvailable()){
+                val = second%10;
+                sendChar(1);
+                state = 1;
+            }
             break;
-        case 7:
+        case 20:
 
-            LcPutChar(minute[0]+'0');
-            state = 8;
+            LcPutChar(minute/10+'0');
+            state = 21;
             break;
-        case 8:
+        case 21:
 
-            LcPutChar(minute[1]+'0');
-            state = 9;
+            LcPutChar(minute%10+'0');
+            state = 22;
             break;
-        case 9:
+        case 22:
 
             LcPutChar(':');
-            state = 10;
+            state = 23;
             break;
-        case 10:
+        case 23:
 
-            LcPutChar(second[0]+'0');
-            state = 11;
+            LcPutChar(second/10+'0');
+            state = 24;
             break;
-        case 11:
+        case 24:
 
-            LcPutChar(second[1]+'0');
-            state = 0;
+            LcPutChar(second%10+'0');
+            LcGotoXY(0,1);
+            if (game){
+                game = 0;
+                state = 0;
+            } else {
+                LcCursorOn();
+                state = 25;
+            }
+
+        case 25:
+            if (isPressed() && KeGetGenericValue() != '*' && KeGetGenericValue() != '#' ){
+                minute = KeGetGenericValue()-'0';
+                LcPutChar(KeGetGenericValue());
+                state = 26;
+            }
+            break;
+        case 26:
+            if (isPressed() && KeGetGenericValue() != '*' && KeGetGenericValue() != '#' ){
+                minute = minute*10 +KeGetGenericValue()-'0';
+                LcPutChar(KeGetGenericValue());
+                LcPutChar(':');
+                state = 27;
+            }
+            break;
+        case 27:
+            if (isPressed() && KeGetGenericValue() != '*' && KeGetGenericValue() != '#' ){
+                second = KeGetGenericValue()-'0';
+                LcPutChar(KeGetGenericValue());
+                state = 28;
+            }
+            break;
+        case 28:
+            if (isPressed() && KeGetGenericValue() != '*' && KeGetGenericValue() != '#' ){
+                second = second*10 +KeGetGenericValue()-'0';
+                LcPutChar(KeGetGenericValue());
+                state = 29;
+            }
+            break;
+        case 29:
+            if (isPressed() && KeGetGenericValue() == '#'){
+                seconds = second;
+                minutes = minute;
+                state = 0;
+            }
+            break;
+        case 30:
+
+            LcPutChar(sysMinute/10+'0');
+            state = 31;
+            break;
+        case 31:
+
+            LcPutChar(sysMinute%10+'0');
+            state = 32;
+            break;
+        case 32:
+
+            LcPutChar(':');
+            state = 33;
+            break;
+        case 33:
+
+            LcPutChar(sysSecond/10+'0');
+            state = 34;
+            break;
+        case 34:
+
+            LcPutChar(sysSecond%10+'0');
+            state = 35;
+            break;
+        case 35:
+            if (TiGetTics(timer) >= 1200){
+                TiResetTics(timer);
+                updateSysTime();
+                state = 30;
+                LcGotoXY(0,1);
+            }
+            break;
     }
 }
 
 void startTimer(void){
-    state = 1;
+    state = 2;
     TiResetTics(timer);
 }
 void stopTimer(void){
     state = 0;
 }
 void displayTimeRemaining(void){
-    state = 7;
+    game = 1;
     LcGotoXY(11,0);
+    state = 20;
 }
 void resetTimer(void){
-    second[1] = seconds/10;
-    second[0] = seconds%10;
-    minute[0] = minutes%10;
-    minute[1] = minutes/10;
+    second = seconds;
+    minute = minutes;
+}
+
+void modifyTime(void){
+    state = 20;
+}
+
+void updateGameTime(void){
+    if (second == 0){
+        second = 59;
+        minute--;
+        startSong();
+        if (minute == 0){
+            state = 0;
+        }
+    }else{
+        second--;
+    }
+}
+void updateSysTime(void){
+    if (sysSecond == 59){
+        sysSecond = 0;
+        sysMinute++;
+    } else {
+        sysSecond++;
+    }
+}
+
+void displaySysTime(void){
+    state = 30;
+    LcGotoXY(0,1);
+}
+
+char timerOver(void){
+    return state == 0;
+}
+
+void sendChar(char bt){
+    LcPutChar(val+'0');
+    if (bt){
+        btSendByte(val+'0');
+    }
 }

@@ -1,6 +1,6 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"19 ./TTimer.h
-[; ;./TTimer.h: 19: char TiGetTimer(void);
+"20 ./TTimer.h
+[; ;./TTimer.h: 20: char TiGetTimer(void);
 [v _TiGetTimer `(uc ~T0 @X0 0 ef ]
 "2166 C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 2166:     struct {
@@ -17,29 +17,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2187
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 2187: extern volatile TRISDbits_t TRISDbits __attribute__((address(0xF95)));
 [v _TRISDbits `VS75 ~T0 @X0 0 e@3989 ]
-"54 LcTLCD.c
-[; ;LcTLCD.c: 54: void Espera(int Timer, int ms);
+"47 LcTLCD.c
+[; ;LcTLCD.c: 47: void Espera(int Timer, int ms);
 [v _Espera `(v ~T0 @X0 0 ef2`i`i ]
-"58
-[; ;LcTLCD.c: 58: void EscriuPrimeraOrdre(char);
+"50
+[; ;LcTLCD.c: 50: void EscriuPrimeraOrdre(char);
 [v _EscriuPrimeraOrdre `(v ~T0 @X0 0 ef1`uc ]
-"55
-[; ;LcTLCD.c: 55: void CantaIR(char IR);
+"117 ./LcTLCD.h
+[; ;./LcTLCD.h: 117: void CantaIR(char IR);
 [v _CantaIR `(v ~T0 @X0 0 ef1`uc ]
-"57
-[; ;LcTLCD.c: 57: void WaitForBusy(void);
+"49 LcTLCD.c
+[; ;LcTLCD.c: 49: void WaitForBusy(void);
 [v _WaitForBusy `(v ~T0 @X0 0 ef ]
-"110
-[; ;LcTLCD.c: 110:  TiCloseTimer (Timer);
+"102
+[; ;LcTLCD.c: 102:  TiCloseTimer (Timer);
 [v _TiCloseTimer `(i ~T0 @X0 0 e? ]
-"56
-[; ;LcTLCD.c: 56: void CantaData(char Data);
+"48
+[; ;LcTLCD.c: 48: void CantaData(char Data);
 [v _CantaData `(v ~T0 @X0 0 ef1`uc ]
-"10 ./TTimer.h
-[; ;./TTimer.h: 10: void TiResetTics(char Handle);
+"11 ./TTimer.h
+[; ;./TTimer.h: 11: void TiResetTics(char Handle);
 [v _TiResetTics `(v ~T0 @X0 0 ef1`uc ]
-"14
-[; ;./TTimer.h: 14: int TiGetTics(char Handle);
+"15
+[; ;./TTimer.h: 15: int TiGetTics(char Handle);
 [v _TiGetTics `(i ~T0 @X0 0 ef1`uc ]
 "1331 C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1331:     struct {
@@ -493,628 +493,517 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7011
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 7011: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"44 LcTLCD.c
-[; ;LcTLCD.c: 44: static unsigned char Rows, Columns;
+"37 LcTLCD.c
+[; ;LcTLCD.c: 37: static unsigned char Rows, Columns;
 [v _Rows `uc ~T0 @X0 1 s ]
 [v _Columns `uc ~T0 @X0 1 s ]
-"45
-[; ;LcTLCD.c: 45: static unsigned char RowAct, ColumnAct;
+"38
+[; ;LcTLCD.c: 38: static unsigned char RowAct, ColumnAct;
 [v _RowAct `uc ~T0 @X0 1 s ]
 [v _ColumnAct `uc ~T0 @X0 1 s ]
-"46
-[; ;LcTLCD.c: 46: static int Timer;
+"39
+[; ;LcTLCD.c: 39: static int Timer;
 [v _Timer `i ~T0 @X0 1 s ]
-"68
-[; ;LcTLCD.c: 68: void LcInit(char rows, char columns) {
+"60
+[; ;LcTLCD.c: 60: void LcInit(char rows, char columns) {
 [v _LcInit `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _LcInit ]
 [v _rows `uc ~T0 @X0 1 r1 ]
 [v _columns `uc ~T0 @X0 1 r2 ]
 [f ]
-"74
-[; ;LcTLCD.c: 74:  int i;
-[v _i `i ~T0 @X0 1 a ]
-"75
-[; ;LcTLCD.c: 75:  Timer = TiGetTimer();
+"66
+[; ;LcTLCD.c: 66:  char i;
+[v _i `uc ~T0 @X0 1 a ]
+"67
+[; ;LcTLCD.c: 67:  Timer = TiGetTimer();
 [e = _Timer -> ( _TiGetTimer ..  `i ]
-"76
-[; ;LcTLCD.c: 76:  Rows = rows; Columns = columns;
+"68
+[; ;LcTLCD.c: 68:  Rows = rows; Columns = columns;
 [e = _Rows -> _rows `uc ]
 [e = _Columns -> _columns `uc ]
-"77
-[; ;LcTLCD.c: 77:  RowAct = ColumnAct = 0;
+"69
+[; ;LcTLCD.c: 69:  RowAct = ColumnAct = 0;
 [e = _RowAct = _ColumnAct -> -> 0 `i `uc ]
-"78
-[; ;LcTLCD.c: 78:  (TRISDbits.TRISD4 = TRISDbits.TRISD5 = TRISDbits.TRISD6 = 0);
+"70
+[; ;LcTLCD.c: 70:  (TRISDbits.TRISD4 = TRISDbits.TRISD5 = TRISDbits.TRISD6 = 0);
 [e = . . _TRISDbits 0 4 = . . _TRISDbits 0 5 = . . _TRISDbits 0 6 -> -> 0 `i `uc ]
-"79
-[; ;LcTLCD.c: 79:  for (i = 0; i < 2; i++) {
+"71
+[; ;LcTLCD.c: 71:  for (i = 0; i < 2; i++) {
 {
-[e = _i -> 0 `i ]
-[e $ < _i -> 2 `i 281  ]
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 2 `i 281  ]
 [e $U 282  ]
 [e :U 281 ]
 {
-"80
-[; ;LcTLCD.c: 80:   Espera(Timer, 100);
+"72
+[; ;LcTLCD.c: 72:   Espera(Timer, 100);
 [e ( _Espera (2 , _Timer -> 100 `i ]
-"83
-[; ;LcTLCD.c: 83:   EscriuPrimeraOrdre(0x02 | 0x01);
+"75
+[; ;LcTLCD.c: 75:   EscriuPrimeraOrdre(0x02 | 0x01);
 [e ( _EscriuPrimeraOrdre (1 -> | -> 2 `i -> 1 `i `uc ]
-"84
-[; ;LcTLCD.c: 84:   Espera(Timer, 5);
+"76
+[; ;LcTLCD.c: 76:   Espera(Timer, 5);
 [e ( _Espera (2 , _Timer -> 5 `i ]
-"85
-[; ;LcTLCD.c: 85:   EscriuPrimeraOrdre(0x02 | 0x01);
+"77
+[; ;LcTLCD.c: 77:   EscriuPrimeraOrdre(0x02 | 0x01);
 [e ( _EscriuPrimeraOrdre (1 -> | -> 2 `i -> 1 `i `uc ]
-"86
-[; ;LcTLCD.c: 86:   Espera(Timer, 1);
+"78
+[; ;LcTLCD.c: 78:   Espera(Timer, 1);
 [e ( _Espera (2 , _Timer -> 1 `i ]
-"87
-[; ;LcTLCD.c: 87:   EscriuPrimeraOrdre(0x02 | 0x01);
+"79
+[; ;LcTLCD.c: 79:   EscriuPrimeraOrdre(0x02 | 0x01);
 [e ( _EscriuPrimeraOrdre (1 -> | -> 2 `i -> 1 `i `uc ]
-"88
-[; ;LcTLCD.c: 88:   Espera(Timer, 1);
+"80
+[; ;LcTLCD.c: 80:   Espera(Timer, 1);
 [e ( _Espera (2 , _Timer -> 1 `i ]
-"91
-[; ;LcTLCD.c: 91:   EscriuPrimeraOrdre(0x02);
+"83
+[; ;LcTLCD.c: 83:   EscriuPrimeraOrdre(0x02);
 [e ( _EscriuPrimeraOrdre (1 -> -> 2 `i `uc ]
-"92
-[; ;LcTLCD.c: 92:   Espera(Timer, 1);
+"84
+[; ;LcTLCD.c: 84:   Espera(Timer, 1);
 [e ( _Espera (2 , _Timer -> 1 `i ]
-"93
-[; ;LcTLCD.c: 93:   CantaIR(0x20 | 0x08);
+"85
+[; ;LcTLCD.c: 85:   CantaIR(0x20 | 0x08);
 [e ( _CantaIR (1 -> | -> 32 `i -> 8 `i `uc ]
-"96
-[; ;LcTLCD.c: 96:   WaitForBusy(); CantaIR(0x08);
+"88
+[; ;LcTLCD.c: 88:   WaitForBusy(); CantaIR(0x08);
 [e ( _WaitForBusy ..  ]
 [e ( _CantaIR (1 -> -> 8 `i `uc ]
-"97
-[; ;LcTLCD.c: 97:   WaitForBusy(); CantaIR(0x01);
+"89
+[; ;LcTLCD.c: 89:   WaitForBusy(); CantaIR(0x01);
 [e ( _WaitForBusy ..  ]
 [e ( _CantaIR (1 -> -> 1 `i `uc ]
-"98
-[; ;LcTLCD.c: 98:   Espera(Timer,3);
+"90
+[; ;LcTLCD.c: 90:   Espera(Timer,3);
 [e ( _Espera (2 , _Timer -> 3 `i ]
-"99
-[; ;LcTLCD.c: 99:   WaitForBusy(); CantaIR(0x04 | 0x02);
+"91
+[; ;LcTLCD.c: 91:   WaitForBusy(); CantaIR(0x04 | 0x02);
 [e ( _WaitForBusy ..  ]
 [e ( _CantaIR (1 -> | -> 4 `i -> 2 `i `uc ]
-"100
-[; ;LcTLCD.c: 100:   WaitForBusy(); CantaIR(0x08 | 0x04 | 0x02 | 0x01);
+"92
+[; ;LcTLCD.c: 92:   WaitForBusy(); CantaIR(0x08 | 0x04 | 0x02 | 0x01);
 [e ( _WaitForBusy ..  ]
 [e ( _CantaIR (1 -> | | | -> 8 `i -> 4 `i -> 2 `i -> 1 `i `uc ]
-"101
-[; ;LcTLCD.c: 101:  }
+"93
+[; ;LcTLCD.c: 93:  }
 }
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 2 `i 281  ]
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 2 `i 281  ]
 [e :U 282 ]
 }
-"106
-[; ;LcTLCD.c: 106: }
+"98
+[; ;LcTLCD.c: 98: }
 [e :UE 280 ]
 }
-"108
-[; ;LcTLCD.c: 108: void LcEnd(void) {
+"100
+[; ;LcTLCD.c: 100: void LcEnd(void) {
 [v _LcEnd `(v ~T0 @X0 1 ef ]
 {
 [e :U _LcEnd ]
 [f ]
-"110
-[; ;LcTLCD.c: 110:  TiCloseTimer (Timer);
+"102
+[; ;LcTLCD.c: 102:  TiCloseTimer (Timer);
 [e ( _TiCloseTimer _Timer ]
-"111
-[; ;LcTLCD.c: 111: }
+"103
+[; ;LcTLCD.c: 103: }
 [e :UE 284 ]
 }
-"113
-[; ;LcTLCD.c: 113: void LcClear(void) {
+"105
+[; ;LcTLCD.c: 105: void LcClear(void) {
 [v _LcClear `(v ~T0 @X0 1 ef ]
 {
 [e :U _LcClear ]
 [f ]
-"116
-[; ;LcTLCD.c: 116:  WaitForBusy(); CantaIR(0x01);
+"108
+[; ;LcTLCD.c: 108:  WaitForBusy(); CantaIR(0x01);
 [e ( _WaitForBusy ..  ]
 [e ( _CantaIR (1 -> -> 1 `i `uc ]
-"117
-[; ;LcTLCD.c: 117:  Espera(Timer, 3);
+"109
+[; ;LcTLCD.c: 109:  Espera(Timer, 3);
 [e ( _Espera (2 , _Timer -> 3 `i ]
-"118
-[; ;LcTLCD.c: 118: }
+"110
+[; ;LcTLCD.c: 110: }
 [e :UE 285 ]
 }
-"120
-[; ;LcTLCD.c: 120: void LcCursorOn(void) {
+"112
+[; ;LcTLCD.c: 112: void LcCursorOn(void) {
 [v _LcCursorOn `(v ~T0 @X0 1 ef ]
 {
 [e :U _LcCursorOn ]
 [f ]
-"123
-[; ;LcTLCD.c: 123:  WaitForBusy();
+"115
+[; ;LcTLCD.c: 115:  WaitForBusy();
 [e ( _WaitForBusy ..  ]
-"124
-[; ;LcTLCD.c: 124:  CantaIR(0x08 | 0x04 | 0x02);
+"116
+[; ;LcTLCD.c: 116:  CantaIR(0x08 | 0x04 | 0x02);
 [e ( _CantaIR (1 -> | | -> 8 `i -> 4 `i -> 2 `i `uc ]
-"125
-[; ;LcTLCD.c: 125: }
+"117
+[; ;LcTLCD.c: 117: }
 [e :UE 286 ]
 }
-"127
-[; ;LcTLCD.c: 127: void LcCursorOff(void) {
+"119
+[; ;LcTLCD.c: 119: void LcCursorOff(void) {
 [v _LcCursorOff `(v ~T0 @X0 1 ef ]
 {
 [e :U _LcCursorOff ]
 [f ]
-"130
-[; ;LcTLCD.c: 130:  WaitForBusy();
+"122
+[; ;LcTLCD.c: 122:  WaitForBusy();
 [e ( _WaitForBusy ..  ]
-"131
-[; ;LcTLCD.c: 131:  CantaIR(0x08 | 0x04);
+"123
+[; ;LcTLCD.c: 123:  CantaIR(0x08 | 0x04);
 [e ( _CantaIR (1 -> | -> 8 `i -> 4 `i `uc ]
-"132
-[; ;LcTLCD.c: 132: }
+"124
+[; ;LcTLCD.c: 124: }
 [e :UE 287 ]
 }
-"134
-[; ;LcTLCD.c: 134: void LcGotoXY(char Column, char Row) {
+"126
+[; ;LcTLCD.c: 126: void LcGotoXY(char Column, char Row) {
 [v _LcGotoXY `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _LcGotoXY ]
 [v _Column `uc ~T0 @X0 1 r1 ]
 [v _Row `uc ~T0 @X0 1 r2 ]
 [f ]
-"138
-[; ;LcTLCD.c: 138:  int Fisics;
-[v _Fisics `i ~T0 @X0 1 a ]
-"140
-[; ;LcTLCD.c: 140:  switch (Rows) {
-[e $U 290  ]
-{
-"141
-[; ;LcTLCD.c: 141:   case 2:
-[e :U 291 ]
-"142
-[; ;LcTLCD.c: 142:    Fisics = Column + (!Row ? 0 : 0x40); break;
-[e = _Fisics + -> _Column `i ? ! != -> _Row `i -> 0 `i : -> 0 `i -> 64 `i ]
-[e $U 289  ]
-"143
-[; ;LcTLCD.c: 143:   case 4:
-[e :U 292 ]
-"144
-[; ;LcTLCD.c: 144:    Fisics = Column;
-[e = _Fisics -> _Column `i ]
-"145
-[; ;LcTLCD.c: 145:    if (Row == 1) Fisics += 0x40; else
-[e $ ! == -> _Row `i -> 1 `i 293  ]
-[e =+ _Fisics -> 64 `i ]
-[e $U 294  ]
-[e :U 293 ]
-"146
-[; ;LcTLCD.c: 146:    if (Row == 2) Fisics += Columns; else
-[e $ ! == -> _Row `i -> 2 `i 295  ]
-[e =+ _Fisics -> _Columns `i ]
-[e $U 296  ]
-[e :U 295 ]
+"130
+[; ;LcTLCD.c: 130:  char Fisics;
+[v _Fisics `uc ~T0 @X0 1 a ]
+"132
+[; ;LcTLCD.c: 132:  Fisics = Column + (!Row ? 0 : 0x40);
+[e = _Fisics -> + -> _Column `i ? ! != -> _Row `i -> 0 `i : -> 0 `i -> 64 `i `uc ]
 "147
-[; ;LcTLCD.c: 147:    if (Row == 3) Fisics += 0x40+Columns;
-[e $ ! == -> _Row `i -> 3 `i 297  ]
-[e =+ _Fisics + -> 64 `i -> _Columns `i ]
-[e :U 297 ]
-[e :U 296 ]
-[e :U 294 ]
-"148
-[; ;LcTLCD.c: 148:    break;
-[e $U 289  ]
-"149
-[; ;LcTLCD.c: 149:   case 1:
-[e :U 298 ]
-"150
-[; ;LcTLCD.c: 150:   default:
-[e :U 299 ]
-"151
-[; ;LcTLCD.c: 151:    Fisics = Column; break;
-[e = _Fisics -> _Column `i ]
-[e $U 289  ]
-"152
-[; ;LcTLCD.c: 152:  }
-}
-[e $U 289  ]
-[e :U 290 ]
-[e [\ -> _Rows `i , $ -> 2 `i 291
- , $ -> 4 `i 292
- , $ -> 1 `i 298
- 299 ]
-[e :U 289 ]
-"154
-[; ;LcTLCD.c: 154:  WaitForBusy();
+[; ;LcTLCD.c: 147:  WaitForBusy();
 [e ( _WaitForBusy ..  ]
-"155
-[; ;LcTLCD.c: 155:  CantaIR(0x80 | Fisics);
-[e ( _CantaIR (1 -> | -> 128 `i _Fisics `uc ]
-"157
-[; ;LcTLCD.c: 157:  RowAct = Row;
+"148
+[; ;LcTLCD.c: 148:  CantaIR(0x80 | Fisics);
+[e ( _CantaIR (1 -> | -> 128 `i -> _Fisics `i `uc ]
+"150
+[; ;LcTLCD.c: 150:  RowAct = Row;
 [e = _RowAct -> _Row `uc ]
-"158
-[; ;LcTLCD.c: 158:  ColumnAct = Column;
+"151
+[; ;LcTLCD.c: 151:  ColumnAct = Column;
 [e = _ColumnAct -> _Column `uc ]
-"159
-[; ;LcTLCD.c: 159: }
+"152
+[; ;LcTLCD.c: 152: }
 [e :UE 288 ]
 }
-"161
-[; ;LcTLCD.c: 161: void LcPutChar(char c) {
+"154
+[; ;LcTLCD.c: 154: void LcPutChar(char c) {
 [v _LcPutChar `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _LcPutChar ]
 [v _c `uc ~T0 @X0 1 r1 ]
 [f ]
-"171
-[; ;LcTLCD.c: 171:  WaitForBusy(); CantaData(c);
+"164
+[; ;LcTLCD.c: 164:  WaitForBusy(); CantaData(c);
 [e ( _WaitForBusy ..  ]
 [e ( _CantaData (1 _c ]
-"173
-[; ;LcTLCD.c: 173:  ++ColumnAct;
+"166
+[; ;LcTLCD.c: 166:  ++ColumnAct;
 [e =+ _ColumnAct -> -> 1 `i `uc ]
-"174
-[; ;LcTLCD.c: 174:  if (Rows == 3) {
-[e $ ! == -> _Rows `i -> 3 `i 301  ]
+"168
+[; ;LcTLCD.c: 168:     if (ColumnAct >= 40) {
+[e $ ! >= -> _ColumnAct `i -> 40 `i 290  ]
 {
-"175
-[; ;LcTLCD.c: 175:   if (ColumnAct >= 20) {
-[e $ ! >= -> _ColumnAct `i -> 20 `i 302  ]
-{
-"176
-[; ;LcTLCD.c: 176:    ColumnAct = 0;
+"169
+[; ;LcTLCD.c: 169:         ColumnAct = 0;
 [e = _ColumnAct -> -> 0 `i `uc ]
-"177
-[; ;LcTLCD.c: 177:    if (++RowAct >= 4) RowAct = 0;
-[e $ ! >= -> =+ _RowAct -> -> 1 `i `uc `i -> 4 `i 303  ]
+"170
+[; ;LcTLCD.c: 170:   if (++RowAct >= 2) RowAct = 0;
+[e $ ! >= -> =+ _RowAct -> -> 1 `i `uc `i -> 2 `i 291  ]
 [e = _RowAct -> -> 0 `i `uc ]
-[e :U 303 ]
-"178
-[; ;LcTLCD.c: 178:    LcGotoXY(ColumnAct, RowAct);
+[e :U 291 ]
+"171
+[; ;LcTLCD.c: 171:   LcGotoXY(ColumnAct, RowAct);
 [e ( _LcGotoXY (2 , -> _ColumnAct `uc -> _RowAct `uc ]
-"179
-[; ;LcTLCD.c: 179:   }
+"172
+[; ;LcTLCD.c: 172:  }
 }
-[e :U 302 ]
-"180
-[; ;LcTLCD.c: 180:  } else
-}
-[e $U 304  ]
-[e :U 301 ]
-"181
-[; ;LcTLCD.c: 181:  if (Rows == 2) {
-[e $ ! == -> _Rows `i -> 2 `i 305  ]
-{
-"182
-[; ;LcTLCD.c: 182:   if (ColumnAct >= 40) {
-[e $ ! >= -> _ColumnAct `i -> 40 `i 306  ]
-{
-"183
-[; ;LcTLCD.c: 183:    ColumnAct = 0;
-[e = _ColumnAct -> -> 0 `i `uc ]
-"184
-[; ;LcTLCD.c: 184:    if (++RowAct >= 2) RowAct = 0;
-[e $ ! >= -> =+ _RowAct -> -> 1 `i `uc `i -> 2 `i 307  ]
-[e = _RowAct -> -> 0 `i `uc ]
-[e :U 307 ]
-"185
-[; ;LcTLCD.c: 185:    LcGotoXY(ColumnAct, RowAct);
-[e ( _LcGotoXY (2 , -> _ColumnAct `uc -> _RowAct `uc ]
-"186
-[; ;LcTLCD.c: 186:   }
-}
-[e :U 306 ]
-"187
-[; ;LcTLCD.c: 187:  } else
-}
-[e $U 308  ]
-[e :U 305 ]
-"188
-[; ;LcTLCD.c: 188:  if (RowAct == 1) {
-[e $ ! == -> _RowAct `i -> 1 `i 309  ]
-{
-"189
-[; ;LcTLCD.c: 189:   if (ColumnAct >= 40) ColumnAct = 0;
-[e $ ! >= -> _ColumnAct `i -> 40 `i 310  ]
-[e = _ColumnAct -> -> 0 `i `uc ]
-[e :U 310 ]
-"190
-[; ;LcTLCD.c: 190:   LcGotoXY(ColumnAct, RowAct);
-[e ( _LcGotoXY (2 , -> _ColumnAct `uc -> _RowAct `uc ]
+[e :U 290 ]
 "191
-[; ;LcTLCD.c: 191:  }
+[; ;LcTLCD.c: 191: }
+[e :UE 289 ]
 }
-[e :U 309 ]
-[e :U 308 ]
-[e :U 304 ]
-"192
-[; ;LcTLCD.c: 192: }
-[e :UE 300 ]
-}
-"195
-[; ;LcTLCD.c: 195: void LcPutString(char *s) {
+"194
+[; ;LcTLCD.c: 194: void LcPutString(char *s) {
 [v _LcPutString `(v ~T0 @X0 1 ef1`*uc ]
 {
 [e :U _LcPutString ]
 [v _s `*uc ~T0 @X0 1 r1 ]
 [f ]
-"199
-[; ;LcTLCD.c: 199:  while(*s) LcPutChar(*s++);
-[e $U 312  ]
-[e :U 313 ]
+"198
+[; ;LcTLCD.c: 198:  while(*s) LcPutChar(*s++);
+[e $U 293  ]
+[e :U 294 ]
 [e ( _LcPutChar (1 *U ++ _s * -> -> 1 `i `x -> -> # *U _s `i `x ]
-[e :U 312 ]
-[e $ != -> *U _s `i -> 0 `i 313  ]
-[e :U 314 ]
-"200
-[; ;LcTLCD.c: 200: }
-[e :UE 311 ]
+[e :U 293 ]
+[e $ != -> *U _s `i -> 0 `i 294  ]
+[e :U 295 ]
+"199
+[; ;LcTLCD.c: 199: }
+[e :UE 292 ]
 }
-"210
-[; ;LcTLCD.c: 210: void Espera(int Timer, int ms) {
+"209
+[; ;LcTLCD.c: 209: void Espera(int Timer, int ms) {
 [v _Espera `(v ~T0 @X0 1 ef2`i`i ]
 {
 [e :U _Espera ]
 [v _Timer `i ~T0 @X0 1 r1 ]
 [v _ms `i ~T0 @X0 1 r2 ]
 [f ]
-"211
-[; ;LcTLCD.c: 211:  TiResetTics(Timer);
+"210
+[; ;LcTLCD.c: 210:  TiResetTics(Timer);
 [e ( _TiResetTics (1 -> _Timer `uc ]
+"211
+[; ;LcTLCD.c: 211:  while(TiGetTics(Timer) < ms);
+[e $U 297  ]
+[e :U 298 ]
+[e :U 297 ]
+[e $ < ( _TiGetTics (1 -> _Timer `uc _ms 298  ]
+[e :U 299 ]
 "212
-[; ;LcTLCD.c: 212:  while(TiGetTics(Timer) < ms);
-[e $U 316  ]
-[e :U 317 ]
-[e :U 316 ]
-[e $ < ( _TiGetTics (1 -> _Timer `uc _ms 317  ]
-[e :U 318 ]
-"213
-[; ;LcTLCD.c: 213: }
-[e :UE 315 ]
+[; ;LcTLCD.c: 212: }
+[e :UE 296 ]
 }
-"215
-[; ;LcTLCD.c: 215: void CantaPartAlta(char c) {
+"214
+[; ;LcTLCD.c: 214: void CantaPartAlta(char c) {
 [v _CantaPartAlta `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _CantaPartAlta ]
 [v _c `uc ~T0 @X0 1 r1 ]
 [f ]
-"216
-[; ;LcTLCD.c: 216:   (LATDbits.LATD3 = (c & 0x80 ? 1 : 0));
+"215
+[; ;LcTLCD.c: 215:   (LATDbits.LATD3 = (c & 0x80 ? 1 : 0));
 [e = . . _LATDbits 0 3 -> ? != & -> _c `i -> 128 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
-"217
-[; ;LcTLCD.c: 217:   (LATDbits.LATD2 = (c & 0x40 ? 1 : 0));
+"216
+[; ;LcTLCD.c: 216:   (LATDbits.LATD2 = (c & 0x40 ? 1 : 0));
 [e = . . _LATDbits 0 2 -> ? != & -> _c `i -> 64 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
-"218
-[; ;LcTLCD.c: 218:   (LATDbits.LATD1 = (c & 0x20 ? 1 : 0));
+"217
+[; ;LcTLCD.c: 217:   (LATDbits.LATD1 = (c & 0x20 ? 1 : 0));
 [e = . . _LATDbits 0 1 -> ? != & -> _c `i -> 32 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
-"219
-[; ;LcTLCD.c: 219:   (LATDbits.LATD0 = (c & 0x10 ? 1 : 0));
+"218
+[; ;LcTLCD.c: 218:   (LATDbits.LATD0 = (c & 0x10 ? 1 : 0));
 [e = . . _LATDbits 0 0 -> ? != & -> _c `i -> 16 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
-"220
-[; ;LcTLCD.c: 220: }
-[e :UE 319 ]
+"219
+[; ;LcTLCD.c: 219: }
+[e :UE 300 ]
 }
-"222
-[; ;LcTLCD.c: 222: void CantaPartBaixa(char c) {
+"221
+[; ;LcTLCD.c: 221: void CantaPartBaixa(char c) {
 [v _CantaPartBaixa `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _CantaPartBaixa ]
 [v _c `uc ~T0 @X0 1 r1 ]
 [f ]
-"223
-[; ;LcTLCD.c: 223:   (LATDbits.LATD3 = (c & 0x08 ? 1 : 0));
+"222
+[; ;LcTLCD.c: 222:   (LATDbits.LATD3 = (c & 0x08 ? 1 : 0));
 [e = . . _LATDbits 0 3 -> ? != & -> _c `i -> 8 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
-"224
-[; ;LcTLCD.c: 224:   (LATDbits.LATD2 = (c & 0x04 ? 1 : 0));
+"223
+[; ;LcTLCD.c: 223:   (LATDbits.LATD2 = (c & 0x04 ? 1 : 0));
 [e = . . _LATDbits 0 2 -> ? != & -> _c `i -> 4 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
-"225
-[; ;LcTLCD.c: 225:   (LATDbits.LATD1 = (c & 0x02 ? 1 : 0));
+"224
+[; ;LcTLCD.c: 224:   (LATDbits.LATD1 = (c & 0x02 ? 1 : 0));
 [e = . . _LATDbits 0 1 -> ? != & -> _c `i -> 2 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
-"226
-[; ;LcTLCD.c: 226:   (LATDbits.LATD0 = (c & 0x01 ? 1 : 0));
+"225
+[; ;LcTLCD.c: 225:   (LATDbits.LATD0 = (c & 0x01 ? 1 : 0));
 [e = . . _LATDbits 0 0 -> ? != & -> _c `i -> 1 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
-"227
-[; ;LcTLCD.c: 227: }
-[e :UE 320 ]
+"226
+[; ;LcTLCD.c: 226: }
+[e :UE 301 ]
 }
-"229
-[; ;LcTLCD.c: 229: void CantaIR(char IR) {
+"228
+[; ;LcTLCD.c: 228: void CantaIR(char IR) {
 [v _CantaIR `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _CantaIR ]
 [v _IR `uc ~T0 @X0 1 r1 ]
 [f ]
-"230
-[; ;LcTLCD.c: 230:  (TRISDbits.TRISD0 = TRISDbits.TRISD1 = TRISDbits.TRISD2 = TRISDbits.TRISD3 = 0);
+"229
+[; ;LcTLCD.c: 229:  (TRISDbits.TRISD0 = TRISDbits.TRISD1 = TRISDbits.TRISD2 = TRISDbits.TRISD3 = 0);
 [e = . . _TRISDbits 0 0 = . . _TRISDbits 0 1 = . . _TRISDbits 0 2 = . . _TRISDbits 0 3 -> -> 0 `i `uc ]
-"231
-[; ;LcTLCD.c: 231:  (LATDbits.LATD4 = 0);
+"230
+[; ;LcTLCD.c: 230:  (LATDbits.LATD4 = 0);
 [e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
-"232
-[; ;LcTLCD.c: 232:  (LATDbits.LATD5 = 0);
+"231
+[; ;LcTLCD.c: 231:  (LATDbits.LATD5 = 0);
 [e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
+"232
+[; ;LcTLCD.c: 232:  (LATDbits.LATD6 = 1);
+[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
 "233
-[; ;LcTLCD.c: 233:  (LATDbits.LATD6 = 1);
-[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
-"234
-[; ;LcTLCD.c: 234:  CantaPartAlta(IR);
+[; ;LcTLCD.c: 233:  CantaPartAlta(IR);
 [e ( _CantaPartAlta (1 _IR ]
-"235
-[; ;LcTLCD.c: 235:  (LATDbits.LATD6 = 1);
+"234
+[; ;LcTLCD.c: 234:  (LATDbits.LATD6 = 1);
 [e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
+"235
+[; ;LcTLCD.c: 235:  (LATDbits.LATD6 = 0);
+[e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
 "236
 [; ;LcTLCD.c: 236:  (LATDbits.LATD6 = 0);
 [e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
 "237
-[; ;LcTLCD.c: 237:  (LATDbits.LATD6 = 0);
-[e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
+[; ;LcTLCD.c: 237:  (LATDbits.LATD6 = 1);
+[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
 "238
-[; ;LcTLCD.c: 238:  (LATDbits.LATD6 = 1);
-[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
-"239
-[; ;LcTLCD.c: 239:  CantaPartBaixa(IR);
+[; ;LcTLCD.c: 238:  CantaPartBaixa(IR);
 [e ( _CantaPartBaixa (1 _IR ]
-"240
-[; ;LcTLCD.c: 240:  (LATDbits.LATD6 = 1);
+"239
+[; ;LcTLCD.c: 239:  (LATDbits.LATD6 = 1);
 [e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
-"241
-[; ;LcTLCD.c: 241:  (LATDbits.LATD6 = 0);
+"240
+[; ;LcTLCD.c: 240:  (LATDbits.LATD6 = 0);
 [e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
-"242
-[; ;LcTLCD.c: 242:  (TRISDbits.TRISD0 = TRISDbits.TRISD1 = TRISDbits.TRISD2 = TRISDbits.TRISD3 = 1);
+"241
+[; ;LcTLCD.c: 241:  (TRISDbits.TRISD0 = TRISDbits.TRISD1 = TRISDbits.TRISD2 = TRISDbits.TRISD3 = 1);
 [e = . . _TRISDbits 0 0 = . . _TRISDbits 0 1 = . . _TRISDbits 0 2 = . . _TRISDbits 0 3 -> -> 1 `i `uc ]
-"243
-[; ;LcTLCD.c: 243: }
-[e :UE 321 ]
+"242
+[; ;LcTLCD.c: 242: }
+[e :UE 302 ]
 }
-"245
-[; ;LcTLCD.c: 245: void CantaData(char Data) {
+"244
+[; ;LcTLCD.c: 244: void CantaData(char Data) {
 [v _CantaData `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _CantaData ]
 [v _Data `uc ~T0 @X0 1 r1 ]
 [f ]
-"246
-[; ;LcTLCD.c: 246:  (TRISDbits.TRISD0 = TRISDbits.TRISD1 = TRISDbits.TRISD2 = TRISDbits.TRISD3 = 0);
+"245
+[; ;LcTLCD.c: 245:  (TRISDbits.TRISD0 = TRISDbits.TRISD1 = TRISDbits.TRISD2 = TRISDbits.TRISD3 = 0);
 [e = . . _TRISDbits 0 0 = . . _TRISDbits 0 1 = . . _TRISDbits 0 2 = . . _TRISDbits 0 3 -> -> 0 `i `uc ]
-"247
-[; ;LcTLCD.c: 247:  (LATDbits.LATD4 = 1);
+"246
+[; ;LcTLCD.c: 246:  (LATDbits.LATD4 = 1);
 [e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
-"248
-[; ;LcTLCD.c: 248:  (LATDbits.LATD5 = 0);
+"247
+[; ;LcTLCD.c: 247:  (LATDbits.LATD5 = 0);
 [e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
+"248
+[; ;LcTLCD.c: 248:  (LATDbits.LATD6 = 1);
+[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
 "249
-[; ;LcTLCD.c: 249:  (LATDbits.LATD6 = 1);
-[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
-"250
-[; ;LcTLCD.c: 250:  CantaPartAlta(Data);
+[; ;LcTLCD.c: 249:  CantaPartAlta(Data);
 [e ( _CantaPartAlta (1 _Data ]
-"251
-[; ;LcTLCD.c: 251:  (LATDbits.LATD6 = 1);
+"250
+[; ;LcTLCD.c: 250:  (LATDbits.LATD6 = 1);
 [e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
+"251
+[; ;LcTLCD.c: 251:  (LATDbits.LATD6 = 0);
+[e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
 "252
 [; ;LcTLCD.c: 252:  (LATDbits.LATD6 = 0);
 [e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
 "253
-[; ;LcTLCD.c: 253:  (LATDbits.LATD6 = 0);
-[e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
+[; ;LcTLCD.c: 253:  (LATDbits.LATD6 = 1);
+[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
 "254
-[; ;LcTLCD.c: 254:  (LATDbits.LATD6 = 1);
-[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
-"255
-[; ;LcTLCD.c: 255:  CantaPartBaixa(Data);
+[; ;LcTLCD.c: 254:  CantaPartBaixa(Data);
 [e ( _CantaPartBaixa (1 _Data ]
-"256
-[; ;LcTLCD.c: 256:  (LATDbits.LATD6 = 1);
+"255
+[; ;LcTLCD.c: 255:  (LATDbits.LATD6 = 1);
 [e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
-"257
-[; ;LcTLCD.c: 257:  (LATDbits.LATD6 = 0);
+"256
+[; ;LcTLCD.c: 256:  (LATDbits.LATD6 = 0);
 [e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
-"258
-[; ;LcTLCD.c: 258:  (TRISDbits.TRISD0 = TRISDbits.TRISD1 = TRISDbits.TRISD2 = TRISDbits.TRISD3 = 1);
+"257
+[; ;LcTLCD.c: 257:  (TRISDbits.TRISD0 = TRISDbits.TRISD1 = TRISDbits.TRISD2 = TRISDbits.TRISD3 = 1);
 [e = . . _TRISDbits 0 0 = . . _TRISDbits 0 1 = . . _TRISDbits 0 2 = . . _TRISDbits 0 3 -> -> 1 `i `uc ]
-"259
-[; ;LcTLCD.c: 259: }
-[e :UE 322 ]
+"258
+[; ;LcTLCD.c: 258: }
+[e :UE 303 ]
 }
-"261
-[; ;LcTLCD.c: 261: void WaitForBusy(void) { char Busy;
+"260
+[; ;LcTLCD.c: 260: void WaitForBusy(void) { char Busy;
 [v _WaitForBusy `(v ~T0 @X0 1 ef ]
 {
 [e :U _WaitForBusy ]
 [f ]
 [v _Busy `uc ~T0 @X0 1 a ]
-"262
-[; ;LcTLCD.c: 262:  (TRISDbits.TRISD0 = TRISDbits.TRISD1 = TRISDbits.TRISD2 = TRISDbits.TRISD3 = 1);
+"261
+[; ;LcTLCD.c: 261:  (TRISDbits.TRISD0 = TRISDbits.TRISD1 = TRISDbits.TRISD2 = TRISDbits.TRISD3 = 1);
 [e = . . _TRISDbits 0 0 = . . _TRISDbits 0 1 = . . _TRISDbits 0 2 = . . _TRISDbits 0 3 -> -> 1 `i `uc ]
-"263
-[; ;LcTLCD.c: 263:  (LATDbits.LATD4 = 0);
+"262
+[; ;LcTLCD.c: 262:  (LATDbits.LATD4 = 0);
 [e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
-"264
-[; ;LcTLCD.c: 264:  (LATDbits.LATD5 = 1);
+"263
+[; ;LcTLCD.c: 263:  (LATDbits.LATD5 = 1);
 [e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
-"265
-[; ;LcTLCD.c: 265:  TiResetTics(Timer);
+"264
+[; ;LcTLCD.c: 264:  TiResetTics(Timer);
 [e ( _TiResetTics (1 -> _Timer `uc ]
-"266
-[; ;LcTLCD.c: 266:  do {
-[e :U 326 ]
+"265
+[; ;LcTLCD.c: 265:  do {
+[e :U 307 ]
 {
+"266
+[; ;LcTLCD.c: 266:   (LATDbits.LATD6 = 1);(LATDbits.LATD6 = 1);
+[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
 "267
-[; ;LcTLCD.c: 267:   (LATDbits.LATD6 = 1);(LATDbits.LATD6 = 1);
-[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
-[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
-"268
-[; ;LcTLCD.c: 268:   Busy = (PORTDbits.RD3);
+[; ;LcTLCD.c: 267:   Busy = (PORTDbits.RD3);
 [e = _Busy -> . . _PORTDbits 0 3 `uc ]
+"268
+[; ;LcTLCD.c: 268:   (LATDbits.LATD6 = 0);
+[e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
 "269
 [; ;LcTLCD.c: 269:   (LATDbits.LATD6 = 0);
 [e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
 "270
-[; ;LcTLCD.c: 270:   (LATDbits.LATD6 = 0);
+[; ;LcTLCD.c: 270:   (LATDbits.LATD6 = 1);(LATDbits.LATD6 = 1);
+[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
+"272
+[; ;LcTLCD.c: 272:   (LATDbits.LATD6 = 0);
 [e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
-"271
-[; ;LcTLCD.c: 271:   (LATDbits.LATD6 = 1);(LATDbits.LATD6 = 1);
-[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
-[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
 "273
 [; ;LcTLCD.c: 273:   (LATDbits.LATD6 = 0);
 [e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
 "274
-[; ;LcTLCD.c: 274:   (LATDbits.LATD6 = 0);
-[e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
+[; ;LcTLCD.c: 274:   if (TiGetTics(Timer)) break;
+[e $ ! != ( _TiGetTics (1 -> _Timer `uc -> 0 `i 308  ]
+[e $U 306  ]
+[e :U 308 ]
 "275
-[; ;LcTLCD.c: 275:   if (TiGetTics(Timer)) break;
-[e $ ! != ( _TiGetTics (1 -> _Timer `uc -> 0 `i 327  ]
-[e $U 325  ]
-[e :U 327 ]
+[; ;LcTLCD.c: 275:  } while(Busy);
+}
+[e $ != -> _Busy `i -> 0 `i 307  ]
+[e :U 306 ]
 "276
-[; ;LcTLCD.c: 276:  } while(Busy);
+[; ;LcTLCD.c: 276: }
+[e :UE 304 ]
 }
-[e $ != -> _Busy `i -> 0 `i 326  ]
-[e :U 325 ]
-"277
-[; ;LcTLCD.c: 277: }
-[e :UE 323 ]
-}
-"279
-[; ;LcTLCD.c: 279: void EscriuPrimeraOrdre(char ordre) {
+"278
+[; ;LcTLCD.c: 278: void EscriuPrimeraOrdre(char ordre) {
 [v _EscriuPrimeraOrdre `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _EscriuPrimeraOrdre ]
 [v _ordre `uc ~T0 @X0 1 r1 ]
 [f ]
-"281
-[; ;LcTLCD.c: 281:  (TRISDbits.TRISD0 = TRISDbits.TRISD1 = TRISDbits.TRISD2 = TRISDbits.TRISD3 = 0); (LATDbits.LATD4 = 0); (LATDbits.LATD5 = 0);
+"280
+[; ;LcTLCD.c: 280:  (TRISDbits.TRISD0 = TRISDbits.TRISD1 = TRISDbits.TRISD2 = TRISDbits.TRISD3 = 0); (LATDbits.LATD4 = 0); (LATDbits.LATD5 = 0);
 [e = . . _TRISDbits 0 0 = . . _TRISDbits 0 1 = . . _TRISDbits 0 2 = . . _TRISDbits 0 3 -> -> 0 `i `uc ]
 [e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
 [e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
+"281
+[; ;LcTLCD.c: 281:  (LATDbits.LATD6 = 1); (LATDbits.LATD6 = 1);
+[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
+[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
 "282
-[; ;LcTLCD.c: 282:  (LATDbits.LATD6 = 1); (LATDbits.LATD6 = 1);
-[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
-[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
-"283
-[; ;LcTLCD.c: 283:   (LATDbits.LATD3 = (ordre & 0x08 ? 1 : 0));
+[; ;LcTLCD.c: 282:   (LATDbits.LATD3 = (ordre & 0x08 ? 1 : 0));
 [e = . . _LATDbits 0 3 -> ? != & -> _ordre `i -> 8 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
-"284
-[; ;LcTLCD.c: 284:   (LATDbits.LATD2 = (ordre & 0x04 ? 1 : 0));
+"283
+[; ;LcTLCD.c: 283:   (LATDbits.LATD2 = (ordre & 0x04 ? 1 : 0));
 [e = . . _LATDbits 0 2 -> ? != & -> _ordre `i -> 4 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
-"285
-[; ;LcTLCD.c: 285:   (LATDbits.LATD1 = (ordre & 0x02 ? 1 : 0));
+"284
+[; ;LcTLCD.c: 284:   (LATDbits.LATD1 = (ordre & 0x02 ? 1 : 0));
 [e = . . _LATDbits 0 1 -> ? != & -> _ordre `i -> 2 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
-"286
-[; ;LcTLCD.c: 286:   (LATDbits.LATD0 = (ordre & 0x01 ? 1 : 0));
+"285
+[; ;LcTLCD.c: 285:   (LATDbits.LATD0 = (ordre & 0x01 ? 1 : 0));
 [e = . . _LATDbits 0 0 -> ? != & -> _ordre `i -> 1 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
-"287
-[; ;LcTLCD.c: 287:  (LATDbits.LATD6 = 0);
+"286
+[; ;LcTLCD.c: 286:  (LATDbits.LATD6 = 0);
 [e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
-"288
-[; ;LcTLCD.c: 288: }
-[e :UE 328 ]
+"287
+[; ;LcTLCD.c: 287: }
+[e :UE 309 ]
 }

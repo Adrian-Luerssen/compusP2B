@@ -569,11 +569,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U __TiRSITimer ]
 [f ]
 "43
-[; ;TTimer.c: 43:     TMR0H = 0x20;
-[e = _TMR0H -> -> 32 `i `uc ]
+[; ;TTimer.c: 43:     TMR0H = 0xDF;
+[e = _TMR0H -> -> 223 `i `uc ]
 "44
-[; ;TTimer.c: 44:     TMR0L = 0x8A;
-[e = _TMR0L -> -> 138 `i `uc ]
+[; ;TTimer.c: 44:     TMR0L = 0x73;
+[e = _TMR0L -> -> 115 `i `uc ]
 "45
 [; ;TTimer.c: 45:     INTCONbits.TMR0IF = 0;
 [e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]

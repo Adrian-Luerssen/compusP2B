@@ -1,10 +1,10 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [t ~ __interrupt . k ]
 [t T41 __interrupt ]
-"28 ./TTimer.h
+"29 ./TTimer.h
 [v __TiRSITimer `(v ~T0 @X0 0 ef ]
 [p mainexit ]
-"6
+"7
 [v _TiInitTimer `(v ~T0 @X0 0 ef ]
 "16 ./Joystick.h
 [; ;./Joystick.h: 16: void initJoystick(void);
@@ -12,21 +12,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 "14 ./keypad.h
 [; ;./keypad.h: 14: void initKeypad(void);
 [v _initKeypad `(v ~T0 @X0 0 ef ]
-"65 ./LcTLCD.h
-[; ;./LcTLCD.h: 65: void LcInit(char rows, char columns);
+"73 ./LcTLCD.h
+[; ;./LcTLCD.h: 73: void LcInit(char rows, char columns);
 [v _LcInit `(v ~T0 @X0 0 ef2`uc`uc ]
-"8 ./SIO.h
-[; ;./SIO.h: 8: void initSIO(void);
+"9 ./SIO.h
+[; ;./SIO.h: 9: void initSIO(void);
 [v _initSIO `(v ~T0 @X0 0 ef ]
 "12 ./Menu.h
 [; ;./Menu.h: 12: void initMenu(void);
 [v _initMenu `(v ~T0 @X0 0 ef ]
-"8 ./time.h
-[; ;./time.h: 8: void initTime(void);
+"10 ./Audio.h
+[; ;./Audio.h: 10: void initAudio(void);
+[v _initAudio `(v ~T0 @X0 0 ef ]
+"11 ./time.h
+[; ;./time.h: 11: void initTime(void);
 [v _initTime `(v ~T0 @X0 0 ef ]
-"32 ./EEPROM.h
-[; ;./EEPROM.h: 32: void initData(void);
+"36 ./EEPROM.h
+[; ;./EEPROM.h: 36: void initData(void);
 [v _initData `(v ~T0 @X0 0 ef ]
+"12 ./Audio.h
+[; ;./Audio.h: 12: void audioMotor(void);
+[v _audioMotor `(v ~T0 @X0 0 ef ]
 "15 ./keypad.h
 [; ;./keypad.h: 15: void SMSMotor(void);
 [v _SMSMotor `(v ~T0 @X0 0 ef ]
@@ -39,12 +45,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "15 ./Joystick.h
 [; ;./Joystick.h: 15: void joystickMotor(void);
 [v _joystickMotor `(v ~T0 @X0 0 ef ]
-"34 ./EEPROM.h
-[; ;./EEPROM.h: 34: void dataMotor(void);
+"38 ./EEPROM.h
+[; ;./EEPROM.h: 38: void dataMotor(void);
 [v _dataMotor `(v ~T0 @X0 0 ef ]
-"10 ./time.h
-[; ;./time.h: 10: void timeMotor(void);
+"13 ./time.h
+[; ;./time.h: 13: void timeMotor(void);
 [v _timeMotor `(v ~T0 @X0 0 ef ]
+"16 ./SIO.h
+[; ;./SIO.h: 16: void btMotor (void);
+[v _btMotor `(v ~T0 @X0 0 ef ]
 "55 C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 55: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -472,7 +481,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 19:     initMenu();
 [p x DEBUG  =  OFF ]
 "20
-[; ;main.c: 20: 
+[; ;main.c: 20:     initAudio();
 [p x PWRT  =  OFF ]
 "21
 [; ;main.c: 21:     initTime();
@@ -485,7 +494,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x LVP  =  OFF ]
 [v $root$_RSI_High `(v ~T0 @X0 0 e ]
 "32
-[; ;main.c: 32: }
+[; ;main.c: 32:  }
 [v _RSI_High `(v ~T41 @X0 1 ef ]
 {
 [e :U _RSI_High ]
@@ -513,6 +522,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _initSIO ..  ]
 "44
 [e ( _initMenu ..  ]
+"45
+[e ( _initAudio ..  ]
 "46
 [e ( _initTime ..  ]
 "47
@@ -520,6 +531,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "48
 [e :U 285 ]
 {
+"49
+[e ( _audioMotor ..  ]
 "50
 [e ( _SMSMotor ..  ]
 "51
@@ -533,10 +546,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "55
 [e ( _timeMotor ..  ]
 "56
+[e ( _btMotor ..  ]
+"57
 }
 [e :U 284 ]
 [e $U 285  ]
 [e :U 286 ]
-"57
+"58
 [e :UE 283 ]
 }

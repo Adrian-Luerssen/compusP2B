@@ -12,5 +12,17 @@
 void initMenu(void);
 void menuMotor(void);
 void displayMenu (char menuMode,char row);
+void resetDisplay(void);
+void nextRow(void);
+void displayLogOut(void);
+void displayLogMenu(void);
+
+void displayLogreg(void);
+void mainMenu(void);
+void playScreen(void);
+void displayError(void);
+void displayResults(void);
+void displayScoresMarquee(void);
+void displayString(char* string);
 #endif
 

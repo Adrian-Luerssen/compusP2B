@@ -4629,13 +4629,48 @@ unsigned char __t3rd16on(void);
 
 
 
+# 1 "./TTimer.h" 1
+
+
+
+
+
+
+void TiInitTimer(void);
+
+
+
+void TiResetTics(char Handle);
+
+
+
+int TiGetTics(char Handle);
+
+
+
+
+char TiGetTimer(void);
+
+
+
+
+void TiFreeTimer (char Handle);
+
+
+
+void _TiRSITimer (void);
+# 8 "./SIO.h" 2
+
 void initSIO(void);
 char SiIsAvailable(void);
 
 void SiSendChar(char myByte);
 char SiRecievedByte(void);
-
 char SiReadByte(void);
+
+void btMotor (void);
+char btAvailable(void);
+void btSendByte(char byte);
 # 8 "./Joystick.h" 2
 
 
@@ -4679,7 +4714,6 @@ void initJoystick(void){
 
 
 void joystickMotor(void){
-    LATC = stateJoy;
     switch (stateJoy){
         case 0:
             if (ADCON0bits.GO_DONE == 0){
@@ -4703,7 +4737,6 @@ void joystickMotor(void){
             if (moved){
                 if (x >= 100 && x <= 150 && y >= 100 && y <= 150){
                     moved = 0;
-                    LATCbits.LATC0 = 0;
                 }
             }else {
                 if (x <= 10){

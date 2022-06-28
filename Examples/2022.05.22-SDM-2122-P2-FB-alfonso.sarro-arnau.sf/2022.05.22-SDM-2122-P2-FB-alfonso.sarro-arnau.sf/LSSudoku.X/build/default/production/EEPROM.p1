@@ -1,0 +1,2010 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"24 ./EEPROM.h
+[; ;./EEPROM.h: 24: char readFromROM(void);
+[v _readFromROM `(uc ~T0 @X0 0 ef ]
+"3115 C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3115: extern volatile unsigned char EEADR __attribute__((address(0xFA9)));
+[v _EEADR `Vuc ~T0 @X0 0 e@4009 ]
+"3108
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3108: extern volatile unsigned char EEDATA __attribute__((address(0xFA8)));
+[v _EEDATA `Vuc ~T0 @X0 0 e@4008 ]
+"3041
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3041:     struct {
+[s S109 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S109 . RD WR WREN WRERR FREE . CFGS EEPGD ]
+"3051
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3051:     struct {
+[s S110 :6 `uc 1 :1 `uc 1 ]
+[n S110 . . EEFS ]
+"3040
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3040: typedef union {
+[u S108 `S109 1 `S110 1 ]
+[n S108 . . . ]
+"3056
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3056: extern volatile EECON1bits_t EECON1bits __attribute__((address(0xFA6)));
+[v _EECON1bits `VS108 ~T0 @X0 0 e@4006 ]
+"6708
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6708:     struct {
+[s S274 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S274 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"6718
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6718:     struct {
+[s S275 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S275 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"6728
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6728:     struct {
+[s S276 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S276 . . GIEL GIEH ]
+"6707
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6707: typedef union {
+[u S273 `S274 1 `S275 1 `S276 1 ]
+[n S273 . . . . ]
+"6734
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6734: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
+[v _INTCONbits `VS273 ~T0 @X0 0 e@4082 ]
+"3101
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3101: extern volatile unsigned char EECON2 __attribute__((address(0xFA7)));
+[v _EECON2 `Vuc ~T0 @X0 0 e@4007 ]
+"34 ./EEPROM.h
+[; ;./EEPROM.h: 34: char compare(char a[8], char b[8]);
+[v _compare `(uc ~T0 @X0 0 ef2`*uc`*uc ]
+"55 C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 55: __asm("PORTA equ 0F80h");
+[; <" PORTA equ 0F80h ;# ">
+"287
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 287: __asm("PORTB equ 0F81h");
+[; <" PORTB equ 0F81h ;# ">
+"466
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 466: __asm("PORTC equ 0F82h");
+[; <" PORTC equ 0F82h ;# ">
+"646
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 646: __asm("PORTD equ 0F83h");
+[; <" PORTD equ 0F83h ;# ">
+"788
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 788: __asm("PORTE equ 0F84h");
+[; <" PORTE equ 0F84h ;# ">
+"991
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 991: __asm("LATA equ 0F89h");
+[; <" LATA equ 0F89h ;# ">
+"1103
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 1103: __asm("LATB equ 0F8Ah");
+[; <" LATB equ 0F8Ah ;# ">
+"1215
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 1215: __asm("LATC equ 0F8Bh");
+[; <" LATC equ 0F8Bh ;# ">
+"1327
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 1327: __asm("LATD equ 0F8Ch");
+[; <" LATD equ 0F8Ch ;# ">
+"1439
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 1439: __asm("LATE equ 0F8Dh");
+[; <" LATE equ 0F8Dh ;# ">
+"1491
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 1491: __asm("TRISA equ 0F92h");
+[; <" TRISA equ 0F92h ;# ">
+"1496
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 1496: __asm("DDRA equ 0F92h");
+[; <" DDRA equ 0F92h ;# ">
+"1713
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 1713: __asm("TRISB equ 0F93h");
+[; <" TRISB equ 0F93h ;# ">
+"1718
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 1718: __asm("DDRB equ 0F93h");
+[; <" DDRB equ 0F93h ;# ">
+"1935
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 1935: __asm("TRISC equ 0F94h");
+[; <" TRISC equ 0F94h ;# ">
+"1940
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 1940: __asm("DDRC equ 0F94h");
+[; <" DDRC equ 0F94h ;# ">
+"2157
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 2157: __asm("TRISD equ 0F95h");
+[; <" TRISD equ 0F95h ;# ">
+"2162
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 2162: __asm("DDRD equ 0F95h");
+[; <" DDRD equ 0F95h ;# ">
+"2379
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 2379: __asm("TRISE equ 0F96h");
+[; <" TRISE equ 0F96h ;# ">
+"2384
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 2384: __asm("DDRE equ 0F96h");
+[; <" DDRE equ 0F96h ;# ">
+"2543
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 2543: __asm("OSCTUNE equ 0F9Bh");
+[; <" OSCTUNE equ 0F9Bh ;# ">
+"2608
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 2608: __asm("PIE1 equ 0F9Dh");
+[; <" PIE1 equ 0F9Dh ;# ">
+"2685
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 2685: __asm("PIR1 equ 0F9Eh");
+[; <" PIR1 equ 0F9Eh ;# ">
+"2762
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 2762: __asm("IPR1 equ 0F9Fh");
+[; <" IPR1 equ 0F9Fh ;# ">
+"2839
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 2839: __asm("PIE2 equ 0FA0h");
+[; <" PIE2 equ 0FA0h ;# ">
+"2905
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 2905: __asm("PIR2 equ 0FA1h");
+[; <" PIR2 equ 0FA1h ;# ">
+"2971
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 2971: __asm("IPR2 equ 0FA2h");
+[; <" IPR2 equ 0FA2h ;# ">
+"3037
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3037: __asm("EECON1 equ 0FA6h");
+[; <" EECON1 equ 0FA6h ;# ">
+"3103
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3103: __asm("EECON2 equ 0FA7h");
+[; <" EECON2 equ 0FA7h ;# ">
+"3110
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3110: __asm("EEDATA equ 0FA8h");
+[; <" EEDATA equ 0FA8h ;# ">
+"3117
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3117: __asm("EEADR equ 0FA9h");
+[; <" EEADR equ 0FA9h ;# ">
+"3124
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3124: __asm("RCSTA equ 0FABh");
+[; <" RCSTA equ 0FABh ;# ">
+"3129
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3129: __asm("RCSTA1 equ 0FABh");
+[; <" RCSTA1 equ 0FABh ;# ">
+"3334
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3334: __asm("TXSTA equ 0FACh");
+[; <" TXSTA equ 0FACh ;# ">
+"3339
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3339: __asm("TXSTA1 equ 0FACh");
+[; <" TXSTA1 equ 0FACh ;# ">
+"3590
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3590: __asm("TXREG equ 0FADh");
+[; <" TXREG equ 0FADh ;# ">
+"3595
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3595: __asm("TXREG1 equ 0FADh");
+[; <" TXREG1 equ 0FADh ;# ">
+"3602
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3602: __asm("RCREG equ 0FAEh");
+[; <" RCREG equ 0FAEh ;# ">
+"3607
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3607: __asm("RCREG1 equ 0FAEh");
+[; <" RCREG1 equ 0FAEh ;# ">
+"3614
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3614: __asm("SPBRG equ 0FAFh");
+[; <" SPBRG equ 0FAFh ;# ">
+"3619
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3619: __asm("SPBRG1 equ 0FAFh");
+[; <" SPBRG1 equ 0FAFh ;# ">
+"3626
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3626: __asm("SPBRGH equ 0FB0h");
+[; <" SPBRGH equ 0FB0h ;# ">
+"3633
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3633: __asm("T3CON equ 0FB1h");
+[; <" T3CON equ 0FB1h ;# ">
+"3745
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3745: __asm("TMR3 equ 0FB2h");
+[; <" TMR3 equ 0FB2h ;# ">
+"3752
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3752: __asm("TMR3L equ 0FB2h");
+[; <" TMR3L equ 0FB2h ;# ">
+"3759
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3759: __asm("TMR3H equ 0FB3h");
+[; <" TMR3H equ 0FB3h ;# ">
+"3766
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3766: __asm("CMCON equ 0FB4h");
+[; <" CMCON equ 0FB4h ;# ">
+"3856
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3856: __asm("CVRCON equ 0FB5h");
+[; <" CVRCON equ 0FB5h ;# ">
+"3935
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 3935: __asm("ECCP1AS equ 0FB6h");
+[; <" ECCP1AS equ 0FB6h ;# ">
+"4017
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 4017: __asm("ECCP1DEL equ 0FB7h");
+[; <" ECCP1DEL equ 0FB7h ;# ">
+"4022
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 4022: __asm("PWM1CON equ 0FB7h");
+[; <" PWM1CON equ 0FB7h ;# ">
+"4155
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 4155: __asm("BAUDCON equ 0FB8h");
+[; <" BAUDCON equ 0FB8h ;# ">
+"4160
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 4160: __asm("BAUDCTL equ 0FB8h");
+[; <" BAUDCTL equ 0FB8h ;# ">
+"4335
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 4335: __asm("CCP2CON equ 0FBAh");
+[; <" CCP2CON equ 0FBAh ;# ">
+"4414
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 4414: __asm("CCPR2 equ 0FBBh");
+[; <" CCPR2 equ 0FBBh ;# ">
+"4421
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 4421: __asm("CCPR2L equ 0FBBh");
+[; <" CCPR2L equ 0FBBh ;# ">
+"4428
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 4428: __asm("CCPR2H equ 0FBCh");
+[; <" CCPR2H equ 0FBCh ;# ">
+"4435
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 4435: __asm("CCP1CON equ 0FBDh");
+[; <" CCP1CON equ 0FBDh ;# ">
+"4440
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 4440: __asm("ECCP1CON equ 0FBDh");
+[; <" ECCP1CON equ 0FBDh ;# ">
+"4627
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 4627: __asm("CCPR1 equ 0FBEh");
+[; <" CCPR1 equ 0FBEh ;# ">
+"4634
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 4634: __asm("CCPR1L equ 0FBEh");
+[; <" CCPR1L equ 0FBEh ;# ">
+"4641
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 4641: __asm("CCPR1H equ 0FBFh");
+[; <" CCPR1H equ 0FBFh ;# ">
+"4648
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 4648: __asm("ADCON2 equ 0FC0h");
+[; <" ADCON2 equ 0FC0h ;# ">
+"4719
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 4719: __asm("ADCON1 equ 0FC1h");
+[; <" ADCON1 equ 0FC1h ;# ">
+"4804
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 4804: __asm("ADCON0 equ 0FC2h");
+[; <" ADCON0 equ 0FC2h ;# ">
+"4923
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 4923: __asm("ADRES equ 0FC3h");
+[; <" ADRES equ 0FC3h ;# ">
+"4930
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 4930: __asm("ADRESL equ 0FC3h");
+[; <" ADRESL equ 0FC3h ;# ">
+"4937
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 4937: __asm("ADRESH equ 0FC4h");
+[; <" ADRESH equ 0FC4h ;# ">
+"4944
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 4944: __asm("SSPCON2 equ 0FC5h");
+[; <" SSPCON2 equ 0FC5h ;# ">
+"5039
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 5039: __asm("SSPCON1 equ 0FC6h");
+[; <" SSPCON1 equ 0FC6h ;# ">
+"5109
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 5109: __asm("SSPSTAT equ 0FC7h");
+[; <" SSPSTAT equ 0FC7h ;# ">
+"5330
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 5330: __asm("SSPADD equ 0FC8h");
+[; <" SSPADD equ 0FC8h ;# ">
+"5337
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 5337: __asm("SSPBUF equ 0FC9h");
+[; <" SSPBUF equ 0FC9h ;# ">
+"5344
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 5344: __asm("T2CON equ 0FCAh");
+[; <" T2CON equ 0FCAh ;# ">
+"5442
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 5442: __asm("PR2 equ 0FCBh");
+[; <" PR2 equ 0FCBh ;# ">
+"5447
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 5447: __asm("MEMCON equ 0FCBh");
+[; <" MEMCON equ 0FCBh ;# ">
+"5552
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 5552: __asm("TMR2 equ 0FCCh");
+[; <" TMR2 equ 0FCCh ;# ">
+"5559
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 5559: __asm("T1CON equ 0FCDh");
+[; <" T1CON equ 0FCDh ;# ">
+"5662
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 5662: __asm("TMR1 equ 0FCEh");
+[; <" TMR1 equ 0FCEh ;# ">
+"5669
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 5669: __asm("TMR1L equ 0FCEh");
+[; <" TMR1L equ 0FCEh ;# ">
+"5676
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 5676: __asm("TMR1H equ 0FCFh");
+[; <" TMR1H equ 0FCFh ;# ">
+"5683
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 5683: __asm("RCON equ 0FD0h");
+[; <" RCON equ 0FD0h ;# ">
+"5817
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 5817: __asm("WDTCON equ 0FD1h");
+[; <" WDTCON equ 0FD1h ;# ">
+"5845
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 5845: __asm("HLVDCON equ 0FD2h");
+[; <" HLVDCON equ 0FD2h ;# ">
+"5850
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 5850: __asm("LVDCON equ 0FD2h");
+[; <" LVDCON equ 0FD2h ;# ">
+"6103
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6103: __asm("OSCCON equ 0FD3h");
+[; <" OSCCON equ 0FD3h ;# ">
+"6186
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6186: __asm("T0CON equ 0FD5h");
+[; <" T0CON equ 0FD5h ;# ">
+"6263
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6263: __asm("TMR0 equ 0FD6h");
+[; <" TMR0 equ 0FD6h ;# ">
+"6270
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6270: __asm("TMR0L equ 0FD6h");
+[; <" TMR0L equ 0FD6h ;# ">
+"6277
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6277: __asm("TMR0H equ 0FD7h");
+[; <" TMR0H equ 0FD7h ;# ">
+"6284
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6284: __asm("STATUS equ 0FD8h");
+[; <" STATUS equ 0FD8h ;# ">
+"6355
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6355: __asm("FSR2 equ 0FD9h");
+[; <" FSR2 equ 0FD9h ;# ">
+"6362
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6362: __asm("FSR2L equ 0FD9h");
+[; <" FSR2L equ 0FD9h ;# ">
+"6369
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6369: __asm("FSR2H equ 0FDAh");
+[; <" FSR2H equ 0FDAh ;# ">
+"6376
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6376: __asm("PLUSW2 equ 0FDBh");
+[; <" PLUSW2 equ 0FDBh ;# ">
+"6383
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6383: __asm("PREINC2 equ 0FDCh");
+[; <" PREINC2 equ 0FDCh ;# ">
+"6390
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6390: __asm("POSTDEC2 equ 0FDDh");
+[; <" POSTDEC2 equ 0FDDh ;# ">
+"6397
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6397: __asm("POSTINC2 equ 0FDEh");
+[; <" POSTINC2 equ 0FDEh ;# ">
+"6404
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6404: __asm("INDF2 equ 0FDFh");
+[; <" INDF2 equ 0FDFh ;# ">
+"6411
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6411: __asm("BSR equ 0FE0h");
+[; <" BSR equ 0FE0h ;# ">
+"6418
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6418: __asm("FSR1 equ 0FE1h");
+[; <" FSR1 equ 0FE1h ;# ">
+"6425
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6425: __asm("FSR1L equ 0FE1h");
+[; <" FSR1L equ 0FE1h ;# ">
+"6432
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6432: __asm("FSR1H equ 0FE2h");
+[; <" FSR1H equ 0FE2h ;# ">
+"6439
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6439: __asm("PLUSW1 equ 0FE3h");
+[; <" PLUSW1 equ 0FE3h ;# ">
+"6446
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6446: __asm("PREINC1 equ 0FE4h");
+[; <" PREINC1 equ 0FE4h ;# ">
+"6453
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6453: __asm("POSTDEC1 equ 0FE5h");
+[; <" POSTDEC1 equ 0FE5h ;# ">
+"6460
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6460: __asm("POSTINC1 equ 0FE6h");
+[; <" POSTINC1 equ 0FE6h ;# ">
+"6467
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6467: __asm("INDF1 equ 0FE7h");
+[; <" INDF1 equ 0FE7h ;# ">
+"6474
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6474: __asm("WREG equ 0FE8h");
+[; <" WREG equ 0FE8h ;# ">
+"6486
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6486: __asm("FSR0 equ 0FE9h");
+[; <" FSR0 equ 0FE9h ;# ">
+"6493
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6493: __asm("FSR0L equ 0FE9h");
+[; <" FSR0L equ 0FE9h ;# ">
+"6500
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6500: __asm("FSR0H equ 0FEAh");
+[; <" FSR0H equ 0FEAh ;# ">
+"6507
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6507: __asm("PLUSW0 equ 0FEBh");
+[; <" PLUSW0 equ 0FEBh ;# ">
+"6514
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6514: __asm("PREINC0 equ 0FECh");
+[; <" PREINC0 equ 0FECh ;# ">
+"6521
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6521: __asm("POSTDEC0 equ 0FEDh");
+[; <" POSTDEC0 equ 0FEDh ;# ">
+"6528
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6528: __asm("POSTINC0 equ 0FEEh");
+[; <" POSTINC0 equ 0FEEh ;# ">
+"6535
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6535: __asm("INDF0 equ 0FEFh");
+[; <" INDF0 equ 0FEFh ;# ">
+"6542
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6542: __asm("INTCON3 equ 0FF0h");
+[; <" INTCON3 equ 0FF0h ;# ">
+"6634
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6634: __asm("INTCON2 equ 0FF1h");
+[; <" INTCON2 equ 0FF1h ;# ">
+"6704
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6704: __asm("INTCON equ 0FF2h");
+[; <" INTCON equ 0FF2h ;# ">
+"6821
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6821: __asm("PROD equ 0FF3h");
+[; <" PROD equ 0FF3h ;# ">
+"6828
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6828: __asm("PRODL equ 0FF3h");
+[; <" PRODL equ 0FF3h ;# ">
+"6835
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6835: __asm("PRODH equ 0FF4h");
+[; <" PRODH equ 0FF4h ;# ">
+"6842
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6842: __asm("TABLAT equ 0FF5h");
+[; <" TABLAT equ 0FF5h ;# ">
+"6851
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6851: __asm("TBLPTR equ 0FF6h");
+[; <" TBLPTR equ 0FF6h ;# ">
+"6858
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6858: __asm("TBLPTRL equ 0FF6h");
+[; <" TBLPTRL equ 0FF6h ;# ">
+"6865
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6865: __asm("TBLPTRH equ 0FF7h");
+[; <" TBLPTRH equ 0FF7h ;# ">
+"6872
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6872: __asm("TBLPTRU equ 0FF8h");
+[; <" TBLPTRU equ 0FF8h ;# ">
+"6881
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6881: __asm("PCLAT equ 0FF9h");
+[; <" PCLAT equ 0FF9h ;# ">
+"6888
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6888: __asm("PC equ 0FF9h");
+[; <" PC equ 0FF9h ;# ">
+"6895
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6895: __asm("PCL equ 0FF9h");
+[; <" PCL equ 0FF9h ;# ">
+"6902
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6902: __asm("PCLATH equ 0FFAh");
+[; <" PCLATH equ 0FFAh ;# ">
+"6909
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6909: __asm("PCLATU equ 0FFBh");
+[; <" PCLATU equ 0FFBh ;# ">
+"6916
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6916: __asm("STKPTR equ 0FFCh");
+[; <" STKPTR equ 0FFCh ;# ">
+"6990
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6990: __asm("TOS equ 0FFDh");
+[; <" TOS equ 0FFDh ;# ">
+"6997
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 6997: __asm("TOSL equ 0FFDh");
+[; <" TOSL equ 0FFDh ;# ">
+"7004
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 7004: __asm("TOSH equ 0FFEh");
+[; <" TOSH equ 0FFEh ;# ">
+"7011
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic18f4321.h: 7011: __asm("TOSU equ 0FFFh");
+[; <" TOSU equ 0FFFh ;# ">
+"4 EEPROM.c
+[; ;EEPROM.c: 4: static char address;
+[v _address `uc ~T0 @X0 1 s ]
+"5
+[; ;EEPROM.c: 5: static char users;
+[v _users `uc ~T0 @X0 1 s ]
+"6
+[; ;EEPROM.c: 6: static char userR[8] = {'\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0'};
+[v _userR `uc ~T0 @X0 -> 8 `i s ]
+[i _userR
+:U ..
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+..
+]
+"7
+[; ;EEPROM.c: 7: static char passR[8] = {'\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0'};
+[v _passR `uc ~T0 @X0 -> 8 `i s ]
+[i _passR
+:U ..
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+..
+]
+"8
+[; ;EEPROM.c: 8: static char user[8] = {'\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0'};
+[v _user `uc ~T0 @X0 -> 8 `i s ]
+[i _user
+:U ..
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+..
+]
+"9
+[; ;EEPROM.c: 9: static char pass[8] = {'\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0'};
+[v _pass `uc ~T0 @X0 -> 8 `i s ]
+[i _pass
+:U ..
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+..
+]
+"10
+[; ;EEPROM.c: 10: static char userInputROM[8] = {'\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0'};
+[v _userInputROM `uc ~T0 @X0 -> 8 `i s ]
+[i _userInputROM
+:U ..
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+..
+]
+"11
+[; ;EEPROM.c: 11: static char passInputROM[8] = {'\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0'};
+[v _passInputROM `uc ~T0 @X0 -> 8 `i s ]
+[i _passInputROM
+:U ..
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+-> -> 0 `ui `uc
+..
+]
+"12
+[; ;EEPROM.c: 12: static char startUser;
+[v _startUser `uc ~T0 @X0 1 s ]
+"13
+[; ;EEPROM.c: 13: static char saveScore;
+[v _saveScore `uc ~T0 @X0 1 s ]
+"14
+[; ;EEPROM.c: 14: static char position;
+[v _position `uc ~T0 @X0 1 s ]
+"15
+[; ;EEPROM.c: 15: static char state;
+[v _state `uc ~T0 @X0 1 s ]
+"16
+[; ;EEPROM.c: 16: static char checkUser;
+[v _checkUser `uc ~T0 @X0 1 s ]
+"17
+[; ;EEPROM.c: 17: static char flagReading;
+[v _flagReading `uc ~T0 @X0 1 s ]
+"18
+[; ;EEPROM.c: 18: static char flagReading;
+[v _flagReading `uc ~T0 @X0 1 s ]
+"19
+[; ;EEPROM.c: 19: static char pointer;
+[v _pointer `uc ~T0 @X0 1 s ]
+"20
+[; ;EEPROM.c: 20: static char score;
+[v _score `uc ~T0 @X0 1 s ]
+"21
+[; ;EEPROM.c: 21: static char scoreAux;
+[v _scoreAux `uc ~T0 @X0 1 s ]
+"22
+[; ;EEPROM.c: 22: static char empty;
+[v _empty `uc ~T0 @X0 1 s ]
+"23
+[; ;EEPROM.c: 23: static char done;
+[v _done `uc ~T0 @X0 1 s ]
+"24
+[; ;EEPROM.c: 24: static char newestUserAddress;
+[v _newestUserAddress `uc ~T0 @X0 1 s ]
+"26
+[; ;EEPROM.c: 26: void initROM(void) {
+[v _initROM `(v ~T0 @X0 1 ef ]
+{
+[e :U _initROM ]
+[f ]
+"27
+[; ;EEPROM.c: 27:     flagReading = 1;
+[e = _flagReading -> -> 1 `i `uc ]
+"28
+[; ;EEPROM.c: 28:     flagReading = 1;
+[e = _flagReading -> -> 1 `i `uc ]
+"29
+[; ;EEPROM.c: 29:     pointer = 0;
+[e = _pointer -> -> 0 `i `uc ]
+"30
+[; ;EEPROM.c: 30:     address = 0;
+[e = _address -> -> 0 `i `uc ]
+"31
+[; ;EEPROM.c: 31:     users = readFromROM();
+[e = _users ( _readFromROM ..  ]
+"32
+[; ;EEPROM.c: 32:     if(users == 0xFF) users = 0;
+[e $ ! == -> _users `i -> 255 `i 281  ]
+[e = _users -> -> 0 `i `uc ]
+[e :U 281 ]
+"33
+[; ;EEPROM.c: 33:     startUser = 0;
+[e = _startUser -> -> 0 `i `uc ]
+"34
+[; ;EEPROM.c: 34:     address = 16 + users * 16;
+[e = _address -> + -> 16 `i * -> _users `i -> 16 `i `uc ]
+"35
+[; ;EEPROM.c: 35:     checkUser = 0;
+[e = _checkUser -> -> 0 `i `uc ]
+"36
+[; ;EEPROM.c: 36:     done = 1;
+[e = _done -> -> 1 `i `uc ]
+"37
+[; ;EEPROM.c: 37: }
+[e :UE 280 ]
+}
+"39
+[; ;EEPROM.c: 39: void writeToROM(char value) {
+[v _writeToROM `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _writeToROM ]
+[v _value `uc ~T0 @X0 1 r1 ]
+[f ]
+"40
+[; ;EEPROM.c: 40:     EEADR = address;
+[e = _EEADR -> _address `uc ]
+"41
+[; ;EEPROM.c: 41:     EEDATA = value;
+[e = _EEDATA -> _value `uc ]
+"42
+[; ;EEPROM.c: 42:     EECON1bits.EEPGD = 0;
+[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
+"43
+[; ;EEPROM.c: 43:     EECON1bits.CFGS = 0;
+[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
+"44
+[; ;EEPROM.c: 44:     EECON1bits.WREN = 1;
+[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
+"45
+[; ;EEPROM.c: 45:     INTCONbits.GIE = 0;
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+"46
+[; ;EEPROM.c: 46:     EECON2 = 0x55;
+[e = _EECON2 -> -> 85 `i `uc ]
+"47
+[; ;EEPROM.c: 47:     EECON2 = 0xAA;
+[e = _EECON2 -> -> 170 `i `uc ]
+"48
+[; ;EEPROM.c: 48:     EECON1bits.WR = 1;
+[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
+"49
+[; ;EEPROM.c: 49:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"50
+[; ;EEPROM.c: 50:     EECON1bits.WREN = 0;
+[e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
+"51
+[; ;EEPROM.c: 51: }
+[e :UE 282 ]
+}
+"53
+[; ;EEPROM.c: 53: char readFromROM() {
+[v _readFromROM `(uc ~T0 @X0 1 ef ]
+{
+[e :U _readFromROM ]
+[f ]
+"54
+[; ;EEPROM.c: 54:     EEADR = address;
+[e = _EEADR -> _address `uc ]
+"55
+[; ;EEPROM.c: 55:     EECON1bits.CFGS = 0;
+[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
+"56
+[; ;EEPROM.c: 56:     EECON1bits.EEPGD = 0;
+[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
+"57
+[; ;EEPROM.c: 57:     EECON1bits.RD = 1;
+[e = . . _EECON1bits 0 0 -> -> 1 `i `uc ]
+"58
+[; ;EEPROM.c: 58:     return EEDATA;
+[e ) -> _EEDATA `uc ]
+[e $UE 283  ]
+"59
+[; ;EEPROM.c: 59: }
+[e :UE 283 ]
+}
+"61
+[; ;EEPROM.c: 61: void motorROM() {
+[v _motorROM `(v ~T0 @X0 1 ef ]
+{
+[e :U _motorROM ]
+[f ]
+"62
+[; ;EEPROM.c: 62:     switch(state) {
+[e $U 286  ]
+{
+"63
+[; ;EEPROM.c: 63:         case 0:
+[e :U 287 ]
+"64
+[; ;EEPROM.c: 64:             if(startUser == 1) {
+[e $ ! == -> _startUser `i -> 1 `i 288  ]
+{
+"65
+[; ;EEPROM.c: 65:                 state++;
+[e ++ _state -> -> 1 `i `uc ]
+"66
+[; ;EEPROM.c: 66:                 position = 0;
+[e = _position -> -> 0 `i `uc ]
+"67
+[; ;EEPROM.c: 67:                 address = ((users * 16) % 0x80) +16 ;
+[e = _address -> + % * -> _users `i -> 16 `i -> 128 `i -> 16 `i `uc ]
+"68
+[; ;EEPROM.c: 68:                 if(address == 0x00) {
+[e $ ! == -> _address `i -> 0 `i 289  ]
+{
+"69
+[; ;EEPROM.c: 69:                     address = 0x10;
+[e = _address -> -> 16 `i `uc ]
+"70
+[; ;EEPROM.c: 70:                 }
+}
+[e :U 289 ]
+"71
+[; ;EEPROM.c: 71:                 users = users % 0x90;
+[e = _users -> % -> _users `i -> 144 `i `uc ]
+"72
+[; ;EEPROM.c: 72:                 done = 0;
+[e = _done -> -> 0 `i `uc ]
+"73
+[; ;EEPROM.c: 73:             }
+}
+[e $U 290  ]
+"74
+[; ;EEPROM.c: 74:             else if(checkUser == 1 || checkUser == 3){
+[e :U 288 ]
+[e $ ! || == -> _checkUser `i -> 1 `i == -> _checkUser `i -> 3 `i 291  ]
+{
+"75
+[; ;EEPROM.c: 75:                 address = 0x10;
+[e = _address -> -> 16 `i `uc ]
+"76
+[; ;EEPROM.c: 76:                 position = 0;
+[e = _position -> -> 0 `i `uc ]
+"77
+[; ;EEPROM.c: 77:                 state = 3;
+[e = _state -> -> 3 `i `uc ]
+"78
+[; ;EEPROM.c: 78:             }
+}
+[e $U 292  ]
+"79
+[; ;EEPROM.c: 79:             else if(saveScore == 1){
+[e :U 291 ]
+[e $ ! == -> _saveScore `i -> 1 `i 293  ]
+{
+"80
+[; ;EEPROM.c: 80:                 address = 0x90;
+[e = _address -> -> 144 `i `uc ]
+"81
+[; ;EEPROM.c: 81:                 position = 0;
+[e = _position -> -> 0 `i `uc ]
+"82
+[; ;EEPROM.c: 82:                 state = 8;
+[e = _state -> -> 8 `i `uc ]
+"83
+[; ;EEPROM.c: 83:             }
+}
+[e :U 293 ]
+[e :U 292 ]
+[e :U 290 ]
+"84
+[; ;EEPROM.c: 84:             break;
+[e $U 285  ]
+"85
+[; ;EEPROM.c: 85:         case 1:
+[e :U 294 ]
+"86
+[; ;EEPROM.c: 86:             if(position < 8) {
+[e $ ! < -> _position `i -> 8 `i 295  ]
+{
+"87
+[; ;EEPROM.c: 87:                 if(EECON1bits.WR == 0) {
+[e $ ! == -> . . _EECON1bits 0 1 `i -> 0 `i 296  ]
+{
+"88
+[; ;EEPROM.c: 88:                     writeToROM(user[position]);
+[e ( _writeToROM (1 *U + &U _user * -> _position `ux -> -> # *U &U _user `ui `ux ]
+"89
+[; ;EEPROM.c: 89:                     user[position] = '\0';
+[e = *U + &U _user * -> _position `ux -> -> # *U &U _user `ui `ux -> -> 0 `ui `uc ]
+"90
+[; ;EEPROM.c: 90:                     position++;
+[e ++ _position -> -> 1 `i `uc ]
+"91
+[; ;EEPROM.c: 91:                     address++;
+[e ++ _address -> -> 1 `i `uc ]
+"92
+[; ;EEPROM.c: 92:                 }
+}
+[e :U 296 ]
+"93
+[; ;EEPROM.c: 93:             }
+}
+[e $U 297  ]
+"94
+[; ;EEPROM.c: 94:             else {
+[e :U 295 ]
+{
+"95
+[; ;EEPROM.c: 95:                 position = 0;
+[e = _position -> -> 0 `i `uc ]
+"96
+[; ;EEPROM.c: 96:                 state++;
+[e ++ _state -> -> 1 `i `uc ]
+"97
+[; ;EEPROM.c: 97:             }
+}
+[e :U 297 ]
+"98
+[; ;EEPROM.c: 98:             break;
+[e $U 285  ]
+"99
+[; ;EEPROM.c: 99:         case 2:
+[e :U 298 ]
+"100
+[; ;EEPROM.c: 100:             if(position < 8) {
+[e $ ! < -> _position `i -> 8 `i 299  ]
+{
+"101
+[; ;EEPROM.c: 101:                 if(EECON1bits.WR == 0) {
+[e $ ! == -> . . _EECON1bits 0 1 `i -> 0 `i 300  ]
+{
+"102
+[; ;EEPROM.c: 102:                     writeToROM(pass[position]);
+[e ( _writeToROM (1 *U + &U _pass * -> _position `ux -> -> # *U &U _pass `ui `ux ]
+"103
+[; ;EEPROM.c: 103:                     pass[position] = '\0';
+[e = *U + &U _pass * -> _position `ux -> -> # *U &U _pass `ui `ux -> -> 0 `ui `uc ]
+"104
+[; ;EEPROM.c: 104:                     position++;
+[e ++ _position -> -> 1 `i `uc ]
+"105
+[; ;EEPROM.c: 105:                     address++;
+[e ++ _address -> -> 1 `i `uc ]
+"106
+[; ;EEPROM.c: 106:                 }
+}
+[e :U 300 ]
+"107
+[; ;EEPROM.c: 107:             }
+}
+[e $U 301  ]
+"108
+[; ;EEPROM.c: 108:             else {
+[e :U 299 ]
+{
+"109
+[; ;EEPROM.c: 109:                 if(EECON1bits.WR == 0) {
+[e $ ! == -> . . _EECON1bits 0 1 `i -> 0 `i 302  ]
+{
+"110
+[; ;EEPROM.c: 110:                     users++;
+[e ++ _users -> -> 1 `i `uc ]
+"111
+[; ;EEPROM.c: 111:                     position = address;
+[e = _position _address ]
+"112
+[; ;EEPROM.c: 112:                     address = 0;
+[e = _address -> -> 0 `i `uc ]
+"113
+[; ;EEPROM.c: 113:                     writeToROM(users);
+[e ( _writeToROM (1 _users ]
+"114
+[; ;EEPROM.c: 114:                     address++;
+[e ++ _address -> -> 1 `i `uc ]
+"115
+[; ;EEPROM.c: 115:                     state = 100;
+[e = _state -> -> 100 `i `uc ]
+"116
+[; ;EEPROM.c: 116:                     startUser = 0;
+[e = _startUser -> -> 0 `i `uc ]
+"117
+[; ;EEPROM.c: 117:                 }
+}
+[e :U 302 ]
+"118
+[; ;EEPROM.c: 118:             }
+}
+[e :U 301 ]
+"119
+[; ;EEPROM.c: 119:             break;
+[e $U 285  ]
+"120
+[; ;EEPROM.c: 120:         case 100:
+[e :U 303 ]
+"121
+[; ;EEPROM.c: 121:             if(EECON1bits.WR == 0) {
+[e $ ! == -> . . _EECON1bits 0 1 `i -> 0 `i 304  ]
+{
+"122
+[; ;EEPROM.c: 122:                 writeToROM(position-16);
+[e ( _writeToROM (1 -> - -> _position `i -> 16 `i `uc ]
+"123
+[; ;EEPROM.c: 123:                 address = position;
+[e = _address _position ]
+"124
+[; ;EEPROM.c: 124:                 position = 0;
+[e = _position -> -> 0 `i `uc ]
+"125
+[; ;EEPROM.c: 125:                 state = 0;
+[e = _state -> -> 0 `i `uc ]
+"126
+[; ;EEPROM.c: 126:                 done = 1;
+[e = _done -> -> 1 `i `uc ]
+"127
+[; ;EEPROM.c: 127:             }
+}
+[e :U 304 ]
+"128
+[; ;EEPROM.c: 128:             break;
+[e $U 285  ]
+"129
+[; ;EEPROM.c: 129:         case 3:
+[e :U 305 ]
+"130
+[; ;EEPROM.c: 130:             if(position < 8) {
+[e $ ! < -> _position `i -> 8 `i 306  ]
+{
+"131
+[; ;EEPROM.c: 131:                 userR[position] = readFromROM();
+[e = *U + &U _userR * -> _position `ux -> -> # *U &U _userR `ui `ux ( _readFromROM ..  ]
+"132
+[; ;EEPROM.c: 132:                 address++;
+[e ++ _address -> -> 1 `i `uc ]
+"133
+[; ;EEPROM.c: 133:                 position++;
+[e ++ _position -> -> 1 `i `uc ]
+"134
+[; ;EEPROM.c: 134:             }
+}
+[e $U 307  ]
+"135
+[; ;EEPROM.c: 135:             else {
+[e :U 306 ]
+{
+"136
+[; ;EEPROM.c: 136:                 position = 0;
+[e = _position -> -> 0 `i `uc ]
+"137
+[; ;EEPROM.c: 137:                 state++;
+[e ++ _state -> -> 1 `i `uc ]
+"138
+[; ;EEPROM.c: 138:             }
+}
+[e :U 307 ]
+"139
+[; ;EEPROM.c: 139:             break;
+[e $U 285  ]
+"140
+[; ;EEPROM.c: 140:         case 4:
+[e :U 308 ]
+"141
+[; ;EEPROM.c: 141:             if(position < 8) {
+[e $ ! < -> _position `i -> 8 `i 309  ]
+{
+"142
+[; ;EEPROM.c: 142:                 passR[position] = readFromROM();
+[e = *U + &U _passR * -> _position `ux -> -> # *U &U _passR `ui `ux ( _readFromROM ..  ]
+"143
+[; ;EEPROM.c: 143:                 address++;
+[e ++ _address -> -> 1 `i `uc ]
+"144
+[; ;EEPROM.c: 144:                 position++;
+[e ++ _position -> -> 1 `i `uc ]
+"145
+[; ;EEPROM.c: 145:             }
+}
+[e $U 310  ]
+"146
+[; ;EEPROM.c: 146:             else {
+[e :U 309 ]
+{
+"147
+[; ;EEPROM.c: 147:                 position = 0;
+[e = _position -> -> 0 `i `uc ]
+"148
+[; ;EEPROM.c: 148:                 flagReading = 0;
+[e = _flagReading -> -> 0 `i `uc ]
+"149
+[; ;EEPROM.c: 149:                 pointer = 0;
+[e = _pointer -> -> 0 `i `uc ]
+"150
+[; ;EEPROM.c: 150:                 state++;
+[e ++ _state -> -> 1 `i `uc ]
+"151
+[; ;EEPROM.c: 151:             }
+}
+[e :U 310 ]
+"152
+[; ;EEPROM.c: 152:             break;
+[e $U 285  ]
+"153
+[; ;EEPROM.c: 153:         case 5:
+[e :U 311 ]
+"154
+[; ;EEPROM.c: 154:             if(compare(userInputROM, userR) != 0) {
+[e $ ! != -> ( _compare (2 , &U _userInputROM &U _userR `i -> 0 `i 312  ]
+{
+"155
+[; ;EEPROM.c: 155:                 if(flagReading == 1) {
+[e $ ! == -> _flagReading `i -> 1 `i 313  ]
+{
+"156
+[; ;EEPROM.c: 156:                     flagReading = 0;
+[e = _flagReading -> -> 0 `i `uc ]
+"157
+[; ;EEPROM.c: 157:                     pointer = 0;
+[e = _pointer -> -> 0 `i `uc ]
+"158
+[; ;EEPROM.c: 158:                     if(checkUser == 1)state++;
+[e $ ! == -> _checkUser `i -> 1 `i 314  ]
+[e ++ _state -> -> 1 `i `uc ]
+[e :U 314 ]
+"159
+[; ;EEPROM.c: 159:                     if(checkUser == 3) {
+[e $ ! == -> _checkUser `i -> 3 `i 315  ]
+{
+"161
+[; ;EEPROM.c: 161:                         flagReading = 1;
+[e = _flagReading -> -> 1 `i `uc ]
+"162
+[; ;EEPROM.c: 162:                         state = 7;}
+[e = _state -> -> 7 `i `uc ]
+}
+[e :U 315 ]
+"163
+[; ;EEPROM.c: 163:                 }
+}
+[e $U 316  ]
+"164
+[; ;EEPROM.c: 164:                 else if(flagReading == 2) {
+[e :U 313 ]
+[e $ ! == -> _flagReading `i -> 2 `i 317  ]
+{
+"165
+[; ;EEPROM.c: 165:                     if(((address - 16) / 16) >= users) {
+[e $ ! >= / - -> _address `i -> 16 `i -> 16 `i -> _users `i 318  ]
+{
+"166
+[; ;EEPROM.c: 166:                         state = 7;
+[e = _state -> -> 7 `i `uc ]
+"167
+[; ;EEPROM.c: 167:                     }
+}
+[e $U 319  ]
+"168
+[; ;EEPROM.c: 168:                     else {
+[e :U 318 ]
+{
+"169
+[; ;EEPROM.c: 169:                         flagReading = 0;
+[e = _flagReading -> -> 0 `i `uc ]
+"170
+[; ;EEPROM.c: 170:                         pointer = 0;
+[e = _pointer -> -> 0 `i `uc ]
+"171
+[; ;EEPROM.c: 171:                         state = 3;
+[e = _state -> -> 3 `i `uc ]
+"172
+[; ;EEPROM.c: 172:                     }
+}
+[e :U 319 ]
+"173
+[; ;EEPROM.c: 173:                 }
+}
+[e :U 317 ]
+[e :U 316 ]
+"174
+[; ;EEPROM.c: 174:             }
+}
+[e :U 312 ]
+"175
+[; ;EEPROM.c: 175:             break;
+[e $U 285  ]
+"176
+[; ;EEPROM.c: 176:         case 6:
+[e :U 320 ]
+"177
+[; ;EEPROM.c: 177:             if(compare(passInputROM, passR) != 0) {
+[e $ ! != -> ( _compare (2 , &U _passInputROM &U _passR `i -> 0 `i 321  ]
+{
+"178
+[; ;EEPROM.c: 178:                 if(flagReading == 1) {
+[e $ ! == -> _flagReading `i -> 1 `i 322  ]
+{
+"180
+[; ;EEPROM.c: 180:                     state = 7;
+[e = _state -> -> 7 `i `uc ]
+"181
+[; ;EEPROM.c: 181:                 }
+}
+[e $U 323  ]
+"182
+[; ;EEPROM.c: 182:                 else if(flagReading == 2) {
+[e :U 322 ]
+[e $ ! == -> _flagReading `i -> 2 `i 324  ]
+{
+"183
+[; ;EEPROM.c: 183:                     if(((address - 16) / 16) >= users) {
+[e $ ! >= / - -> _address `i -> 16 `i -> 16 `i -> _users `i 325  ]
+{
+"184
+[; ;EEPROM.c: 184:                         state = 7;
+[e = _state -> -> 7 `i `uc ]
+"185
+[; ;EEPROM.c: 185:                     }
+}
+[e $U 326  ]
+"186
+[; ;EEPROM.c: 186:                     else {
+[e :U 325 ]
+{
+"187
+[; ;EEPROM.c: 187:                         flagReading = 0;
+[e = _flagReading -> -> 0 `i `uc ]
+"188
+[; ;EEPROM.c: 188:                         pointer = 0;
+[e = _pointer -> -> 0 `i `uc ]
+"189
+[; ;EEPROM.c: 189:                         state = 3;
+[e = _state -> -> 3 `i `uc ]
+"190
+[; ;EEPROM.c: 190:                     }
+}
+[e :U 326 ]
+"191
+[; ;EEPROM.c: 191:                 }
+}
+[e :U 324 ]
+[e :U 323 ]
+"192
+[; ;EEPROM.c: 192:             }
+}
+[e :U 321 ]
+"193
+[; ;EEPROM.c: 193:             break;
+[e $U 285  ]
+"194
+[; ;EEPROM.c: 194:         case 7:
+[e :U 327 ]
+"195
+[; ;EEPROM.c: 195:             if (position < 8) {
+[e $ ! < -> _position `i -> 8 `i 328  ]
+{
+"196
+[; ;EEPROM.c: 196:                 userInputROM[position] = '\0';
+[e = *U + &U _userInputROM * -> _position `ux -> -> # *U &U _userInputROM `ui `ux -> -> 0 `ui `uc ]
+"197
+[; ;EEPROM.c: 197:                 passInputROM[position] = '\0';
+[e = *U + &U _passInputROM * -> _position `ux -> -> # *U &U _passInputROM `ui `ux -> -> 0 `ui `uc ]
+"198
+[; ;EEPROM.c: 198:                 userR[position] = '\0';
+[e = *U + &U _userR * -> _position `ux -> -> # *U &U _userR `ui `ux -> -> 0 `ui `uc ]
+"199
+[; ;EEPROM.c: 199:                 passR[position] = '\0';
+[e = *U + &U _passR * -> _position `ux -> -> # *U &U _passR `ui `ux -> -> 0 `ui `uc ]
+"200
+[; ;EEPROM.c: 200:                 position++;
+[e ++ _position -> -> 1 `i `uc ]
+"201
+[; ;EEPROM.c: 201:             } else {
+}
+[e $U 329  ]
+[e :U 328 ]
+{
+"202
+[; ;EEPROM.c: 202:                 position = 0;
+[e = _position -> -> 0 `i `uc ]
+"203
+[; ;EEPROM.c: 203:                 state = 0;
+[e = _state -> -> 0 `i `uc ]
+"204
+[; ;EEPROM.c: 204:                 checkUser = 2;
+[e = _checkUser -> -> 2 `i `uc ]
+"205
+[; ;EEPROM.c: 205:             }
+}
+[e :U 329 ]
+"206
+[; ;EEPROM.c: 206:             break;
+[e $U 285  ]
+"208
+[; ;EEPROM.c: 208:         case 8:
+[e :U 330 ]
+"209
+[; ;EEPROM.c: 209:             if(readFromROM() == 0xFF) {
+[e $ ! == -> ( _readFromROM ..  `i -> 255 `i 331  ]
+{
+"210
+[; ;EEPROM.c: 210:                 empty = 1;
+[e = _empty -> -> 1 `i `uc ]
+"211
+[; ;EEPROM.c: 211:                 state = 9;
+[e = _state -> -> 9 `i `uc ]
+"212
+[; ;EEPROM.c: 212:             }
+}
+[e $U 332  ]
+"213
+[; ;EEPROM.c: 213:             else {
+[e :U 331 ]
+{
+"214
+[; ;EEPROM.c: 214:                 if(address < 0xD0) {
+[e $ ! < -> _address `i -> 208 `i 333  ]
+{
+"215
+[; ;EEPROM.c: 215:                     address = address + 16;
+[e = _address -> + -> _address `i -> 16 `i `uc ]
+"216
+[; ;EEPROM.c: 216:                 }
+}
+[e $U 334  ]
+"217
+[; ;EEPROM.c: 217:                 else {
+[e :U 333 ]
+{
+"218
+[; ;EEPROM.c: 218:                     address = 0x90;
+[e = _address -> -> 144 `i `uc ]
+"219
+[; ;EEPROM.c: 219:                     state = 11;
+[e = _state -> -> 11 `i `uc ]
+"220
+[; ;EEPROM.c: 220:                 }
+}
+[e :U 334 ]
+"222
+[; ;EEPROM.c: 222:             }
+}
+[e :U 332 ]
+"223
+[; ;EEPROM.c: 223:             break;
+[e $U 285  ]
+"225
+[; ;EEPROM.c: 225:         case 9:
+[e :U 335 ]
+"226
+[; ;EEPROM.c: 226:             if(EECON1bits.WR == 0) {
+[e $ ! == -> . . _EECON1bits 0 1 `i -> 0 `i 336  ]
+{
+"227
+[; ;EEPROM.c: 227:                 writeToROM(score);
+[e ( _writeToROM (1 _score ]
+"228
+[; ;EEPROM.c: 228:                 address++;
+[e ++ _address -> -> 1 `i `uc ]
+"229
+[; ;EEPROM.c: 229:                 position = 0;
+[e = _position -> -> 0 `i `uc ]
+"230
+[; ;EEPROM.c: 230:                 state++;
+[e ++ _state -> -> 1 `i `uc ]
+"231
+[; ;EEPROM.c: 231:             }
+}
+[e :U 336 ]
+"232
+[; ;EEPROM.c: 232:             break;
+[e $U 285  ]
+"234
+[; ;EEPROM.c: 234:         case 10:
+[e :U 337 ]
+"235
+[; ;EEPROM.c: 235:             if(position < 8) {
+[e $ ! < -> _position `i -> 8 `i 338  ]
+{
+"236
+[; ;EEPROM.c: 236:                 if(EECON1bits.WR == 0) {
+[e $ ! == -> . . _EECON1bits 0 1 `i -> 0 `i 339  ]
+{
+"237
+[; ;EEPROM.c: 237:                     writeToROM(user[position]);
+[e ( _writeToROM (1 *U + &U _user * -> _position `ux -> -> # *U &U _user `ui `ux ]
+"238
+[; ;EEPROM.c: 238:                     address++;
+[e ++ _address -> -> 1 `i `uc ]
+"239
+[; ;EEPROM.c: 239:                     position++;
+[e ++ _position -> -> 1 `i `uc ]
+"240
+[; ;EEPROM.c: 240:                 }
+}
+[e :U 339 ]
+"241
+[; ;EEPROM.c: 241:             }
+}
+[e $U 340  ]
+"242
+[; ;EEPROM.c: 242:             else {
+[e :U 338 ]
+{
+"243
+[; ;EEPROM.c: 243:                 position = 0;
+[e = _position -> -> 0 `i `uc ]
+"244
+[; ;EEPROM.c: 244:                 if(empty == 1) {
+[e $ ! == -> _empty `i -> 1 `i 341  ]
+{
+"245
+[; ;EEPROM.c: 245:                     saveScore = 0;
+[e = _saveScore -> -> 0 `i `uc ]
+"246
+[; ;EEPROM.c: 246:                     empty = 0;
+[e = _empty -> -> 0 `i `uc ]
+"247
+[; ;EEPROM.c: 247:                     state = 0;
+[e = _state -> -> 0 `i `uc ]
+"248
+[; ;EEPROM.c: 248:                 }
+}
+[e $U 342  ]
+"249
+[; ;EEPROM.c: 249:                 else {
+[e :U 341 ]
+{
+"250
+[; ;EEPROM.c: 250:                     address = address + 7;
+[e = _address -> + -> _address `i -> 7 `i `uc ]
+"251
+[; ;EEPROM.c: 251:                     state = 12;
+[e = _state -> -> 12 `i `uc ]
+"252
+[; ;EEPROM.c: 252:                 }
+}
+[e :U 342 ]
+"253
+[; ;EEPROM.c: 253:             }
+}
+[e :U 340 ]
+"254
+[; ;EEPROM.c: 254:             break;
+[e $U 285  ]
+"256
+[; ;EEPROM.c: 256:         case 11:
+[e :U 343 ]
+"257
+[; ;EEPROM.c: 257:             scoreAux = readFromROM();
+[e = _scoreAux ( _readFromROM ..  ]
+"258
+[; ;EEPROM.c: 258:             if(scoreAux < score) {
+[e $ ! < -> _scoreAux `i -> _score `i 344  ]
+{
+"259
+[; ;EEPROM.c: 259:                 state = 9;
+[e = _state -> -> 9 `i `uc ]
+"260
+[; ;EEPROM.c: 260:             }
+}
+[e $U 345  ]
+"261
+[; ;EEPROM.c: 261:             else {
+[e :U 344 ]
+{
+"262
+[; ;EEPROM.c: 262:                 if(address < 0xD0) {
+[e $ ! < -> _address `i -> 208 `i 346  ]
+{
+"263
+[; ;EEPROM.c: 263:                     address = address + 16;
+[e = _address -> + -> _address `i -> 16 `i `uc ]
+"264
+[; ;EEPROM.c: 264:                 }
+}
+[e $U 347  ]
+"265
+[; ;EEPROM.c: 265:                 else {
+[e :U 346 ]
+{
+"266
+[; ;EEPROM.c: 266:                     saveScore = 0;
+[e = _saveScore -> -> 0 `i `uc ]
+"267
+[; ;EEPROM.c: 267:                     state = 0;
+[e = _state -> -> 0 `i `uc ]
+"268
+[; ;EEPROM.c: 268:                 }
+}
+[e :U 347 ]
+"269
+[; ;EEPROM.c: 269:             }
+}
+[e :U 345 ]
+"270
+[; ;EEPROM.c: 270:             break;
+[e $U 285  ]
+"271
+[; ;EEPROM.c: 271:         case 12:
+[e :U 348 ]
+"272
+[; ;EEPROM.c: 272:             score = scoreAux;
+[e = _score _scoreAux ]
+"273
+[; ;EEPROM.c: 273:             state--;
+[e -- _state -> -> 1 `i `uc ]
+"274
+[; ;EEPROM.c: 274:             break;
+[e $U 285  ]
+"275
+[; ;EEPROM.c: 275:     }
+}
+[e $U 285  ]
+[e :U 286 ]
+[e [\ -> _state `i , $ -> 0 `i 287
+ , $ -> 1 `i 294
+ , $ -> 2 `i 298
+ , $ -> 100 `i 303
+ , $ -> 3 `i 305
+ , $ -> 4 `i 308
+ , $ -> 5 `i 311
+ , $ -> 6 `i 320
+ , $ -> 7 `i 327
+ , $ -> 8 `i 330
+ , $ -> 9 `i 335
+ , $ -> 10 `i 337
+ , $ -> 11 `i 343
+ , $ -> 12 `i 348
+ 285 ]
+[e :U 285 ]
+"276
+[; ;EEPROM.c: 276: }
+[e :UE 284 ]
+}
+"278
+[; ;EEPROM.c: 278: void storeUser(char value, char positionUser) {
+[v _storeUser `(v ~T0 @X0 1 ef2`uc`uc ]
+{
+[e :U _storeUser ]
+[v _value `uc ~T0 @X0 1 r1 ]
+[v _positionUser `uc ~T0 @X0 1 r2 ]
+[f ]
+"279
+[; ;EEPROM.c: 279:     user[positionUser] = value;
+[e = *U + &U _user * -> _positionUser `ux -> -> # *U &U _user `ui `ux _value ]
+"280
+[; ;EEPROM.c: 280: }
+[e :UE 349 ]
+}
+"282
+[; ;EEPROM.c: 282: void storePass(char value, char positionPass) {
+[v _storePass `(v ~T0 @X0 1 ef2`uc`uc ]
+{
+[e :U _storePass ]
+[v _value `uc ~T0 @X0 1 r1 ]
+[v _positionPass `uc ~T0 @X0 1 r2 ]
+[f ]
+"283
+[; ;EEPROM.c: 283:     pass[positionPass] = value;
+[e = *U + &U _pass * -> _positionPass `ux -> -> # *U &U _pass `ui `ux _value ]
+"284
+[; ;EEPROM.c: 284: }
+[e :UE 350 ]
+}
+"286
+[; ;EEPROM.c: 286: void startWriteUser() {
+[v _startWriteUser `(v ~T0 @X0 1 ef ]
+{
+[e :U _startWriteUser ]
+[f ]
+"287
+[; ;EEPROM.c: 287:     startUser = 1;
+[e = _startUser -> -> 1 `i `uc ]
+"288
+[; ;EEPROM.c: 288: }
+[e :UE 351 ]
+}
+"290
+[; ;EEPROM.c: 290: char login(char userInput[8], char passInput[8]) {
+[v _login `(uc ~T0 @X0 1 ef2`*uc`*uc ]
+{
+[e :U _login ]
+[v _userInput `*uc ~T0 @X0 1 r1 ]
+[v _passInput `*uc ~T0 @X0 1 r2 ]
+[f ]
+"291
+[; ;EEPROM.c: 291:     if(position < 8 && checkUser == 0) {
+[e $ ! && < -> _position `i -> 8 `i == -> _checkUser `i -> 0 `i 353  ]
+{
+"292
+[; ;EEPROM.c: 292:         userInputROM[position] = userInput[position];
+[e = *U + &U _userInputROM * -> _position `ux -> -> # *U &U _userInputROM `ui `ux *U + _userInput * -> _position `ux -> -> # *U _userInput `ui `ux ]
+"293
+[; ;EEPROM.c: 293:         passInputROM[position] = passInput[position];
+[e = *U + &U _passInputROM * -> _position `ux -> -> # *U &U _passInputROM `ui `ux *U + _passInput * -> _position `ux -> -> # *U _passInput `ui `ux ]
+"294
+[; ;EEPROM.c: 294:         position++;
+[e ++ _position -> -> 1 `i `uc ]
+"295
+[; ;EEPROM.c: 295:     }
+}
+[e $U 354  ]
+"296
+[; ;EEPROM.c: 296:     else {
+[e :U 353 ]
+{
+"297
+[; ;EEPROM.c: 297:         if (flagReading != 0 && checkUser == 0) {
+[e $ ! && != -> _flagReading `i -> 0 `i == -> _checkUser `i -> 0 `i 355  ]
+{
+"298
+[; ;EEPROM.c: 298:             checkUser = 1;
+[e = _checkUser -> -> 1 `i `uc ]
+"299
+[; ;EEPROM.c: 299:         }
+}
+[e $U 356  ]
+"300
+[; ;EEPROM.c: 300:         else {
+[e :U 355 ]
+{
+"301
+[; ;EEPROM.c: 301:             if (checkUser == 2) {
+[e $ ! == -> _checkUser `i -> 2 `i 357  ]
+{
+"302
+[; ;EEPROM.c: 302:                 checkUser = 0;
+[e = _checkUser -> -> 0 `i `uc ]
+"303
+[; ;EEPROM.c: 303:                 return flagReading;
+[e ) _flagReading ]
+[e $UE 352  ]
+"304
+[; ;EEPROM.c: 304:             }
+}
+[e :U 357 ]
+"305
+[; ;EEPROM.c: 305:         }
+}
+[e :U 356 ]
+"306
+[; ;EEPROM.c: 306:     }
+}
+[e :U 354 ]
+"308
+[; ;EEPROM.c: 308:     return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 352  ]
+"309
+[; ;EEPROM.c: 309: }
+[e :UE 352 ]
+}
+"311
+[; ;EEPROM.c: 311: char signup(char userInput[8]) {
+[v _signup `(uc ~T0 @X0 1 ef1`*uc ]
+{
+[e :U _signup ]
+[v _userInput `*uc ~T0 @X0 1 r1 ]
+[f ]
+"312
+[; ;EEPROM.c: 312:     if(position < 8 && checkUser == 0) {
+[e $ ! && < -> _position `i -> 8 `i == -> _checkUser `i -> 0 `i 359  ]
+{
+"313
+[; ;EEPROM.c: 313:         userInputROM[position] = userInput[position];
+[e = *U + &U _userInputROM * -> _position `ux -> -> # *U &U _userInputROM `ui `ux *U + _userInput * -> _position `ux -> -> # *U _userInput `ui `ux ]
+"314
+[; ;EEPROM.c: 314:         position++;
+[e ++ _position -> -> 1 `i `uc ]
+"315
+[; ;EEPROM.c: 315:     }
+}
+[e $U 360  ]
+"316
+[; ;EEPROM.c: 316:     else {
+[e :U 359 ]
+{
+"317
+[; ;EEPROM.c: 317:         if (flagReading != 0 && checkUser == 0) {
+[e $ ! && != -> _flagReading `i -> 0 `i == -> _checkUser `i -> 0 `i 361  ]
+{
+"318
+[; ;EEPROM.c: 318:             checkUser = 3;
+[e = _checkUser -> -> 3 `i `uc ]
+"319
+[; ;EEPROM.c: 319:         }
+}
+[e $U 362  ]
+"320
+[; ;EEPROM.c: 320:         else {
+[e :U 361 ]
+{
+"321
+[; ;EEPROM.c: 321:             if (checkUser == 2) {
+[e $ ! == -> _checkUser `i -> 2 `i 363  ]
+{
+"322
+[; ;EEPROM.c: 322:                 checkUser = 0;
+[e = _checkUser -> -> 0 `i `uc ]
+"323
+[; ;EEPROM.c: 323:                 return flagReading;
+[e ) _flagReading ]
+[e $UE 358  ]
+"324
+[; ;EEPROM.c: 324:             }
+}
+[e :U 363 ]
+"325
+[; ;EEPROM.c: 325:         }
+}
+[e :U 362 ]
+"326
+[; ;EEPROM.c: 326:     }
+}
+[e :U 360 ]
+"328
+[; ;EEPROM.c: 328:     return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 358  ]
+"329
+[; ;EEPROM.c: 329: }
+[e :UE 358 ]
+}
+"331
+[; ;EEPROM.c: 331: char getFlag() {
+[v _getFlag `(uc ~T0 @X0 1 ef ]
+{
+[e :U _getFlag ]
+[f ]
+"332
+[; ;EEPROM.c: 332:     return flagReading;
+[e ) _flagReading ]
+[e $UE 364  ]
+"333
+[; ;EEPROM.c: 333: }
+[e :UE 364 ]
+}
+"335
+[; ;EEPROM.c: 335: char getNumUsers(){
+[v _getNumUsers `(uc ~T0 @X0 1 ef ]
+{
+[e :U _getNumUsers ]
+[f ]
+"336
+[; ;EEPROM.c: 336:     if (users > 8) return 8;
+[e $ ! > -> _users `i -> 8 `i 366  ]
+[e ) -> -> 8 `i `uc ]
+[e $UE 365  ]
+[e :U 366 ]
+"337
+[; ;EEPROM.c: 337:     return users;
+[e ) _users ]
+[e $UE 365  ]
+"338
+[; ;EEPROM.c: 338: }
+[e :UE 365 ]
+}
+"340
+[; ;EEPROM.c: 340: char compare (char a[8], char b[8]) {
+[v _compare `(uc ~T0 @X0 1 ef2`*uc`*uc ]
+{
+[e :U _compare ]
+[v _a `*uc ~T0 @X0 1 r1 ]
+[v _b `*uc ~T0 @X0 1 r2 ]
+[f ]
+"341
+[; ;EEPROM.c: 341:  if (flagReading != 0) {
+[e $ ! != -> _flagReading `i -> 0 `i 368  ]
+{
+"342
+[; ;EEPROM.c: 342:   flagReading = 0;
+[e = _flagReading -> -> 0 `i `uc ]
+"343
+[; ;EEPROM.c: 343:   pointer = 0;
+[e = _pointer -> -> 0 `i `uc ]
+"344
+[; ;EEPROM.c: 344:  }
+}
+[e :U 368 ]
+"350
+[; ;EEPROM.c: 350:   if (a[pointer] == b[pointer]) {
+[e $ ! == -> *U + _a * -> _pointer `ux -> -> # *U _a `ui `ux `i -> *U + _b * -> _pointer `ux -> -> # *U _b `ui `ux `i 369  ]
+{
+"351
+[; ;EEPROM.c: 351:    pointer++;
+[e ++ _pointer -> -> 1 `i `uc ]
+"352
+[; ;EEPROM.c: 352:             if(pointer == 8) flagReading = 1;
+[e $ ! == -> _pointer `i -> 8 `i 370  ]
+[e = _flagReading -> -> 1 `i `uc ]
+[e :U 370 ]
+"353
+[; ;EEPROM.c: 353:   }
+}
+[e $U 371  ]
+"354
+[; ;EEPROM.c: 354:   else {
+[e :U 369 ]
+{
+"355
+[; ;EEPROM.c: 355:    flagReading = 2;
+[e = _flagReading -> -> 2 `i `uc ]
+"356
+[; ;EEPROM.c: 356:   }
+}
+[e :U 371 ]
+"358
+[; ;EEPROM.c: 358:  return flagReading;
+[e ) _flagReading ]
+[e $UE 367  ]
+"359
+[; ;EEPROM.c: 359: }
+[e :UE 367 ]
+}
+"361
+[; ;EEPROM.c: 361: void storeScore(char scoreIn, char userLetter, char pos) {
+[v _storeScore `(v ~T0 @X0 1 ef3`uc`uc`uc ]
+{
+[e :U _storeScore ]
+[v _scoreIn `uc ~T0 @X0 1 r1 ]
+[v _userLetter `uc ~T0 @X0 1 r2 ]
+[v _pos `uc ~T0 @X0 1 r3 ]
+[f ]
+"362
+[; ;EEPROM.c: 362:     score = scoreIn;
+[e = _score _scoreIn ]
+"363
+[; ;EEPROM.c: 363:     user[pos] = userLetter;
+[e = *U + &U _user * -> _pos `ux -> -> # *U &U _user `ui `ux _userLetter ]
+"364
+[; ;EEPROM.c: 364:     if(pos == 7) {
+[e $ ! == -> _pos `i -> 7 `i 373  ]
+{
+"365
+[; ;EEPROM.c: 365:         saveScore = 1;
+[e = _saveScore -> -> 1 `i `uc ]
+"366
+[; ;EEPROM.c: 366:     }
+}
+[e :U 373 ]
+"367
+[; ;EEPROM.c: 367: }
+[e :UE 372 ]
+}
+"369
+[; ;EEPROM.c: 369: char doneWritingROM() {
+[v _doneWritingROM `(uc ~T0 @X0 1 ef ]
+{
+[e :U _doneWritingROM ]
+[f ]
+"370
+[; ;EEPROM.c: 370:     return done;
+[e ) _done ]
+[e $UE 374  ]
+"371
+[; ;EEPROM.c: 371: }
+[e :UE 374 ]
+}
+"373
+[; ;EEPROM.c: 373: void startReadingUser() {
+[v _startReadingUser `(v ~T0 @X0 1 ef ]
+{
+[e :U _startReadingUser ]
+[f ]
+"374
+[; ;EEPROM.c: 374:     address = 0x01;
+[e = _address -> -> 1 `i `uc ]
+"375
+[; ;EEPROM.c: 375:     newestUserAddress = readFromROM();
+[e = _newestUserAddress ( _readFromROM ..  ]
+"376
+[; ;EEPROM.c: 376:     address = newestUserAddress;
+[e = _address _newestUserAddress ]
+"377
+[; ;EEPROM.c: 377:     flagReading = 3;
+[e = _flagReading -> -> 3 `i `uc ]
+"378
+[; ;EEPROM.c: 378: }
+[e :UE 375 ]
+}
+"380
+[; ;EEPROM.c: 380: char readUser() {
+[v _readUser `(uc ~T0 @X0 1 ef ]
+{
+[e :U _readUser ]
+[f ]
+"381
+[; ;EEPROM.c: 381:     char toRead;
+[v _toRead `uc ~T0 @X0 1 a ]
+"382
+[; ;EEPROM.c: 382:     if (flagReading == 3) {
+[e $ ! == -> _flagReading `i -> 3 `i 377  ]
+{
+"383
+[; ;EEPROM.c: 383:         flagReading = 2;
+[e = _flagReading -> -> 2 `i `uc ]
+"384
+[; ;EEPROM.c: 384:         position = 0;
+[e = _position -> -> 0 `i `uc ]
+"385
+[; ;EEPROM.c: 385:     }
+}
+[e :U 377 ]
+"387
+[; ;EEPROM.c: 387:     if (address == 0x18) {
+[e $ ! == -> _address `i -> 24 `i 378  ]
+{
+"388
+[; ;EEPROM.c: 388:             address = 0x80;
+[e = _address -> -> 128 `i `uc ]
+"389
+[; ;EEPROM.c: 389:             if (readFromROM() == 0xFF) {
+[e $ ! == -> ( _readFromROM ..  `i -> 255 `i 379  ]
+{
+"390
+[; ;EEPROM.c: 390:                 flagReading = 1;
+[e = _flagReading -> -> 1 `i `uc ]
+"391
+[; ;EEPROM.c: 391:                 toRead = 1;
+[e = _toRead -> -> 1 `i `uc ]
+"392
+[; ;EEPROM.c: 392:             }
+}
+[e :U 379 ]
+"393
+[; ;EEPROM.c: 393:     } else if (position < 8) {
+}
+[e $U 380  ]
+[e :U 378 ]
+[e $ ! < -> _position `i -> 8 `i 381  ]
+{
+"394
+[; ;EEPROM.c: 394:         userR[position] = readFromROM();
+[e = *U + &U _userR * -> _position `ux -> -> # *U &U _userR `ui `ux ( _readFromROM ..  ]
+"395
+[; ;EEPROM.c: 395:         toRead = userR[position];
+[e = _toRead *U + &U _userR * -> _position `ux -> -> # *U &U _userR `ui `ux ]
+"396
+[; ;EEPROM.c: 396:         userR[position] = '\0';
+[e = *U + &U _userR * -> _position `ux -> -> # *U &U _userR `ui `ux -> -> 0 `ui `uc ]
+"397
+[; ;EEPROM.c: 397:         address++;
+[e ++ _address -> -> 1 `i `uc ]
+"398
+[; ;EEPROM.c: 398:         position++;
+[e ++ _position -> -> 1 `i `uc ]
+"399
+[; ;EEPROM.c: 399:     }
+}
+[e :U 381 ]
+[e :U 380 ]
+"401
+[; ;EEPROM.c: 401:     if (position == 8) {
+[e $ ! == -> _position `i -> 8 `i 382  ]
+{
+"402
+[; ;EEPROM.c: 402:         position = 0;
+[e = _position -> -> 0 `i `uc ]
+"403
+[; ;EEPROM.c: 403:         if (address != 0x18 && address != newestUserAddress + 24) {
+[e $ ! && != -> _address `i -> 24 `i != -> _address `i + -> _newestUserAddress `i -> 24 `i 383  ]
+{
+"404
+[; ;EEPROM.c: 404:             address = address - 24;
+[e = _address -> - -> _address `i -> 24 `i `uc ]
+"405
+[; ;EEPROM.c: 405:         } else if (address == newestUserAddress + 24) {
+}
+[e $U 384  ]
+[e :U 383 ]
+[e $ ! == -> _address `i + -> _newestUserAddress `i -> 24 `i 385  ]
+{
+"406
+[; ;EEPROM.c: 406:             flagReading = 1;
+[e = _flagReading -> -> 1 `i `uc ]
+"407
+[; ;EEPROM.c: 407:         }
+}
+[e :U 385 ]
+[e :U 384 ]
+"409
+[; ;EEPROM.c: 409:     }
+}
+[e :U 382 ]
+"411
+[; ;EEPROM.c: 411:     return toRead;
+[e ) _toRead ]
+[e $UE 376  ]
+"412
+[; ;EEPROM.c: 412: }
+[e :UE 376 ]
+}
+"414
+[; ;EEPROM.c: 414: void startReadingScore() {
+[v _startReadingScore `(v ~T0 @X0 1 ef ]
+{
+[e :U _startReadingScore ]
+[f ]
+"415
+[; ;EEPROM.c: 415:     address = 0x89;
+[e = _address -> -> 137 `i `uc ]
+"417
+[; ;EEPROM.c: 417: }
+[e :UE 386 ]
+}
+"419
+[; ;EEPROM.c: 419: void anotherScore() {
+[v _anotherScore `(v ~T0 @X0 1 ef ]
+{
+[e :U _anotherScore ]
+[f ]
+"420
+[; ;EEPROM.c: 420:     address = address + 7;
+[e = _address -> + -> _address `i -> 7 `i `uc ]
+"421
+[; ;EEPROM.c: 421:     flagReading = 3;
+[e = _flagReading -> -> 3 `i `uc ]
+"422
+[; ;EEPROM.c: 422: }
+[e :UE 387 ]
+}
+"424
+[; ;EEPROM.c: 424: char readScore () {
+[v _readScore `(uc ~T0 @X0 1 ef ]
+{
+[e :U _readScore ]
+[f ]
+"425
+[; ;EEPROM.c: 425:     char aux;
+[v _aux `uc ~T0 @X0 1 a ]
+"426
+[; ;EEPROM.c: 426:     aux = readFromROM();
+[e = _aux ( _readFromROM ..  ]
+"427
+[; ;EEPROM.c: 427:     if (flagReading == 3) {
+[e $ ! == -> _flagReading `i -> 3 `i 389  ]
+{
+"428
+[; ;EEPROM.c: 428:         flagReading = 4;
+[e = _flagReading -> -> 4 `i `uc ]
+"429
+[; ;EEPROM.c: 429:         return (aux / 10) + '0';
+[e ) -> + -> / -> _aux `i -> 10 `i `ui -> 48 `ui `uc ]
+[e $UE 388  ]
+"430
+[; ;EEPROM.c: 430:     } else if (flagReading == 4) {
+}
+[e $U 390  ]
+[e :U 389 ]
+[e $ ! == -> _flagReading `i -> 4 `i 391  ]
+{
+"431
+[; ;EEPROM.c: 431:         flagReading = 2;
+[e = _flagReading -> -> 2 `i `uc ]
+"432
+[; ;EEPROM.c: 432:         address++;
+[e ++ _address -> -> 1 `i `uc ]
+"433
+[; ;EEPROM.c: 433:         return (aux % 10) + '0';
+[e ) -> + -> % -> _aux `i -> 10 `i `ui -> 48 `ui `uc ]
+[e $UE 388  ]
+"434
+[; ;EEPROM.c: 434:     } else if (flagReading == 2) {
+}
+[e $U 392  ]
+[e :U 391 ]
+[e $ ! == -> _flagReading `i -> 2 `i 393  ]
+{
+"435
+[; ;EEPROM.c: 435:         address++;
+[e ++ _address -> -> 1 `i `uc ]
+"436
+[; ;EEPROM.c: 436:         return aux;
+[e ) _aux ]
+[e $UE 388  ]
+"437
+[; ;EEPROM.c: 437:     }
+}
+[e :U 393 ]
+[e :U 392 ]
+[e :U 390 ]
+"438
+[; ;EEPROM.c: 438: }
+[e :UE 388 ]
+}

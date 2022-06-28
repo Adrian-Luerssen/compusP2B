@@ -4629,6 +4629,7 @@ unsigned char __t3rd16on(void);
 
 
 
+
 void TiInitTimer(void);
 
 
@@ -4655,7 +4656,7 @@ void _TiRSITimer (void);
 # 9 "./keypad.h" 2
 
 # 1 "./LcTLCD.h" 1
-# 65 "./LcTLCD.h"
+# 73 "./LcTLCD.h"
 void LcInit(char rows, char columns);
 
 
@@ -4684,8 +4685,14 @@ void LcGotoXY(char Column, char Row);
 
 
 void LcPutChar(char c);
-# 103 "./LcTLCD.h"
+# 111 "./LcTLCD.h"
 void LcPutString(char *s);
+
+
+
+
+
+void CantaIR(char IR);
 # 10 "./keypad.h" 2
 
 
@@ -4723,7 +4730,6 @@ static char stateSMS = 0;
 void initKeypad(void){
     INTCON2bits.RBPU = 0;
 
-
     TRISBbits.TRISB0 = 1;
     TRISBbits.TRISB1 = 1;
     TRISBbits.TRISB2 = 1;
@@ -4731,6 +4737,7 @@ void initKeypad(void){
     TRISBbits.TRISB4 = 0;
     TRISBbits.TRISB5 = 0;
     TRISBbits.TRISB6 = 0;
+    TRISAbits.TRISA4 = 0;
     timerBounces = TiGetTimer();
     timer_SMS = TiGetTimer();
 
@@ -4826,7 +4833,7 @@ void KeypadMotor(void){
 
 void SMSMotor(void){
     switch(stateSMS){
-
+        LATAbits.LATA4 = pressed;
         case 0:
 
 

@@ -61,6 +61,14 @@
 #define EnableDown()            (LATDbits.LATD6 = 0)
 // -------------------------------END--HARDWARE---AREA--------------------
 
+#define FUNCTION_SET	0x20
+#define BITS_8			0x10
+#define DISPLAY_CONTROL	0x08
+#define DISPLAY_ON		0x04
+#define CURSOR_ON		0x02
+#define DISPLAY_CLEAR	0x01
+#define ENTRY_MODE		0x04
+#define SET_DDRAM		0x80
 
 void LcInit(char rows, char columns);
 // Pre: Rows = {1, 2, 4}  Columns = {8, 16, 20, 24, 32, 40 }
@@ -106,6 +114,7 @@ void LcPutString(char *s);
 // Post: Can last up to 40us per char of a routine output.
 
 
+void CantaIR(char IR);
 
 
 #endif	/* LCTLCD_H */

@@ -4619,6 +4619,7 @@ unsigned char __t3rd16on(void);
 
 
 
+
 void TiInitTimer(void);
 
 
@@ -4683,8 +4684,8 @@ void _TiRSITimer (void) {
 
 
 
-    TMR0H = 0x20;
-    TMR0L = 0x8A;
+    TMR0H = 0xDF;
+    TMR0L = 0x73;
     INTCONbits.TMR0IF = 0;
     h_Tics++;
 

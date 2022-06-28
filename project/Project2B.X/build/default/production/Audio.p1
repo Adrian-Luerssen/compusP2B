@@ -14,14 +14,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1965
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1965: extern volatile TRISCbits_t TRISCbits __attribute__((address(0xF94)));
 [v _TRISCbits `VS69 ~T0 @X0 0 e@3988 ]
-"19 ./TTimer.h
-[; ;./TTimer.h: 19: char TiGetTimer(void);
+"20 ./TTimer.h
+[; ;./TTimer.h: 20: char TiGetTimer(void);
 [v _TiGetTimer `(uc ~T0 @X0 0 ef ]
-"14
-[; ;./TTimer.h: 14: int TiGetTics(char Handle);
+"15
+[; ;./TTimer.h: 15: int TiGetTics(char Handle);
 [v _TiGetTics `(i ~T0 @X0 0 ef1`uc ]
-"10
-[; ;./TTimer.h: 10: void TiResetTics(char Handle);
+"11
+[; ;./TTimer.h: 11: void TiResetTics(char Handle);
 [v _TiResetTics `(v ~T0 @X0 0 ef1`uc ]
 "1219 C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f4321.h: 1219:     struct {
@@ -464,121 +464,132 @@ Version 4.0 HI-TECH Software Intermediate Code
 "17
 [; ;Audio.c: 17: static char period;
 [v _period `uc ~T0 @X0 1 s ]
-"18
-[; ;Audio.c: 18: static char start;
-[v _start `uc ~T0 @X0 1 s ]
-"20
-[; ;Audio.c: 20: void initAudio(void) {
+"19
+[; ;Audio.c: 19: void initAudio(void) {
 [v _initAudio `(v ~T0 @X0 1 ef ]
 {
 [e :U _initAudio ]
 [f ]
-"21
-[; ;Audio.c: 21:     TRISCbits.TRISC3 = 0;
+"20
+[; ;Audio.c: 20:     TRISCbits.TRISC3 = 0;
 [e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
-"22
-[; ;Audio.c: 22:     state = 0;
+"21
+[; ;Audio.c: 21:     state = 0;
 [e = _state -> -> 0 `i `uc ]
-"23
-[; ;Audio.c: 23:     periodTimer = TiGetTimer();
+"22
+[; ;Audio.c: 22:     periodTimer = TiGetTimer();
 [e = _periodTimer ( _TiGetTimer ..  ]
-"24
-[; ;Audio.c: 24:     timerSong = TiGetTimer();
+"23
+[; ;Audio.c: 23:     timerSong = TiGetTimer();
 [e = _timerSong ( _TiGetTimer ..  ]
-"25
-[; ;Audio.c: 25:     period = 1;
+"24
+[; ;Audio.c: 24:     period = 1;
 [e = _period -> -> 1 `i `uc ]
-"26
-[; ;Audio.c: 26: }
+"25
+[; ;Audio.c: 25: }
 [e :UE 280 ]
 }
-"28
-[; ;Audio.c: 28: void audioMotor(void){
+"27
+[; ;Audio.c: 27: void audioMotor(void){
 [v _audioMotor `(v ~T0 @X0 1 ef ]
 {
 [e :U _audioMotor ]
 [f ]
-"29
-[; ;Audio.c: 29:     switch(state){
+"28
+[; ;Audio.c: 28:     switch(state){
 [e $U 283  ]
 {
-"30
-[; ;Audio.c: 30:         case 0:
+"29
+[; ;Audio.c: 29:         case 0:
 [e :U 284 ]
-"32
-[; ;Audio.c: 32:             break;
+"31
+[; ;Audio.c: 31:             break;
 [e $U 282  ]
-"33
-[; ;Audio.c: 33:         case 1:
+"32
+[; ;Audio.c: 32:         case 1:
 [e :U 285 ]
-"34
-[; ;Audio.c: 34:             if (TiGetTics(periodTimer)>= (period+1)){
+"33
+[; ;Audio.c: 33:             if (TiGetTics(periodTimer)>= (period+1)){
 [e $ ! >= ( _TiGetTics (1 _periodTimer + -> _period `i -> 1 `i 286  ]
 {
-"35
-[; ;Audio.c: 35:                 TiResetTics(periodTimer);
+"34
+[; ;Audio.c: 34:                 TiResetTics(periodTimer);
 [e ( _TiResetTics (1 _periodTimer ]
-"36
-[; ;Audio.c: 36:                 LATCbits.LATC3=1;;
+"35
+[; ;Audio.c: 35:                 LATCbits.LATC3=1;;
 [e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
-"37
-[; ;Audio.c: 37:                 state = 2;
+"36
+[; ;Audio.c: 36:                 state = 2;
 [e = _state -> -> 2 `i `uc ]
-"38
-[; ;Audio.c: 38:             }
+"37
+[; ;Audio.c: 37:             }
 }
 [e :U 286 ]
-"39
-[; ;Audio.c: 39:             break;
+"38
+[; ;Audio.c: 38:             break;
 [e $U 282  ]
-"40
-[; ;Audio.c: 40:         case 2:
+"39
+[; ;Audio.c: 39:         case 2:
 [e :U 287 ]
-"41
-[; ;Audio.c: 41:             if (TiGetTics(periodTimer)>= (period+1)){
+"40
+[; ;Audio.c: 40:             if (TiGetTics(periodTimer)>= (period+1)){
 [e $ ! >= ( _TiGetTics (1 _periodTimer + -> _period `i -> 1 `i 288  ]
 {
-"42
-[; ;Audio.c: 42:                 TiResetTics(periodTimer);
+"41
+[; ;Audio.c: 41:                 TiResetTics(periodTimer);
 [e ( _TiResetTics (1 _periodTimer ]
-"43
-[; ;Audio.c: 43:                 LATCbits.LATC3=0;;
+"42
+[; ;Audio.c: 42:                 LATCbits.LATC3=0;;
 [e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
-"44
-[; ;Audio.c: 44:                 state = 3;
+"43
+[; ;Audio.c: 43:                 state = 3;
 [e = _state -> -> 3 `i `uc ]
-"45
-[; ;Audio.c: 45:             }
+"44
+[; ;Audio.c: 44:             }
 }
 [e :U 288 ]
-"46
-[; ;Audio.c: 46:             break;
+"45
+[; ;Audio.c: 45:             break;
 [e $U 282  ]
-"48
-[; ;Audio.c: 48:         case 3:
+"47
+[; ;Audio.c: 47:         case 3:
 [e :U 289 ]
-"49
-[; ;Audio.c: 49:             state = 1;
+"48
+[; ;Audio.c: 48:             state = 1;
 [e = _state -> -> 1 `i `uc ]
-"50
-[; ;Audio.c: 50:             if (TiGetTics(timerSong) >= 1200){
+"49
+[; ;Audio.c: 49:             if (TiGetTics(timerSong) >= 1200){
 [e $ ! >= ( _TiGetTics (1 _timerSong -> 1200 `i 290  ]
 {
+"50
+[; ;Audio.c: 50:                 period++;
+[e ++ _period -> -> 1 `i `uc ]
 "51
-[; ;Audio.c: 51:                 period = (period+1)%5;
-[e = _period -> % + -> _period `i -> 1 `i -> 5 `i `uc ]
-"52
-[; ;Audio.c: 52:                 TiResetTics(timerSong);
+[; ;Audio.c: 51:                 TiResetTics(timerSong);
 [e ( _TiResetTics (1 _timerSong ]
+"52
+[; ;Audio.c: 52:                 if (period == 6){
+[e $ ! == -> _period `i -> 6 `i 291  ]
+{
 "53
-[; ;Audio.c: 53:             }
+[; ;Audio.c: 53:                     period = 0;
+[e = _period -> -> 0 `i `uc ]
+"54
+[; ;Audio.c: 54:                     state = 0;
+[e = _state -> -> 0 `i `uc ]
+"55
+[; ;Audio.c: 55:                 }
+}
+[e :U 291 ]
+"56
+[; ;Audio.c: 56:             }
 }
 [e :U 290 ]
-"54
-[; ;Audio.c: 54:             break;
+"57
+[; ;Audio.c: 57:             break;
 [e $U 282  ]
-"56
-[; ;Audio.c: 56:     }
+"59
+[; ;Audio.c: 59:     }
 }
 [e $U 282  ]
 [e :U 283 ]
@@ -588,39 +599,39 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 3 `i 289
  282 ]
 [e :U 282 ]
-"57
-[; ;Audio.c: 57: }
+"60
+[; ;Audio.c: 60: }
 [e :UE 281 ]
 }
-"59
-[; ;Audio.c: 59: void startSong(void){
+"62
+[; ;Audio.c: 62: void startSong(void){
 [v _startSong `(v ~T0 @X0 1 ef ]
 {
 [e :U _startSong ]
 [f ]
-"60
-[; ;Audio.c: 60:     TiResetTics(periodTimer);
-[e ( _TiResetTics (1 _periodTimer ]
-"61
-[; ;Audio.c: 61:     state = 1;
-[e = _state -> -> 1 `i `uc ]
-"62
-[; ;Audio.c: 62: }
-[e :UE 291 ]
-}
 "63
-[; ;Audio.c: 63: void stopSong(void){
+[; ;Audio.c: 63:     TiResetTics(periodTimer);
+[e ( _TiResetTics (1 _periodTimer ]
+"64
+[; ;Audio.c: 64:     state = 1;
+[e = _state -> -> 1 `i `uc ]
+"65
+[; ;Audio.c: 65: }
+[e :UE 292 ]
+}
+"66
+[; ;Audio.c: 66: void stopSong(void){
 [v _stopSong `(v ~T0 @X0 1 ef ]
 {
 [e :U _stopSong ]
 [f ]
-"64
-[; ;Audio.c: 64:     LATCbits.LATC3=0;;
+"67
+[; ;Audio.c: 67:     LATCbits.LATC3=0;;
 [e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
-"65
-[; ;Audio.c: 65:     state = 0;
+"68
+[; ;Audio.c: 68:     state = 0;
 [e = _state -> -> 0 `i `uc ]
-"66
-[; ;Audio.c: 66: }
-[e :UE 292 ]
+"69
+[; ;Audio.c: 69: }
+[e :UE 293 ]
 }

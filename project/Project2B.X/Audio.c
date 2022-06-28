@@ -15,7 +15,6 @@ static char state;
 static char periodTimer;
 static char timerSong;
 static char period;
-static char start;
 
 void initAudio(void) {
     TRISCbits.TRISC3 = 0;
@@ -48,9 +47,13 @@ void audioMotor(void){
         case 3:
             state = 1;
             if (TiGetTics(timerSong) >= TSECOND){
-                period = (period+1)%5;
+                period++;
                 TiResetTics(timerSong);
-            }
+                if (period == 6){
+                    period = 0;
+                    state = 0;
+                }
+            } 
             break;
         
     }
