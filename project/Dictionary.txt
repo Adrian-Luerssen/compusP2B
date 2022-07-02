@@ -1,9 +1,0 @@
-//DICTIONARY
-
-char KeIsPressed ();
-//PRE: --
-//POST: returns whether a key has been pressed or not (1 or 0)
-
-char KeyGetPress();
-//PRE: KeIsPressed();
-//POST: returns the number of the key that was pressed

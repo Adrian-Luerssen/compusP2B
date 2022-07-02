@@ -156,7 +156,7 @@ public class SudokuController implements ActionListener, MouseListener, KeyListe
 
             /* Read byte */
             char readCharacter = serial.readCharacter();
-
+            System.out.println(readCharacter);
             /* Before game start */
             if (!isListenerEnabled) {
                 /* Receive username */
